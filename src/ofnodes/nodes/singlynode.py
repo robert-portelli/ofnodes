@@ -25,7 +25,7 @@ class SinglyNode:
         self.data: Optional[Any] = data
         self.next: Optional[SinglyNode] = None
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return (
             f"{type(self).__name__}("
             f"data={repr(self.data)}"
@@ -33,14 +33,14 @@ class SinglyNode:
             ")"
         )
 
-    def __str__(self):
+    def __str__(self) -> str:
         if hasattr(self.data, "__len__"):
             return (
                 "This node's data is"
                 f" {len(self.data)}"  # type: ignore # noqa
-                f" of type {type(self.data)}."
+                f" of type {type(self.data).__name__}."
             )
-        return f"This node's data is of type {type(self.data)}"
+        return f"This node's data is of type {type(self.data).__name__}."
 
 
 if __name__ == "__main__":
