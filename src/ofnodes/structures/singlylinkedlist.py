@@ -60,6 +60,7 @@ class SinglyLinkedList:
             >>> linked_list.insert_tail(10)
             >>> linked_list.insert_tail(SinglyNode(20))
         """
+        # This is self.data setter validation
         if isinstance(data, SinglyNode):
             node = data
         else:

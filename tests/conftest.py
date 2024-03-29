@@ -46,7 +46,11 @@ NODES: dict[str, Any] = {
 
 @pytest.fixture
 def example_singly_node() -> dict[str, SinglyNode]:
-    return NODES["singly_node"]
+    return {
+        'example_node_1': NODES["singly_node"],
+        'example_node_2': NODES["without_type_sized"]["int"],
+        'empty_node': NODES["without_type_sized"]["none"]
+    }
 
 
 @pytest.fixture
@@ -82,12 +86,14 @@ def example_singly_linked_list() -> dict[str, SinglyLinkedList]:
         **NODES["with_type_sized"],
         **NODES["without_type_sized"],
     }
-    onenodesllist = SinglyLinkedList()
-    onenodesllist.insert_tail(NODES['singly_node'])
+
     sllist = SinglyLinkedList()
     list(sllist.insert_tail(node) for node in nodex.values())
+    onenodesllist = SinglyLinkedList()
+    onenodesllist.insert_tail(NODES['singly_node'])
+    empty = SinglyLinkedList()
     return {
-        "empty": SinglyLinkedList(),
+        "empty": empty,
         "one": onenodesllist,
         "example": sllist,
     }

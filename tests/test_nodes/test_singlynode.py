@@ -1,12 +1,34 @@
-def test_init(example_singly_node):
+from ofnodes.nodes.singlynode import SinglyNode
+
+def test__init__(example_singly_node):
+    empty_node = example_singly_node['empty_node']
+
+    assert isinstance(empty_node, SinglyNode)
     assert (
-        example_singly_node.data == "a pytest fixture"
+        empty_node.data is None
         and
-        example_singly_node.next is None
+        empty_node.next is None
+    )
+
+def test_assigment(example_singly_node):
+    empty_node = example_singly_node['empty_node']
+
+    assert isinstance(empty_node, SinglyNode)
+
+    empty_node.data = 42
+    empty_node.next = example_singly_node['example_node_1']
+    assert(
+        empty_node.data == 42
+        and
+        isinstance(empty_node.next, SinglyNode)
+        and
+        empty_node.next.data == "a pytest fixture"
     )
 
 
+
 def test__repr__(example_singly_node):
+    node_with_data = example_singly_node['example_node_1']
     assert (
         repr(example_singly_node)
         ==
@@ -65,3 +87,4 @@ def test_argument_assignment(example_singly_node):
     example_singly_node.data = "a new string"
     assert example_singly_node.data == 'a new string'
     example_singly_node.next = next_node
+    assert isinstance(example_singly_node.next, SinglyNode)

@@ -3,11 +3,11 @@ from ofnodes.structures.singlylinkedlist import SinglyLinkedList, SinglyNode
 
 
 def test__init__(example_singly_linked_list):
-    llist = example_singly_linked_list['empty']
+    sllist = example_singly_linked_list['empty']
     assert (
-        llist.head is None
+        sllist.head is None
         and
-        llist.tail is None
+        sllist.tail is None
     )
 
 

@@ -26,6 +26,8 @@ class SinglyNode:
         self.next: Optional[SinglyNode] = None
 
     def __repr__(self) -> str:
+        # when repr is called on a Node with .next,
+        # is next=itsvalue in the return?
         return (
             f"{type(self).__name__}("
             f"data={repr(self.data)}"
