@@ -7,7 +7,11 @@ def test_init(example_singly_node):
 
 
 def test__repr__(example_singly_node):
-    assert repr(example_singly_node) == "SinglyNode(data='a pytest fixture')"
+    assert (
+        repr(example_singly_node)
+        ==
+        "SinglyNode(data='a pytest fixture')"
+    )
 
 
 
