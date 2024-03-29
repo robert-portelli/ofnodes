@@ -2,6 +2,7 @@ from typing import Optional
 
 from ofnodes.nodes.singlynode import SinglyNode
 
+
 class SinglyLinkedList:
 
     def __init__(self) -> None:
@@ -12,12 +13,16 @@ class SinglyLinkedList:
         return f"{type(self).__name__}(head={self.head}, tail={self.tail})"
 
     def __str__(self) -> str:
-        msg = "This instance of SinglyLinkedList is empty."
-        if self.head:
-            msg = "This instance of SinglyLinkedList has a head."
-        if self.tail:
-            msg += " This instance of SinglyLinkedList has a tail."
-        return msg
+        match self:
+            case SinglyLinkedList(head=None, tail=None):
+                return "This instance of SinglyLinkedList is empty."
+            case SinglyLinkedList(head=head, tail=tail):
+                if head is tail:
+                    return "This instance of SinglyLinkedList has a single node."
+                return "The head and tail are different nodes."
+
+
+
 
     def insert_head(self, data):
         node = SinglyNode(data)
@@ -115,8 +120,42 @@ class SinglyLinkedList:
 
 
 if __name__ == "__main__":
-    STRING = '13 characters'
-    node = SinglyNode(42)
-    data = [STRING, node]
+    dictx = examples = {
+        "list": [
+            "cat",
+            42,
+            42.0,
+            True,
+        ],
+        "dict": {
+            0: "one",
+            1: ("tuple", "dog"),
+        },
+        "string": "13 characters",
+        "set": {
+            "one",
+            2,
+            3.0,
+            False,
+            None,
+        },
+        "bytes": bytes(
+            [
+                65,
+                66,
+                67,
+            ]
+        ),
+        "bytearray": bytearray(b"LGRW"),
+        "range": range(0, 43),
+    }
+    more_exs = {
+        "none": SinglyNode(None),
+        "int": SinglyNode(42),
+        "float": SinglyNode(42.0),
+        "bool": SinglyNode(True),
+        "func": SinglyNode(lambda x: str(x) * 2),  # : disable=W0108
+    }
+    data = {**dictx, **more_exs}
     sllist = SinglyLinkedList()
-    list(sllist.insert_tail(x) for x in data)
+    list(sllist.insert_tail(node) for node in data.values())
