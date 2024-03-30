@@ -3,11 +3,56 @@ from typing import Optional
 from ofnodes.nodes.singlynode import SinglyNode
 
 
+
 class SinglyLinkedList:
 
     def __init__(self) -> None:
-        self.head: Optional[SinglyNode] = None
-        self.tail: Optional[SinglyNode] = None
+        self._head: Optional[SinglyNode] = None
+        self._tail: Optional[SinglyNode] = None
+
+
+    @property
+    def head(self):
+        return self._head
+
+    @head.setter
+    def head(self, value: SinglyNode) -> None:
+
+        match value:
+            case SinglyNode():
+                self._head = value
+            case _:
+                self._head = SinglyNode(value)
+
+    @head.deleter
+    def head(self):
+        msg = (
+            f"{type(self).__name__}'s `head` attribute "
+            "cannot be deleted."
+        )
+        print(msg)
+
+    @property
+    def tail(self):
+        return self._tail
+
+    @tail.setter
+    def tail(self, value: SinglyNode) -> None:
+
+        match value:
+            case SinglyNode():
+                self._tail = value
+            case _:
+                self._tail = SinglyNode(value)
+
+    @tail.deleter
+    def tail(self):
+        msg = (
+            f"{type(self).__name__}'s `tail` attribute "
+            "cannot be deleted."
+        )
+        print(msg)
+
 
     def __repr__(self) -> str:
         return f"{type(self).__name__}(head={self.head}, tail={self.tail})"
