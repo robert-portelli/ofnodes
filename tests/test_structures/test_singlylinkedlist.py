@@ -29,7 +29,6 @@ def test__repr__(example_singly_linked_list):
     )
 
 
-
 def test__str__(example_singly_linked_list):
     llist1 = example_singly_linked_list['empty']
     llist2 = example_singly_linked_list['example']
@@ -50,26 +49,34 @@ def test__str__(example_singly_linked_list):
 
 
 def test_insert_tail():
-    sllist = SinglyLinkedList()
-    assert sllist.head is None and sllist.tail is None
-    sllist.insert_tail("a string")
-    assert sllist.head == sllist.tail
-    sllist.insert_tail(42)
-    assert (
-        repr(sllist.head) == "SinglyNode(data='a string')"
-        and
-        repr(sllist.tail) == "SinglyNode(data=42)"
-    )
-    assert (
-        str(sllist.head) == "This node's data is 8 of type str."
-        and
-        str(sllist.tail) == "This node's data is of type int."
-    )
-    sllist = SinglyLinkedList()
-    sllist.head = SinglyNode('a string')
-    # Call insert_tail and expect it to raise RuntimeError
-    with pytest.raises(RuntimeError) as exc_info:
-        sllist.insert_tail(20)
+    def test_logic():
+        sllist = SinglyLinkedList()
+        assert sllist.head is None and sllist.tail is None
+        sllist.insert_tail("a string")
+        assert sllist.head == sllist.tail
+        sllist.insert_tail(42)
+        assert (
+            repr(sllist.head) == "SinglyNode(data='a string')"
+            and
+            repr(sllist.tail) == "SinglyNode(data=42)"
+        )
+        assert (
+            str(sllist.head) == "This node's data is 8 of type str."
+            and
+            str(sllist.tail) == "This node's data is of type int."
+        )
+    def test_error():
+        sllist = SinglyLinkedList()
+        sllist.head = SinglyNode('a string')
+        # Call insert_tail and expect it to raise RuntimeError
+        with pytest.raises(RuntimeError) as exc_info:
+            sllist.insert_tail(20)
 
-    # Verify the error message if needed
-    assert str(exc_info.value) == "Unexpected condition: self.tail is None"
+        # Verify the error message if needed
+        assert str(exc_info.value) == "Unexpected condition: self.tail is None"
+
+    test_logic()
+    test_error()
+
+def test_insert_head():
+    pass
