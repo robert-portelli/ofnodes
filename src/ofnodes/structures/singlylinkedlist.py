@@ -17,12 +17,19 @@ class SinglyLinkedList:
 
     @head.setter
     def head(self, value: SinglyNode) -> None:
-
         match value:
             case SinglyNode():
-                self._head = value
+                node = value
             case _:
-                self._head = SinglyNode(value)
+                node = SinglyNode(value)
+
+        if self._head:
+            node.next = self._head
+            self._head = node
+        else:  # necessary else statement
+            self._head = node
+            self._tail = node
+
 
     @head.deleter
     def head(self):
@@ -41,9 +48,22 @@ class SinglyLinkedList:
 
         match value:
             case SinglyNode():
-                self._tail = value
+                node = value
             case _:
-                self._tail = SinglyNode(value)
+                node = SinglyNode(value)
+
+         # Create a new node with the provided data
+
+        if not self._head:  # If the linked list is empty
+            self._head = node
+            self._tail = node
+        else:
+            if self._tail:
+                self._tail.next = node  # Append the new node to the current tail node
+                self._tail = node  # Update the tail attribute to reference the new node
+            else:
+                # Handle the case where self.tail is None (unexpected condition)
+                raise RuntimeError("Unexpected condition: self.tail is None")
 
     @tail.deleter
     def tail(self):
@@ -68,13 +88,9 @@ class SinglyLinkedList:
 
 
     def insert_head(self, data):
-        node = SinglyNode(data)  # setter logic
-        if self.head:
-            node.next = self.head
-            self.head = node
-        else:  # necessary else statement
-            self.head = node
-            self.tail = node  # if not self.tail else self.tail
+        """this is implemented by the .head property"""
+        self.head = data
+
 
     def insert_tail(self, data):
         """Inserts a new node with the provided data at the tail of the linked list.
@@ -104,21 +120,7 @@ class SinglyLinkedList:
             >>> linked_list.insert_tail(SinglyNode(20))
         """
         # This is self.data setter validation
-        if isinstance(data, SinglyNode):
-            node = data
-        else:
-            node = SinglyNode(data)  # Create a new node with the provided data
-
-        if not self.head:  # If the linked list is empty
-            self.head = node
-            self.tail = node
-        else:
-            if self.tail:
-                self.tail.next = node  # Append the new node to the current tail node
-                self.tail = node  # Update the tail attribute to reference the new node
-            else:
-                # Handle the case where self.tail is None (unexpected condition)
-                raise RuntimeError("Unexpected condition: self.tail is None")
+        self.tail = data
 
     def search(self, target):
         if self.head:
