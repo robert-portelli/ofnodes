@@ -22,10 +22,8 @@ class SinglyLinkedList:
                 return "The head and tail are different nodes."
 
 
-
-
     def insert_head(self, data):
-        node = SinglyNode(data)
+        node = SinglyNode(data)  # setter logic
         if self.head:
             node.next = self.head
             self.head = node
@@ -157,6 +155,6 @@ if __name__ == "__main__":
         "bool": SinglyNode(True),
         "func": SinglyNode(lambda x: str(x) * 2),  # : disable=W0108
     }
-    data = {**dictx, **more_exs}
+    example = {**dictx, **more_exs}
     sllist = SinglyLinkedList()
-    list(sllist.insert_tail(node) for node in data.values())
+    list(sllist.insert_tail(node) for node in example.values())
