@@ -12,6 +12,7 @@ Example:
 
 from typing import Any, Optional
 
+#from ofnodes.nodes.node import Node
 
 class SinglyNode:
     """Represents a node in a singly linked list.
@@ -22,8 +23,28 @@ class SinglyNode:
     """
 
     def __init__(self, data: Any) -> None:
-        self.data: Optional[Any] = data
-        self.next: Optional[SinglyNode] = None
+        self._data: Optional[Any] = data
+        self._next: Optional[SinglyNode] = None
+
+    @property
+    def data(self):
+        return self._data
+
+    @data.setter
+    def data(self, value):
+        # all data welcome
+        self._data = value
+
+    @property
+    def next(self):
+        return self._next
+
+    @next.setter
+    def next(self, value):
+        if isinstance(value, SinglyNode):
+            self._next = value
+        else:
+            self._next = SinglyNode(value)
 
     def __repr__(self) -> str:
         # when repr is called on a Node with .next,
