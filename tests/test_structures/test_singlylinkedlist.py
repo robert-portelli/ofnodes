@@ -11,7 +11,6 @@ def test__init__(example_singly_linked_list):
     )
 
 
-
 def test__repr__(example_singly_linked_list):
     llist1 = example_singly_linked_list['empty']
     llist2 = example_singly_linked_list['example']
@@ -47,40 +46,102 @@ def test__str__(example_singly_linked_list):
         "This instance of SinglyLinkedList has a single node."
     )
 
+def test_head_setter():
+    node = SinglyNode('string for data')
+    data = 'input was str not node'
+    def head_attribute():
+        llist = SinglyLinkedList()
+        llist.head = node
+        assert llist.head == node
+        llist.head = data
+        assert isinstance(llist.head, SinglyNode)
+        assert llist.head.data == 'input was str not node'
+    def insert_head_method():
+        llist = SinglyLinkedList()
+        llist.insert_head(node)
+        assert llist.head == node
+        assert llist.tail == node
+        assert getattr(llist.head, 'next') is None
+        llist.insert_head(data)
+        assert (
+            getattr(llist.head, 'data') is data
+        )
+        assert (
+            isinstance(llist.head, SinglyNode)
+        )
+        assert getattr(llist.head, 'next') is node
+        #assert
 
-def test_insert_tail():
-    def test_logic():
-        sllist = SinglyLinkedList()
-        assert sllist.head is None and sllist.tail is None
-        sllist.insert_tail("a string")
-        assert sllist.head is sllist.tail
-        sllist.insert_tail(42)
-        assert (
-            repr(sllist.head) == "SinglyNode(data='a string')"
-            and
-            repr(sllist.tail) == "SinglyNode(data=42)"
-        )
-        assert (
-            str(sllist.head) == "This node's data is 8 of type str."
-            and
-            str(sllist.tail) == "This node's data is of type int."
-        )
+    head_attribute()
+    insert_head_method()
+
+def test_head_deleter(example_singly_linked_list):
+    llist = example_singly_linked_list['one']
+    # Act & Assert
+    with pytest.raises(AttributeError) as exc_info:
+        del llist.head
+
+    assert (
+        "cannot be deleted" in str(exc_info.value)
+    )
+
+
+def test_tail_setter():
+    """
+    The tail setter accepts SinglyNodes any Any data type.
+    Any data type is used to create a SinglyNode of the data
+    before being set as the tail value."""
+    sllist = SinglyLinkedList()
+    assert sllist.head is None and sllist.tail is None
+    node = SinglyNode("a string")
+    tup = (42, ['this', True])
+    sllist.tail = node
+    assert (
+        sllist.head == node
+        and
+        sllist.tail == node
+        and
+        sllist.head is sllist.tail
+    )
+
+    sllist.tail = tup  # trigger tail setter
+
+    assert (
+        sllist.head is not sllist.tail
+        and
+        sllist.head == node
+        and
+        isinstance(sllist.tail, SinglyNode)
+        and
+        sllist.tail.data == tup
+    )
+
+def test_tail_deleter(example_singly_linked_list):
+    llist = example_singly_linked_list['one']
+    with pytest.raises(AttributeError) as exc_info:
+        del llist.tail
+
+    assert (
+        "cannot be deleted" in str(exc_info.value)
+    )
+
+def test_remove_head(example_singly_linked_list):
     def test_error():
-        """
-        sllist = SinglyLinkedList()
-        sllist.head = SinglyNode('a string')
-        # Call insert_tail and expect it to raise RuntimeError
-        with pytest.raises(RuntimeError) as exc_info:
-            sllist.insert_tail(20)
+        llist = example_singly_linked_list['empty']
+        assert llist.head is None
+        with pytest.raises(ValueError) as exc_info:
+            llist.remove_head()
+        assert "Cannot remove" in str(exc_info)
 
-        # Verify the error message if needed
-        assert str(exc_info.value) == "Unexpected condition: self.tail is None"
-        """
-        # the SinglyLinkedList() managed attributes avoid this
-        # error
-        pass
-    test_logic()
+    def test_logic():
+        llist = example_singly_linked_list['example']
+        old_head = llist.head
+        old_head_next = llist.head.next
+        llist.remove_head()
+        assert old_head is not llist.head
+        assert old_head_next is not llist.head.next
+        assert old_head_next is llist.head
+
+
     test_error()
-
-def test_insert_head():
-    pass
+    test_logic()
