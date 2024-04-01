@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Any
 
 from ofnodes.nodes.singlynode import SinglyNode
 
@@ -16,7 +16,7 @@ class SinglyLinkedList:
         return self._head
 
     @head.setter
-    def head(self, value: SinglyNode) -> None:
+    def head(self, value: SinglyNode | Any) -> None:
         match value:
             case SinglyNode():
                 node = value
@@ -24,7 +24,7 @@ class SinglyLinkedList:
                 node = SinglyNode(value)
 
         if self._head:
-            node.next = self._head
+            node.next = self._head  # trigger SinglyNode.next setter
             self._head = node
         else:  # necessary else statement
             self._head = node
@@ -33,18 +33,17 @@ class SinglyLinkedList:
 
     @head.deleter
     def head(self):
-        msg = (
+        raise AttributeError(
             f"{type(self).__name__}'s `head` attribute "
             "cannot be deleted."
         )
-        print(msg)
 
     @property
     def tail(self):
         return self._tail
 
     @tail.setter
-    def tail(self, value: SinglyNode) -> None:
+    def tail(self, value: SinglyNode | Any) -> None:
 
         match value:
             case SinglyNode():
@@ -57,21 +56,16 @@ class SinglyLinkedList:
         if not self._head:  # If the linked list is empty
             self._head = node
             self._tail = node
-        else:
-            if self._tail:
-                self._tail.next = node  # Append the new node to the current tail node
-                self._tail = node  # Update the tail attribute to reference the new node
-            else:
-                # Handle the case where self.tail is None (unexpected condition)
-                raise RuntimeError("Unexpected condition: self.tail is None")
+        if self._tail:
+            self._tail.next = node  # Append the new node to the current tail node
+            self._tail = node  # Update the tail attribute to reference the new node
 
     @tail.deleter
     def tail(self):
-        msg = (
+        raise AttributeError(
             f"{type(self).__name__}'s `tail` attribute "
             "cannot be deleted."
         )
-        print(msg)
 
 
     def __repr__(self) -> str:
@@ -133,8 +127,12 @@ class SinglyLinkedList:
         raise ValueError("The list is empty")
 
     def remove_head(self):
-        if self.head:
-            self.head = self.head.next
+        if self.head and self.head is self.tail:
+            self._head = None
+            self._tail = None
+            return
+        if self.head and self.head is not self.tail:
+            self._head = self.head.next
             return
         raise ValueError("Cannot remove head from empty list")
 
@@ -151,8 +149,8 @@ class SinglyLinkedList:
 
         # Traverse from the head to find the second-to-last node
         current = self.head
-        while current.next is not None and current.next is not self.tail:
-            current = current.next  # found second to last node
+        while current.next and current.next.next:  # stop when the next node is the tail
+            current = current.next
 
         # Update pointer to second to last node
         self.tail = current
@@ -166,42 +164,9 @@ class SinglyLinkedList:
 
 
 if __name__ == "__main__":
-    dictx = examples = {
-        "list": [
-            "cat",
-            42,
-            42.0,
-            True,
-        ],
-        "dict": {
-            0: "one",
-            1: ("tuple", "dog"),
-        },
-        "string": "13 characters",
-        "set": {
-            "one",
-            2,
-            3.0,
-            False,
-            None,
-        },
-        "bytes": bytes(
-            [
-                65,
-                66,
-                67,
-            ]
-        ),
-        "bytearray": bytearray(b"LGRW"),
-        "range": range(0, 43),
-    }
-    more_exs = {
-        "none": SinglyNode(None),
-        "int": SinglyNode(42),
-        "float": SinglyNode(42.0),
-        "bool": SinglyNode(True),
-        "func": SinglyNode(lambda x: str(x) * 2),  # : disable=W0108
-    }
-    example = {**dictx, **more_exs}
-    sllist = SinglyLinkedList()
-    list(sllist.insert_tail(node) for node in example.values())
+    onenode = SinglyLinkedList()
+    onenode.tail = ("first node")
+    newp = SinglyLinkedList()
+    onenode.remove_head()
+    for i in range(0, 3):
+        onenode.tail = f"{i} node"
