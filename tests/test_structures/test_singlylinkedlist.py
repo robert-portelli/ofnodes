@@ -162,6 +162,10 @@ def test_search(example_singly_linked_list):
 
 def test_remove_tail(easy_singly_linked_list):
     llist = easy_singly_linked_list
-    old_tail = llist.tail
+    assert llist.tail == "SinglyNode(data='2 node')"
     llist.remove_tail()
-    assert old_tail is not llist.tail
+    assert llist.tail == "SinglyNode(data='1 node')"
+    llist.remove_tail()
+    assert llist.head is llist.tail
+    llist.remove_tail()
+    assert llist.head is None and llist.tail is None
