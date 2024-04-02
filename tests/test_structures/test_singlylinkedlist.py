@@ -125,7 +125,7 @@ def test_tail_deleter(example_singly_linked_list):
         "cannot be deleted" in str(exc_info.value)
     )
 
-def test_remove_head(eas):
+def test_remove_head(easy_singly_linked_list):
     def test_error():
         llist = SinglyLinkedList()
         assert llist.head is None
@@ -134,7 +134,7 @@ def test_remove_head(eas):
         assert "Cannot remove" in str(exc_info)
 
     def test_logic():
-        llist = example_singly_linked_list['example']
+        llist = easy_singly_linked_list
         old_head = llist.head
         old_head_next = llist.head.next
         llist.remove_head()
