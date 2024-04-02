@@ -125,9 +125,9 @@ def test_tail_deleter(example_singly_linked_list):
         "cannot be deleted" in str(exc_info.value)
     )
 
-def test_remove_head(example_singly_linked_list):
+def test_remove_head(eas):
     def test_error():
-        llist = example_singly_linked_list['empty']
+        llist = SinglyLinkedList()
         assert llist.head is None
         with pytest.raises(ValueError) as exc_info:
             llist.remove_head()
@@ -141,7 +141,21 @@ def test_remove_head(example_singly_linked_list):
         assert old_head is not llist.head
         assert old_head_next is not llist.head.next
         assert old_head_next is llist.head
+        llist.remove_head()
+        assert llist.head and llist.head is llist.tail
+        llist.remove_head()
+        assert not llist.head and not llist.tail
 
 
     test_error()
     test_logic()
+
+def test_search(example_singly_linked_list):
+    llist = SinglyLinkedList()
+    with pytest.raises(ValueError) as exc_info:
+        llist.search("target")
+    assert "list is empty" in str(exc_info)
+    for i in range(0, 3):
+        llist.tail = f"{i} node"
+    assert llist.search("2 node")
+    assert not llist.search("42 node")

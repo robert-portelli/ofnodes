@@ -97,3 +97,11 @@ def example_singly_linked_list() -> dict[str, SinglyLinkedList]:
         "one": onenodesllist,
         "example": sllist,
     }
+
+def easy_singly_linked_list():
+    llist = SinglyLinkedList()
+    for i in range(0, 3):
+        llist.tail = f"{i} node"
+    # [setattr(llist, 'tail', f"{i} node") for i in range(3)]
+
+    return llist
