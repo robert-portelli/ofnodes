@@ -10,19 +10,8 @@ class SinglyLinkedList:
         self._head: Optional[SinglyNode] = None
         self._tail: Optional[SinglyNode] = None
 
-
     @property
     def head(self):
-        """
-        >>> header.head
-        SinglyNode(data='a head string')
-        >>> header.head.next
-        SinglyNode(data='a head string')
-        >>> header.tail
-        SinglyNode(data='a head string')
-        >>> header.tail.next
-        SinglyNode(data='a head string')
-        """
         return self._head
 
     @head.setter
@@ -35,9 +24,9 @@ class SinglyLinkedList:
 
         match self._head:
             case None:
-                setattr(self, '_head', node)
-                setattr(self, '._head._next', node)
-                setattr(self, '_tail', node)
+                self._head = node
+                self._tail = node
+
             case self._head:
                 node.next = self._head
                 setattr(self, '_head', node)
@@ -62,14 +51,21 @@ class SinglyLinkedList:
             case _:
                 node = SinglyNode(value)
 
+        match self._head:
+            case None:
+                setattr(self, '_head', node)
+                setattr(self, '_tail', node)
+            case self._head:
+                if not getattr(self._head, '_next'):
+                    # it's a one node list
+                    setattr(self._head, '_next', node)
+                    setattr(self, '_tail', node)
+                    return
+                # there're more than one node
+                setattr(self._tail, '_next', node)
+                setattr(self, '_tail', node)
 
-        if not self._head:  # If the linked list is empty
-            self._head = node
-            self._tail = node
-        else:
-            if self._tail:  # Check if _tail is not None
-                self._tail.next = node  # Update the current tail node to point to the new node
-            self._tail = node  # Update the tail attribute to reference the new node
+
 
     @tail.deleter
     def tail(self):
@@ -77,7 +73,6 @@ class SinglyLinkedList:
             f"{type(self).__name__}'s `tail` attribute "
             "cannot be deleted."
         )
-
 
     def __repr__(self) -> str:
         return f"{type(self).__name__}(head={self.head}, tail={self.tail})"
@@ -91,11 +86,9 @@ class SinglyLinkedList:
                     return "This instance of SinglyLinkedList has a single node."
                 return "The head and tail are different nodes."
 
-
     def insert_head(self, data):
         """this is implemented by the .head property"""
         self.head = data
-
 
     def insert_tail(self, data):
         """Inserts a new node with the provided data at the tail of the linked list.
@@ -188,7 +181,16 @@ if __name__ == "__main__":
     #sllist = SinglyLinkedList()
     #for i in range(0, 3):
     #    sllist.tail = f"{i} node"
-    header = SinglyLinkedList()
-    #tailer = SinglyLinkedList()
-    header.head = "a head string"
-    #tailer.tail = "a tail string"
+    #header = SinglyLinkedList()
+
+    #header.head = "a head string"
+    #tailer.tail = "first tail node"
+    #tailer.tail = "new tail node"
+    def header():
+        sllist = SinglyLinkedList()
+        for i in range(1, 4):
+            sllist.head = f"{i} node"
+    def tailer():
+        sllist = SinglyLinkedList()
+        for i in range(1, 4):
+            sllist.tail = f"{i} node"
