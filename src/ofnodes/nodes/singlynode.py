@@ -41,6 +41,8 @@ class SinglyNode:
 
     @next.setter
     def next(self, value):
+        """use `setattr()` instead of assignment
+        to go from SinglyLinkedNode to None"""
         if isinstance(value, SinglyNode):
             self._next = value
         else:

@@ -13,6 +13,16 @@ class SinglyLinkedList:
 
     @property
     def head(self):
+        """
+        >>> header.head
+        SinglyNode(data='a head string')
+        >>> header.head.next
+        SinglyNode(data='a head string')
+        >>> header.tail
+        SinglyNode(data='a head string')
+        >>> header.tail.next
+        SinglyNode(data='a head string')
+        """
         return self._head
 
     @head.setter
@@ -23,16 +33,14 @@ class SinglyLinkedList:
             case _:
                 node = SinglyNode(value)
 
-        # Ensure the next attribute of the new head node is set to the current head
-        node.next = self._head
-
-        # Update the head attribute to reference the new node
-        self._head = node
-
-        # If the linked list is empty, also update the tail attribute to reference the new node
-        if not self._tail:
-            self._tail = node
-
+        match self._head:
+            case None:
+                setattr(self, '_head', node)
+                setattr(self, '._head._next', node)
+                setattr(self, '_tail', node)
+            case self._head:
+                node.next = self._head
+                setattr(self, '_head', node)
 
     @head.deleter
     def head(self):
@@ -54,8 +62,6 @@ class SinglyLinkedList:
             case _:
                 node = SinglyNode(value)
 
-        # Ensure the next attribute of the new tail node is None
-        node.next = None
 
         if not self._head:  # If the linked list is empty
             self._head = node
@@ -148,12 +154,16 @@ class SinglyLinkedList:
 
         if self._head is self._tail:  # If there is only one node
             # effectively remove the one node for an empty list
-            self.head = None
-            self.tail = None
+            #self.head = None
+            #self.tail = None
+            setattr(self, 'head', None)
+            setattr(self, 'tail', None)
 
         if self._head.next is self._tail:  # there are only two nodes
-            self._tail = self._head
-            self._tail.next = None
+            #self._tail = self._head
+            #self._tail.next = None
+            setattr(self, '_tail', self._head)
+            setattr(self._tail, 'next', None)
 
         # Traverse from the head to find the second-to-last node
         current = self._head
@@ -163,8 +173,9 @@ class SinglyLinkedList:
                 break
             current = current.next
 
-        current.next = None
-        self.tail = current
+        setattr(current, 'next', None)
+        #self.tail = current
+        setattr(self, 'tail', current)
 
     def print_list(self) -> None:
         current_node = self.head
@@ -174,8 +185,10 @@ class SinglyLinkedList:
 
 
 if __name__ == "__main__":
-    sllist = SinglyLinkedList()
-    for i in range(0, 3):
-        sllist.tail = f"{i} node"
-    sllist.remove_tail()
-    sllist.remove_tail()
+    #sllist = SinglyLinkedList()
+    #for i in range(0, 3):
+    #    sllist.tail = f"{i} node"
+    header = SinglyLinkedList()
+    #tailer = SinglyLinkedList()
+    header.head = "a head string"
+    #tailer.tail = "a tail string"
