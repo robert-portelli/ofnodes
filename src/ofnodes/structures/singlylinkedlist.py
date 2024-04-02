@@ -23,11 +23,14 @@ class SinglyLinkedList:
             case _:
                 node = SinglyNode(value)
 
-        if self._head:
-            node.next = self._head  # trigger SinglyNode.next setter
-            self._head = node
-        else:  # necessary else statement
-            self._head = node
+        # Ensure the next attribute of the new head node is set to the current head
+        node.next = self._head
+
+        # Update the head attribute to reference the new node
+        self._head = node
+
+        # If the linked list is empty, also update the tail attribute to reference the new node
+        if not self._tail:
             self._tail = node
 
 
@@ -51,13 +54,14 @@ class SinglyLinkedList:
             case _:
                 node = SinglyNode(value)
 
-         # Create a new node with the provided data
+        node.next = None
 
         if not self._head:  # If the linked list is empty
             self._head = node
             self._tail = node
-        if self._tail:
-            self._tail.next = node  # Append the new node to the current tail node
+        else:
+            if self._tail:  # Check if _tail is not None
+                self._tail.next = node  # Update the current tail node to point to the new node
             self._tail = node  # Update the tail attribute to reference the new node
 
     @tail.deleter
