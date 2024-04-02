@@ -54,6 +54,7 @@ class SinglyLinkedList:
             case _:
                 node = SinglyNode(value)
 
+        # Ensure the next attribute of the new tail node is None
         node.next = None
 
         if not self._head:  # If the linked list is empty
