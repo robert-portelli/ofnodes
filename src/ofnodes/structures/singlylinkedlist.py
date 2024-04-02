@@ -143,23 +143,28 @@ class SinglyLinkedList:
 
     def remove_tail(self):
         """Traverse the uni linked list to find the second-to-last node"""
-        if not self.head:  # If the list is empty
+        if self._head is None:  # If the list is empty
             raise ValueError("Cannot remove tail from empty list")
 
-        if self.head is self.tail:  # If there is only one node
+        if self._head is self._tail:  # If there is only one node
             # effectively remove the one node for an empty list
             self.head = None
             self.tail = None
-            return
+
+        if self._head.next is self._tail:  # there are only two nodes
+            self._tail = self._head
+            self._tail.next = None
 
         # Traverse from the head to find the second-to-last node
-        current = self.head
+        current = self._head
         while current.next and current.next.next:  # stop when the next node is the tail
+            if current.next.next is self._tail:
+                current = current.next
+                break
             current = current.next
 
-        # Update pointer to second to last node
+        current.next = None
         self.tail = current
-        self.tail.next = None
 
     def print_list(self) -> None:
         current_node = self.head
@@ -169,9 +174,8 @@ class SinglyLinkedList:
 
 
 if __name__ == "__main__":
-    onenode = SinglyLinkedList()
-    onenode.tail = ("first node")
-    newp = SinglyLinkedList()
-    onenode.remove_head()
+    sllist = SinglyLinkedList()
     for i in range(0, 3):
-        onenode.tail = f"{i} node"
+        sllist.tail = f"{i} node"
+    sllist.remove_tail()
+    sllist.remove_tail()

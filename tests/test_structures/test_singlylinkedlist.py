@@ -159,3 +159,9 @@ def test_search(example_singly_linked_list):
         llist.tail = f"{i} node"
     assert llist.search("2 node")
     assert not llist.search("42 node")
+
+def test_remove_tail(easy_singly_linked_list):
+    llist = easy_singly_linked_list
+    old_tail = llist.tail
+    llist.remove_tail()
+    assert old_tail is not llist.tail
