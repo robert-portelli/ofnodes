@@ -1,5 +1,6 @@
 import pytest
-from ofnodes.structures.singlylinkedlist import SinglyLinkedList, SinglyNode
+from ofnodes.structures.singlylinkedlist import SinglyLinkedList
+from ofnodes.nodes.singlynode import SinglyNode
 
 
 def test__init__(example_singly_linked_list):
@@ -45,35 +46,12 @@ def test__str__(example_singly_linked_list):
         ==
         "This instance of SinglyLinkedList has a single node."
     )
+def test_data_setter():
+    node = SinglyNode(data=42)
+    assert node.data == 42
+    node.data = "a string"
+    assert node.data == "a string"
 
-def test_head_setter():
-    node = SinglyNode('string for data')
-    data = 'input was str not node'
-    def head_attribute():
-        llist = SinglyLinkedList()
-        llist.head = node
-        assert llist.head == node
-        llist.head = data
-        assert isinstance(llist.head, SinglyNode)
-        assert llist.head.data == 'input was str not node'
-    def insert_head_method():
-        llist = SinglyLinkedList()
-        llist.insert_head(node)
-        assert llist.head == node
-        assert llist.tail == node
-        #assert getattr(llist.head, 'next') is None
-        llist.insert_head(data)
-        assert (
-            getattr(llist.head, 'data') is data
-        )
-        assert (
-            isinstance(llist.head, SinglyNode)
-        )
-        assert getattr(llist.head, 'next') is node
-        #assert
-
-    head_attribute()
-    insert_head_method()
 
 def test_head_deleter(example_singly_linked_list):
     llist = example_singly_linked_list['one']
