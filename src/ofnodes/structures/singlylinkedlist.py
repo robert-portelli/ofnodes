@@ -82,7 +82,7 @@ class SinglyLinkedList:
                 self._tail = node
 
             case self._head:
-                node.next = self._head
+                setattr(node, '_next', self._head)
                 setattr(self, "_head", node)
 
     @head.deleter
@@ -419,7 +419,6 @@ class SinglyLinkedList:
                 setattr(node, "_next", None)  # point the second to last node to None
                 setattr(self, "_tail", node)  # assign tail to the node
 
-
     def print_node_data(self) -> None:
         """Traverse the linked list and print the data attribute of each node.
 
@@ -451,51 +450,3 @@ class SinglyLinkedList:
         while current_node:
             print(current_node.data)
             current_node = current_node.next
-
-
-if __name__ == "__main__":
-
-    def second_to_last(llist):
-        node = llist._head
-        while getattr(node, "_next") and getattr(node._next, "_next"):
-            if node.next.next is llist._tail:
-                node = node.next
-                break
-            node = node.next
-
-    def header():
-        sllist = SinglyLinkedList()
-        for i in range(1, 4):
-            sllist.head = f"{i} node"
-
-    def tailer():
-        sllist = SinglyLinkedList()
-        for i in range(1, 4):
-            sllist.tail = f"{i} node"
-
-    llist = SinglyLinkedList()
-    for i in range(1, 11):
-        llist.tail = f"{i} node"
-
-    header()
-    tailer()
-
-    """
-    nodes = [SinglyNode(f"{i} node") for i in range(1,42)]
-    sllist = SinglyLinkedList()
-    # or
-    list(sllist.insert_tail(node) for node in nodes)
-
-    ---
-    linked_list = SinglyLinkedList()
-    linked_list.
-    nodes = [SinglyNode(string) for string in ["second tail", "third tail"]]
-    list(linked_list.insert_tail(data) for data in ["second tail", ])
-
-
-
-    list(linked_list.insert_tail(data) for data in ["second tail", {'third_tail': (True, 11, 7.34)}])
-    linked_list.head, linked_list.head.next, linked_list.tail
-
-
-    """

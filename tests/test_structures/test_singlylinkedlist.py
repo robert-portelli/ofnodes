@@ -94,6 +94,12 @@ def test_tail_setter():
         sllist.tail.data == tup
     )
 
+def test_head_setter():
+    sllist = SinglyLinkedList()
+    sllist.head = "first head"
+    sllist.head = SinglyNode("second head")
+
+
 def test_tail_deleter(example_singly_linked_list):
     llist = example_singly_linked_list['one']
     with pytest.raises(AttributeError) as exc_info:
@@ -181,3 +187,22 @@ def test_remove_tail():
 
     test_short_list()
     test_long_list()
+
+def test_print_node_data(capsys):
+    sllist = SinglyLinkedList()
+    list(sllist.insert_tail(f"{i} node") for i in range(1, 5))
+
+    # Call the print_node_data method
+    sllist.print_node_data()
+
+    # Capture the printed output
+    captured = capsys.readouterr()
+
+    # Verify the printed output matches the expected output
+    expected_output = "1 node\n2 node\n3 node\n4 node\n"
+    assert captured.out == expected_output
+
+def test_insert_head():
+    sllist = SinglyLinkedList()
+    sllist.insert_head("string")
+    assert sllist.head.data == "string"
