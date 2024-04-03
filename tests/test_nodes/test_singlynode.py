@@ -1,4 +1,6 @@
+import pytest
 from ofnodes.nodes.singlynode import SinglyNode
+from ofnodes.structures.singlylinkedlist import SinglyLinkedList
 
 def test__init__(example_singly_node):
     empty_node = example_singly_node['empty_node']
@@ -10,20 +12,7 @@ def test__init__(example_singly_node):
         empty_node.next is None
     )
 
-def test_assigment(example_singly_node):
-    empty_node = example_singly_node['empty_node']
 
-    assert isinstance(empty_node, SinglyNode)
-
-    empty_node.data = 42
-    empty_node.next = example_singly_node['example_node_1']
-    assert(
-        empty_node.data == 42
-        and
-        isinstance(empty_node.next, SinglyNode)
-        and
-        empty_node.next.data == "a pytest fixture"
-    )
 
 
 
@@ -80,3 +69,10 @@ def test__str__with_type_sized(example_singly_node_type_sized):
         str(example_singly_node_type_sized['range'])
         == "This node's data is 43 of type range."
     )
+
+def test_next():
+    sllist = SinglyLinkedList()
+    sllist.head = "first"
+    with pytest.raises(AttributeError) as exc_info:
+        setattr(sllist.head, 'next', "second")
+    assert "Cannot set 'next'" in str(exc_info)

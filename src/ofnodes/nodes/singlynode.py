@@ -41,12 +41,7 @@ class SinglyNode:
 
     @next.setter
     def next(self, value):
-        """use `setattr()` instead of assignment
-        to go from SinglyLinkedNode to None"""
-        if isinstance(value, SinglyNode):
-            self._next = value
-        else:
-            self._next = SinglyNode(value)
+        raise AttributeError("Cannot set 'next' attribute directly. Use linked list methods for modification.")
 
     def __repr__(self) -> str:
         # when repr is called on a Node with .next,
@@ -66,7 +61,3 @@ class SinglyNode:
                 f" of type {type(self.data).__name__}."
             )
         return f"This node's data is of type {type(self.data).__name__}."
-
-
-if __name__ == "__main__":
-    uni_node = SinglyNode("a string of characters")
