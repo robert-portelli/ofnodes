@@ -160,12 +160,45 @@ def test_search(example_singly_linked_list):
     assert llist.search("2 node")
     assert not llist.search("42 node")
 
-def test_remove_tail(easy_singly_linked_list):
-    llist = easy_singly_linked_list
-    assert llist.tail == "SinglyNode(data='2 node')"
-    llist.remove_tail()
-    assert llist.tail == "SinglyNode(data='1 node')"
-    llist.remove_tail()
-    assert llist.head is llist.tail
-    llist.remove_tail()
-    assert llist.head is None and llist.tail is None
+def test_remove_tail():
+    def test_short_list():
+        nodes = [SinglyNode(f"{i} node") for i in range(1,4)]
+        sllist = SinglyLinkedList()
+        list(setattr(sllist, 'tail', node) for node in nodes)
+        assert nodes[-1] is sllist.tail
+        sllist.remove_tail()
+        assert (
+            nodes[-1] is not sllist.tail
+            and
+            nodes[-2] is sllist.tail
+        )
+        sllist.remove_tail()
+        assert (
+            nodes[-2] is not sllist.tail
+            and
+            nodes[0] is sllist.tail
+            and
+            nodes[0] is sllist.head
+        )
+        sllist.remove_tail()
+        assert(
+            sllist.head is None
+            and
+            sllist.tail is None
+        )
+        with pytest.raises(ValueError) as exc_info:
+            sllist.remove_tail()
+        assert "Cannot remove tail" in str(exc_info)
+
+    def test_long_list():
+        """tests the 'find the second to last node'
+        functionality"""
+        nodes = [SinglyNode(f"{i} node") for i in range(1,42)]
+        sllist = SinglyLinkedList()
+        list(setattr(sllist, 'tail', node) for node in nodes)
+        assert nodes[-1] is sllist.tail
+        sllist.remove_tail()
+        assert nodes[-2] is sllist.tail
+
+    test_short_list()
+    test_long_list()
