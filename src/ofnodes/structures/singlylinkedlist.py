@@ -121,8 +121,8 @@ class SinglyLinkedList:
         self.tail = data
 
     def search(self, target):
-        if self.head:
-            current_node = self.head
+        if self._head:
+            current_node = self._head
             while current_node:
                 if current_node.data == target:
                     return True
@@ -142,33 +142,30 @@ class SinglyLinkedList:
 
     def remove_tail(self):
         """Traverse the uni linked list to find the second-to-last node"""
-        if self._head is None:  # If the list is empty
-            raise ValueError("Cannot remove tail from empty list")
-
-        if self._head is self._tail:  # If there is only one node
-            # effectively remove the one node for an empty list
-            #self.head = None
-            #self.tail = None
-            setattr(self, 'head', None)
-            setattr(self, 'tail', None)
-
-        if self._head.next is self._tail:  # there are only two nodes
-            #self._tail = self._head
-            #self._tail.next = None
-            setattr(self, '_tail', self._head)
-            setattr(self._tail, 'next', None)
-
-        # Traverse from the head to find the second-to-last node
-        current = self._head
-        while current.next and current.next.next:  # stop when the next node is the tail
-            if current.next.next is self._tail:
-                current = current.next
-                break
-            current = current.next
-
-        setattr(current, 'next', None)
-        #self.tail = current
-        setattr(self, 'tail', current)
+        match self._head:
+            case None:
+                raise ValueError("Cannot remove tail from empty list")
+            case self._head:
+                if not getattr(self._head, '_next'):
+                    # it's a one node list
+                    setattr(self, '_head', None)
+                    setattr(self, '_tail', None)
+                    return
+                if getattr(self._head, 'next') is self._tail:
+                    # there are two nodes
+                    setattr(self, '_tail', self._head)
+                    setattr(self._tail, '_next', None)
+                    return
+                # there are more than two nodes
+                node = self._head
+                # find second to last node
+                while getattr(node, '_next') and getattr(node._next, '_next'):
+                    if getattr(node._next, '_next') is self._tail:
+                        node = getattr(node, '_next')  # target found
+                        break
+                    node = getattr(node, '_next')  # keep looking
+                setattr(node, '_next', None)  # point the second to last node to None
+                setattr(self, '_tail', node)  # assign tail to the node
 
     def print_list(self) -> None:
         current_node = self.head
@@ -178,14 +175,13 @@ class SinglyLinkedList:
 
 
 if __name__ == "__main__":
-    #sllist = SinglyLinkedList()
-    #for i in range(0, 3):
-    #    sllist.tail = f"{i} node"
-    #header = SinglyLinkedList()
-
-    #header.head = "a head string"
-    #tailer.tail = "first tail node"
-    #tailer.tail = "new tail node"
+    def second_to_last(llist):
+        node = llist._head
+        while getattr(node, '_next') and getattr(node._next, '_next'):
+            if node.next.next is llist._tail:
+                node = node.next
+                break
+            node = node.next
     def header():
         sllist = SinglyLinkedList()
         for i in range(1, 4):
@@ -194,3 +190,10 @@ if __name__ == "__main__":
         sllist = SinglyLinkedList()
         for i in range(1, 4):
             sllist.tail = f"{i} node"
+
+    llist = SinglyLinkedList()
+    for i in range(1, 11):
+        llist.tail = f"{i} node"
+
+    header()
+    tailer()
