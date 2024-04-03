@@ -164,7 +164,8 @@ def test_remove_tail():
     def test_short_list():
         nodes = [SinglyNode(f"{i} node") for i in range(1,4)]
         sllist = SinglyLinkedList()
-        list(setattr(sllist, 'tail', node) for node in nodes)
+        # list(setattr(sllist, 'tail', node) for node in nodes)
+        list(sllist.insert_tail(node) for node in nodes)
         assert nodes[-1] is sllist.tail
         sllist.remove_tail()
         assert (
