@@ -1,11 +1,15 @@
 This site contains the project documentation for the
-`calculator` project that is a toy module used in the
-Real Python tutorial
-[Build Your Python Project Documentation With MkDocs](
-    https://realpython.com/python-project-documentation-with-mkdocs/).
-Its aim is to give you a framework to build your
-project documentation using Python, MkDocs,
-mkdocstrings, and the Material for MkDocs theme.
+`ofnodes` project. The `ofnodes` project consists of data structures
+and algoritms written in `python>=3.11.5`. The author uses node objects,
+structure objects, and algorithms to illustrate the following programming
+concepts:
+
+    - Packaging
+    - Version Control
+    - Automated CI/CD
+    - API
+    - TDD
+    - OOP: modular and maintainable code
 
 ## Table Of Contents
 
