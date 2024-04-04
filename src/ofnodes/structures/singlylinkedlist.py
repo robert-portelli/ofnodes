@@ -24,7 +24,7 @@ class SinglyLinkedList:
         self._tail: Optional[SinglyNode] = None
 
     @property
-    def head(self):
+    def head(self) -> SinglyNode | None:
         """Getter property for the head of the linked list.
 
         Returns:
@@ -97,7 +97,7 @@ class SinglyLinkedList:
         )
 
     @property
-    def tail(self):
+    def tail(self) -> SinglyNode | None:
         """
         Getter property for the tail of the linked list.
 
@@ -178,7 +178,7 @@ class SinglyLinkedList:
                     return "This instance of SinglyLinkedList has a single node."
                 return "The head and tail are different nodes."
 
-    def insert_head(self, data):
+    def insert_head(self, data: Any) -> None:
         """ Inserts a new node with the provided data at the head of the linked list.
 
         Args:
@@ -224,7 +224,7 @@ class SinglyLinkedList:
         """
         self.head = data  # trigger the head setter
 
-    def insert_tail(self, data):
+    def insert_tail(self, data: Any) -> None:
         """Inserts a new node with the provided data at the tail of the linked list.
 
         Args:
@@ -234,13 +234,6 @@ class SinglyLinkedList:
 
         Returns:
             None
-
-        Raises:
-            ~~RuntimeError: If the linked list is not properly initialized (unexpected
-                condition where `self.tail` is `None`).~~
-
-            `self.tail` can't be deleted from instance. It's data value can be written
-            over, but the attribute persists.
 
         Notes:
             If the linked list is empty, the new node becomes both the head and the
@@ -283,7 +276,7 @@ class SinglyLinkedList:
         """
         self.tail = data  # trigger the tail setter
 
-    def search(self, target):
+    def search(self, target) -> bool:
         """Searches for a target value in the linked list.
 
         Args:
@@ -322,7 +315,7 @@ class SinglyLinkedList:
             return False
         raise ValueError("Cannot perform search: The list is empty.")
 
-    def remove_head(self):
+    def remove_head(self) -> None:
         """Removes the head node from the linked list.
 
         Raises:
@@ -361,7 +354,7 @@ class SinglyLinkedList:
             return
         raise ValueError("Cannot remove head from empty list")
 
-    def remove_tail(self):
+    def remove_tail(self) -> None:
         """Removes the tail node from the linked list.
 
         Raises:
@@ -420,9 +413,6 @@ class SinglyLinkedList:
 
     def print_node_data(self) -> None:
         """Traverse the linked list and print the data attribute of each node.
-
-        Args:
-            None
 
         Returns:
             None
