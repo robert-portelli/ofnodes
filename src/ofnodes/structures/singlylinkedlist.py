@@ -34,27 +34,27 @@ class SinglyLinkedList:
             The `head` property allows access to the first node in the linked list.
 
         Examples:
-        >>> llist = SinglyLinkedList()
-        >>> llist
-        SinglyLinkedList(head=None, tail=None)
-        >>> llist.head = "first node"
-        >>> llist.head
-        SinglyNode(data='first node')
-        >>> assert llist.head is llist.tail
-        >>> assert llist.head.next is None
-        >>> llist
-        SinglyLinkedList(head=This node's data is 11 of type str., tail=This node's data is 10 of type str.)
-        >>> llist.head, llist.head.next, llist.tail
-        (SinglyNode(data='second node'), SinglyNode(data='first node'), SinglyNode(data='first node'))
-        llist.head = None
-        >>> llist.head = None
-        >>> llist.head, llist.head.next, llist.tail
-        (SinglyNode(data=None), SinglyNode(data='second node'), SinglyNode(data='first node'))
-        >>> llist.head.__dict__
-        {'_data': None, '_next': SinglyNode(data='second node')}
-        >>> llist.remove_head()
-        >>> llist.head.__dict__
-        {'_data': 'second node', '_next': SinglyNode(data='first node')}
+            >>> llist = SinglyLinkedList()
+            >>> llist
+            SinglyLinkedList(head=None, tail=None)
+            >>> llist.head = "first node"
+            >>> llist.head
+            SinglyNode(data='first node')
+            >>> assert llist.head is llist.tail
+            >>> assert llist.head.next is None
+            >>> llist
+            SinglyLinkedList(head=This node's data is 11 of type str., tail=This node's data is 10 of type str.)
+            >>> llist.head, llist.head.next, llist.tail
+            (SinglyNode(data='second node'), SinglyNode(data='first node'), SinglyNode(data='first node'))
+            llist.head = None
+            >>> llist.head = None
+            >>> llist.head, llist.head.next, llist.tail
+            (SinglyNode(data=None), SinglyNode(data='second node'), SinglyNode(data='first node'))
+            >>> llist.head.__dict__
+            {'_data': None, '_next': SinglyNode(data='second node')}
+            >>> llist.remove_head()
+            >>> llist.head.__dict__
+            {'_data': 'second node', '_next': SinglyNode(data='first node')}
         """
         return self._head
 
@@ -105,22 +105,22 @@ class SinglyLinkedList:
             SinglyNode | None: The tail of the linked list, or None if the list is empty.
 
         Examples:
-        >>> llist = SinglyLinkedList()
-        >>> llist
-        SinglyLinkedList(head=None, tail=None)
-        >>> llist.tail = "first node in the list"
-        >>> assert llist.tail is llist.head
-        >>> assert llist.next is None
-        >>> assert llist.head.next is None
-        >>> llist.tail
-        >>> llist.tail = "new tail"
-        >>> assert llist.head.next is llist.tail
-        >>> llist
-        SinglyLinkedList(head=This node's data is 22 of type str., tail=This node's data is 8 of type str.)
-        >>> llist.__dict__
-        {'_head': SinglyNode(data='first node in the list'), '_tail': SinglyNode(data='new tail')}
-        >>> llist.head, llist.tail
-        (SinglyNode(data='first node in the list'), SinglyNode(data='new tail'))
+            >>> llist = SinglyLinkedList()
+            >>> llist
+            SinglyLinkedList(head=None, tail=None)
+            >>> llist.tail = "first node in the list"
+            >>> assert llist.tail is llist.head
+            >>> assert llist.next is None
+            >>> assert llist.head.next is None
+            >>> llist.tail
+            >>> llist.tail = "new tail"
+            >>> assert llist.head.next is llist.tail
+            >>> llist
+            SinglyLinkedList(head=This node's data is 22 of type str., tail=This node's data is 8 of type str.)
+            >>> llist.__dict__
+            {'_head': SinglyNode(data='first node in the list'), '_tail': SinglyNode(data='new tail')}
+            >>> llist.head, llist.tail
+            (SinglyNode(data='first node in the list'), SinglyNode(data='new tail'))
         """
         return self._tail
 
@@ -179,8 +179,7 @@ class SinglyLinkedList:
                 return "The head and tail are different nodes."
 
     def insert_head(self, data):
-        """
-        Inserts a new node with the provided data at the head of the linked list.
+        """ Inserts a new node with the provided data at the head of the linked list.
 
         Args:
             data: The data to be inserted into the new node. If the data is already a
@@ -198,30 +197,30 @@ class SinglyLinkedList:
             instance's `head` attribute to reference the new node.
 
         Examples:
-        >>> linked_list = SinglyLinkedList()
-        >>> linked_list
-        SinglyLinkedList(head=None, tail=None)
-        >>> linked_list.insert_head("the first node in the list")
-        >>> assert linked_list.head is linked_list.tail
-        >>> linked_list.insert_head({"the second node": (42.0, True, SinglyNode("LGRW"))})
-        >>> assert (
-        ...     linked_list.head is not linked_list.tail
-        ...     and
-        ...     linked_list.head.next is linked_list.tail
-        ... )
-        >>> linked_list.head, linked_list.tail
-        (SinglyNode(data={'the second node': (42.0, True, SinglyNode(data='LGRW'))}), SinglyNode(data='the first node in the list'))
-        >>> linked_list.head = "third node added as head via property"
-        >>> linked_list.head, linked_list.tail
-        (SinglyNode(data='third node added as head via property'), SinglyNode(data='the first node in the list'))
-        >>> linked_list.head.__dict__
-        {'_data': 'third node added as head via property', '_next': SinglyNode(data={'the second node': (42.0, True, SinglyNode(data='LGRW'))})}
-        >>> llist = SinglyLinkedList()
-        >>> list(llist.insert_head(f"{i} node") for i in range(1, 5))
-        [None, None, None, None]
-        >>> llist.head = "to be assigned to `SinglyNode.data` then `SinglyLinkedList.head`"
-        >>> llist.head, llist.head.next, llist.tail
-        (SinglyNode(data='to be assigned to `SinglyNode.data` then `SinglyLinkedList.head`'), SinglyNode(data='4 node'), SinglyNode(data='1 node'))
+            >>> linked_list = SinglyLinkedList()
+            >>> linked_list
+            SinglyLinkedList(head=None, tail=None)
+            >>> linked_list.insert_head("the first node in the list")
+            >>> assert linked_list.head is linked_list.tail
+            >>> linked_list.insert_head({"the second node": (42.0, True, SinglyNode("LGRW"))})
+            >>> assert (
+            ...     linked_list.head is not linked_list.tail
+            ...     and
+            ...     linked_list.head.next is linked_list.tail
+            ... )
+            >>> linked_list.head, linked_list.tail
+            (SinglyNode(data={'the second node': (42.0, True, SinglyNode(data='LGRW'))}), SinglyNode(data='the first node in the list'))
+            >>> linked_list.head = "third node added as head via property"
+            >>> linked_list.head, linked_list.tail
+            (SinglyNode(data='third node added as head via property'), SinglyNode(data='the first node in the list'))
+            >>> linked_list.head.__dict__
+            {'_data': 'third node added as head via property', '_next': SinglyNode(data={'the second node': (42.0, True, SinglyNode(data='LGRW'))})}
+            >>> llist = SinglyLinkedList()
+            >>> list(llist.insert_head(f"{i} node") for i in range(1, 5))
+            [None, None, None, None]
+            >>> llist.head = "to be assigned to `SinglyNode.data` then `SinglyLinkedList.head`"
+            >>> llist.head, llist.head.next, llist.tail
+            (SinglyNode(data='to be assigned to `SinglyNode.data` then `SinglyLinkedList.head`'), SinglyNode(data='4 node'), SinglyNode(data='1 node'))
         """
         self.head = data  # trigger the head setter
 
@@ -251,36 +250,36 @@ class SinglyLinkedList:
             attribute to reference the new node.
 
         Examples:
-        >>> linked_list = SinglyLinkedList()
-        >>> linked_list
-        SinglyLinkedList(head=None, tail=None)
-        >>> linked_list.insert_tail("the first node in a list")
-        >>> assert linked_list.head is linked_list.tail
-        >>> linked_list.head, linked_list.head.next, linked_list.tail
-        (SinglyNode(data='the first node in a list'), None, SinglyNode(data='the first node in a list'))
-        >>> linked_list.insert_tail({"the second node": (42.0, True, SinglyNode("LGRW"))})
-        >>> linked_list.head, linked_list.head.next, linked_list.tail
-        (SinglyNode(data='the first node in a list'), SinglyNode(data={'the second node': (42.0, True, SinglyNode(data='LGRW'))}), SinglyNode(data={'the second node': (42.0, True, SinglyNode(data='LGRW'))}))
-        >>> assert linked_list.head is not linked_list.tail
-        >>> assert linked_list.head.next is linked_list.tail
-        >>> linked_list.tail
-        SinglyNode(data={'the second node': (42.0, True, SinglyNode(data='LGRW'))})
-        >>> linked_list.tail.data['the second node']
-        (42.0, True, SinglyNode(data='LGRW'))
-        >>> linked_list.tail.data['the second node'][2].data
-        'LGRW'
-        >>> linked_list.tail = "insert 3rd node via property"
-        >>> linked_list.tail.__dict__
-        {'_data': 'insert 3rd node via property', '_next': None}
-        >>> linked_list.tail.data
-        'insert 3rd node via property'
-        >>> llist = SinglyLinkedList()
-        >>> list(llist.insert_tail(f"{i} node") for i in range(1, 5))
-        >>> llist.head, llist.head.next, llist.tail
-        (SinglyNode(data='1 node'), SinglyNode(data='2 node'), SinglyNode(data='4 node'))
-        >>> llist.tail = "is passed to setter to become SinglyNode()"
-        >>> llist.head, llist.head.next, llist.tail
-        (SinglyNode(data='1 node'), SinglyNode(data='2 node'), SinglyNode(data='is passed to setter to become SinglyNode()'))
+            >>> linked_list = SinglyLinkedList()
+            >>> linked_list
+            SinglyLinkedList(head=None, tail=None)
+            >>> linked_list.insert_tail("the first node in a list")
+            >>> assert linked_list.head is linked_list.tail
+            >>> linked_list.head, linked_list.head.next, linked_list.tail
+            (SinglyNode(data='the first node in a list'), None, SinglyNode(data='the first node in a list'))
+            >>> linked_list.insert_tail({"the second node": (42.0, True, SinglyNode("LGRW"))})
+            >>> linked_list.head, linked_list.head.next, linked_list.tail
+            (SinglyNode(data='the first node in a list'), SinglyNode(data={'the second node': (42.0, True, SinglyNode(data='LGRW'))}), SinglyNode(data={'the second node': (42.0, True, SinglyNode(data='LGRW'))}))
+            >>> assert linked_list.head is not linked_list.tail
+            >>> assert linked_list.head.next is linked_list.tail
+            >>> linked_list.tail
+            SinglyNode(data={'the second node': (42.0, True, SinglyNode(data='LGRW'))})
+            >>> linked_list.tail.data['the second node']
+            (42.0, True, SinglyNode(data='LGRW'))
+            >>> linked_list.tail.data['the second node'][2].data
+            'LGRW'
+            >>> linked_list.tail = "insert 3rd node via property"
+            >>> linked_list.tail.__dict__
+            {'_data': 'insert 3rd node via property', '_next': None}
+            >>> linked_list.tail.data
+            'insert 3rd node via property'
+            >>> llist = SinglyLinkedList()
+            >>> list(llist.insert_tail(f"{i} node") for i in range(1, 5))
+            >>> llist.head, llist.head.next, llist.tail
+            (SinglyNode(data='1 node'), SinglyNode(data='2 node'), SinglyNode(data='4 node'))
+            >>> llist.tail = "is passed to setter to become SinglyNode()"
+            >>> llist.head, llist.head.next, llist.tail
+            (SinglyNode(data='1 node'), SinglyNode(data='2 node'), SinglyNode(data='is passed to setter to become SinglyNode()'))
         """
         self.tail = data  # trigger the tail setter
 
