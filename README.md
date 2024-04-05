@@ -2,7 +2,9 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Python Version](https://img.shields.io/badge/python-%3E=3.11.5-blue.svg)](https://www.python.org/downloads/release/python-3115/)
-![Build Status][2]
+![Build Status](https://github.com/robert-portelli/ofnodes/actions/workflows/01_build.yml/badge.svg)
+![Tests](https://github.com/robert-portelli/ofnodes/actions/workflows/02_test.yml/badge.svg)
+![Docs](https://github.com/robert-portelli/ofnodes/actions/workflows/03_mkdocs-publish.yml/badge.svg)
 
 **ofnodes** is a Python Package providing examples of the Author's ability
 to implement data structures and algorithms in Python. It is not a substitute
