@@ -35,26 +35,19 @@ class SinglyLinkedList:
 
         Examples:
             >>> llist = SinglyLinkedList()
-            >>> llist
-            SinglyLinkedList(head=None, tail=None)
             >>> llist.head = "first node"
-            >>> llist.head
-            SinglyNode(data='first node')
-            >>> assert llist.head is llist.tail
-            >>> assert llist.head.next is None
+            >>> llist.head = [42.0, True, "LGRW"]
+            >>> llist.tail = "third node added to list"
             >>> llist
-            SinglyLinkedList(head=This node's data is 11 of type str., tail=This node's data is 10 of type str.)
-            >>> llist.head, llist.head.next, llist.tail
-            (SinglyNode(data='second node'), SinglyNode(data='first node'), SinglyNode(data='first node'))
-            llist.head = None
-            >>> llist.head = None
-            >>> llist.head, llist.head.next, llist.tail
-            (SinglyNode(data=None), SinglyNode(data='second node'), SinglyNode(data='first node'))
-            >>> llist.head.__dict__
-            {'_data': None, '_next': SinglyNode(data='second node')}
-            >>> llist.remove_head()
-            >>> llist.head.__dict__
-            {'_data': 'second node', '_next': SinglyNode(data='first node')}
+            SinglyLinkedList(head=This node's data is 3 of type list., tail=This node's data is 24 of type str.)
+            >>> llist.tail = None
+            >>> llist
+            SinglyLinkedList(head=This node's data is 3 of type list., tail=This node's data is of type NoneType.)
+            >>> llist.head.next.data
+            'first node'
+            >>> llist.remove_tail()
+            >>> llist.tail.data
+            'third node added to list'
         """
         return self._head
 
