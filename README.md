@@ -5,6 +5,7 @@
 ![Build Status](https://github.com/robert-portelli/ofnodes/actions/workflows/01_build.yml/badge.svg)
 ![Tests](https://github.com/robert-portelli/ofnodes/actions/workflows/02_test.yml/badge.svg)
 [![pages-build-deployment](https://github.com/robert-portelli/ofnodes/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/robert-portelli/ofnodes/actions/workflows/pages/pages-build-deployment)
+[![codecov](https://codecov.io/gh/robert-portelli/ofnodes/graph/badge.svg?token=2XI42KBTRQ)](https://codecov.io/gh/robert-portelli/ofnodes)
 
 **ofnodes** is a Python Package providing examples of the Author's ability
 to implement data structures and algorithms in Python. It is not a substitute
