@@ -9,7 +9,7 @@
 [![Poetry](https://img.shields.io/endpoint?url=https://python-poetry.org/badge/v0.json)](https://python-poetry.org/)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 ![Black](https://img.shields.io/badge/code%20style-black-000000.svg)
-[![PyPI - Version](https://img.shields.io/pypi/v/ofnodes)](https://pypi.org/project/ofnodes/)]
+[![PyPI - Version](https://img.shields.io/pypi/v/ofnodes)](https://pypi.org/project/ofnodes/)
 
 
 **ofnodes** is a Python Package providing examples of the Author's ability
