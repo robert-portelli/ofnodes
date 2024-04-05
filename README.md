@@ -4,8 +4,13 @@
 [![Python Version](https://img.shields.io/badge/python-%3E=3.11.5-blue.svg)](https://www.python.org/downloads/release/python-3115/)
 ![Build Status](https://github.com/robert-portelli/ofnodes/actions/workflows/01_build.yml/badge.svg)
 ![Tests](https://github.com/robert-portelli/ofnodes/actions/workflows/02_test.yml/badge.svg)
-[![pages-build-deployment](https://github.com/robert-portelli/ofnodes/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/robert-portelli/ofnodes/actions/workflows/pages/pages-build-deployment)
+[![Documentation](https://github.com/robert-portelli/ofnodes/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/robert-portelli/ofnodes/actions/workflows/pages/pages-build-deployment)
 [![codecov](https://codecov.io/gh/robert-portelli/ofnodes/graph/badge.svg?token=2XI42KBTRQ)](https://codecov.io/gh/robert-portelli/ofnodes)
+[![Poetry](https://img.shields.io/endpoint?url=https://python-poetry.org/badge/v0.json)](https://python-poetry.org/)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+![Black](https://img.shields.io/badge/code%20style-black-000000.svg)
+[![PyPI - Version](https://img.shields.io/pypi/v/ofnodes)](https://pypi.org/project/ofnodes/)]
+
 
 **ofnodes** is a Python Package providing examples of the Author's ability
 to implement data structures and algorithms in Python. It is not a substitute
@@ -15,8 +20,8 @@ distributable package of objects behind a thoughtful user interface.
 
 ## Features
 Here is what ofnodes can do:
-    - implement a node object with a unidirectional pointer
-    - implement and manipulate a linked list object of unidirectional,
+- implement a node object with a unidirectional pointer
+- implement and manipulate a linked list object of unidirectional,
     i.e., 'singly linked' nodes.
 
 ## Installation
@@ -28,7 +33,6 @@ pip install ofnodes
 
 
 ```python
-# what's a better markdown fenced code block for repl?
 >>> llist = SinglyLinkedList()
 >>> llist.head = "first node"
 >>> llist.head = [42.0, True, "LGRW"]
