@@ -75,4 +75,9 @@ jobs:
           poetry run pytest --cov=tests/
           poetry run pytest --cov=src/
           poetry run pytest --cov-report term-missing:skip-covered --cov
-      #    poetry run coverage report
+          poetry run coverage report
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: robert-portelli/ofnodes
