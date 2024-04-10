@@ -22,6 +22,7 @@ class SinglyLinkedList:
     def __init__(self) -> None:
         self._head: Optional[SinglyNode] = None
         self._tail: Optional[SinglyNode] = None
+        self._target: Optional[Any] = None
 
     @property
     def head(self) -> SinglyNode | None:
@@ -87,7 +88,7 @@ class SinglyLinkedList:
         )
 
     @property
-    def target(self) -> SinglyNode:
+    def target(self) -> Any:
         """Getter property for the node data to target in a Linked List.
 
         SinglyNode | None: The target node of the linked list, or None if the
@@ -105,25 +106,56 @@ class SinglyLinkedList:
         Raises:
             ValueError
 
-        Notes:
+        Notes: Any data can be assigned as the target data. Each node in the
+        `SinglyLinkedList` has its data compared to the target data. The first
+        node instance data that match the target data is assigned to the `.target`
+        property. If a match is not found, the target data is stored as is in the
+        `.target` attribute.
 
+        Examples:
+            >>> sllist = SinglyLinkedList()
+            >>> sllist.__dict__
+            {'_head': None, '_tail': None, '_target': None}
+            >>> sllist.target = '5 node'
+            Empty `SinglyLinkedList()`. Target data is assigned to SinglyLinkedList's target property.
+            >>> type(sllist.target) != SinglyNode
+            True
+            >>> list(sllist.insert_tail(f"{i} node") for i in range(1, 5))
+            [None, None, None, None]
+            >>> sllist.target = '5 node'
+            No target matches. Target data assigned to SinglyLinkedList's target property.
+            >>> sllist.tail = '5 node'
+            >>> sllist.target = '5 node'
+            At least one target match. First target node instance is assigned to SinglyLinkedList's target property.
+            >>> type(sllist.target) == SinglyNode
+            True
+            >>> sllist.target is sllist.tail
+            True
         """
-        if target_data:
-            #  TODO: data validation
-            if self._head:  # search each node for validated target
+
+        match target_data:
+            case _:
+                #  TODO: data validation
+                validated_data = target_data
+
+
+        match self._head:
+            case None:
+                print(f"Empty `SinglyLinkedList()`. Target data is assigned to {type(self).__name__}'s target property.")
+                self._target = validated_data
+
+            case self._head:
                 current_node = self._head
                 while current_node:
-                    if current_node.data == target_data:
-                        print(f"At least one target match. Target assigned to {type(self).__name__}'s\
-                              target property.")
-                        self._target = target_data
+                    if current_node.data == validated_data:
+                        print(f"""At least one target match. First target node instance is assigned to {type(self).__name__}'s target property.""")
+                        setattr(self, '_target', current_node)
+                        return
                     current_node = current_node.next
-                print(f"No target matches. Target assigned to {type(self).__name__}'s\
-                      target property.")
-                self._target = target_data
-            print(f"Linked List is empty. Target is assigned to {type(self).__name__}'s\
-                  target property")
-        raise ValueError("This data is unable to be target.")
+                print(f"""No target matches. Target data assigned to {type(self).__name__}'s target property.""")
+                setattr(self, '_target', validated_data)
+                return
+
 
 
 
@@ -307,7 +339,7 @@ class SinglyLinkedList:
         """
         self.tail = data  # trigger the tail setter
 
-    def search(self, target) -> bool:
+    def search(self, target_data) -> bool:
         """Searches each node's data in a linked list until the first occurrence of
         the target is found.
 
@@ -338,14 +370,18 @@ class SinglyLinkedList:
             >>> llist.search("third node")
             True
         """
-        if self._head:
-            current_node = self._head
-            while current_node:
-                if current_node.data == target:
-                    return True
-                current_node = current_node.next
-            return False
-        raise ValueError("Cannot perform search: The list is empty.")
+        if target_data:
+            #  TODO: data validation
+            validated_data = target_data
+            if self._head:
+                current_node = self._head
+                while current_node:
+                    if current_node.data == validated_data:
+                        return True
+                    current_node = current_node.next
+                return False
+            raise ValueError("Cannot perform search: The list is empty.")
+        raise ValueError("This data is unable to be target.")
 
     def remove_head(self) -> None:
         """Removes the head node from the linked list.
