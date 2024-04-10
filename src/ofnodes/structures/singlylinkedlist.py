@@ -89,29 +89,20 @@ class SinglyLinkedList:
         )
 
     @property
-    def target(self) -> Any:
+    def target(self) -> SinglyNode|Any:
         """Getter property for the node data to target in a Linked List.
 
-        SinglyNode | None: The target node of the linked list, or None if the
-        target doesn't occur in the list.
-        """
-        return self._target
+        Returns:
+            target: The first node instance of the linked list containing data\
+            matching the target. If no target match, the data is assigned as passed\
+            to target.
 
-    @target.setter
-    def target(self, target_data: Any | SinglyNode) -> None:
-        """Setter property for the target node data of the linked list.
-
-        Args:
-            target (Any): The data for which to match to node data.
-
-        Raises:
-            ValueError
-
-        Notes: Any data can be assigned as the target data. Each node in the
-        `SinglyLinkedList` has its data compared to the target data. The first
-        node instance data that match the target data is assigned to the `.target`
-        property. If a match is not found, the target data is stored as is in the
-        `.target` attribute.
+        Notes:
+            Any data can be assigned as the target data. Each node in the
+            `SinglyLinkedList` has its data compared to the target data. The first
+            node instance data that match the target data is assigned to the `.target`
+            property. If a match is not found, the target data is stored as is in the
+            `.target` attribute.
 
         Examples:
             >>> sllist = SinglyLinkedList()
@@ -132,6 +123,15 @@ class SinglyLinkedList:
             True
             >>> sllist.target is sllist.tail
             True
+        """
+        return self._target
+
+    @target.setter
+    def target(self, target_data: Any | SinglyNode) -> None:
+        """Setter property for the target node data of the linked list.
+
+        Args:
+            target (Any): The data for which to match to node data.
         """
 
         match target_data:
@@ -344,7 +344,7 @@ class SinglyLinkedList:
         the target is found.
 
         Args:
-            target (Any): The value to search for in the linked list.
+            target_data (Any): The value to search for in the linked list.
 
         Returns:
             bool: True if the target value is found in the linked list, False otherwise.
