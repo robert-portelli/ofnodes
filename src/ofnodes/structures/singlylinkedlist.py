@@ -343,7 +343,7 @@ class SinglyLinkedList:
             self._tail = None
             return
         if self._head and self._head is not self._tail:
-            self._head = self.head.next
+            self._head = self._head.next
             return
         raise ValueError("Cannot remove head from empty list")
 
