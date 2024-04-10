@@ -13,16 +13,17 @@ class SinglyLinkedList:
     Attributes:
         _head (Optional[SinglyNode]): The head of the linked list.
         _tail (Optional[SinglyNode]): The tail of the linked list.
+        _target (Optional[Any]): The target data or node instance.
 
     Examples:
         >>> linked_list = SinglyLinkedList()
         >>> linked_list
-        SinglyLinkedList(head=None, tail=None)
+        SinglyLinkedList(head=None, tail=None, target=None)
     """
     def __init__(self) -> None:
         self._head: Optional[SinglyNode] = None
         self._tail: Optional[SinglyNode] = None
-        self._target: Optional[Any] = None
+        self._target: Optional[Any|SinglyNode] = None
 
     @property
     def head(self) -> SinglyNode | None:
@@ -97,7 +98,7 @@ class SinglyLinkedList:
         return self._target
 
     @target.setter
-    def target(self, target_data: Any) -> None:
+    def target(self, target_data: Any | SinglyNode) -> None:
         """Setter property for the target node data of the linked list.
 
         Args:
@@ -137,7 +138,6 @@ class SinglyLinkedList:
             case _:
                 #  TODO: data validation
                 validated_data = target_data
-
 
         match self._head:
             case None:
