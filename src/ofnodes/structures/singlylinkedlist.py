@@ -59,9 +59,6 @@ class SinglyLinkedList:
         Args:
             value (SinglyNode | Any): The value to be set as the head. If the value is
                 not already a SinglyNode object, it is wrapped in a SinglyNode.
-
-        Raises:
-            AttributeError: If attempting to delete the `head` attribute.
         """
         match value:
             case SinglyNode():
@@ -88,6 +85,47 @@ class SinglyLinkedList:
         raise AttributeError(
             f"{type(self).__name__}'s `head` attribute " "cannot be deleted."
         )
+
+    @property
+    def target(self) -> SinglyNode:
+        """Getter property for the node data to target in a Linked List.
+
+        SinglyNode | None: The target node of the linked list, or None if the
+        target doesn't occur in the list.
+        """
+        return self._target
+
+    @target.setter
+    def target(self, target_data: Any) -> None:
+        """Setter property for the target node data of the linked list.
+
+        Args:
+            target (Any): The data for which to match to node data.
+
+        Raises:
+            ValueError
+
+        Notes:
+
+        """
+        if target_data:
+            #  TODO: data validation
+            if self._head:  # search each node for validated target
+                current_node = self._head
+                while current_node:
+                    if current_node.data == target_data:
+                        print(f"At least one target match. Target assigned to {type(self).__name__}'s\
+                              target property.")
+                        self._target = target_data
+                    current_node = current_node.next
+                print(f"No target matches. Target assigned to {type(self).__name__}'s\
+                      target property.")
+                self._target = target_data
+            print(f"Linked List is empty. Target is assigned to {type(self).__name__}'s\
+                  target property")
+        raise ValueError("This data is unable to be target.")
+
+
 
     @property
     def tail(self) -> SinglyNode | None:
@@ -270,7 +308,8 @@ class SinglyLinkedList:
         self.tail = data  # trigger the tail setter
 
     def search(self, target) -> bool:
-        """Searches for a target value in the linked list.
+        """Searches each node's data in a linked list until the first occurrence of
+        the target is found.
 
         Args:
             target (Any): The value to search for in the linked list.
