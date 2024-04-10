@@ -135,14 +135,26 @@ def test_remove_head(easy_singly_linked_list):
     test_logic()
 
 def test_search(example_singly_linked_list):
-    llist = SinglyLinkedList()
-    with pytest.raises(ValueError) as exc_info:
-        llist.search("target")
-    assert "list is empty" in str(exc_info)
-    for i in range(0, 3):
-        llist.tail = f"{i} node"
-    assert llist.search("2 node")
-    assert not llist.search("42 node")
+    def test_invalid_target():
+        llist = SinglyLinkedList()
+        with pytest.raises(ValueError) as exc_info:
+            llist.search(None)
+        assert "unable to be target" in str(exc_info)
+    def test_empty_list():
+        llist = SinglyLinkedList()
+        with pytest.raises(ValueError) as exc_info:
+            llist.search("target")
+        assert "list is empty" in str(exc_info)
+    def test_list():
+        llist = SinglyLinkedList()
+        for i in range(0, 3):
+            llist.tail = f"{i} node"
+        assert llist.search("2 node")
+        assert not llist.search("42 node")
+
+    test_invalid_target()
+    test_empty_list()
+    test_list()
 
 def test_remove_tail():
     def test_short_list():
@@ -206,3 +218,28 @@ def test_insert_head():
     sllist = SinglyLinkedList()
     sllist.insert_head("string")
     assert sllist.head.data == "string"
+
+def test_target(capsys):
+    def test_empty_list():
+        sllist = SinglyLinkedList()
+        sllist.target = None
+        captured = capsys.readouterr()
+        expected_output = "Empty `SinglyLinkedList()`. Target data is assigned to SinglyLinkedList's target property.\n"
+        assert expected_output == captured.out
+    def test_no_match():
+        sllist = SinglyLinkedList()
+        sllist.head = '2 node'
+        sllist.target = '3 node'
+        captured = capsys.readouterr()
+        expected_output = f"""No target matches. Target data assigned to {type(sllist).__name__}'s target property.\n"""
+        assert expected_output == captured.out
+    def test_match():
+        sllist = SinglyLinkedList()
+        list(sllist.insert_tail(f"{i} node") for i in range(1, 5))
+        sllist.target = '3 node'
+        assert sllist.head.next.next is sllist.target
+
+
+    test_empty_list()
+    test_no_match()
+    test_match()
