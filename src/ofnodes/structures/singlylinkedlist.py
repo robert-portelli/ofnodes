@@ -242,7 +242,7 @@ class SinglyLinkedList:
         )
 
     def __repr__(self) -> str:
-        return f"{type(self).__name__}(head={self.head}, tail={self.tail}, tagert={self.target})"
+        return f"{type(self).__name__}(head={self.head}, tail={self.tail}, target={self.target})"
 
     def __str__(self) -> str:
         match self:
@@ -528,5 +528,3 @@ class SinglyLinkedList:
             print(current_node.data)
             current_node = current_node.next
 
-if __name__ == "__main__":
-    sllist = SinglyLinkedList()
