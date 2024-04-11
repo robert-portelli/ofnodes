@@ -12,7 +12,6 @@ Example:
 
 from typing import Any, Optional
 
-#from ofnodes.nodes.node import Node
 
 class SinglyNode:
     """Represents a node in a singly linked list.
@@ -22,9 +21,19 @@ class SinglyNode:
         next: Reference to the next node in the linked list. Defaults to None.
     """
 
+    __slots__ = ('_data', '_next')
+
     def __init__(self, data: Any) -> None:
         self._data: Optional[Any] = data
         self._next: Optional[SinglyNode] = None
+
+    def __dir__(self) -> list[str]:
+        # Get the list of attributes and methods from the parent classes
+        parent_dir = set(super().__dir__())
+        # Filter out private attributes and methods
+        parent_dir = {attr for attr in parent_dir if attr not in {'_data', '_next',}}
+        # Return a sorted list of all attributes and methods
+        return sorted(parent_dir)
 
     @property
     def data(self):
@@ -47,9 +56,9 @@ class SinglyNode:
         # when repr is called on a Node with .next,
         # is next=itsvalue in the return?
         return (
-            f"{type(self).__name__}("
+            f"{type(self).__name__}"
+            "("
             f"data={repr(self.data)}"
-            #f", next={repr(self.next)}"
             ")"
         )
 
@@ -61,3 +70,4 @@ class SinglyNode:
                 f" of type {type(self.data).__name__}."
             )
         return f"This node's data is of type {type(self.data).__name__}."
+    
