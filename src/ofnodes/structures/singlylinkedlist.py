@@ -233,7 +233,7 @@ class SinglyLinkedList:
         )
 
     def __repr__(self) -> str:
-        return f"{type(self).__name__}(head={self.head}, tail={self.tail})"
+        return f"{type(self).__name__}(head={self.head}, tail={self.tail}, tagert={self.target})"
 
     def __str__(self) -> str:
         match self:
@@ -243,6 +243,14 @@ class SinglyLinkedList:
                 if head is tail:
                     return "This instance of SinglyLinkedList has a single node."
                 return "The head and tail are different nodes."
+            
+    def __dir__(self) -> list[str]:
+        # Get the list of attributes and methods from the parent classes
+        parent_dir = set(super().__dir__())
+        # Filter out private attributes and methods
+        parent_dir = {attr for attr in parent_dir if attr not in {'_head', '_tail', '_target'}}
+        # Return a sorted list of all attributes and methods
+        return sorted(parent_dir)
 
     def insert_head(self, data: Any) -> None:
         """ Inserts a new node with the provided data at the head of the linked list.
@@ -510,3 +518,6 @@ class SinglyLinkedList:
         while current_node:
             print(current_node.data)
             current_node = current_node.next
+
+if __name__ == "__main__":
+    sllist = SinglyLinkedList()
