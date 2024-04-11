@@ -12,20 +12,23 @@ def test__init__(example_singly_linked_list):
     )
 
 
-def test__repr__(example_singly_linked_list):
-    llist1 = example_singly_linked_list['empty']
-    llist2 = example_singly_linked_list['example']
+def test__repr__():
+    llist = SinglyLinkedList()
     assert (
-        repr(llist1)
-        == "SinglyLinkedList(head=None, tail=None)"
-        ""
-        and
-        repr(llist2)
+        repr(llist)
+        ==
+        "SinglyLinkedList(head=None, tail=None, target=None)"
+    )
+    llist.head = 42
+    llist.tail = 'a string'
+    llist.target = 'b string'
+    assert (
+        repr(llist)
         ==
         (
-        "SinglyLinkedList(head=This node's data is 4 of type list.,"
-        " tail=This node's data is of type function.)"
-        )
+            "SinglyLinkedList(head=This node's data is of type int., "
+            "tail=This node's data is 8 of type str., target=b string)"
+            )
     )
 
 
@@ -46,6 +49,19 @@ def test__str__(example_singly_linked_list):
         ==
         "This instance of SinglyLinkedList has a single node."
     )
+
+def test__dir__():
+    sllist = SinglyLinkedList()
+    dirr = ['__class__', '__delattr__', '__dir__', '__doc__', '__eq__',
+            '__format__', '__ge__', '__getattribute__', '__getstate__',
+            '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__',
+            '__lt__', '__module__', '__ne__', '__new__', '__reduce__',
+            '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__',
+            '__slots__', '__str__', '__subclasshook__', 'head',
+            'insert_head', 'insert_tail', 'print_node_data', 'remove_head',
+            'remove_tail', 'search', 'tail', 'target']
+    assert dir(sllist) == dirr
+    
 def test_data_setter():
     node = SinglyNode(data=42)
     assert node.data == 42
@@ -238,8 +254,14 @@ def test_target(capsys):
         list(sllist.insert_tail(f"{i} node") for i in range(1, 5))
         sllist.target = '3 node'
         assert sllist.head.next.next is sllist.target
+    def test_deleter():
+        sllist = SinglyLinkedList()
+        with pytest.raises(AttributeError) as exc_info:
+            del sllist.target
+        assert "cannot be deleted" in str(exc_info)
 
 
     test_empty_list()
     test_no_match()
     test_match()
+    test_deleter()
