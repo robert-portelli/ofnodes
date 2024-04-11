@@ -160,7 +160,16 @@ class SinglyLinkedList:
                 return
 
 
+    @target.deleter
+    def target(self):
+        """Deleter property for the target of the linked list.
 
+        Raises:
+            AttributeError: Deleting the `target` attribute is not allowed.
+        """
+        raise AttributeError(
+            f"{type(self).__name__}'s `target` attribute " "cannot be deleted."
+        )
 
     @property
     def tail(self) -> SinglyNode | None:
