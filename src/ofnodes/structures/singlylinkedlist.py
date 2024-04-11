@@ -20,6 +20,9 @@ class SinglyLinkedList:
         >>> linked_list
         SinglyLinkedList(head=None, tail=None, target=None)
     """
+
+    __slots__ = ('_head', '_tail', '_target',)
+
     def __init__(self) -> None:
         self._head: Optional[SinglyNode] = None
         self._tail: Optional[SinglyNode] = None
