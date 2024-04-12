@@ -403,19 +403,18 @@ class SinglyLinkedList:
         """
 
         if not self._head:
-            print("The list is empty")
-            return
+            raise ValueError("The linked list is empty.")
 
         self.target = target_data  # trigger the setter
 
         if self._head is self._target:
             # node = self._head
             self.remove_head()
-            # return node
+            return #node
         if self._tail is self._target:
             # node = self._tail
             self.remove_tail()
-            # return node
+            return #node
 
         current_node = self._head
         while current_node.next:
@@ -550,9 +549,3 @@ class SinglyLinkedList:
         while current_node:
             print(current_node.data)
             current_node = current_node.next
-
-
-
-if __name__ == "__main__":
-    sllist = SinglyLinkedList()
-    list(sllist.insert_tail(f"{i} node") for i in range(1, 5))
