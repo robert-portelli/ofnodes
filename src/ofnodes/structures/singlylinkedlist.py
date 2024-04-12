@@ -395,6 +395,61 @@ class SinglyLinkedList:
             raise ValueError("Cannot perform search: The list is empty.")
         raise ValueError("This data is unable to be target.")
 
+    def remove(self, target_data) -> None | SinglyNode:
+        """The target can be None, so checking if target is moot
+
+        this will trigger the self.target setter
+
+        Remove and return the first instance where target data matches node data
+        """
+        # is the list empty
+        # is the target the head or the tail
+            # is the target the head of a 1 node list
+            # is the target the head of a 2 node list
+            # is the target the head of a > 2 node list
+            # is the target the tail of a 2 node list
+            # is the target the tail of a > 2 node list
+        # search for the target until current.next == target, node = current.next, current.next = current.next.next, return node
+        self.target = target_data  # trigger the setter
+
+        if not self._head:
+            print("The list is empty")
+            return None
+
+        if self._target is not SinglyNode:  # the target was not found in the list
+            print("target not found")
+            return None
+
+        if self._head is self._tail and self._head is self._target:  # one node list
+            node = self._head
+            setattr(self, '_head', None)
+            setattr(self, '_tail', None)
+            return node
+
+        if self._head and self._head.next is self._tail:  # it's a two node list
+            if self._head is self._target:
+                node = self._head
+                setattr(self, '_head', self._tail)
+                return node
+            if self._tail is self._target:
+                node = self._tail
+                setattr(self, '_tail', self._head)
+                return node
+
+        current_node = self._head
+
+        while current_node.next:
+            if current_node.next is self._target:
+                node = current_node.next
+                setattr(current_node, 'next', current_node.next.next)
+                return node
+            current_node = current_node.next
+
+        return None
+
+
+
+
     def remove_head(self) -> None:
         """Removes the head node from the linked list.
 
