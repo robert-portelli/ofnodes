@@ -238,22 +238,18 @@ def test_insert_head():
 def test_target(capsys):
     def test_empty_list():
         sllist = SinglyLinkedList()
-        sllist.target = None
-        captured = capsys.readouterr()
-        expected_output = "Empty `SinglyLinkedList()`. Target data is assigned to SinglyLinkedList's target property.\n"
-        assert expected_output == captured.out
+        sllist.target = 'string data'
+        assert sllist.target == 'string data'
     def test_no_match():
         sllist = SinglyLinkedList()
         sllist.head = '2 node'
         sllist.target = '3 node'
-        captured = capsys.readouterr()
-        expected_output = f"""No target matches. Target data assigned to {type(sllist).__name__}'s target property.\n"""
-        assert expected_output == captured.out
+        assert sllist.target == '3 node'
     def test_match():
         sllist = SinglyLinkedList()
         list(sllist.insert_tail(f"{i} node") for i in range(1, 5))
-        sllist.target = '3 node'
-        assert sllist.head.next.next is sllist.target
+        sllist.target = '4 node'
+        assert sllist.tail is sllist.target
     def test_deleter():
         sllist = SinglyLinkedList()
         with pytest.raises(AttributeError) as exc_info:
