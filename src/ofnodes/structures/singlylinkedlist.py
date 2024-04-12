@@ -409,9 +409,13 @@ class SinglyLinkedList:
         self.target = target_data  # trigger the setter
 
         if self._head is self._target:
+            # node = self._head
             self.remove_head()
+            # return node
         if self._tail is self._target:
+            # node = self._tail
             self.remove_tail()
+            # return node
 
         current_node = self._head
         while current_node.next:
