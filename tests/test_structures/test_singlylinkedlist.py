@@ -58,7 +58,7 @@ def test__dir__():
             '__lt__', '__module__', '__ne__', '__new__', '__reduce__',
             '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__',
             '__slots__', '__str__', '__subclasshook__', 'head',
-            'insert_head', 'insert_tail', 'print_node_data', 'remove_head',
+            'insert_head', 'insert_tail', 'print_node_data', 'remove', 'remove_head',
             'remove_tail', 'search', 'tail', 'target']
     assert dir(sllist) == dirr
     
@@ -265,3 +265,15 @@ def test_target(capsys):
     test_no_match()
     test_match()
     test_deleter()
+
+def test_remove():
+    def test_empty_list():
+        sllist = SinglyLinkedList()
+        # TODO
+
+    def test_one_node():
+        sllist = SinglyLinkedList()
+        # TODO
+
+    test_empty_list()
+    test_one_node()
