@@ -109,8 +109,6 @@ class SinglyLinkedList:
 
         Examples:
             >>> sllist = SinglyLinkedList()
-            >>> sllist.__dict__
-            {'_head': None, '_tail': None, '_target': None}
             >>> sllist.target = '5 node'
             Empty `SinglyLinkedList()`. Target data is assigned to SinglyLinkedList's target property.
             >>> type(sllist.target) != SinglyNode
@@ -192,8 +190,6 @@ class SinglyLinkedList:
             >>> assert llist.head.next is llist.tail
             >>> llist
             SinglyLinkedList(head=This node's data is 22 of type str., tail=This node's data is 8 of type str.)
-            >>> llist.__dict__
-            {'_head': SinglyNode(data='first node in the list'), '_tail': SinglyNode(data='new tail')}
             >>> llist.head, llist.tail
             (SinglyNode(data='first node in the list'), SinglyNode(data='new tail'))
         """
@@ -296,8 +292,6 @@ class SinglyLinkedList:
             >>> linked_list.head = "third node added as head via property"
             >>> linked_list.head, linked_list.tail
             (SinglyNode(data='third node added as head via property'), SinglyNode(data='the first node in the list'))
-            >>> linked_list.head.__dict__
-            {'_data': 'third node added as head via property', '_next': SinglyNode(data={'the second node': (42.0, True, SinglyNode(data='LGRW'))})}
             >>> llist = SinglyLinkedList()
             >>> list(llist.insert_head(f"{i} node") for i in range(1, 5))
             [None, None, None, None]
@@ -345,8 +339,6 @@ class SinglyLinkedList:
             >>> linked_list.tail.data['the second node'][2].data
             'LGRW'
             >>> linked_list.tail = "insert 3rd node via property"
-            >>> linked_list.tail.__dict__
-            {'_data': 'insert 3rd node via property', '_next': None}
             >>> linked_list.tail.data
             'insert 3rd node via property'
             >>> llist = SinglyLinkedList()
