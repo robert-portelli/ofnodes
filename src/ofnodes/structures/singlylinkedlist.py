@@ -142,18 +142,18 @@ class SinglyLinkedList:
 
         match self._head:
             case None:
-                print(f"Empty `SinglyLinkedList()`. Target data is assigned to {type(self).__name__}'s target property.")
+                #print(f"Empty `SinglyLinkedList()`. Target data is assigned to {type(self).__name__}'s target property.")
                 self._target = validated_data
 
             case self._head:
                 current_node = self._head
                 while current_node:
                     if current_node.data == validated_data:
-                        print(f"""At least one target match. First target node instance is assigned to {type(self).__name__}'s target property.""")
+                        #print(f"""At least one target match. First target node instance is assigned to {type(self).__name__}'s target property.""")
                         setattr(self, '_target', current_node)
                         return
                     current_node = current_node.next
-                print(f"""No target matches. Target data assigned to {type(self).__name__}'s target property.""")
+                #print(f"""No target matches. Target data assigned to {type(self).__name__}'s target property.""")
                 setattr(self, '_target', validated_data)
                 return
 
@@ -396,10 +396,58 @@ class SinglyLinkedList:
         raise ValueError("This data is unable to be target.")
 
 
-    def remove(self, target_data):
-        """TODO
 
-        improve documentation
+    def remove(self, target_data: Any | SinglyNode) -> None:
+        """Removes the first occurrence of a node with the specified target data from the linked list.
+
+        Args:
+            target_data (Any | SinglyNode): The data or node to be removed from the linked list.
+
+        Raises:
+            ValueError: If the linked list is empty.
+
+        Returns:
+            None: This method does not return any value.
+
+        Removes the first occurrence of a node with the specified target data from the linked list.
+        If the linked list is empty, a ValueError is raised.
+
+        If the target data is found in the linked list:
+        - If the target node is the head, the head of the linked list is updated to the next node.
+        - If the target node is the tail, the tail of the linked list is updated to the previous node.
+        - For any other node, the reference to the next node is adjusted to skip the target node.
+        Notes:
+            This method removes only the first occurrence of the target data if multiple nodes contain the same data.
+
+        Examples:
+            >>> sllist = SinglyLinkedList()
+            >>> list(sllist.insert_tail(f"{i} node") for i in range(1, 5))
+            [None, None, None, None]
+            >>> sllist.remove('0 node')
+            >>> sllist.target
+            '0 node'
+            >>> sllist.head, sllist.head.next, sllist.tail
+            (SinglyNode(data='1 node'), SinglyNode(data='2 node'), SinglyNode(data='4 node'))
+            >>> sllist.remove('1 node')
+            >>> sllist.target
+            SinglyNode(data='1 node')
+            >>> sllist.head, sllist.head.next, sllist.tail
+            (SinglyNode(data='2 node'), SinglyNode(data='3 node'), SinglyNode(data='4 node'))
+            >>> sllist.remove(sllist.tail)
+            >>> sllist.target
+            SinglyNode(data='4 node')
+            >>> sllist.head, sllist.head.next, sllist.tail
+            (SinglyNode(data='2 node'), SinglyNode(data='3 node'), SinglyNode(data='3 node'))
+            >>> sllist.head.next
+            SinglyNode(data='3 node')
+            >>> sllist.tail
+            SinglyNode(data='3 node')
+            >>> sllist.remove(sllist.tail)
+            >>> sllist.tail
+            SinglyNode(data='2 node')
+            >>> sllist.head.next
+            >>> sllist.head, sllist.head.next, sllist.tail
+            (SinglyNode(data='2 node'), None, SinglyNode(data='2 node'))
         """
 
         if not self._head:
