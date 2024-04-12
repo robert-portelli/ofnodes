@@ -269,11 +269,28 @@ def test_target(capsys):
 def test_remove():
     def test_empty_list():
         sllist = SinglyLinkedList()
-        # TODO
+        with pytest.raises(ValueError) as exc_info:
+            sllist.remove(sllist.target)
+        assert "is empty" in str(exc_info)
 
     def test_one_node():
         sllist = SinglyLinkedList()
-        # TODO
+        sllist.head = 'a node'
+        sllist.remove('a node')
+
+    def test_two_nodes():
+        sllist = SinglyLinkedList()
+        sllist.head = 'a node'
+        sllist.tail = 'b node'
+        sllist.remove('b node')
+
+    def test_many_nodes():
+        sllist = SinglyLinkedList()
+        list(sllist.insert_tail(f"{i} node") for i in range(1, 5))
+        sllist.remove('3 node')
+
 
     test_empty_list()
     test_one_node()
+    test_two_nodes()
+    test_many_nodes()
