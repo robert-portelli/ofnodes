@@ -395,8 +395,6 @@ class SinglyLinkedList:
             raise ValueError("Cannot perform search: The list is empty.")
         raise ValueError("This data is unable to be target.")
 
-
-
     def remove(self, target_data: Any | SinglyNode) -> None:
         """Removes the first occurrence of a node with the specified target data from the linked list.
 
@@ -471,7 +469,6 @@ class SinglyLinkedList:
                 setattr(current_node, '_next', current_node.next.next)
                 return # node
             current_node = current_node.next
-
 
     def remove_head(self) -> None:
         """Removes the head node from the linked list.
