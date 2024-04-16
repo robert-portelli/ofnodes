@@ -150,27 +150,31 @@ def test_remove_head(easy_singly_linked_list):
     test_error()
     test_logic()
 
-def test_search(example_singly_linked_list):
+def test_search():
     def test_invalid_target():
         llist = SinglyLinkedList()
         with pytest.raises(ValueError) as exc_info:
             llist.search(None)
-        assert "unable to be target" in str(exc_info)
+        assert "Data unacceptable" in str(exc_info)
     def test_empty_list():
         llist = SinglyLinkedList()
-        with pytest.raises(ValueError) as exc_info:
-            llist.search("target")
-        assert "list is empty" in str(exc_info)
-    def test_list():
+        llist.search("some target data")
+        assert(
+            llist.head is None and
+            llist.tail is None and
+            llist.target == 'some target data'
+        )
+    def test_found_and_not_found():
         llist = SinglyLinkedList()
-        for i in range(0, 3):
-            llist.tail = f"{i} node"
-        assert llist.search("2 node")
-        assert not llist.search("42 node")
+        list(llist.insert_tail(f"{i} node") for i in range(1, 5))
+        llist.search("1 node")
+        assert llist.head is llist.target
+        llist.search("42 node")
+        assert type(llist.target) is str
 
     test_invalid_target()
     test_empty_list()
-    test_list()
+    test_found_and_not_found()
 
 def test_remove_tail():
     def test_short_list():
@@ -235,7 +239,7 @@ def test_insert_head():
     sllist.insert_head("string")
     assert sllist.head.data == "string"
 
-def test_target(capsys):
+def test_target():
     def test_empty_list():
         sllist = SinglyLinkedList()
         sllist.target = 'string data'
@@ -255,6 +259,8 @@ def test_target(capsys):
         with pytest.raises(AttributeError) as exc_info:
             del sllist.target
         assert "cannot be deleted" in str(exc_info)
+
+
 
 
     test_empty_list()

@@ -128,32 +128,34 @@ class SinglyLinkedList:
         return self._target
 
     @target.setter
-    def target(self, target_data: Any | SinglyNode) -> None:
+    def target(self, target_data: Any | SinglyNode):
         """Setter property for the target node data of the linked list.
 
         Args:
             target (Any): The data for which to match to node data.
         """
-
         match target_data:
-            case _:
+            case target_data if target_data:
                 #  TODO: data validation
                 validated_data = target_data
+            case _:
+                raise ValueError("Data unacceptable")
 
         match self._head:
             case None:
-                #print(f"Empty `SinglyLinkedList()`. Target data is assigned to {type(self).__name__}'s target property.")
+                # Empty `SinglyLinkedList()`. Target data is assigned to {type(self).__name__}'s target property.
                 self._target = validated_data
+                return
 
             case self._head:
                 current_node = self._head
                 while current_node:
                     if current_node.data == validated_data:
-                        #print(f"""At least one target match. First target node instance is assigned to {type(self).__name__}'s target property.""")
+                        # At least one target match. First target node instance is assigned to {type(self).__name__}'s target property.
                         setattr(self, '_target', current_node)
                         return
                     current_node = current_node.next
-                #print(f"""No target matches. Target data assigned to {type(self).__name__}'s target property.""")
+                # No target matches. Target data assigned to {type(self).__name__}'s target property.
                 setattr(self, '_target', validated_data)
                 return
 
@@ -351,7 +353,7 @@ class SinglyLinkedList:
         """
         self.tail = data  # trigger the tail setter
 
-    def search(self, target_data) -> bool:
+    def search(self, target_data):
         """Searches each node's data in a linked list until the first occurrence of
         the target is found.
 
@@ -382,18 +384,9 @@ class SinglyLinkedList:
             >>> llist.search("third node")
             True
         """
-        if target_data:
-            #  TODO: data validation
-            validated_data = target_data
-            if self._head:
-                current_node = self._head
-                while current_node:
-                    if current_node.data == validated_data:
-                        return True
-                    current_node = current_node.next
-                return False
-            raise ValueError("Cannot perform search: The list is empty.")
-        raise ValueError("This data is unable to be target.")
+        self.target = target_data  # trigger the setter
+
+
 
     def remove(self, target_data: Any | SinglyNode) -> None:
         """Removes the first occurrence of a node with the specified target data from the linked list.
