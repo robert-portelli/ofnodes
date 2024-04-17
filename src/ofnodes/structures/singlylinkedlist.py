@@ -163,7 +163,6 @@ class SinglyLinkedList:
                 setattr(self, '_target', validated_data)
                 return
 
-
     @target.deleter
     def target(self):
         """Deleter property for the target of the linked list.
