@@ -458,7 +458,7 @@ class SinglyLinkedList:
             return #node
         current_node = getattr(self, '_head')
         while current_node.next:
-            if current_node.next is self._target:
+            if current_node.next.data == self._target:
                 #node = current_node.next
                 setattr(current_node, '_next', current_node.next.next)
                 return #node

@@ -57,7 +57,7 @@ def test_head_property():
         assert sllist.head is None
         sllist.head = 'a string'
         assert isinstance(sllist.head, SinglyNode)
-        assert getattr(sllist.head, 'data') == 'a string'
+        sllist.head = SinglyNode('b string')
 
     def test_head_deleter():
         sllist = SinglyLinkedList()
@@ -241,11 +241,18 @@ def test_target():
         with pytest.raises(AttributeError) as exc_info:
             del sllist.target
         assert "cannot be deleted" in str(exc_info)
+    def test_unacceptable_data():
+        sllist = SinglyLinkedList()
+        sllist.head = 'a string'
+        with pytest.raises(ValueError) as exc_info:
+            sllist.target = ''
+        assert "unacceptable" in str(exc_info)
 
     test_empty_list()
     test_no_match()
     test_match()
     test_deleter()
+    test_unacceptable_data()
 
 def test_remove():
     def test_empty_list():
@@ -269,6 +276,7 @@ def test_remove():
         sllist = SinglyLinkedList()
         list(sllist.insert_tail(f"{i} node") for i in range(1, 5))
         sllist.remove('3 node')
+        assert sllist.head.next.next.data != '3 node'
 
 
     test_empty_list()
