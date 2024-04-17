@@ -3,53 +3,41 @@ from ofnodes.structures.singlylinkedlist import SinglyLinkedList
 from ofnodes.nodes.singlynode import SinglyNode
 
 
-def test__init__(example_singly_linked_list):
-    sllist = example_singly_linked_list['empty']
+def test__init__():
+    sllist = SinglyLinkedList()
     assert (
-        sllist.head is None
-        and
-        sllist.tail is None
+        sllist.head is None and
+        sllist.tail is None and
+        sllist.target is None
     )
-
+    sllist = SinglyLinkedList(['foo', 42.0, True])
+    assert (
+        sllist.head.data == 'foo'
+        and
+        sllist.head.next.data == 42.0
+        and
+        sllist.tail.data is True
+    )
 
 def test__repr__():
-    llist = SinglyLinkedList()
+    sllist = SinglyLinkedList()
     assert (
-        repr(llist)
-        ==
-        "SinglyLinkedList(head=None, tail=None, target=None)"
+        repr(sllist) == "SinglyLinkedList()"
     )
-    llist.head = 42
-    llist.tail = 'a string'
-    llist.target = 'b string'
+    sllist = SinglyLinkedList(['foo', 42.0, True])
     assert (
-        repr(llist)
-        ==
-        (
-            "SinglyLinkedList(head=This node's data is of type int., "
-            "tail=This node's data is 8 of type str., target=b string)"
-            )
+        repr(sllist) == "SinglyLinkedList(['foo', 42.0, True])"
     )
 
-
-def test__str__(example_singly_linked_list):
-    llist1 = example_singly_linked_list['empty']
-    llist2 = example_singly_linked_list['example']
-    llist3 = example_singly_linked_list['one']
-    assert(
-        str(llist1)
-        ==
-        "This instance of SinglyLinkedList is empty."
-        and
-        str(llist2)
-        ==
-        "The head and tail are different nodes."
-        and
-        str(llist3)
-        ==
-        "This instance of SinglyLinkedList has a single node."
+def test__str__():
+    sllist = SinglyLinkedList()
+    assert (
+        str(sllist) == 'Empty Singly Linked List'
     )
-
+    sllist = SinglyLinkedList(['foo', 42.0, True])
+    assert (
+        str(sllist) == 'foo -> 42.0 -> True'
+    )
 def test__dir__():
     sllist = SinglyLinkedList()
     dirr = ['__class__', '__delattr__', '__dir__', '__doc__', '__eq__',

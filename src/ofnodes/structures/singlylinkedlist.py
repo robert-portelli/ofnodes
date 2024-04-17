@@ -23,10 +23,14 @@ class SinglyLinkedList:
 
     __slots__ = ('_head', '_tail', '_target',)
 
-    def __init__(self) -> None:
+    def __init__(self, values=None) -> None:
         self._head: Optional[SinglyNode] = None
         self._tail: Optional[SinglyNode] = None
         self._target: Optional[Any|SinglyNode] = None
+        if values:
+            for value in values:
+                self.tail = value
+
 
     @property
     def head(self) -> SinglyNode | None:
@@ -240,16 +244,25 @@ class SinglyLinkedList:
         )
 
     def __repr__(self) -> str:
-        return f"{type(self).__name__}(head={self.head}, tail={self.tail}, target={self.target})"
+        #return f"{type(self).__name__}(head={type(self.head).__name__}, tail={self.tail})"
+        if not self._head:
+            return "SinglyLinkedList()"
+        node = self._head
+        nodes = []
+        while node:
+            nodes.append(repr(node.data))
+            node = node.next
+        return f"{type(self).__name__}([" + ', '.join(nodes) + "])"
 
     def __str__(self) -> str:
-        match self:
-            case SinglyLinkedList(head=None, tail=None):
-                return "This instance of SinglyLinkedList is empty."
-            case SinglyLinkedList(head=head, tail=tail):
-                if head is tail:
-                    return "This instance of SinglyLinkedList has a single node."
-                return "The head and tail are different nodes."
+        if not self._head:
+            return "Empty Singly Linked List"
+        node = self._head
+        nodes = []
+        while node:
+            nodes.append(str(node.data))
+            node = node.next
+        return ' -> '.join(nodes)
             
     def __dir__(self) -> list[str]:
         # Get the list of attributes and methods from the parent classes
