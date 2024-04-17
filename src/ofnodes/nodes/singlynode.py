@@ -53,8 +53,6 @@ class SinglyNode:
         raise AttributeError("Cannot set 'next' attribute directly. Use linked list methods for modification.")
 
     def __repr__(self) -> str:
-        # when repr is called on a Node with .next,
-        # is next=itsvalue in the return?
         return (
             f"{type(self).__name__}"
             "("
@@ -63,11 +61,5 @@ class SinglyNode:
         )
 
     def __str__(self) -> str:
-        if hasattr(self.data, "__len__"):
-            return (
-                "This node's data is"
-                f" {len(self.data)}"  # type: ignore # noqa
-                f" of type {type(self.data).__name__}."
-            )
-        return f"This node's data is of type {type(self.data).__name__}."
+        return str(self.data)
     
