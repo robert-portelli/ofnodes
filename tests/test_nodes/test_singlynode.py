@@ -44,3 +44,6 @@ def test_next():
 
 def test_data_property():
     snode = SinglyNode(None)
+    assert getattr(snode, 'data') is None
+    snode.data = 'a string'
+    assert getattr(snode, 'data') == 'a string'
