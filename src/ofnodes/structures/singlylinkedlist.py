@@ -393,9 +393,6 @@ class SinglyLinkedList:
             current_node = current_node.next
         return False
 
-
-
-
     def remove(self, target_data: Any | SinglyNode) -> None:
         """Removes the first occurrence of a node with the specified target data from the linked list.
 
@@ -449,14 +446,13 @@ class SinglyLinkedList:
             (SinglyNode(data='2 node'), None, SinglyNode(data='2 node'))
         """
 
-
         self.target = target_data  # trigger the setter
 
-        if getattr(self, '_head.data') == self._target:
+        if getattr(self._head, 'data') == self._target:
             # node = self._head
             self.remove_head()
             return #node
-        if getattr(self, '_tail.data') == self._target:
+        if getattr(self._tail, 'data') == self._target:
             # node = self._tail
             self.remove_tail()
             return #node
@@ -465,7 +461,7 @@ class SinglyLinkedList:
             if current_node.next is self._target:
                 #node = current_node.next
                 setattr(current_node, '_next', current_node.next.next)
-                return # node
+                return #node
             current_node = current_node.next
 
     def remove_head(self) -> None:

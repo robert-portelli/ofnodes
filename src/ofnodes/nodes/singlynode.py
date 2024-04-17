@@ -41,8 +41,20 @@ class SinglyNode:
 
     @data.setter
     def data(self, value):
-        # all data welcome
-        self._data = value
+        if value: #  TODO: perform data validation
+            validated_data = value
+        setattr(self, '_data', validated_data)
+
+    @data.deleter
+    def data(self):
+        """Deleter property for the data attribute of the singly node.
+
+        Raises:
+            AttributeError: Deleting the `head` attribute is not allowed.
+        """
+        raise AttributeError(
+            f"{type(self).__name__}'s `data` attribute " "cannot be deleted."
+        )
 
     @property
     def next(self):
@@ -51,6 +63,17 @@ class SinglyNode:
     @next.setter
     def next(self, value):
         raise AttributeError("Cannot set 'next' attribute directly. Use linked list methods for modification.")
+
+    @next.deleter
+    def next(self):
+        """Deleter property for the next attribute of the singly node.
+
+        Raises:
+            AttributeError: Deleting the `next` attribute is not allowed.
+        """
+        raise AttributeError(
+            f"{type(self).__name__}'s `next` attribute " "cannot be deleted."
+        )
 
     def __repr__(self) -> str:
         return (
@@ -62,4 +85,3 @@ class SinglyNode:
 
     def __str__(self) -> str:
         return str(self.data)
-    

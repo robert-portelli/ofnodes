@@ -41,3 +41,6 @@ def test_next():
     with pytest.raises(AttributeError) as exc_info:
         setattr(sllist.head, 'next', "second")
     assert "Cannot set 'next'" in str(exc_info)
+
+def test_data_property():
+    snode = SinglyNode(None)

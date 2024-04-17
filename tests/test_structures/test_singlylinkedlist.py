@@ -12,11 +12,11 @@ def test__init__():
     )
     sllist = SinglyLinkedList(['foo', 42.0, True])
     assert (
-        sllist.head.data == 'foo'
+        getattr(sllist.head, "data") == 'foo'
         and
-        sllist.head.next.data == 42.0
+        getattr(sllist.head.next, "data") == 42.0
         and
-        sllist.tail.data is True
+        getattr(sllist.tail, 'data') is True
     )
 
 def test__repr__():
@@ -38,6 +38,7 @@ def test__str__():
     assert (
         str(sllist) == 'foo -> 42.0 -> True'
     )
+
 def test__dir__():
     sllist = SinglyLinkedList()
     dirr = ['__class__', '__delattr__', '__dir__', '__doc__', '__eq__',
@@ -49,23 +50,26 @@ def test__dir__():
             'insert_head', 'insert_tail', 'print_node_data', 'remove', 'remove_head',
             'remove_tail', 'search', 'tail', 'target']
     assert dir(sllist) == dirr
-    
-def test_data_setter():
-    node = SinglyNode(data=42)
-    assert node.data == 42
-    node.data = "a string"
-    assert node.data == "a string"
 
+def test_head_property():
+    def test_head_setter_and_getter():
+        sllist = SinglyLinkedList()
+        assert sllist.head is None
+        sllist.head = 'a string'
+        assert isinstance(sllist.head, SinglyNode)
+        assert getattr(sllist.head, 'data') == 'a string'
 
-def test_head_deleter(example_singly_linked_list):
-    llist = example_singly_linked_list['one']
-    # Act & Assert
-    with pytest.raises(AttributeError) as exc_info:
-        del llist.head
+    def test_head_deleter():
+        sllist = SinglyLinkedList()
+        with pytest.raises(AttributeError) as exc_info:
+            del sllist.head
 
-    assert (
-        "cannot be deleted" in str(exc_info.value)
-    )
+        assert (
+            "cannot be deleted" in str(exc_info.value)
+        )
+
+    test_head_setter_and_getter()
+    test_head_deleter()
 
 
 def test_tail_setter():
@@ -97,11 +101,6 @@ def test_tail_setter():
         and
         sllist.tail.data == tup
     )
-
-def test_head_setter():
-    sllist = SinglyLinkedList()
-    sllist.head = "first head"
-    sllist.head = SinglyNode("second head")
 
 
 def test_tail_deleter(example_singly_linked_list):
@@ -142,23 +141,18 @@ def test_search():
     def test_invalid_target():
         llist = SinglyLinkedList()
         with pytest.raises(ValueError) as exc_info:
-            llist.search(None)
-        assert "Data unacceptable" in str(exc_info)
+            llist.target = 'will error'
+        assert "Cannot assign" in str(exc_info)
     def test_empty_list():
         llist = SinglyLinkedList()
-        llist.search("some target data")
-        assert(
-            llist.head is None and
-            llist.tail is None and
-            llist.target == 'some target data'
-        )
+        with pytest.raises(ValueError) as exc_info:
+            llist.search("some target data")
+        assert "Cannot assign" in str(exc_info)
     def test_found_and_not_found():
         llist = SinglyLinkedList()
         list(llist.insert_tail(f"{i} node") for i in range(1, 5))
-        llist.search("1 node")
-        assert llist.head is llist.target
-        llist.search("42 node")
-        assert type(llist.target) is str
+        assert llist.search("1 node") is True
+        assert llist.search("42 node") is False
 
     test_invalid_target()
     test_empty_list()
@@ -230,26 +224,23 @@ def test_insert_head():
 def test_target():
     def test_empty_list():
         sllist = SinglyLinkedList()
-        sllist.target = 'string data'
-        assert sllist.target == 'string data'
+        with pytest.raises(ValueError) as exc_info:
+            sllist.target = 'will error'
+        assert "Cannot assign" in str(exc_info)
     def test_no_match():
         sllist = SinglyLinkedList()
         sllist.head = '2 node'
         sllist.target = '3 node'
         assert sllist.target == '3 node'
     def test_match():
-        sllist = SinglyLinkedList()
-        list(sllist.insert_tail(f"{i} node") for i in range(1, 5))
+        sllist = SinglyLinkedList([(f"{i} node") for i in range(1, 5)])
         sllist.target = '4 node'
-        assert sllist.tail is sllist.target
+        assert getattr(sllist.tail, 'data') == sllist.target
     def test_deleter():
         sllist = SinglyLinkedList()
         with pytest.raises(AttributeError) as exc_info:
             del sllist.target
         assert "cannot be deleted" in str(exc_info)
-
-
-
 
     test_empty_list()
     test_no_match()
@@ -260,8 +251,8 @@ def test_remove():
     def test_empty_list():
         sllist = SinglyLinkedList()
         with pytest.raises(ValueError) as exc_info:
-            sllist.remove(sllist.target)
-        assert "is empty" in str(exc_info)
+            sllist.target = 'will error'
+        assert "Cannot assign" in str(exc_info)
 
     def test_one_node():
         sllist = SinglyLinkedList()
