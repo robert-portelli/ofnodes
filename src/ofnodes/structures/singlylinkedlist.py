@@ -152,16 +152,12 @@ class SinglyLinkedList:
                 return
 
             case self._head:
-                current_node = self._head
-                while current_node:
-                    if current_node.data == validated_data:
-                        # At least one target match. First target node instance is assigned to {type(self).__name__}'s target property.
-                        setattr(self, '_target', current_node)
-                        return
-                    current_node = current_node.next
-                # No target matches. Target data assigned to {type(self).__name__}'s target property.
-                setattr(self, '_target', validated_data)
-                return
+                if target_data:
+                    #  TODO: data validation
+                    validated_data = target_data
+                    self._target = validated_data
+                    return
+                raise ValueError("Target data unacceptable.")
 
     @target.deleter
     def target(self):
@@ -469,8 +465,7 @@ class SinglyLinkedList:
 
         current_node = self._head
         while current_node.next:
-            if current_node.next is self._target:
-                #node = current_node.next
+            if current_node.next.data == self._target:
                 setattr(current_node, '_next', current_node.next.next)
                 return # node
             current_node = current_node.next
