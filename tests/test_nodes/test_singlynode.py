@@ -35,15 +35,35 @@ def test__str__():
     node = SinglyNode('a string')
     assert str(node) == 'a string'
 
-def test_next():
-    sllist = SinglyLinkedList()
-    sllist.head = "first"
-    with pytest.raises(AttributeError) as exc_info:
-        setattr(sllist.head, 'next', "second")
-    assert "Cannot set 'next'" in str(exc_info)
+def test_next_property():
+    def test_getter_and_setter():
+        sllist = SinglyLinkedList()
+        sllist.head = "first"
+        with pytest.raises(AttributeError) as exc_info:
+            setattr(sllist.head, 'next', "second")
+        assert "Cannot set 'next'" in str(exc_info)
+
+    def test_deleter():
+        snode = SinglyNode(None)
+        with pytest.raises(AttributeError) as exc_info:
+            del snode.next
+        assert "cannot be deleted" in str(exc_info)
+
+    test_getter_and_setter()
+    test_deleter()
 
 def test_data_property():
-    snode = SinglyNode(None)
-    assert getattr(snode, 'data') is None
-    snode.data = 'a string'
-    assert getattr(snode, 'data') == 'a string'
+    def test_getter_and_setter():
+        snode = SinglyNode(None)
+        assert getattr(snode, 'data') is None
+        snode.data = 'a string'
+        assert getattr(snode, 'data') == 'a string'
+
+    def test_deleter():
+        snode = SinglyNode(None)
+        with pytest.raises(AttributeError) as exc_info:
+            del snode.data
+        assert "cannot be deleted" in str(exc_info)
+
+    test_getter_and_setter()
+    test_deleter()
