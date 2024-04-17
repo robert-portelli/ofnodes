@@ -138,30 +138,18 @@ class SinglyLinkedList:
         Args:
             target (Any): The data for which to match to node data.
         """
-        match target_data:
-            case target_data if target_data:
-                #  TODO: data validation
-                validated_data = target_data
-            case _:
-                raise ValueError("Data unacceptable")
 
         match self._head:
             case None:
-                # Empty `SinglyLinkedList()`. Target data is assigned to {type(self).__name__}'s target property.
-                self._target = validated_data
-                return
+                raise ValueError(f"Cannot assign target data to empty {type(self).__name__}.")
 
             case self._head:
-                current_node = self._head
-                while current_node:
-                    if current_node.data == validated_data:
-                        # At least one target match. First target node instance is assigned to {type(self).__name__}'s target property.
-                        setattr(self, '_target', current_node)
-                        return
-                    current_node = current_node.next
-                # No target matches. Target data assigned to {type(self).__name__}'s target property.
-                setattr(self, '_target', validated_data)
-                return
+                if target_data:
+                    #  TODO: data validation
+                    validated_data = target_data
+                    self._target = validated_data
+                    return
+                raise ValueError("Target data unacceptable.")
 
 
     @target.deleter
@@ -398,6 +386,13 @@ class SinglyLinkedList:
             True
         """
         self.target = target_data  # trigger the setter
+        current_node = self._head
+        while current_node:
+            if current_node.data == self._target:
+                return True
+            current_node = current_node.next
+        return False
+
 
 
 
@@ -454,21 +449,18 @@ class SinglyLinkedList:
             (SinglyNode(data='2 node'), None, SinglyNode(data='2 node'))
         """
 
-        if not self._head:
-            raise ValueError("The linked list is empty.")
 
         self.target = target_data  # trigger the setter
 
-        if self._head is self._target:
+        if getattr(self, '_head.data') == self._target:
             # node = self._head
             self.remove_head()
             return #node
-        if self._tail is self._target:
+        if getattr(self, '_tail.data') == self._target:
             # node = self._tail
             self.remove_tail()
             return #node
-
-        current_node = self._head
+        current_node = getattr(self, '_head')
         while current_node.next:
             if current_node.next is self._target:
                 #node = current_node.next
