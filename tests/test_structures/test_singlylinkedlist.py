@@ -278,8 +278,14 @@ def test_remove():
         sllist.remove('3 node')
         assert sllist.head.next.next.data != '3 node'
 
+    def test_remove_first_encounter():
+        sllist = SinglyLinkedList(['foo', 'bar', 'bar'])
+        first_encounter = sllist.head.next
+        sllist.remove('bar')
+        assert first_encounter is not sllist.tail
 
     test_empty_list()
     test_one_node()
     test_two_nodes()
     test_many_nodes()
+    test_remove_first_encounter()

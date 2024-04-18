@@ -355,12 +355,28 @@ class SinglyLinkedList:
         self.tail = data  # trigger the tail setter
 
     def insert_after_target(self, target_data: Any, data_to_insert: Any) -> None:
+        """
+        steps:
+        1) the target data is validated
+        2) the head data is checked for the target
+            - if True, the linked list is checked if it's a one node list
+                - if True, simply use the tail property to insert after the head
+                - if False, the list contains more than one node
+        3) the tail data is checked for the target
+            - if True, simply use
+        """
         self.target = target_data  # trigger the setter
-        for node in self:
-            if node.data == self.target:
-                new_node = SinglyNode(data_to_insert)  # SinglyNode() validates data_to_insert
-                setattr(new_node, 'next', node.next)  # insert after target
-                node.next = new_node  # insert after target
+        if getattr(self._head, 'data') == self._target:
+            if self._head is self._tail:  # it's a one node list
+                self.tail = self.target  # trigger the setter
+                return
+            # it's a more than one node list
+            new_node = SinglyNode(data_to_insert)  # SinglyNode() will validate input
+            setattr(new_node, '_next', getattr(self._head, '_next'))  # insert after()
+            setattr(self._head, '_next', new_node)  # insert after()
+            return
+        if getattr(self._tail, 'data') == self.target:
+            self.tail = self.target  # trigger the setter
 
     def insert_before_target(self, target_data, data_to_insert):
         """The traversal doesn't have to account for head or tail because
@@ -369,30 +385,18 @@ class SinglyLinkedList:
         using current_node.next for traversal accounts for a one node list
         as .next is not set on the head of a one node list."""
         self.target = target_data
-        if getattr(self._head, 'data') == self.target:
+        if getattr(self._head, 'data') == self._target:
             self.head = data_to_insert  # trigger the setter
             return
-        if getattr(self._tail, 'data') == self.target:
-            self.tail = data_to_insert  # trigger the setter
-            return
-        current_node = self._head
-
-        for node in self:
-            if node.next.data == self.target:
-                match node:
-                    case self._head:
-                        self.head = self.target  # trigger the setter
-                    case self._tail:
-                        self.tail = self.target  # trigger the setter
-                    case _:
-                        new_node = SinglyNode(data_to_insert)  # SinglyNode() validates data_to_insert
-
-                if node is self._head:
-                    self.head = self.target
-                    return
-                if node is self._tail:
-                    self.tail = self.target
-                    return
+        current_node = getattr(self, '_head')  # traversal
+        while current_node.next: #is not self._tail:  # traversal # (tail needed) # start from head.next
+            if current_node.next.data == self._target:  # peek
+                #node = current_node.next  # the node containing the target
+                new_node = SinglyNode(self._target)
+                setattr(new_node, '_next', current_node.next)  # insert_before()
+                setattr(current_node, '_next', new_node)  # insert before()
+                return #node
+            current_node = current_node.next  # traversal
 
     def replace_target_with(self):
         pass
@@ -500,8 +504,8 @@ class SinglyLinkedList:
             self.remove_tail()
             return #node
         current_node = getattr(self, '_head')  # traversal
-        while current_node.next is not self._tail:  # traversal
-            if current_node.next.data == self._target:
+        while current_node.next is not self._tail:  # traversal (tail already checked)
+            if current_node.next.data == self._target:  # peek
                 #node = current_node.next  # the node to be removed
                 setattr(current_node, '_next', current_node.next.next)  # remove()
                 return #node
