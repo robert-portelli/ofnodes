@@ -371,11 +371,14 @@ class SinglyLinkedList:
             if self._head is self._tail:  # it's a one node list
                 self.tail = SinglyNode(data_to_insert)  # trigger the setter, SinglyNode() will validate input
                 return
-            # it's a more than one node list
-            new_node = SinglyNode(data_to_insert)  # SinglyNode() will validate input
-            setattr(new_node, '_next', getattr(self._head, '_next'))  # insert after()
-            setattr(self._head, '_next', new_node)  # insert after()
-            return
+        current_node = getattr(self, '_head')  # traversal
+        while current_node is not self._tail:  # traversal
+            if current_node.data == self._target:
+                new_node = SinglyNode(data_to_insert)  # SinglyNode() will validate input
+                setattr(new_node, '_next', current_node.next)  # insert after()
+                setattr(current_node, '_next', new_node)  # insert after()
+                return
+            current_node = current_node.next  # traversal
         if getattr(self._tail, 'data') == self.target:
             self.tail = SinglyNode(data_to_insert)  # trigger the setter
 
@@ -641,4 +644,4 @@ class SinglyLinkedList:
             current_node = current_node.next
 
 if __name__ == "__main__":
-    sllist = SinglyLinkedList(['foo', 'bar', 'baz'])
+    sllist = SinglyLinkedList(['foo', 'bar', 'bar'])
