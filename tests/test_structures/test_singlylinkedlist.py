@@ -46,7 +46,7 @@ def test__dir__():
             '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__',
             '__lt__', '__module__', '__ne__', '__new__', '__reduce__',
             '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__',
-            '__slots__', '__str__', '__subclasshook__', 'head',
+            '__slots__', '__str__', '__subclasshook__', 'head', 'insert_after_target', 'insert_before_target',
             'insert_head', 'insert_tail', 'print_node_data', 'remove', 'remove_head',
             'remove_tail', 'search', 'tail', 'target']
     assert dir(sllist) == dirr
@@ -70,7 +70,6 @@ def test_head_property():
 
     test_head_setter_and_getter()
     test_head_deleter()
-
 
 def test_tail_setter():
     """
@@ -101,7 +100,6 @@ def test_tail_setter():
         and
         sllist.tail.data == tup
     )
-
 
 def test_tail_deleter(example_singly_linked_list):
     llist = example_singly_linked_list['one']
@@ -275,7 +273,20 @@ def test_insert_after_target():
     test_traverse_insert_after_tail()
     test_first_encounter()
 
+def test_insert_before_target():
+    def test_insert_before_head():
+        sllist = SinglyLinkedList(['foo', 'bar'])
+        sllist.insert_before_target('foo', 'before head')
+        assert getattr(sllist.head, 'data') == 'before head'
+        assert getattr(sllist.head.next, 'data') == 'foo'
+    def test_traversal_before_tail():
+        sllist = SinglyLinkedList(['foo', 'bar', 'baz'])
+        sllist.insert_before_target('baz', 'before tail')
+        assert getattr(sllist.tail, 'data') == 'baz'
+        assert getattr(sllist.head.next.next, 'data') == 'before tail'
 
+    test_insert_before_head()
+    test_traversal_before_tail()
 def test_remove():
     def test_empty_list():
         sllist = SinglyLinkedList()
