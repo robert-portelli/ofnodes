@@ -366,6 +366,7 @@ class SinglyLinkedList:
             - if True, simply use
         """
         self.target = target_data  # trigger the setter
+        # insert after the first encounter
         if getattr(self._head, 'data') == self._target:
             if self._head is self._tail:  # it's a one node list
                 self.tail = self.target  # trigger the setter
@@ -384,7 +385,8 @@ class SinglyLinkedList:
 
         using current_node.next for traversal accounts for a one node list
         as .next is not set on the head of a one node list."""
-        self.target = target_data
+        self.target = target_data  # trigger setter
+        # insert before first occurence
         if getattr(self._head, 'data') == self._target:
             self.head = data_to_insert  # trigger the setter
             return
@@ -499,10 +501,7 @@ class SinglyLinkedList:
             # node = self._head  # the node to be removed
             self.remove_head()
             return #node
-        if getattr(self._tail, 'data') == self._target:
-            # node = self._tail  # the node to be removed
-            self.remove_tail()
-            return #node
+
         current_node = getattr(self, '_head')  # traversal
         while current_node.next is not self._tail:  # traversal (tail already checked)
             if current_node.next.data == self._target:  # peek
@@ -510,6 +509,11 @@ class SinglyLinkedList:
                 setattr(current_node, '_next', current_node.next.next)  # remove()
                 return #node
             current_node = current_node.next  # traversal
+
+        if getattr(self._tail, 'data') == self._target:
+            # node = self._tail  # the node to be removed
+            self.remove_tail()
+            return #node
 
     def remove_head(self) -> None:
         """Removes the head node from the linked list.
@@ -635,3 +639,11 @@ class SinglyLinkedList:
         while current_node:
             print(current_node.data)
             current_node = current_node.next
+
+if __name__ == "__main__":
+    sllist = SinglyLinkedList(['foo', 'bar', 'baz'])
+    sllist.remove('baz')
+    #sllist
+
+    sllist.remove('bar')
+    #sllist
