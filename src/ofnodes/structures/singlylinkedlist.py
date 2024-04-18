@@ -369,7 +369,7 @@ class SinglyLinkedList:
         # insert after the first encounter
         if getattr(self._head, 'data') == self._target:
             if self._head is self._tail:  # it's a one node list
-                self.tail = SinglyNode(data_to_insert)  # trigger the setter, SinglyNode() will validate input
+                self.tail = data_to_insert  # trigger the setter, tail property will validate input
                 return
         current_node = getattr(self, '_head')  # traversal
         while current_node is not self._tail:  # traversal
@@ -380,7 +380,7 @@ class SinglyLinkedList:
                 return
             current_node = current_node.next  # traversal
         if getattr(self._tail, 'data') == self.target:
-            self.tail = SinglyNode(data_to_insert)  # trigger the setter
+            self.tail = data_to_insert  # # trigger the setter, tail property will validate input
 
     def insert_before_target(self, target_data, data_to_insert):
         """The traversal doesn't have to account for head or tail because
@@ -391,20 +391,17 @@ class SinglyLinkedList:
         self.target = target_data  # trigger setter
         # insert before first occurence
         if getattr(self._head, 'data') == self._target:
-            self.head = data_to_insert  # trigger the setter
+            self.head = data_to_insert  # trigger the setter, head property will validate input
             return
         current_node = getattr(self, '_head')  # traversal
-        while current_node.next: #is not self._tail:  # traversal # (tail needed) # start from head.next
+        while current_node: # traversal
             if current_node.next.data == self._target:  # peek
                 #node = current_node.next  # the node containing the target
-                new_node = SinglyNode(self._target)
+                new_node = SinglyNode(data_to_insert)
                 setattr(new_node, '_next', current_node.next)  # insert_before()
                 setattr(current_node, '_next', new_node)  # insert before()
                 return #node
             current_node = current_node.next  # traversal
-
-    def replace_target_with(self):
-        pass
 
     def search(self, target_data):
         """Searches each node's data in a linked list until the first occurrence of
@@ -642,6 +639,3 @@ class SinglyLinkedList:
         while current_node:
             print(current_node.data)
             current_node = current_node.next
-
-if __name__ == "__main__":
-    sllist = SinglyLinkedList(['foo', 'bar', 'bar'])
