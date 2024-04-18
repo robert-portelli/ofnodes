@@ -244,8 +244,8 @@ def test_target():
     test_unacceptable_data()
 
 def test_insert_after_target():
-    sllist = SinglyLinkedList()
-    sllist.head = 'first node'
+    sllist = SinglyLinkedList('first node')
+    #sllist.head = 'first node'
     sllist.insert_after_target('first node', 'second node')
     assert getattr(sllist.head, 'next') is getattr(sllist, 'tail')
     assert getattr(sllist.tail, 'data') == 'second node'
@@ -253,6 +253,8 @@ def test_insert_after_target():
     assert getattr(sllist.head.next, 'data') == 'between nodes'
     sllist.insert_after_target('second node', 'after tail')
     assert getattr(sllist.tail, 'data') == 'after tail'
+    #def test_first_encounter():
+        #sllist = SinglyLinkedList()
 
 def test_remove():
     def test_empty_list():
