@@ -369,7 +369,7 @@ class SinglyLinkedList:
         # insert after the first encounter
         if getattr(self._head, 'data') == self._target:
             if self._head is self._tail:  # it's a one node list
-                self.tail = self.target  # trigger the setter
+                self.tail = SinglyNode(data_to_insert)  # trigger the setter, SinglyNode() will validate input
                 return
             # it's a more than one node list
             new_node = SinglyNode(data_to_insert)  # SinglyNode() will validate input
@@ -377,7 +377,7 @@ class SinglyLinkedList:
             setattr(self._head, '_next', new_node)  # insert after()
             return
         if getattr(self._tail, 'data') == self.target:
-            self.tail = self.target  # trigger the setter
+            self.tail = SinglyNode(data_to_insert)  # trigger the setter
 
     def insert_before_target(self, target_data, data_to_insert):
         """The traversal doesn't have to account for head or tail because
@@ -642,8 +642,3 @@ class SinglyLinkedList:
 
 if __name__ == "__main__":
     sllist = SinglyLinkedList(['foo', 'bar', 'baz'])
-    sllist.remove('baz')
-    #sllist
-
-    sllist.remove('bar')
-    #sllist
