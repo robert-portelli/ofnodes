@@ -354,6 +354,49 @@ class SinglyLinkedList:
         """
         self.tail = data  # trigger the tail setter
 
+    def insert_after_target(self, target_data: Any, data_to_insert: Any) -> None:
+        self.target = target_data  # trigger the setter
+        for node in self:
+            if node.data == self.target:
+                new_node = SinglyNode(data_to_insert)  # SinglyNode() validates data_to_insert
+                setattr(new_node, 'next', node.next)  # insert after target
+                node.next = new_node  # insert after target
+
+    def insert_before_target(self, target_data, data_to_insert):
+        """The traversal doesn't have to account for head or tail because
+        each is explicitly checked before traversal.
+
+        using current_node.next for traversal accounts for a one node list
+        as .next is not set on the head of a one node list."""
+        self.target = target_data
+        if getattr(self._head, 'data') == self.target:
+            self.head = data_to_insert  # trigger the setter
+            return
+        if getattr(self._tail, 'data') == self.target:
+            self.tail = data_to_insert  # trigger the setter
+            return
+        current_node = self._head
+
+        for node in self:
+            if node.next.data == self.target:
+                match node:
+                    case self._head:
+                        self.head = self.target  # trigger the setter
+                    case self._tail:
+                        self.tail = self.target  # trigger the setter
+                    case _:
+                        new_node = SinglyNode(data_to_insert)  # SinglyNode() validates data_to_insert
+
+                if node is self._head:
+                    self.head = self.target
+                    return
+                if node is self._tail:
+                    self.tail = self.target
+                    return
+
+    def replace_target_with(self):
+        pass
+
     def search(self, target_data):
         """Searches each node's data in a linked list until the first occurrence of
         the target is found.
@@ -449,20 +492,20 @@ class SinglyLinkedList:
         self.target = target_data  # trigger the setter
 
         if getattr(self._head, 'data') == self._target:
-            # node = self._head
+            # node = self._head  # the node to be removed
             self.remove_head()
             return #node
         if getattr(self._tail, 'data') == self._target:
-            # node = self._tail
+            # node = self._tail  # the node to be removed
             self.remove_tail()
             return #node
-        current_node = getattr(self, '_head')
-        while current_node.next:
+        current_node = getattr(self, '_head')  # traversal
+        while current_node.next is not self._tail:  # traversal
             if current_node.next.data == self._target:
-                #node = current_node.next
-                setattr(current_node, '_next', current_node.next.next)
+                #node = current_node.next  # the node to be removed
+                setattr(current_node, '_next', current_node.next.next)  # remove()
                 return #node
-            current_node = current_node.next
+            current_node = current_node.next  # traversal
 
     def remove_head(self) -> None:
         """Removes the head node from the linked list.
