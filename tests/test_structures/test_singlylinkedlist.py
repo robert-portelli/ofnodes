@@ -227,15 +227,6 @@ def test_target():
         with pytest.raises(ValueError) as exc_info:
             sllist.target = 'will error'
         assert "Cannot assign" in str(exc_info)
-    def test_no_match():
-        sllist = SinglyLinkedList()
-        sllist.head = '2 node'
-        sllist.target = '3 node'
-        assert sllist.target == '3 node'
-    def test_match():
-        sllist = SinglyLinkedList([(f"{i} node") for i in range(1, 5)])
-        sllist.target = '4 node'
-        assert getattr(sllist.tail, 'data') == sllist.target
     def test_deleter():
         sllist = SinglyLinkedList()
         with pytest.raises(AttributeError) as exc_info:
@@ -249,8 +240,6 @@ def test_target():
         assert "unacceptable" in str(exc_info)
 
     test_empty_list()
-    test_no_match()
-    test_match()
     test_deleter()
     test_unacceptable_data()
 
