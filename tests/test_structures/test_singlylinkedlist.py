@@ -244,17 +244,37 @@ def test_target():
     test_unacceptable_data()
 
 def test_insert_after_target():
-    sllist = SinglyLinkedList('first node')
-    #sllist.head = 'first node'
-    sllist.insert_after_target('first node', 'second node')
-    assert getattr(sllist.head, 'next') is getattr(sllist, 'tail')
-    assert getattr(sllist.tail, 'data') == 'second node'
-    sllist.insert_after_target('first node', 'between nodes')
-    assert getattr(sllist.head.next, 'data') == 'between nodes'
-    sllist.insert_after_target('second node', 'after tail')
-    assert getattr(sllist.tail, 'data') == 'after tail'
-    #def test_first_encounter():
-        #sllist = SinglyLinkedList()
+    def test_insert_after_one_node():
+        sllist = SinglyLinkedList(['foo'])
+        sllist.insert_after_target('foo', 'bar')
+        assert getattr(sllist.head, 'next') is getattr(sllist, 'tail')
+        assert getattr(sllist.tail, 'data') == 'bar'
+    def test_insert_after_between_two_nodes():
+        sllist = SinglyLinkedList(['foo', 'bar'])
+        sllist.insert_after_target('foo', 'between nodes')
+        assert getattr(sllist.head.next, 'data') == 'between nodes'
+    def test_traverse_insert_after_before_tail():
+        sllist = SinglyLinkedList(['foo', 'bar', 'moo', 'shoe'])
+        sllist.insert_after_target('moo', 'before tail')
+        assert getattr(sllist.head.next.next.next, 'data') == 'before tail'
+        assert getattr(sllist.tail, 'data') == 'shoe'
+    def test_traverse_insert_after_tail():
+        sllist = SinglyLinkedList(['foo', 'bar', 'moo', 'shoe'])
+        sllist.insert_after_target('shoe', 'after tail')
+        assert getattr(sllist.head.next.next.next, 'data') == 'shoe'
+        assert getattr(sllist.tail, 'data') == 'after tail'
+    def test_first_encounter():
+        sllist = SinglyLinkedList(['foo', 'bar', 'bar'])
+        first_encounter = getattr(sllist.head, 'next')
+        sllist.insert_after_target('bar', 'biz')
+        assert getattr(sllist.head, 'next') is first_encounter
+        assert getattr(sllist.head.next.next, 'data') == 'biz'
+    test_insert_after_one_node()
+    test_insert_after_between_two_nodes()
+    test_traverse_insert_after_before_tail()
+    test_traverse_insert_after_tail()
+    test_first_encounter()
+
 
 def test_remove():
     def test_empty_list():
