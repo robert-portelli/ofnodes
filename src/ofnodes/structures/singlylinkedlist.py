@@ -355,16 +355,6 @@ class SinglyLinkedList:
         self.tail = data  # trigger the tail setter
 
     def insert_after_target(self, target_data: Any, data_to_insert: Any) -> None:
-        """
-        steps:
-        1) the target data is validated
-        2) the head data is checked for the target
-            - if True, the linked list is checked if it's a one node list
-                - if True, simply use the tail property to insert after the head
-                - if False, the list contains more than one node
-        3) the tail data is checked for the target
-            - if True, simply use
-        """
         self.target = target_data  # trigger the setter
         # insert after the first encounter
         if getattr(self._head, 'data') == self._target:
@@ -383,13 +373,46 @@ class SinglyLinkedList:
             self.tail = data_to_insert  # # trigger the setter, tail property will validate input
 
     def insert_before_target(self, target_data, data_to_insert):
-        """The traversal doesn't have to account for head or tail because
-        each is explicitly checked before traversal.
+        """
+        Inserts a new node containing the specified data before the first occurrence
+        of the target data in the linked list.
 
-        using current_node.next for traversal accounts for a one node list
-        as .next is not set on the head of a one node list."""
+        Args:
+            target_data: The data value to search for in the linked list.
+            data_to_insert: The data value to insert before the target data.
+
+        Returns:
+            None: This method does not return anything. It operates on a\
+            `SinglyLinkedList()` instance.
+
+        Raises:
+            ValueError: If the target data is not found in the linked list.
+
+        Note:
+            This method assumes that the linked list has already been instantiated.
+            If the target data is found at the head of the linked list, the new node
+            will become the new head of the list.
+
+        Examples:
+            >>> sllist = SinglyLinkedList(['foo', 'bar'])
+            >>> sllist.insert_before_target('foo', 'before_head')
+            >>> sllist
+            SinglyLinkedList(['before_head', 'foo', 'bar'])
+            >>> sllist.insert_before_target('bar', 42.0)
+            >>> sllist
+            SinglyLinkedList(['before_head', 'foo', 42.0, 'bar'])
+            >>> first_encounter = sllist.tail
+            >>> sllist.tail = 'bar'
+            >>> sllist
+            SinglyLinkedList(['before_head', 'foo', 42.0, 'bar', 'bar'])
+            >>> first_encounter is not sllist.tail
+            True
+            >>> sllist.insert_before_target('bar', {'lisianthus': True})
+            >>> sllist
+            SinglyLinkedList(['before_head', 'foo', 42.0, {'lisianthus': True}, 'bar', 'bar'])
+        """
         self.target = target_data  # trigger setter
-        # insert before first occurence
+        # insert before first occurrence
         if getattr(self._head, 'data') == self._target:
             self.head = data_to_insert  # trigger the setter, head property will validate input
             return
