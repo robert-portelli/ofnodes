@@ -365,7 +365,7 @@ class SinglyLinkedList:
                 self.tail = data_to_insert  # trigger the setter, tail property will validate input
                 return True
         # check between head and tail
-        current_node = getattr(self._head, 'next')  # traversal
+        current_node = getattr(self, '_head')  # traversal
         while current_node is not self._tail:  # traversal
             if current_node.data == self._target:
                 new_node = SinglyNode(data_to_insert)  # SinglyNode() will validate input
