@@ -267,11 +267,20 @@ def test_insert_after_target():
         sllist.insert_after_target('bar', 'biz')
         assert getattr(sllist.head, 'next') is first_encounter
         assert getattr(sllist.head.next.next, 'data') == 'biz'
+    def test_no_target_match():
+        sllist = SinglyLinkedList(['foo', 'bar'])
+        assert sllist.insert_after_target('baz', 'new node') is False
+    def test_no_target_match_empty_list():
+        sllist = SinglyLinkedList()
+        assert sllist.insert_after_target('baz', 'new node') is False
+
     test_insert_after_one_node()
     test_insert_after_between_two_nodes()
     test_traverse_insert_after_before_tail()
     test_traverse_insert_after_tail()
     test_first_encounter()
+    test_no_target_match()
+    test_no_target_match_empty_list()
 
 def test_insert_before_target():
     def test_insert_before_head():
@@ -284,9 +293,18 @@ def test_insert_before_target():
         sllist.insert_before_target('baz', 'before tail')
         assert getattr(sllist.tail, 'data') == 'baz'
         assert getattr(sllist.head.next.next, 'data') == 'before tail'
+    def test_no_target_match():
+        sllist = SinglyLinkedList(['foo', 'bar'])
+        assert sllist.insert_before_target('baz', 'new node') is False
+    def test_no_target_match_empty_list():
+        sllist = SinglyLinkedList()
+        assert sllist.insert_before_target('baz', 'new node') is False
 
     test_insert_before_head()
     test_traversal_before_tail()
+    test_no_target_match()
+    test_no_target_match_empty_list()
+
 def test_remove():
     def test_empty_list():
         sllist = SinglyLinkedList()
