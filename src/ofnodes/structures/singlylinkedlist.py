@@ -355,18 +355,41 @@ class SinglyLinkedList:
         self.tail = data  # trigger the tail setter
 
     def insert_after_target(self, target_data: Any, data_to_insert: Any) -> bool:
+        """
+        Inserts a new node containing the specified data after the first occurrence
+        of the target data in the linked list.
+
+        Args:
+            target_data (Any): The data value to search for in the linked list.
+            data_to_insert (Any): The data value to insert after the target data.
+
+        Returns:
+            bool: True if the insertion was successful, False otherwise.
+
+        Raises:
+            ValueError: If the target data is not found in the linked list.
+
+        Note:
+            This method triggers the setter for the target data attribute.
+            If the target data is found at the head of the linked list and the list
+            contains only one node, the new node becomes the new tail of the list.
+            Otherwise, the method traverses the list to find the target data and inserts
+            the new node immediately after it. If the target data is found at the tail,
+            the new node becomes the new tail of the list.
+        """
         try:
             self.target = target_data  # trigger the setter
         except ValueError:
             return False
-        # check head
-        if getattr(self._head, 'data') == self._target:
+        # check head and if it's a one node list
+        if self._head and self._head.data == self._target:
             if self._head is self._tail:  # it's a one node list
                 self.tail = data_to_insert  # trigger the setter, tail property will validate input
                 return True
-        # check between head and tail
-        current_node = getattr(self, '_head')  # traversal
-        while current_node is not self._tail:  # traversal
+
+        # check each node in the list from head until, but not including, the tail
+        current_node = self._head
+        while current_node and current_node is not self._tail:  # traversal
             if current_node.data == self._target:
                 new_node = SinglyNode(data_to_insert)  # SinglyNode() will validate input
                 setattr(new_node, '_next', current_node.next)  # insert after()

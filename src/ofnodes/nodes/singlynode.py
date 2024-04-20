@@ -58,6 +58,13 @@ class SinglyNode:
 
     @property
     def next(self):
+        """Getter property for the next node in the singly linked list.
+
+        Note:
+            This property allows access to the next node in the linked list. Modifying
+            the next node should be done using linked list methods for consistency and
+            to maintain the integrity of the linked list structure.
+        """
         return self._next
 
     @next.setter
