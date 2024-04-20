@@ -260,6 +260,24 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ofnodes.SinglyLinkedList.insert_after_target" class="md-nav__link">
+    <span class="md-ellipsis">
+      insert_after_target
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ofnodes.SinglyLinkedList.insert_before_target" class="md-nav__link">
+    <span class="md-ellipsis">
+      insert_before_target
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ofnodes.SinglyLinkedList.insert_head" class="md-nav__link">
     <span class="md-ellipsis">
       insert_head
@@ -333,6 +351,21 @@
       SinglyNode
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="SinglyNode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ofnodes.SinglyNode.next" class="md-nav__link">
+    <span class="md-ellipsis">
+      next
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -522,6 +555,24 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ofnodes.SinglyLinkedList.insert_after_target" class="md-nav__link">
+    <span class="md-ellipsis">
+      insert_after_target
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ofnodes.SinglyLinkedList.insert_before_target" class="md-nav__link">
+    <span class="md-ellipsis">
+      insert_before_target
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ofnodes.SinglyLinkedList.insert_head" class="md-nav__link">
     <span class="md-ellipsis">
       insert_head
@@ -595,6 +646,21 @@
       SinglyNode
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="SinglyNode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ofnodes.SinglyNode.next" class="md-nav__link">
+    <span class="md-ellipsis">
+      next
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1340,7 +1406,107 @@ node in the sequence.</p>
 <span class="normal">596</span>
 <span class="normal">597</span>
 <span class="normal">598</span>
-<span class="normal">599</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">SinglyLinkedList</span><span class="p">:</span>
+<span class="normal">599</span>
+<span class="normal">600</span>
+<span class="normal">601</span>
+<span class="normal">602</span>
+<span class="normal">603</span>
+<span class="normal">604</span>
+<span class="normal">605</span>
+<span class="normal">606</span>
+<span class="normal">607</span>
+<span class="normal">608</span>
+<span class="normal">609</span>
+<span class="normal">610</span>
+<span class="normal">611</span>
+<span class="normal">612</span>
+<span class="normal">613</span>
+<span class="normal">614</span>
+<span class="normal">615</span>
+<span class="normal">616</span>
+<span class="normal">617</span>
+<span class="normal">618</span>
+<span class="normal">619</span>
+<span class="normal">620</span>
+<span class="normal">621</span>
+<span class="normal">622</span>
+<span class="normal">623</span>
+<span class="normal">624</span>
+<span class="normal">625</span>
+<span class="normal">626</span>
+<span class="normal">627</span>
+<span class="normal">628</span>
+<span class="normal">629</span>
+<span class="normal">630</span>
+<span class="normal">631</span>
+<span class="normal">632</span>
+<span class="normal">633</span>
+<span class="normal">634</span>
+<span class="normal">635</span>
+<span class="normal">636</span>
+<span class="normal">637</span>
+<span class="normal">638</span>
+<span class="normal">639</span>
+<span class="normal">640</span>
+<span class="normal">641</span>
+<span class="normal">642</span>
+<span class="normal">643</span>
+<span class="normal">644</span>
+<span class="normal">645</span>
+<span class="normal">646</span>
+<span class="normal">647</span>
+<span class="normal">648</span>
+<span class="normal">649</span>
+<span class="normal">650</span>
+<span class="normal">651</span>
+<span class="normal">652</span>
+<span class="normal">653</span>
+<span class="normal">654</span>
+<span class="normal">655</span>
+<span class="normal">656</span>
+<span class="normal">657</span>
+<span class="normal">658</span>
+<span class="normal">659</span>
+<span class="normal">660</span>
+<span class="normal">661</span>
+<span class="normal">662</span>
+<span class="normal">663</span>
+<span class="normal">664</span>
+<span class="normal">665</span>
+<span class="normal">666</span>
+<span class="normal">667</span>
+<span class="normal">668</span>
+<span class="normal">669</span>
+<span class="normal">670</span>
+<span class="normal">671</span>
+<span class="normal">672</span>
+<span class="normal">673</span>
+<span class="normal">674</span>
+<span class="normal">675</span>
+<span class="normal">676</span>
+<span class="normal">677</span>
+<span class="normal">678</span>
+<span class="normal">679</span>
+<span class="normal">680</span>
+<span class="normal">681</span>
+<span class="normal">682</span>
+<span class="normal">683</span>
+<span class="normal">684</span>
+<span class="normal">685</span>
+<span class="normal">686</span>
+<span class="normal">687</span>
+<span class="normal">688</span>
+<span class="normal">689</span>
+<span class="normal">690</span>
+<span class="normal">691</span>
+<span class="normal">692</span>
+<span class="normal">693</span>
+<span class="normal">694</span>
+<span class="normal">695</span>
+<span class="normal">696</span>
+<span class="normal">697</span>
+<span class="normal">698</span>
+<span class="normal">699</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">SinglyLinkedList</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A class representing a singly linked list.</span>
 
 <span class="sd">    This class provides functionality to create and manipulate a singly linked list</span>
@@ -1360,10 +1526,14 @@ node in the sequence.</p>
 
     <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;_head&#39;</span><span class="p">,</span> <span class="s1">&#39;_tail&#39;</span><span class="p">,</span> <span class="s1">&#39;_target&#39;</span><span class="p">,)</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">SinglyNode</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_tail</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">SinglyNode</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="o">|</span><span class="n">SinglyNode</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">values</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">value</span>
+
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">head</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SinglyNode</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
@@ -1465,34 +1635,24 @@ node in the sequence.</p>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span>
 
     <span class="nd">@target</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_data</span><span class="p">:</span> <span class="n">Any</span> <span class="o">|</span> <span class="n">SinglyNode</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_data</span><span class="p">:</span> <span class="n">Any</span> <span class="o">|</span> <span class="n">SinglyNode</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Setter property for the target node data of the linked list.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            target (Any): The data for which to match to node data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">match</span> <span class="n">target_data</span><span class="p">:</span>
-            <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
-                <span class="c1">#  TODO: data validation</span>
-                <span class="n">validated_data</span> <span class="o">=</span> <span class="n">target_data</span>
-
         <span class="k">match</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">:</span>
             <span class="n">case</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="c1">#print(f&quot;Empty `SinglyLinkedList()`. Target data is assigned to {type(self).__name__}&#39;s target property.&quot;)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_target</span> <span class="o">=</span> <span class="n">validated_data</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cannot assign target data to empty </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 
             <span class="k">case</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">:</span>
-                <span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span>
-                <span class="k">while</span> <span class="n">current_node</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="n">current_node</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="n">validated_data</span><span class="p">:</span>
-                        <span class="c1">#print(f&quot;&quot;&quot;At least one target match. First target node instance is assigned to {type(self).__name__}&#39;s target property.&quot;&quot;&quot;)</span>
-                        <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_target&#39;</span><span class="p">,</span> <span class="n">current_node</span><span class="p">)</span>
-                        <span class="k">return</span>
-                    <span class="n">current_node</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span>
-                <span class="c1">#print(f&quot;&quot;&quot;No target matches. Target data assigned to {type(self).__name__}&#39;s target property.&quot;&quot;&quot;)</span>
-                <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_target&#39;</span><span class="p">,</span> <span class="n">validated_data</span><span class="p">)</span>
-                <span class="k">return</span>
+                <span class="k">if</span> <span class="n">target_data</span><span class="p">:</span>
+                    <span class="c1">#  TODO: data validation</span>
+                    <span class="n">validated_data</span> <span class="o">=</span> <span class="n">target_data</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_target</span> <span class="o">=</span> <span class="n">validated_data</span>
+                    <span class="k">return</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Target data unacceptable.&quot;</span><span class="p">)</span>
 
 
     <span class="nd">@target</span><span class="o">.</span><span class="n">deleter</span>
@@ -1575,16 +1735,25 @@ node in the sequence.</p>
         <span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(head=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">head</span><span class="si">}</span><span class="s2">, tail=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">tail</span><span class="si">}</span><span class="s2">, target=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="c1">#return f&quot;{type(self).__name__}(head={type(self.head).__name__}, tail={self.tail})&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;SinglyLinkedList()&quot;</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span>
+        <span class="n">nodes</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">while</span> <span class="n">node</span><span class="p">:</span>
+            <span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+            <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">([&quot;</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;])&quot;</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="k">match</span> <span class="bp">self</span><span class="p">:</span>
-            <span class="k">case</span> <span class="n">SinglyLinkedList</span><span class="p">(</span><span class="n">head</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tail</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-                <span class="k">return</span> <span class="s2">&quot;This instance of SinglyLinkedList is empty.&quot;</span>
-            <span class="k">case</span> <span class="n">SinglyLinkedList</span><span class="p">(</span><span class="n">head</span><span class="o">=</span><span class="n">head</span><span class="p">,</span> <span class="n">tail</span><span class="o">=</span><span class="n">tail</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">head</span> <span class="ow">is</span> <span class="n">tail</span><span class="p">:</span>
-                    <span class="k">return</span> <span class="s2">&quot;This instance of SinglyLinkedList has a single node.&quot;</span>
-                <span class="k">return</span> <span class="s2">&quot;The head and tail are different nodes.&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;Empty Singly Linked List&quot;</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span>
+        <span class="n">nodes</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">while</span> <span class="n">node</span><span class="p">:</span>
+            <span class="n">nodes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+            <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">next</span>
+        <span class="k">return</span> <span class="s1">&#39; -&gt; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__dir__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
         <span class="c1"># Get the list of attributes and methods from the parent classes</span>
@@ -1688,7 +1857,114 @@ node in the sequence.</p>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">data</span>  <span class="c1"># trigger the tail setter</span>
 
-    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">insert_after_target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_data</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">data_to_insert</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Inserts a new node containing the specified data after the first occurrence</span>
+<span class="sd">        of the target data in the linked list.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            target_data (Any): The data value to search for in the linked list.</span>
+<span class="sd">            data_to_insert (Any): The data value to insert after the target data.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True if the insertion was successful, False otherwise.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If the target data is not found in the linked list.</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            This method triggers the setter for the target data attribute.</span>
+<span class="sd">            If the target data is found at the head of the linked list and the list</span>
+<span class="sd">            contains only one node, the new node becomes the new tail of the list.</span>
+<span class="sd">            Otherwise, the method traverses the list to find the target data and inserts</span>
+<span class="sd">            the new node immediately after it. If the target data is found at the tail,</span>
+<span class="sd">            the new node becomes the new tail of the list.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target_data</span>  <span class="c1"># trigger the setter</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="c1"># check head and if it&#39;s a one node list</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="ow">is</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tail</span><span class="p">:</span>  <span class="c1"># it&#39;s a one node list</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">data_to_insert</span>  <span class="c1"># trigger the setter, tail property will validate input</span>
+                <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="c1"># check each node in the list from head until, but not including, the tail</span>
+        <span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span>
+        <span class="k">while</span> <span class="n">current_node</span> <span class="ow">and</span> <span class="n">current_node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tail</span><span class="p">:</span>  <span class="c1"># traversal</span>
+            <span class="k">if</span> <span class="n">current_node</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">:</span>
+                <span class="n">new_node</span> <span class="o">=</span> <span class="n">SinglyNode</span><span class="p">(</span><span class="n">data_to_insert</span><span class="p">)</span>  <span class="c1"># SinglyNode() will validate input</span>
+                <span class="nb">setattr</span><span class="p">(</span><span class="n">new_node</span><span class="p">,</span> <span class="s1">&#39;_next&#39;</span><span class="p">,</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span><span class="p">)</span>  <span class="c1"># insert after()</span>
+                <span class="nb">setattr</span><span class="p">(</span><span class="n">current_node</span><span class="p">,</span> <span class="s1">&#39;_next&#39;</span><span class="p">,</span> <span class="n">new_node</span><span class="p">)</span>  <span class="c1"># insert after()</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="n">current_node</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span>  <span class="c1"># traversal</span>
+        <span class="c1"># check tail</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_tail</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">data_to_insert</span>  <span class="c1"># # trigger the setter, tail property will validate input</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="c1"># no target match</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">insert_before_target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_data</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">data_to_insert</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Inserts a new node containing the specified data before the first occurrence</span>
+<span class="sd">        of the target data in the linked list.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            target_data: The data value to search for in the linked list or the reference to the node.</span>
+<span class="sd">            data_to_insert: The data value to insert before the target data.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True if the insertion was successful, False otherwise.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            ValueError: If the target data is not found in the linked list.</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            This method assumes that the linked list has already been instantiated.</span>
+<span class="sd">            If the target data is found at the head of the linked list, the new node</span>
+<span class="sd">            will become the new head of the list.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; sllist = SinglyLinkedList([&#39;foo&#39;, &#39;bar&#39;])</span>
+<span class="sd">            &gt;&gt;&gt; sllist.insert_before_target(&#39;foo&#39;, &#39;before_head&#39;)</span>
+<span class="sd">            True</span>
+<span class="sd">            &gt;&gt;&gt; sllist</span>
+<span class="sd">            SinglyLinkedList([&#39;before_head&#39;, &#39;foo&#39;, &#39;bar&#39;])</span>
+
+<span class="sd">            &gt;&gt;&gt; sllist.insert_before_target(&#39;baz&#39;, &#39;new node&#39;)</span>
+<span class="sd">            False</span>
+<span class="sd">            &gt;&gt;&gt; sllist</span>
+<span class="sd">            SinglyLinkedList([&#39;before_head&#39;, &#39;foo&#39;, &#39;bar&#39;])</span>
+
+<span class="sd">            &gt;&gt;&gt; sllist.insert_before_target(sllist.head, &#39;new node&#39;)</span>
+<span class="sd">            True</span>
+<span class="sd">            &gt;&gt;&gt; sllist</span>
+<span class="sd">            SinglyLinkedList([&#39;new node&#39;, &#39;before_head&#39;, &#39;foo&#39;, &#39;bar&#39;])</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target_data</span>  <span class="c1"># trigger the setter</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="n">current_node</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_head&#39;</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">current_node</span> <span class="ow">and</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span><span class="p">:</span> <span class="c1"># traversal</span>
+            <span class="c1"># check head</span>
+            <span class="k">if</span> <span class="n">current_node</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">data_to_insert</span>  <span class="c1"># trigger the setter, head property will validate input</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="c1"># check after head through tail</span>
+            <span class="k">if</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">:</span>  <span class="c1"># peek</span>
+                <span class="n">new_node</span> <span class="o">=</span> <span class="n">SinglyNode</span><span class="p">(</span><span class="n">data_to_insert</span><span class="p">)</span>  <span class="c1"># SinglyNode() will validate data_to_insert</span>
+                <span class="nb">setattr</span><span class="p">(</span><span class="n">new_node</span><span class="p">,</span> <span class="s1">&#39;_next&#39;</span><span class="p">,</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span><span class="p">)</span>  <span class="c1"># insert_before()</span>
+                <span class="nb">setattr</span><span class="p">(</span><span class="n">current_node</span><span class="p">,</span> <span class="s1">&#39;_next&#39;</span><span class="p">,</span> <span class="n">new_node</span><span class="p">)</span>  <span class="c1"># insert before()</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="n">current_node</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">current_node</span><span class="p">,</span> <span class="s1">&#39;next&#39;</span><span class="p">)</span>  <span class="c1"># traversal</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+
+
+    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_data</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Searches each node&#39;s data in a linked list until the first occurrence of</span>
 <span class="sd">        the target is found.</span>
 
@@ -1719,20 +1995,13 @@ node in the sequence.</p>
 <span class="sd">            &gt;&gt;&gt; llist.search(&quot;third node&quot;)</span>
 <span class="sd">            True</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">target_data</span><span class="p">:</span>
-            <span class="c1">#  TODO: data validation</span>
-            <span class="n">validated_data</span> <span class="o">=</span> <span class="n">target_data</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">:</span>
-                <span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span>
-                <span class="k">while</span> <span class="n">current_node</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="n">current_node</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="n">validated_data</span><span class="p">:</span>
-                        <span class="k">return</span> <span class="kc">True</span>
-                    <span class="n">current_node</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span>
-                <span class="k">return</span> <span class="kc">False</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot perform search: The list is empty.&quot;</span><span class="p">)</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;This data is unable to be target.&quot;</span><span class="p">)</span>
-
-
+        <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target_data</span>  <span class="c1"># trigger the setter</span>
+        <span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span>
+        <span class="k">while</span> <span class="n">current_node</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">current_node</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="n">current_node</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span>
+        <span class="k">return</span> <span class="kc">False</span>
 
     <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_data</span><span class="p">:</span> <span class="n">Any</span> <span class="o">|</span> <span class="n">SinglyNode</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Removes the first occurrence of a node with the specified target data from the linked list.</span>
@@ -1787,28 +2056,25 @@ node in the sequence.</p>
 <span class="sd">            (SinglyNode(data=&#39;2 node&#39;), None, SinglyNode(data=&#39;2 node&#39;))</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The linked list is empty.&quot;</span><span class="p">)</span>
-
         <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target_data</span>  <span class="c1"># trigger the setter</span>
 
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="ow">is</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">:</span>
-            <span class="c1"># node = self._head</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">:</span>
+            <span class="c1"># node = self._head  # the node to be removed</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">remove_head</span><span class="p">()</span>
             <span class="k">return</span> <span class="c1">#node</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tail</span> <span class="ow">is</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">:</span>
-            <span class="c1"># node = self._tail</span>
+
+        <span class="n">current_node</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_head&#39;</span><span class="p">)</span>  <span class="c1"># traversal</span>
+        <span class="k">while</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tail</span><span class="p">:</span>  <span class="c1"># traversal (tail already checked)</span>
+            <span class="k">if</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">:</span>  <span class="c1"># peek</span>
+                <span class="c1">#node = current_node.next  # the node to be removed</span>
+                <span class="nb">setattr</span><span class="p">(</span><span class="n">current_node</span><span class="p">,</span> <span class="s1">&#39;_next&#39;</span><span class="p">,</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next</span><span class="p">)</span>  <span class="c1"># remove()</span>
+                <span class="k">return</span> <span class="c1">#node</span>
+            <span class="n">current_node</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span>  <span class="c1"># traversal</span>
+
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_tail</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">:</span>
+            <span class="c1"># node = self._tail  # the node to be removed</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">remove_tail</span><span class="p">()</span>
             <span class="k">return</span> <span class="c1">#node</span>
-
-        <span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span>
-        <span class="k">while</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span> <span class="ow">is</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">:</span>
-                <span class="c1">#node = current_node.next</span>
-                <span class="nb">setattr</span><span class="p">(</span><span class="n">current_node</span><span class="p">,</span> <span class="s1">&#39;_next&#39;</span><span class="p">,</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next</span><span class="p">)</span>
-                <span class="k">return</span> <span class="c1"># node</span>
-            <span class="n">current_node</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span>
-
 
     <span class="k">def</span> <span class="nf">remove_head</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Removes the head node from the linked list.</span>
@@ -2166,6 +2432,477 @@ property. If a match is not found, the target data is stored as is in the
 
 
 
+<h3 id="ofnodes.SinglyLinkedList.insert_after_target" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">insert_after_target</span><span class="p">(</span><span class="n">target_data</span><span class="p">,</span> <span class="n">data_to_insert</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Inserts a new node containing the specified data after the first occurrence
+of the target data in the linked list.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>target_data</code></td>
+          <td>
+                <code><span title="typing.Any">Any</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The data value to search for in the linked list.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>data_to_insert</code></td>
+          <td>
+                <code><span title="typing.Any">Any</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The data value to insert after the target data.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>bool</code></td>          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>True if the insertion was successful, False otherwise.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Raises:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>ValueError</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If the target data is not found in the linked list.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+<details class="note" open>
+  <summary>Note</summary>
+  <p>This method triggers the setter for the target data attribute.
+If the target data is found at the head of the linked list and the list
+contains only one node, the new node becomes the new tail of the list.
+Otherwise, the method traverses the list to find the target data and inserts
+the new node immediately after it. If the target data is found at the tail,
+the new node becomes the new tail of the list.</p>
+</details>
+          <details class="quote">
+            <summary>Source code in <code>src/ofnodes/structures/singlylinkedlist.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">357</span>
+<span class="normal">358</span>
+<span class="normal">359</span>
+<span class="normal">360</span>
+<span class="normal">361</span>
+<span class="normal">362</span>
+<span class="normal">363</span>
+<span class="normal">364</span>
+<span class="normal">365</span>
+<span class="normal">366</span>
+<span class="normal">367</span>
+<span class="normal">368</span>
+<span class="normal">369</span>
+<span class="normal">370</span>
+<span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span>
+<span class="normal">384</span>
+<span class="normal">385</span>
+<span class="normal">386</span>
+<span class="normal">387</span>
+<span class="normal">388</span>
+<span class="normal">389</span>
+<span class="normal">390</span>
+<span class="normal">391</span>
+<span class="normal">392</span>
+<span class="normal">393</span>
+<span class="normal">394</span>
+<span class="normal">395</span>
+<span class="normal">396</span>
+<span class="normal">397</span>
+<span class="normal">398</span>
+<span class="normal">399</span>
+<span class="normal">400</span>
+<span class="normal">401</span>
+<span class="normal">402</span>
+<span class="normal">403</span>
+<span class="normal">404</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">insert_after_target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_data</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">data_to_insert</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Inserts a new node containing the specified data after the first occurrence</span>
+<span class="sd">    of the target data in the linked list.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        target_data (Any): The data value to search for in the linked list.</span>
+<span class="sd">        data_to_insert (Any): The data value to insert after the target data.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bool: True if the insertion was successful, False otherwise.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: If the target data is not found in the linked list.</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        This method triggers the setter for the target data attribute.</span>
+<span class="sd">        If the target data is found at the head of the linked list and the list</span>
+<span class="sd">        contains only one node, the new node becomes the new tail of the list.</span>
+<span class="sd">        Otherwise, the method traverses the list to find the target data and inserts</span>
+<span class="sd">        the new node immediately after it. If the target data is found at the tail,</span>
+<span class="sd">        the new node becomes the new tail of the list.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target_data</span>  <span class="c1"># trigger the setter</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="c1"># check head and if it&#39;s a one node list</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="ow">is</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tail</span><span class="p">:</span>  <span class="c1"># it&#39;s a one node list</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">data_to_insert</span>  <span class="c1"># trigger the setter, tail property will validate input</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="c1"># check each node in the list from head until, but not including, the tail</span>
+    <span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span>
+    <span class="k">while</span> <span class="n">current_node</span> <span class="ow">and</span> <span class="n">current_node</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tail</span><span class="p">:</span>  <span class="c1"># traversal</span>
+        <span class="k">if</span> <span class="n">current_node</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">:</span>
+            <span class="n">new_node</span> <span class="o">=</span> <span class="n">SinglyNode</span><span class="p">(</span><span class="n">data_to_insert</span><span class="p">)</span>  <span class="c1"># SinglyNode() will validate input</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="n">new_node</span><span class="p">,</span> <span class="s1">&#39;_next&#39;</span><span class="p">,</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span><span class="p">)</span>  <span class="c1"># insert after()</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="n">current_node</span><span class="p">,</span> <span class="s1">&#39;_next&#39;</span><span class="p">,</span> <span class="n">new_node</span><span class="p">)</span>  <span class="c1"># insert after()</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="n">current_node</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span>  <span class="c1"># traversal</span>
+    <span class="c1"># check tail</span>
+    <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_tail</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">data_to_insert</span>  <span class="c1"># # trigger the setter, tail property will validate input</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="c1"># no target match</span>
+    <span class="k">return</span> <span class="kc">False</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="ofnodes.SinglyLinkedList.insert_before_target" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">insert_before_target</span><span class="p">(</span><span class="n">target_data</span><span class="p">,</span> <span class="n">data_to_insert</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Inserts a new node containing the specified data before the first occurrence
+of the target data in the linked list.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>target_data</code></td>
+          <td>
+                <code><span title="typing.Any">Any</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The data value to search for in the linked list or the reference to the node.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>data_to_insert</code></td>
+          <td>
+                <code><span title="typing.Any">Any</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The data value to insert before the target data.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>bool</code></td>          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>True if the insertion was successful, False otherwise.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Raises:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>ValueError</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If the target data is not found in the linked list.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+<details class="note" open>
+  <summary>Note</summary>
+  <p>This method assumes that the linked list has already been instantiated.
+If the target data is found at the head of the linked list, the new node
+will become the new head of the list.</p>
+</details>
+
+
+<p><strong>Examples:</strong></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">sllist</span> <span class="o">=</span> <span class="n">SinglyLinkedList</span><span class="p">([</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sllist</span><span class="o">.</span><span class="n">insert_before_target</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;before_head&#39;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sllist</span>
+<span class="go">SinglyLinkedList([&#39;before_head&#39;, &#39;foo&#39;, &#39;bar&#39;])</span>
+</code></pre></div>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">sllist</span><span class="o">.</span><span class="n">insert_before_target</span><span class="p">(</span><span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;new node&#39;</span><span class="p">)</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sllist</span>
+<span class="go">SinglyLinkedList([&#39;before_head&#39;, &#39;foo&#39;, &#39;bar&#39;])</span>
+</code></pre></div>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">sllist</span><span class="o">.</span><span class="n">insert_before_target</span><span class="p">(</span><span class="n">sllist</span><span class="o">.</span><span class="n">head</span><span class="p">,</span> <span class="s1">&#39;new node&#39;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sllist</span>
+<span class="go">SinglyLinkedList([&#39;new node&#39;, &#39;before_head&#39;, &#39;foo&#39;, &#39;bar&#39;])</span>
+</code></pre></div>
+
+          <details class="quote">
+            <summary>Source code in <code>src/ofnodes/structures/singlylinkedlist.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">406</span>
+<span class="normal">407</span>
+<span class="normal">408</span>
+<span class="normal">409</span>
+<span class="normal">410</span>
+<span class="normal">411</span>
+<span class="normal">412</span>
+<span class="normal">413</span>
+<span class="normal">414</span>
+<span class="normal">415</span>
+<span class="normal">416</span>
+<span class="normal">417</span>
+<span class="normal">418</span>
+<span class="normal">419</span>
+<span class="normal">420</span>
+<span class="normal">421</span>
+<span class="normal">422</span>
+<span class="normal">423</span>
+<span class="normal">424</span>
+<span class="normal">425</span>
+<span class="normal">426</span>
+<span class="normal">427</span>
+<span class="normal">428</span>
+<span class="normal">429</span>
+<span class="normal">430</span>
+<span class="normal">431</span>
+<span class="normal">432</span>
+<span class="normal">433</span>
+<span class="normal">434</span>
+<span class="normal">435</span>
+<span class="normal">436</span>
+<span class="normal">437</span>
+<span class="normal">438</span>
+<span class="normal">439</span>
+<span class="normal">440</span>
+<span class="normal">441</span>
+<span class="normal">442</span>
+<span class="normal">443</span>
+<span class="normal">444</span>
+<span class="normal">445</span>
+<span class="normal">446</span>
+<span class="normal">447</span>
+<span class="normal">448</span>
+<span class="normal">449</span>
+<span class="normal">450</span>
+<span class="normal">451</span>
+<span class="normal">452</span>
+<span class="normal">453</span>
+<span class="normal">454</span>
+<span class="normal">455</span>
+<span class="normal">456</span>
+<span class="normal">457</span>
+<span class="normal">458</span>
+<span class="normal">459</span>
+<span class="normal">460</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">insert_before_target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_data</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">data_to_insert</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Inserts a new node containing the specified data before the first occurrence</span>
+<span class="sd">    of the target data in the linked list.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        target_data: The data value to search for in the linked list or the reference to the node.</span>
+<span class="sd">        data_to_insert: The data value to insert before the target data.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        bool: True if the insertion was successful, False otherwise.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: If the target data is not found in the linked list.</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        This method assumes that the linked list has already been instantiated.</span>
+<span class="sd">        If the target data is found at the head of the linked list, the new node</span>
+<span class="sd">        will become the new head of the list.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; sllist = SinglyLinkedList([&#39;foo&#39;, &#39;bar&#39;])</span>
+<span class="sd">        &gt;&gt;&gt; sllist.insert_before_target(&#39;foo&#39;, &#39;before_head&#39;)</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; sllist</span>
+<span class="sd">        SinglyLinkedList([&#39;before_head&#39;, &#39;foo&#39;, &#39;bar&#39;])</span>
+
+<span class="sd">        &gt;&gt;&gt; sllist.insert_before_target(&#39;baz&#39;, &#39;new node&#39;)</span>
+<span class="sd">        False</span>
+<span class="sd">        &gt;&gt;&gt; sllist</span>
+<span class="sd">        SinglyLinkedList([&#39;before_head&#39;, &#39;foo&#39;, &#39;bar&#39;])</span>
+
+<span class="sd">        &gt;&gt;&gt; sllist.insert_before_target(sllist.head, &#39;new node&#39;)</span>
+<span class="sd">        True</span>
+<span class="sd">        &gt;&gt;&gt; sllist</span>
+<span class="sd">        SinglyLinkedList([&#39;new node&#39;, &#39;before_head&#39;, &#39;foo&#39;, &#39;bar&#39;])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target_data</span>  <span class="c1"># trigger the setter</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="n">current_node</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_head&#39;</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">current_node</span> <span class="ow">and</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span><span class="p">:</span> <span class="c1"># traversal</span>
+        <span class="c1"># check head</span>
+        <span class="k">if</span> <span class="n">current_node</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">head</span> <span class="o">=</span> <span class="n">data_to_insert</span>  <span class="c1"># trigger the setter, head property will validate input</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="c1"># check after head through tail</span>
+        <span class="k">if</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">:</span>  <span class="c1"># peek</span>
+            <span class="n">new_node</span> <span class="o">=</span> <span class="n">SinglyNode</span><span class="p">(</span><span class="n">data_to_insert</span><span class="p">)</span>  <span class="c1"># SinglyNode() will validate data_to_insert</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="n">new_node</span><span class="p">,</span> <span class="s1">&#39;_next&#39;</span><span class="p">,</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span><span class="p">)</span>  <span class="c1"># insert_before()</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="n">current_node</span><span class="p">,</span> <span class="s1">&#39;_next&#39;</span><span class="p">,</span> <span class="n">new_node</span><span class="p">)</span>  <span class="c1"># insert before()</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="n">current_node</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">current_node</span><span class="p">,</span> <span class="s1">&#39;next&#39;</span><span class="p">)</span>  <span class="c1"># traversal</span>
+    <span class="k">return</span> <span class="kc">False</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
 <h3 id="ofnodes.SinglyLinkedList.insert_head" class="doc doc-heading">
           <code class="highlight language-python"><span class="n">insert_head</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></code>
 
@@ -2269,10 +3006,7 @@ instance's <code>head</code> attribute to reference the new node.</p>
 
           <details class="quote">
             <summary>Source code in <code>src/ofnodes/structures/singlylinkedlist.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">260</span>
-<span class="normal">261</span>
-<span class="normal">262</span>
-<span class="normal">263</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">263</span>
 <span class="normal">264</span>
 <span class="normal">265</span>
 <span class="normal">266</span>
@@ -2311,7 +3045,10 @@ instance's <code>head</code> attribute to reference the new node.</p>
 <span class="normal">299</span>
 <span class="normal">300</span>
 <span class="normal">301</span>
-<span class="normal">302</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">insert_head</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">insert_head</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Inserts a new node with the provided data at the head of the linked list.</span>
 
 <span class="sd">    Args:</span>
@@ -2474,10 +3211,7 @@ attribute to reference the new node.</p>
 
           <details class="quote">
             <summary>Source code in <code>src/ofnodes/structures/singlylinkedlist.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">304</span>
-<span class="normal">305</span>
-<span class="normal">306</span>
-<span class="normal">307</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">307</span>
 <span class="normal">308</span>
 <span class="normal">309</span>
 <span class="normal">310</span>
@@ -2522,7 +3256,10 @@ attribute to reference the new node.</p>
 <span class="normal">349</span>
 <span class="normal">350</span>
 <span class="normal">351</span>
-<span class="normal">352</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">insert_tail</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal">352</span>
+<span class="normal">353</span>
+<span class="normal">354</span>
+<span class="normal">355</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">insert_tail</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Inserts a new node with the provided data at the tail of the linked list.</span>
 
 <span class="sd">    Args:</span>
@@ -2640,34 +3377,34 @@ until the end of the list is reached.</p>
 
           <details class="quote">
             <summary>Source code in <code>src/ofnodes/structures/singlylinkedlist.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">572</span>
-<span class="normal">573</span>
-<span class="normal">574</span>
-<span class="normal">575</span>
-<span class="normal">576</span>
-<span class="normal">577</span>
-<span class="normal">578</span>
-<span class="normal">579</span>
-<span class="normal">580</span>
-<span class="normal">581</span>
-<span class="normal">582</span>
-<span class="normal">583</span>
-<span class="normal">584</span>
-<span class="normal">585</span>
-<span class="normal">586</span>
-<span class="normal">587</span>
-<span class="normal">588</span>
-<span class="normal">589</span>
-<span class="normal">590</span>
-<span class="normal">591</span>
-<span class="normal">592</span>
-<span class="normal">593</span>
-<span class="normal">594</span>
-<span class="normal">595</span>
-<span class="normal">596</span>
-<span class="normal">597</span>
-<span class="normal">598</span>
-<span class="normal">599</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">print_node_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">672</span>
+<span class="normal">673</span>
+<span class="normal">674</span>
+<span class="normal">675</span>
+<span class="normal">676</span>
+<span class="normal">677</span>
+<span class="normal">678</span>
+<span class="normal">679</span>
+<span class="normal">680</span>
+<span class="normal">681</span>
+<span class="normal">682</span>
+<span class="normal">683</span>
+<span class="normal">684</span>
+<span class="normal">685</span>
+<span class="normal">686</span>
+<span class="normal">687</span>
+<span class="normal">688</span>
+<span class="normal">689</span>
+<span class="normal">690</span>
+<span class="normal">691</span>
+<span class="normal">692</span>
+<span class="normal">693</span>
+<span class="normal">694</span>
+<span class="normal">695</span>
+<span class="normal">696</span>
+<span class="normal">697</span>
+<span class="normal">698</span>
+<span class="normal">699</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">print_node_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Traverse the linked list and print the data attribute of each node.</span>
 
 <span class="sd">    Returns:</span>
@@ -2837,80 +3574,78 @@ Notes:
 
           <details class="quote">
             <summary>Source code in <code>src/ofnodes/structures/singlylinkedlist.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">400</span>
-<span class="normal">401</span>
-<span class="normal">402</span>
-<span class="normal">403</span>
-<span class="normal">404</span>
-<span class="normal">405</span>
-<span class="normal">406</span>
-<span class="normal">407</span>
-<span class="normal">408</span>
-<span class="normal">409</span>
-<span class="normal">410</span>
-<span class="normal">411</span>
-<span class="normal">412</span>
-<span class="normal">413</span>
-<span class="normal">414</span>
-<span class="normal">415</span>
-<span class="normal">416</span>
-<span class="normal">417</span>
-<span class="normal">418</span>
-<span class="normal">419</span>
-<span class="normal">420</span>
-<span class="normal">421</span>
-<span class="normal">422</span>
-<span class="normal">423</span>
-<span class="normal">424</span>
-<span class="normal">425</span>
-<span class="normal">426</span>
-<span class="normal">427</span>
-<span class="normal">428</span>
-<span class="normal">429</span>
-<span class="normal">430</span>
-<span class="normal">431</span>
-<span class="normal">432</span>
-<span class="normal">433</span>
-<span class="normal">434</span>
-<span class="normal">435</span>
-<span class="normal">436</span>
-<span class="normal">437</span>
-<span class="normal">438</span>
-<span class="normal">439</span>
-<span class="normal">440</span>
-<span class="normal">441</span>
-<span class="normal">442</span>
-<span class="normal">443</span>
-<span class="normal">444</span>
-<span class="normal">445</span>
-<span class="normal">446</span>
-<span class="normal">447</span>
-<span class="normal">448</span>
-<span class="normal">449</span>
-<span class="normal">450</span>
-<span class="normal">451</span>
-<span class="normal">452</span>
-<span class="normal">453</span>
-<span class="normal">454</span>
-<span class="normal">455</span>
-<span class="normal">456</span>
-<span class="normal">457</span>
-<span class="normal">458</span>
-<span class="normal">459</span>
-<span class="normal">460</span>
-<span class="normal">461</span>
-<span class="normal">462</span>
-<span class="normal">463</span>
-<span class="normal">464</span>
-<span class="normal">465</span>
-<span class="normal">466</span>
-<span class="normal">467</span>
-<span class="normal">468</span>
-<span class="normal">469</span>
-<span class="normal">470</span>
-<span class="normal">471</span>
-<span class="normal">472</span>
-<span class="normal">473</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_data</span><span class="p">:</span> <span class="n">Any</span> <span class="o">|</span> <span class="n">SinglyNode</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">503</span>
+<span class="normal">504</span>
+<span class="normal">505</span>
+<span class="normal">506</span>
+<span class="normal">507</span>
+<span class="normal">508</span>
+<span class="normal">509</span>
+<span class="normal">510</span>
+<span class="normal">511</span>
+<span class="normal">512</span>
+<span class="normal">513</span>
+<span class="normal">514</span>
+<span class="normal">515</span>
+<span class="normal">516</span>
+<span class="normal">517</span>
+<span class="normal">518</span>
+<span class="normal">519</span>
+<span class="normal">520</span>
+<span class="normal">521</span>
+<span class="normal">522</span>
+<span class="normal">523</span>
+<span class="normal">524</span>
+<span class="normal">525</span>
+<span class="normal">526</span>
+<span class="normal">527</span>
+<span class="normal">528</span>
+<span class="normal">529</span>
+<span class="normal">530</span>
+<span class="normal">531</span>
+<span class="normal">532</span>
+<span class="normal">533</span>
+<span class="normal">534</span>
+<span class="normal">535</span>
+<span class="normal">536</span>
+<span class="normal">537</span>
+<span class="normal">538</span>
+<span class="normal">539</span>
+<span class="normal">540</span>
+<span class="normal">541</span>
+<span class="normal">542</span>
+<span class="normal">543</span>
+<span class="normal">544</span>
+<span class="normal">545</span>
+<span class="normal">546</span>
+<span class="normal">547</span>
+<span class="normal">548</span>
+<span class="normal">549</span>
+<span class="normal">550</span>
+<span class="normal">551</span>
+<span class="normal">552</span>
+<span class="normal">553</span>
+<span class="normal">554</span>
+<span class="normal">555</span>
+<span class="normal">556</span>
+<span class="normal">557</span>
+<span class="normal">558</span>
+<span class="normal">559</span>
+<span class="normal">560</span>
+<span class="normal">561</span>
+<span class="normal">562</span>
+<span class="normal">563</span>
+<span class="normal">564</span>
+<span class="normal">565</span>
+<span class="normal">566</span>
+<span class="normal">567</span>
+<span class="normal">568</span>
+<span class="normal">569</span>
+<span class="normal">570</span>
+<span class="normal">571</span>
+<span class="normal">572</span>
+<span class="normal">573</span>
+<span class="normal">574</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_data</span><span class="p">:</span> <span class="n">Any</span> <span class="o">|</span> <span class="n">SinglyNode</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Removes the first occurrence of a node with the specified target data from the linked list.</span>
 
 <span class="sd">    Args:</span>
@@ -2963,27 +3698,25 @@ Notes:
 <span class="sd">        (SinglyNode(data=&#39;2 node&#39;), None, SinglyNode(data=&#39;2 node&#39;))</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The linked list is empty.&quot;</span><span class="p">)</span>
-
     <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target_data</span>  <span class="c1"># trigger the setter</span>
 
-    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span> <span class="ow">is</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">:</span>
-        <span class="c1"># node = self._head</span>
+    <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">:</span>
+        <span class="c1"># node = self._head  # the node to be removed</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">remove_head</span><span class="p">()</span>
         <span class="k">return</span> <span class="c1">#node</span>
-    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tail</span> <span class="ow">is</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">:</span>
-        <span class="c1"># node = self._tail</span>
+
+    <span class="n">current_node</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_head&#39;</span><span class="p">)</span>  <span class="c1"># traversal</span>
+    <span class="k">while</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tail</span><span class="p">:</span>  <span class="c1"># traversal (tail already checked)</span>
+        <span class="k">if</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">:</span>  <span class="c1"># peek</span>
+            <span class="c1">#node = current_node.next  # the node to be removed</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="n">current_node</span><span class="p">,</span> <span class="s1">&#39;_next&#39;</span><span class="p">,</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next</span><span class="p">)</span>  <span class="c1"># remove()</span>
+            <span class="k">return</span> <span class="c1">#node</span>
+        <span class="n">current_node</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span>  <span class="c1"># traversal</span>
+
+    <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_tail</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">:</span>
+        <span class="c1"># node = self._tail  # the node to be removed</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">remove_tail</span><span class="p">()</span>
         <span class="k">return</span> <span class="c1">#node</span>
-
-    <span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span>
-    <span class="k">while</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span> <span class="ow">is</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">:</span>
-            <span class="c1">#node = current_node.next</span>
-            <span class="nb">setattr</span><span class="p">(</span><span class="n">current_node</span><span class="p">,</span> <span class="s1">&#39;_next&#39;</span><span class="p">,</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next</span><span class="p">)</span>
-            <span class="k">return</span> <span class="c1"># node</span>
-        <span class="n">current_node</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span>
 </code></pre></div></td></tr></table></div>
           </details>
   </div>
@@ -3082,44 +3815,44 @@ TODO: overload <code>-</code> operator to support:
 
           <details class="quote">
             <summary>Source code in <code>src/ofnodes/structures/singlylinkedlist.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">476</span>
-<span class="normal">477</span>
-<span class="normal">478</span>
-<span class="normal">479</span>
-<span class="normal">480</span>
-<span class="normal">481</span>
-<span class="normal">482</span>
-<span class="normal">483</span>
-<span class="normal">484</span>
-<span class="normal">485</span>
-<span class="normal">486</span>
-<span class="normal">487</span>
-<span class="normal">488</span>
-<span class="normal">489</span>
-<span class="normal">490</span>
-<span class="normal">491</span>
-<span class="normal">492</span>
-<span class="normal">493</span>
-<span class="normal">494</span>
-<span class="normal">495</span>
-<span class="normal">496</span>
-<span class="normal">497</span>
-<span class="normal">498</span>
-<span class="normal">499</span>
-<span class="normal">500</span>
-<span class="normal">501</span>
-<span class="normal">502</span>
-<span class="normal">503</span>
-<span class="normal">504</span>
-<span class="normal">505</span>
-<span class="normal">506</span>
-<span class="normal">507</span>
-<span class="normal">508</span>
-<span class="normal">509</span>
-<span class="normal">510</span>
-<span class="normal">511</span>
-<span class="normal">512</span>
-<span class="normal">513</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">remove_head</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">576</span>
+<span class="normal">577</span>
+<span class="normal">578</span>
+<span class="normal">579</span>
+<span class="normal">580</span>
+<span class="normal">581</span>
+<span class="normal">582</span>
+<span class="normal">583</span>
+<span class="normal">584</span>
+<span class="normal">585</span>
+<span class="normal">586</span>
+<span class="normal">587</span>
+<span class="normal">588</span>
+<span class="normal">589</span>
+<span class="normal">590</span>
+<span class="normal">591</span>
+<span class="normal">592</span>
+<span class="normal">593</span>
+<span class="normal">594</span>
+<span class="normal">595</span>
+<span class="normal">596</span>
+<span class="normal">597</span>
+<span class="normal">598</span>
+<span class="normal">599</span>
+<span class="normal">600</span>
+<span class="normal">601</span>
+<span class="normal">602</span>
+<span class="normal">603</span>
+<span class="normal">604</span>
+<span class="normal">605</span>
+<span class="normal">606</span>
+<span class="normal">607</span>
+<span class="normal">608</span>
+<span class="normal">609</span>
+<span class="normal">610</span>
+<span class="normal">611</span>
+<span class="normal">612</span>
+<span class="normal">613</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">remove_head</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Removes the head node from the linked list.</span>
 
 <span class="sd">    Raises:</span>
@@ -3254,62 +3987,62 @@ TODO: overload <code>-</code> operator to support:
 
           <details class="quote">
             <summary>Source code in <code>src/ofnodes/structures/singlylinkedlist.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">515</span>
-<span class="normal">516</span>
-<span class="normal">517</span>
-<span class="normal">518</span>
-<span class="normal">519</span>
-<span class="normal">520</span>
-<span class="normal">521</span>
-<span class="normal">522</span>
-<span class="normal">523</span>
-<span class="normal">524</span>
-<span class="normal">525</span>
-<span class="normal">526</span>
-<span class="normal">527</span>
-<span class="normal">528</span>
-<span class="normal">529</span>
-<span class="normal">530</span>
-<span class="normal">531</span>
-<span class="normal">532</span>
-<span class="normal">533</span>
-<span class="normal">534</span>
-<span class="normal">535</span>
-<span class="normal">536</span>
-<span class="normal">537</span>
-<span class="normal">538</span>
-<span class="normal">539</span>
-<span class="normal">540</span>
-<span class="normal">541</span>
-<span class="normal">542</span>
-<span class="normal">543</span>
-<span class="normal">544</span>
-<span class="normal">545</span>
-<span class="normal">546</span>
-<span class="normal">547</span>
-<span class="normal">548</span>
-<span class="normal">549</span>
-<span class="normal">550</span>
-<span class="normal">551</span>
-<span class="normal">552</span>
-<span class="normal">553</span>
-<span class="normal">554</span>
-<span class="normal">555</span>
-<span class="normal">556</span>
-<span class="normal">557</span>
-<span class="normal">558</span>
-<span class="normal">559</span>
-<span class="normal">560</span>
-<span class="normal">561</span>
-<span class="normal">562</span>
-<span class="normal">563</span>
-<span class="normal">564</span>
-<span class="normal">565</span>
-<span class="normal">566</span>
-<span class="normal">567</span>
-<span class="normal">568</span>
-<span class="normal">569</span>
-<span class="normal">570</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">remove_tail</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">615</span>
+<span class="normal">616</span>
+<span class="normal">617</span>
+<span class="normal">618</span>
+<span class="normal">619</span>
+<span class="normal">620</span>
+<span class="normal">621</span>
+<span class="normal">622</span>
+<span class="normal">623</span>
+<span class="normal">624</span>
+<span class="normal">625</span>
+<span class="normal">626</span>
+<span class="normal">627</span>
+<span class="normal">628</span>
+<span class="normal">629</span>
+<span class="normal">630</span>
+<span class="normal">631</span>
+<span class="normal">632</span>
+<span class="normal">633</span>
+<span class="normal">634</span>
+<span class="normal">635</span>
+<span class="normal">636</span>
+<span class="normal">637</span>
+<span class="normal">638</span>
+<span class="normal">639</span>
+<span class="normal">640</span>
+<span class="normal">641</span>
+<span class="normal">642</span>
+<span class="normal">643</span>
+<span class="normal">644</span>
+<span class="normal">645</span>
+<span class="normal">646</span>
+<span class="normal">647</span>
+<span class="normal">648</span>
+<span class="normal">649</span>
+<span class="normal">650</span>
+<span class="normal">651</span>
+<span class="normal">652</span>
+<span class="normal">653</span>
+<span class="normal">654</span>
+<span class="normal">655</span>
+<span class="normal">656</span>
+<span class="normal">657</span>
+<span class="normal">658</span>
+<span class="normal">659</span>
+<span class="normal">660</span>
+<span class="normal">661</span>
+<span class="normal">662</span>
+<span class="normal">663</span>
+<span class="normal">664</span>
+<span class="normal">665</span>
+<span class="normal">666</span>
+<span class="normal">667</span>
+<span class="normal">668</span>
+<span class="normal">669</span>
+<span class="normal">670</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">remove_tail</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Removes the tail node from the linked list.</span>
 
 <span class="sd">    Raises:</span>
@@ -3430,7 +4163,6 @@ the target is found.</p>
     <tbody>
         <tr>
 <td><code>bool</code></td>          <td>
-                <code>bool</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -3489,49 +4221,44 @@ and checks each node's data value for equality with the target value.</p>
 
           <details class="quote">
             <summary>Source code in <code>src/ofnodes/structures/singlylinkedlist.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">354</span>
-<span class="normal">355</span>
-<span class="normal">356</span>
-<span class="normal">357</span>
-<span class="normal">358</span>
-<span class="normal">359</span>
-<span class="normal">360</span>
-<span class="normal">361</span>
-<span class="normal">362</span>
-<span class="normal">363</span>
-<span class="normal">364</span>
-<span class="normal">365</span>
-<span class="normal">366</span>
-<span class="normal">367</span>
-<span class="normal">368</span>
-<span class="normal">369</span>
-<span class="normal">370</span>
-<span class="normal">371</span>
-<span class="normal">372</span>
-<span class="normal">373</span>
-<span class="normal">374</span>
-<span class="normal">375</span>
-<span class="normal">376</span>
-<span class="normal">377</span>
-<span class="normal">378</span>
-<span class="normal">379</span>
-<span class="normal">380</span>
-<span class="normal">381</span>
-<span class="normal">382</span>
-<span class="normal">383</span>
-<span class="normal">384</span>
-<span class="normal">385</span>
-<span class="normal">386</span>
-<span class="normal">387</span>
-<span class="normal">388</span>
-<span class="normal">389</span>
-<span class="normal">390</span>
-<span class="normal">391</span>
-<span class="normal">392</span>
-<span class="normal">393</span>
-<span class="normal">394</span>
-<span class="normal">395</span>
-<span class="normal">396</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">464</span>
+<span class="normal">465</span>
+<span class="normal">466</span>
+<span class="normal">467</span>
+<span class="normal">468</span>
+<span class="normal">469</span>
+<span class="normal">470</span>
+<span class="normal">471</span>
+<span class="normal">472</span>
+<span class="normal">473</span>
+<span class="normal">474</span>
+<span class="normal">475</span>
+<span class="normal">476</span>
+<span class="normal">477</span>
+<span class="normal">478</span>
+<span class="normal">479</span>
+<span class="normal">480</span>
+<span class="normal">481</span>
+<span class="normal">482</span>
+<span class="normal">483</span>
+<span class="normal">484</span>
+<span class="normal">485</span>
+<span class="normal">486</span>
+<span class="normal">487</span>
+<span class="normal">488</span>
+<span class="normal">489</span>
+<span class="normal">490</span>
+<span class="normal">491</span>
+<span class="normal">492</span>
+<span class="normal">493</span>
+<span class="normal">494</span>
+<span class="normal">495</span>
+<span class="normal">496</span>
+<span class="normal">497</span>
+<span class="normal">498</span>
+<span class="normal">499</span>
+<span class="normal">500</span>
+<span class="normal">501</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_data</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Searches each node&#39;s data in a linked list until the first occurrence of</span>
 <span class="sd">    the target is found.</span>
 
@@ -3562,18 +4289,13 @@ and checks each node's data value for equality with the target value.</p>
 <span class="sd">        &gt;&gt;&gt; llist.search(&quot;third node&quot;)</span>
 <span class="sd">        True</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">target_data</span><span class="p">:</span>
-        <span class="c1">#  TODO: data validation</span>
-        <span class="n">validated_data</span> <span class="o">=</span> <span class="n">target_data</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">:</span>
-            <span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span>
-            <span class="k">while</span> <span class="n">current_node</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">current_node</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="n">validated_data</span><span class="p">:</span>
-                    <span class="k">return</span> <span class="kc">True</span>
-                <span class="n">current_node</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Cannot perform search: The list is empty.&quot;</span><span class="p">)</span>
-    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;This data is unable to be target.&quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target_data</span>  <span class="c1"># trigger the setter</span>
+    <span class="n">current_node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span>
+    <span class="k">while</span> <span class="n">current_node</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">current_node</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_target</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="n">current_node</span> <span class="o">=</span> <span class="n">current_node</span><span class="o">.</span><span class="n">next</span>
+    <span class="k">return</span> <span class="kc">False</span>
 </code></pre></div></td></tr></table></div>
           </details>
   </div>
@@ -3628,7 +4350,7 @@ and checks each node's data value for equality with the target value.</p>
           </td>
         </tr>
         <tr>
-          <td><code><span title="ofnodes.SinglyNode.next">next</span></code></td>
+          <td><code><a class="autorefs autorefs-internal" title="ofnodes.SinglyNode.next" href="reference/#ofnodes.SinglyNode.next">next</a></code></td>
           <td>
           </td>
           <td>
@@ -3698,7 +4420,29 @@ and checks each node's data value for equality with the target value.</p>
 <span class="normal">69</span>
 <span class="normal">70</span>
 <span class="normal">71</span>
-<span class="normal">72</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">SinglyNode</span><span class="p">:</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span>
+<span class="normal">94</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">SinglyNode</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Represents a node in a singly linked list.</span>
 
 <span class="sd">    Attributes:</span>
@@ -3726,20 +4470,48 @@ and checks each node's data value for equality with the target value.</p>
 
     <span class="nd">@data</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="c1"># all data welcome</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">if</span> <span class="n">value</span><span class="p">:</span> <span class="c1">#  TODO: perform data validation</span>
+            <span class="n">validated_data</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_data&#39;</span><span class="p">,</span> <span class="n">validated_data</span><span class="p">)</span>
+
+    <span class="nd">@data</span><span class="o">.</span><span class="n">deleter</span>
+    <span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Deleter property for the data attribute of the singly node.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            AttributeError: Deleting the `head` attribute is not allowed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39;s `data` attribute &quot;</span> <span class="s2">&quot;cannot be deleted.&quot;</span>
+        <span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Getter property for the next node in the singly linked list.</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            This property allows access to the next node in the linked list. Modifying</span>
+<span class="sd">            the next node should be done using linked list methods for consistency and</span>
+<span class="sd">            to maintain the integrity of the linked list structure.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_next</span>
 
     <span class="nd">@next</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;Cannot set &#39;next&#39; attribute directly. Use linked list methods for modification.&quot;</span><span class="p">)</span>
 
+    <span class="nd">@next</span><span class="o">.</span><span class="n">deleter</span>
+    <span class="k">def</span> <span class="nf">next</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Deleter property for the next attribute of the singly node.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            AttributeError: Deleting the `next` attribute is not allowed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39;s `next` attribute &quot;</span> <span class="s2">&quot;cannot be deleted.&quot;</span>
+        <span class="p">)</span>
+
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="c1"># when repr is called on a Node with .next,</span>
-        <span class="c1"># is next=itsvalue in the return?</span>
         <span class="k">return</span> <span class="p">(</span>
             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span>
             <span class="s2">&quot;(&quot;</span>
@@ -3748,13 +4520,7 @@ and checks each node's data value for equality with the target value.</p>
         <span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;__len__&quot;</span><span class="p">):</span>
-            <span class="k">return</span> <span class="p">(</span>
-                <span class="s2">&quot;This node&#39;s data is&quot;</span>
-                <span class="sa">f</span><span class="s2">&quot; </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>  <span class="c1"># type: ignore # noqa</span>
-                <span class="sa">f</span><span class="s2">&quot; of type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
-            <span class="p">)</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;This node&#39;s data is of type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">.&quot;</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
             </details>
 
@@ -3767,6 +4533,35 @@ and checks each node's data value for equality with the target value.</p>
 
 
 
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="ofnodes.SinglyNode.next" class="doc doc-heading">
+          <code class="highlight language-python"><span class="nb">next</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-deletable"><code>deletable</code></small>
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+      <small class="doc doc-label doc-label-writable"><code>writable</code></small>
+  </span>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Getter property for the next node in the singly linked list.</p>
+
+<details class="note" open>
+  <summary>Note</summary>
+  <p>This property allows access to the next node in the linked list. Modifying
+the next node should be done using linked list methods for consistency and
+to maintain the integrity of the linked list structure.</p>
+</details>  </div>
+
+</div>
 
 
 
