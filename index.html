@@ -1737,7 +1737,7 @@ node in the sequence.</p>
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="c1">#return f&quot;{type(self).__name__}(head={type(self.head).__name__}, tail={self.tail})&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s2">&quot;SinglyLinkedList()&quot;</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">()&quot;</span>
         <span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_head</span>
         <span class="n">nodes</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">while</span> <span class="n">node</span><span class="p">:</span>
@@ -4586,6 +4586,13 @@ to maintain the integrity of the linked list structure.</p>
 a negligible amount of oxygen each day. Also, I want
 to thank the sun for providing more than half of their
 nourishment free of charge.</p>
+<p>Chat GPT 3.5 turbo was used in the context of "help me understand"
+rather than "write a python class for x". In that sense, I am grateful
+for the technology's ability to accelerate bug identification and reconciliation.
+Notably, when writing references to <code>SinglyLinkedList.next</code>. I had written logic and tests
+that made sense to me and passed but when I tried to use it downstream, the results were
+unexpected. Another godsend of the technology is writing module, class, and function
+docstrings. As well as mostly helping me escape inevitable VC hell.</p>
 
 
 
