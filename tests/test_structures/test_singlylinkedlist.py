@@ -41,12 +41,12 @@ def test__str__():
 
 def test__dir__():
     sllist = SinglyLinkedList()
-    dirr = ['__class__', '__delattr__', '__dir__', '__doc__', '__eq__',
+    dirr = ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__',
             '__format__', '__ge__', '__getattribute__', '__getstate__',
             '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__',
             '__lt__', '__module__', '__ne__', '__new__', '__reduce__',
             '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__',
-            '__slots__', '__str__', '__subclasshook__', 'head', 'insert_after_target', 'insert_before_target',
+            '__slots__', '__str__', '__subclasshook__', '__weakref__', 'head', 'insert_after_target', 'insert_before_target',
             'insert_head', 'insert_tail', 'print_node_data', 'remove', 'remove_head',
             'remove_tail', 'search', 'tail', 'target']
     assert dir(sllist) == dirr
@@ -145,7 +145,7 @@ def test_search():
         llist = SinglyLinkedList()
         with pytest.raises(ValueError) as exc_info:
             llist.search("some target data")
-        assert "Cannot assign" in str(exc_info)
+        assert "Cannot search" in str(exc_info)
     def test_found_and_not_found():
         llist = SinglyLinkedList()
         list(llist.insert_tail(f"{i} node") for i in range(1, 5))
