@@ -210,3 +210,34 @@ class RemoveMixin:
                     node = getattr(node, "_next")  # keep looking
                 setattr(node, "_next", None)  # point the second to last node to None
                 setattr(self, "_tail", node)  # assign tail to the node
+
+class PrintMixin:
+        """Mixin class providing node data print functionality"""
+        def print_node_data(self) -> None:
+            """Traverse the linked data structure and print the data attribute of each node.
+
+            Returns:
+                None
+
+            Notes:
+                This method iterates through the linked data structure starting from the head node and prints the data attribute of each node
+                until the end of the linked structure is reached.
+
+            Examples:
+                >>> sllist = SinglyLinkedList()
+                >>> list(sllist.insert_tail(f"{i} node") for i in range(1, 5))
+                [None, None, None, None]
+                >>> sllist.head
+                SinglyNode(data='1 node')
+                >>> sllist.tail
+                SinglyNode(data='4 node')
+                >>> sllist.print_node_data()
+                1 node
+                2 node
+                3 node
+                4 node
+            """
+            current_node = self._head
+            while current_node:
+                print(current_node.data)
+                current_node = current_node.next
