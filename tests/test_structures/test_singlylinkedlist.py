@@ -19,6 +19,13 @@ def test__init__():
         getattr(sllist.tail, 'data') is True
     )
 
+def test__add__():
+    sllist = SinglyLinkedList()
+    sllist + 'foo'
+    assert sllist.head.data == 'foo'
+    sllist + 'bar'
+    assert sllist.tail.data == 'bar'
+
 def test__repr__():
     sllist = SinglyLinkedList()
     assert (
@@ -41,7 +48,7 @@ def test__str__():
 
 def test__dir__():
     sllist = SinglyLinkedList()
-    dirr = ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__',
+    dirr = ['__add__', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__',
             '__format__', '__ge__', '__getattribute__', '__getstate__',
             '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__',
             '__lt__', '__module__', '__ne__', '__new__', '__reduce__',

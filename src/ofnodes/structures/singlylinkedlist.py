@@ -34,6 +34,10 @@ class SinglyLinkedList(SearchMixin, RemoveMixin, InsertHeadMixin, InsertTailMixi
             for value in values:
                 self.tail = value
 
+    def __add__(self, other):
+        self.tail = other  # tail attr will validate
+
+
     def __repr__(self) -> str:
         #return f"{type(self).__name__}(head={type(self.head).__name__}, tail={self.tail})"
         if not self._head:

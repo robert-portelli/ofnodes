@@ -17,11 +17,8 @@ class AddMixin:
         Returns:
             None
 
-        Examples:
-            >>> node = SinglyNode(5)
-            >>> node.__add__(10)
-            >>> node.data
-            15
+        Examples:  TODO
+
         """
         if other:
             validated_data = other  # TODO: validate data
