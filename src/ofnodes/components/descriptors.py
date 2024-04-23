@@ -2,30 +2,26 @@ from ofnodes.nodes.singlynode import SinglyNode
 
 class Head:
     def __get__(self, instance, owner):
-        """Getter method for the head/top of the data structure.
+        """Descriptor for managing the head/top of a data structure.
 
-        Args:
-            instance: An instance of the class where the descriptor is used.
-            owner: The class that owns the instance.
+        This descriptor provides getter, setter, and deleter methods for managing the
+        head/top of a data structure. It encapsulates the logic related to setting,
+        getting, and deleting the head/top element of the data structure.
 
-        Returns:
-            Any | None: The head/top element of the data structure, or None if the
-                data structure is empty.
-
-        Notes:
-            The `head` property allows access to the top element of the data structure.
-
-        Raises:
+        Attributes:
             None
 
         Examples:
-            This method can be used in various data structures to retrieve the head/top
-            element.
+            This descriptor can be used in various data structures, such as linked lists,
+            stacks, queues, etc., to manage the head/top element.
 
-            >>> llist = SinglyLinkedList()
-            >>> llist.head = SinglyNode(42)
-            >>> llist.head
-            SinglyNode(data=42)
+            >>> class Stack:
+            ...     head = Head()
+            ...
+            >>> stack = Stack()
+            >>> stack.head = 42
+            >>> stack.head
+            42
         """
         return instance._head
 
