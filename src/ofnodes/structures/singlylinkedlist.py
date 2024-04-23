@@ -1,7 +1,7 @@
 from typing import Optional, Any
 
 from ofnodes.nodes.singlynode import SinglyNode
-from ofnodes.components.descriptors import Head, Tail
+from ofnodes.components.descriptors import Head, Tail, Target
 
 class SinglyLinkedList:
     """A class representing a singly linked list.
@@ -24,6 +24,7 @@ class SinglyLinkedList:
     __slots__ = ('_head', '_tail', '_target',)
     head = Head()
     tail = Tail()
+    target = Target()
     def __init__(self, values=None) -> None:
         self._head: Optional[SinglyNode] = None
         self._tail: Optional[SinglyNode] = None
@@ -31,75 +32,6 @@ class SinglyLinkedList:
         if values:
             for value in values:
                 self.tail = value
-
-    @property
-    def target(self) -> SinglyNode|Any:
-        """Getter property for the node data to target in a Linked List.
-
-        Returns:
-            target: The first node instance of the linked list containing data\
-            matching the target. If no target match, the data is assigned as passed\
-            to target.
-
-        Notes:
-            Any data can be assigned as the target data. Each node in the
-            `SinglyLinkedList` has its data compared to the target data. The first
-            node instance data that match the target data is assigned to the `.target`
-            property. If a match is not found, the target data is stored as is in the
-            `.target` attribute.
-
-        Examples:
-            >>> sllist = SinglyLinkedList()
-            >>> sllist.target = '5 node'
-            Empty `SinglyLinkedList()`. Target data is assigned to SinglyLinkedList's target property.
-            >>> type(sllist.target) != SinglyNode
-            True
-            >>> list(sllist.insert_tail(f"{i} node") for i in range(1, 5))
-            [None, None, None, None]
-            >>> sllist.target = '5 node'
-            No target matches. Target data assigned to SinglyLinkedList's target property.
-            >>> sllist.tail = '5 node'
-            >>> sllist.target = '5 node'
-            At least one target match. First target node instance is assigned to SinglyLinkedList's target property.
-            >>> type(sllist.target) == SinglyNode
-            True
-            >>> sllist.target is sllist.tail
-            True
-        """
-        return self._target
-
-    @target.setter
-    def target(self, target_data: Any | SinglyNode):
-        """Setter property for the target node data of the linked list.
-
-        Args:
-            target (Any): The data for which to match to node data.
-        """
-
-        match self._head:
-            case None:
-                raise ValueError(f"Cannot assign target data to empty {type(self).__name__}.")
-
-            case self._head:
-                if target_data:
-                    #  TODO: data validation
-                    validated_data = target_data
-                    self._target = validated_data
-                    return
-                raise ValueError("Target data unacceptable.")
-
-
-    @target.deleter
-    def target(self):
-        """Deleter property for the target of the linked list.
-
-        Raises:
-            AttributeError: Deleting the `target` attribute is not allowed.
-        """
-        raise AttributeError(
-            f"{type(self).__name__}'s `target` attribute " "cannot be deleted."
-        )
-
 
     def __repr__(self) -> str:
         #return f"{type(self).__name__}(head={type(self.head).__name__}, tail={self.tail})"
