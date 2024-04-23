@@ -183,3 +183,101 @@ class Tail:
         raise AttributeError(
             f"{type(instance).__name__}'s `tail` attribute cannot be deleted."
         )
+
+class Target:
+    """Descriptor for managing the target node data in a data structure.
+
+    This descriptor provides getter, setter, and deleter methods for managing the
+    target node data in a data structure. It encapsulates the logic related to
+    comparing node data to the target data and assigning the first matching node
+    instance to the target property.
+
+    Attributes:
+        None
+
+    Examples:
+        This descriptor can be used in various data structures, such as linked lists,
+        stacks, queues, etc., to manage the target node data.
+
+        >>> class SinglyLinkedList:
+        ...     target = Target()
+        ...
+        >>> sllist = SinglyLinkedList()
+        >>> sllist.target = '5 node'
+        Empty SinglyLinkedList(). Target data is assigned to SinglyLinkedList's target property.
+    """
+
+    def __get__(self, instance, owner):
+        """Getter method for the target node data of the data structure.
+
+        Args:
+            instance: An instance of the class where the descriptor is used.
+            owner: The class that owns the instance.
+
+        Returns:
+            target: The first node instance of the data structure containing data
+            matching the target. If no target match, the data is assigned as passed
+            to target.
+
+        Notes:
+            Any data can be assigned as the target data. Each node in the data structure
+            has its data compared to the target data. The first node instance data that
+            match the target data is assigned to the `.target` property. If a match is
+            not found, the target data is stored as is in the `.target` attribute.
+
+        Examples:
+            This method can be used in various data structures to retrieve the target
+            node data.
+
+            >>> sllist = SinglyLinkedList()
+            >>> sllist.target = '5 node'
+            Empty SinglyLinkedList(). Target data is assigned to SinglyLinkedList's target property.
+        """
+        return instance._target
+
+    def __set__(self, instance, target_data):
+        """Setter method for the target node data of the data structure.
+
+        Args:
+            instance: An instance of the class where the descriptor is used.
+            target_data (Any): The data for which to match to node data.
+
+        Returns:
+            None
+
+        Notes:
+            Setting the `target` property allows modification of the target node data
+            in the data structure.
+        """
+        if instance._head is None:
+            raise ValueError(f"Cannot assign target data to empty {type(instance).__name__}.")
+
+        if target_data:
+            #  TODO: data validation
+            instance._target = target_data
+        else:
+            raise ValueError("Target data unacceptable.")
+
+    def __delete__(self, instance):
+        """Deleter method for the target node data of the data structure.
+
+        Args:
+            instance: An instance of the class where the descriptor is used.
+
+        Returns:
+            None
+
+        Raises:
+            AttributeError: Deleting the `target` attribute is not allowed.
+
+        Examples:
+            This method can be used in various data structures to delete the target
+            node data.
+
+            >>> sllist = SinglyLinkedList()
+            >>> del sllist.target
+            AttributeError: SinglyLinkedList's `target` attribute cannot be deleted.
+        """
+        raise AttributeError(
+            f"{type(instance).__name__}'s `target` attribute cannot be deleted."
+        )
