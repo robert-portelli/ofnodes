@@ -1,7 +1,7 @@
 from typing import Optional, Any
 
 from ofnodes.nodes.singlynode import SinglyNode
-
+from ofnodes.components.descriptors import Head
 
 class SinglyLinkedList:
     """A class representing a singly linked list.
@@ -22,7 +22,7 @@ class SinglyLinkedList:
     """
 
     __slots__ = ('_head', '_tail', '_target',)
-
+    head = Head()
     def __init__(self, values=None) -> None:
         self._head: Optional[SinglyNode] = None
         self._tail: Optional[SinglyNode] = None
@@ -30,70 +30,6 @@ class SinglyLinkedList:
         if values:
             for value in values:
                 self.tail = value
-
-
-    @property
-    def head(self) -> SinglyNode | None:
-        """Getter property for the head of the linked list.
-
-        Returns:
-            SinglyNode | None: The head of the linked list, or None if the list is empty.
-
-        Notes:
-            The `head` property allows access to the first node in the linked list.
-
-        Examples:
-            >>> llist = SinglyLinkedList()
-            >>> llist.head = "first node"
-            >>> llist.head = [42.0, True, "LGRW"]
-            >>> llist.tail = "third node added to list"
-            >>> llist
-            SinglyLinkedList(head=This node's data is 3 of type list., tail=This node's data is 24 of type str.)
-            >>> llist.tail = None
-            >>> llist
-            SinglyLinkedList(head=This node's data is 3 of type list., tail=This node's data is of type NoneType.)
-            >>> llist.head.next.data
-            'first node'
-            >>> llist.remove_tail()
-            >>> llist.tail.data
-            'third node added to list'
-        """
-        return self._head
-
-    @head.setter
-    def head(self, value: SinglyNode | Any) -> None:
-        """
-        Setter property for the head of the linked list.
-
-        Args:
-            value (SinglyNode | Any): The value to be set as the head. If the value is
-                not already a SinglyNode object, it is wrapped in a SinglyNode.
-        """
-        match value:
-            case SinglyNode():
-                node = value
-            case _:
-                node = SinglyNode(value)
-
-        match self._head:
-            case None:
-                self._head = node
-                self._tail = node
-
-            case self._head:
-                setattr(node, '_next', self._head)
-                setattr(self, "_head", node)
-
-    @head.deleter
-    def head(self):
-        """Deleter property for the head of the linked list.
-
-        Raises:
-            AttributeError: Deleting the `head` attribute is not allowed.
-        """
-        raise AttributeError(
-            f"{type(self).__name__}'s `head` attribute " "cannot be deleted."
-        )
 
     @property
     def target(self) -> SinglyNode|Any:
