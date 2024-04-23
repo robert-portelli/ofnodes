@@ -1,0 +1,1 @@
+# components/nodes/descriptors.py

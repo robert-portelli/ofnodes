@@ -1,8 +1,8 @@
 from typing import Optional, Any
 
 from ofnodes.nodes.singlynode import SinglyNode
-from ofnodes.components.descriptors import Head, Tail, Target
-from ofnodes.components.mixins import SearchMixin, RemoveMixin, InsertHeadMixin, InsertTailMixin, InsertAfterTargetMixin, InsertBeforeTargetMixin, PrintMixin
+from ofnodes.components.structures.descriptors import Head, Tail, Target
+from ofnodes.components.structures.mixins import SearchMixin, RemoveMixin, InsertHeadMixin, InsertTailMixin, InsertAfterTargetMixin, InsertBeforeTargetMixin, PrintMixin
 
 class SinglyLinkedList(SearchMixin, RemoveMixin, InsertHeadMixin, InsertTailMixin, InsertAfterTargetMixin, InsertBeforeTargetMixin, PrintMixin):
     """A class representing a singly linked list.
