@@ -12,10 +12,10 @@ Example:
 
 from typing import Any, Optional
 from ofnodes.components.nodes.descriptors import Data, Next
-#from ofnodes.components.nodes.mixins import Add
+from ofnodes.components.nodes.mixins import AddMixin
 
 
-class SinglyNode:
+class SinglyNode(AddMixin):
     """Represents a node in a singly linked list.
 
     Attributes:
