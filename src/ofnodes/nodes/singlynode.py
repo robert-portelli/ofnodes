@@ -11,6 +11,8 @@ Example:
 """
 
 from typing import Any, Optional
+from ofnodes.components.nodes.descriptors import Data, Next
+#from ofnodes.components.nodes.mixins import Add
 
 
 class SinglyNode:
@@ -23,6 +25,9 @@ class SinglyNode:
 
     __slots__ = ('_data', '_next')
 
+    data = Data()
+    next = Next()
+
     def __init__(self, data: Any) -> None:
         self._data: Optional[Any] = data
         self._next: Optional[SinglyNode] = None
@@ -34,53 +39,6 @@ class SinglyNode:
         parent_dir = {attr for attr in parent_dir if attr not in {'_data', '_next',}}
         # Return a sorted list of all attributes and methods
         return sorted(parent_dir)
-
-    @property
-    def data(self):
-        return self._data
-
-    @data.setter
-    def data(self, value):
-        if value: #  TODO: perform data validation
-            validated_data = value
-        setattr(self, '_data', validated_data)
-
-    @data.deleter
-    def data(self):
-        """Deleter property for the data attribute of the singly node.
-
-        Raises:
-            AttributeError: Deleting the `head` attribute is not allowed.
-        """
-        raise AttributeError(
-            f"{type(self).__name__}'s `data` attribute " "cannot be deleted."
-        )
-
-    @property
-    def next(self):
-        """Getter property for the next node in the singly linked list.
-
-        Note:
-            This property allows access to the next node in the linked list. Modifying
-            the next node should be done using linked list methods for consistency and
-            to maintain the integrity of the linked list structure.
-        """
-        return self._next
-
-    @next.setter
-    def next(self, value):
-        raise AttributeError("Cannot set 'next' attribute directly. Use linked list methods for modification.")
-
-    @next.deleter
-    def next(self):
-        """Deleter property for the next attribute of the singly node.
-
-        Raises:
-            AttributeError: Deleting the `next` attribute is not allowed.
-        """
-        raise AttributeError(
-            f"{type(self).__name__}'s `next` attribute " "cannot be deleted."
-        )
 
     def __repr__(self) -> str:
         return (
