@@ -50,7 +50,6 @@ class Head:
         """
         if isinstance(value, SinglyNode):
             node = value
-            #return
         else:
             node = SinglyNode(value)
 
