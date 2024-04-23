@@ -2,9 +2,9 @@ from typing import Optional, Any
 
 from ofnodes.nodes.singlynode import SinglyNode
 from ofnodes.components.descriptors import Head, Tail, Target
-from ofnodes.components.mixins import SearchMixin, RemoveMixin
+from ofnodes.components.mixins import SearchMixin, RemoveMixin, PrintMixin
 
-class SinglyLinkedList(SearchMixin, RemoveMixin):
+class SinglyLinkedList(SearchMixin, RemoveMixin, PrintMixin):
     """A class representing a singly linked list.
 
     This class provides functionality to create and manipulate a singly linked list
@@ -261,33 +261,3 @@ class SinglyLinkedList(SearchMixin, RemoveMixin):
                 return True
             current_node = getattr(current_node, 'next')  # traversal
         return False
-
-
-    def print_node_data(self) -> None:
-        """Traverse the linked list and print the data attribute of each node.
-
-        Returns:
-            None
-
-        Notes:
-            This method iterates through the linked list starting from the head node and prints the data attribute of each node
-            until the end of the list is reached.
-
-        Examples:
-            >>> sllist = SinglyLinkedList()
-            >>> list(sllist.insert_tail(f"{i} node") for i in range(1, 5))
-            [None, None, None, None]
-            >>> sllist.head
-            SinglyNode(data='1 node')
-            >>> sllist.tail
-            SinglyNode(data='4 node')
-            >>> sllist.print_node_data()
-            1 node
-            2 node
-            3 node
-            4 node
-        """
-        current_node = self._head
-        while current_node:
-            print(current_node.data)
-            current_node = current_node.next
