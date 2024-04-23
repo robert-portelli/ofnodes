@@ -2,8 +2,9 @@ from typing import Optional, Any
 
 from ofnodes.nodes.singlynode import SinglyNode
 from ofnodes.components.descriptors import Head, Tail, Target
+from ofnodes.components.mixins import SearchMixin
 
-class SinglyLinkedList:
+class SinglyLinkedList(SearchMixin):
     """A class representing a singly linked list.
 
     This class provides functionality to create and manipulate a singly linked list
@@ -263,44 +264,6 @@ class SinglyLinkedList:
 
 
 
-    def search(self, target_data):
-        """Searches each node's data in a linked list until the first occurrence of
-        the target is found.
-
-        Args:
-            target_data (Any): The value to search for in the linked list.
-
-        Returns:
-            bool: True if the target value is found in the linked list, False otherwise.
-
-        Raises:
-            ValueError: If the linked list is empty.
-
-        Notes:
-            This method iterates through the linked list starting from the head node
-            and checks each node's data value for equality with the target value.
-
-        Examples:
-            >>> llist = SinglyLinkedList()
-            >>> llist.head = "first node"
-            >>> llist.head = "second node"
-            >>> llist.search("first node")
-            True
-            >>> llist.search(SinglyNode("first node"))
-            False
-            >>> llist.search("third node")
-            False
-            >>> llist.tail = "third node"
-            >>> llist.search("third node")
-            True
-        """
-        self.target = target_data  # trigger the setter
-        current_node = self._head
-        while current_node:
-            if current_node.data == self._target:
-                return True
-            current_node = current_node.next
-        return False
 
     def remove(self, target_data: Any | SinglyNode) -> None:
         """Removes the first occurrence of a node with the specified target data from the linked list.
