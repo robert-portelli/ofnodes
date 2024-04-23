@@ -1,7 +1,7 @@
 from typing import Optional, Any
 
 from ofnodes.nodes.singlynode import SinglyNode
-from ofnodes.components.descriptors import Head
+from ofnodes.components.descriptors import Head, Tail
 
 class SinglyLinkedList:
     """A class representing a singly linked list.
@@ -23,6 +23,7 @@ class SinglyLinkedList:
 
     __slots__ = ('_head', '_tail', '_target',)
     head = Head()
+    tail = Tail()
     def __init__(self, values=None) -> None:
         self._head: Optional[SinglyNode] = None
         self._tail: Optional[SinglyNode] = None
@@ -99,73 +100,6 @@ class SinglyLinkedList:
             f"{type(self).__name__}'s `target` attribute " "cannot be deleted."
         )
 
-    @property
-    def tail(self) -> SinglyNode | None:
-        """
-        Getter property for the tail of the linked list.
-
-        Returns:
-            SinglyNode | None: The tail of the linked list, or None if the list is empty.
-
-        Examples:
-            >>> llist = SinglyLinkedList()
-            >>> llist
-            SinglyLinkedList(head=None, tail=None)
-            >>> llist.tail = "first node in the list"
-            >>> assert llist.tail is llist.head
-            >>> assert llist.next is None
-            >>> assert llist.head.next is None
-            >>> llist.tail
-            >>> llist.tail = "new tail"
-            >>> assert llist.head.next is llist.tail
-            >>> llist
-            SinglyLinkedList(head=This node's data is 22 of type str., tail=This node's data is 8 of type str.)
-            >>> llist.head, llist.tail
-            (SinglyNode(data='first node in the list'), SinglyNode(data='new tail'))
-        """
-        return self._tail
-
-    @tail.setter
-    def tail(self, value: SinglyNode | Any) -> None:
-        """Setter property for the tail of the linked list.
-
-        Args:
-            value (SinglyNode | Any): The value to be set as the tail. If the value is
-                not already a SinglyNode object, it is wrapped in a SinglyNode.
-
-        Notes:
-            Setting the `tail` property allows modification of the last node in the linked list.
-        """
-        match value:
-            case SinglyNode():
-                node = value
-            case _:
-                node = SinglyNode(value)
-
-        match self._head:
-            case None:
-                setattr(self, "_head", node)
-                setattr(self, "_tail", node)
-            case self._head:
-                if not getattr(self._head, "_next"):
-                    # it's a one node list
-                    setattr(self._head, "_next", node)
-                    setattr(self, "_tail", node)
-                    return
-                # there're more than one node
-                setattr(self._tail, "_next", node)
-                setattr(self, "_tail", node)
-
-    @tail.deleter
-    def tail(self):
-        """Deleter property for the tail of the linked list.
-
-        Raises:
-            AttributeError: Deleting the `tail` attribute is not allowed.
-        """
-        raise AttributeError(
-            f"{type(self).__name__}'s `tail` attribute " "cannot be deleted."
-        )
 
     def __repr__(self) -> str:
         #return f"{type(self).__name__}(head={type(self.head).__name__}, tail={self.tail})"
