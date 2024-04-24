@@ -1,3 +1,5 @@
+
+
 import pytest
 from ofnodes.structures.singlylinkedlist import SinglyLinkedList
 from ofnodes.nodes.singlynode import SinglyNode
@@ -53,7 +55,7 @@ def test__dir__():
             '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__',
             '__lt__', '__module__', '__ne__', '__new__', '__reduce__',
             '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__',
-            '__slots__', '__str__', '__subclasshook__', '__weakref__', 'head', 'insert_after_target', 'insert_before_target',
+            '__slots__', '__str__', '__subclasshook__', '__weakref__', 'cycle_detection', 'head', 'insert_after_target', 'insert_before_target',
             'insert_head', 'insert_tail', 'print_node_data', 'remove', 'remove_head',
             'remove_tail', 'search', 'tail', 'target']
     assert dir(sllist) == dirr
@@ -347,3 +349,19 @@ def test_remove():
     test_two_nodes()
     test_many_nodes()
     test_remove_first_encounter()
+
+def test_cycle_detection():
+    sllist = SinglyLinkedList([f"node {i}" for i in range(1,7)])
+    # the ofnodes library doesn't create cycles
+    assert sllist.tail.next is None
+    # the ofnodes library discourages cycle creation
+    with pytest.raises(AttributeError) as exc_info:
+        sllist.tail.next = sllist.head
+    assert "Cannot set 'next' attribute directly." in str(exc_info)
+    # bypass SinglyNode.next setter to artificially create cycle
+    setattr(sllist.tail, '_next', sllist.head.next)
+    assert sllist.tail.next is not None
+    # if you find yourself unable to access the SinglyLinkedList
+    # tail attribute and think the tail setter was bypassed,
+    # you can use the cycle_detection:
+    assert sllist.cycle_detection() is True
