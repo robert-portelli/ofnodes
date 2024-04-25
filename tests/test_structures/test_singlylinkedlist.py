@@ -354,6 +354,7 @@ def test_cycle_detection():
     sllist = SinglyLinkedList([f"node {i}" for i in range(1,7)])
     # the ofnodes library doesn't create cycles
     assert sllist.tail.next is None
+    assert sllist.cycle_detection() is False
     # the ofnodes library discourages cycle creation
     with pytest.raises(AttributeError) as exc_info:
         sllist.tail.next = sllist.head

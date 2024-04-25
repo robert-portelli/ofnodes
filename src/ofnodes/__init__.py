@@ -20,5 +20,13 @@ Here is what ofnodes can do:
     - implement a node object with a unidirectional pointer
     - implement and manipulate a linked list object of unidirectional,
     i.e., 'singly linked' nodes.
+
+Included in the library is a Tail descriptor designed to manage the tail attribute of
+linked data structures. While the primary purpose of the Tail descriptor is to
+facilitate efficient management of the data structure's tail node, its implementation
+also aligns with best practices for preventing cyclic dependencies within linked data
+structures. By adhering to these design principles, the library promotes safe and
+reliable usage of linked data structures, reducing the risk of unintended cyclic
+references and associated issues.
 """
 __all__ = ['SinglyNode','SinglyLinkedList']

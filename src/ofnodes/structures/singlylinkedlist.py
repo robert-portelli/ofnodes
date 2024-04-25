@@ -35,31 +35,10 @@ class SinglyLinkedList(SearchMixin, RemoveMixin, InsertHeadMixin, InsertTailMixi
                 self.tail = value
 
     def cycle_detection(self):
-        """The library is designed against cycles occuring.
-        SinglyLinkedList.tail is always set to None.
-        The SinglyNode.next attribute is read only. ofnodes handles
-        setting the .next attribute to prevent cycles from happening.
 
-        To prove an instance ofnodes.structures.singlylinkedlist.SinglyLinkedList lacks
-        a cycle, check it's tail attribute `assert SinglyLinkedList.tail.next is None`
-        detect a cycle without checking self.tail
-
-        Floyd's Triangle"""
-        if not self._head or not self._head.next:
-            return False
-
-        slow = self._head
-        fast = self._head.next
-
-        while slow != fast:
-            if not fast or not fast.next:
-                return False
-            slow = slow.next
-            fast = fast.next.next
-
-        return True
-
-
+        if self.tail.next is not None:
+            return True
+        return False
 
     def __add__(self, other):
         self.tail = other  # tail attr will validate
