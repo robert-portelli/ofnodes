@@ -544,7 +544,13 @@ node in the sequence.</p>
 <span class="normal">65</span>
 <span class="normal">66</span>
 <span class="normal">67</span>
-<span class="normal">68</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">SinglyLinkedList</span><span class="p">(</span><span class="n">SearchMixin</span><span class="p">,</span> <span class="n">RemoveMixin</span><span class="p">,</span> <span class="n">InsertHeadMixin</span><span class="p">,</span> <span class="n">InsertTailMixin</span><span class="p">,</span> <span class="n">InsertAfterTargetMixin</span><span class="p">,</span> <span class="n">InsertBeforeTargetMixin</span><span class="p">,</span> <span class="n">PrintMixin</span><span class="p">):</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">SinglyLinkedList</span><span class="p">(</span><span class="n">SearchMixin</span><span class="p">,</span> <span class="n">RemoveMixin</span><span class="p">,</span> <span class="n">InsertHeadMixin</span><span class="p">,</span> <span class="n">InsertTailMixin</span><span class="p">,</span> <span class="n">InsertAfterTargetMixin</span><span class="p">,</span> <span class="n">InsertBeforeTargetMixin</span><span class="p">,</span> <span class="n">PrintMixin</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A class representing a singly linked list.</span>
 
 <span class="sd">    This class provides functionality to create and manipulate a singly linked list</span>
@@ -573,6 +579,12 @@ node in the sequence.</p>
         <span class="k">if</span> <span class="n">values</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="nf">cycle_detection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tail</span><span class="o">.</span><span class="n">next</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span>
 
     <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="n">other</span>  <span class="c1"># tail attr will validate</span>
