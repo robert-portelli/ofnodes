@@ -64,7 +64,7 @@ class SinglyLinkedList(SearchMixin, RemoveMixin, InsertHeadMixin, InsertTailMixi
             nodes.append(str(node.data))
             node = node.next
         return ' -> '.join(nodes)
-            
+
     def __dir__(self) -> list[str]:
         # Get the list of attributes and methods from the parent classes
         parent_dir = set(super().__dir__())

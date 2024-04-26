@@ -155,7 +155,7 @@ class RemoveMixin:
         if self._head and self._head is not self._tail:
             self._head = self._head.next
             return
-        raise ValueError("Cannot remove head from empty list")
+        raise ValueError("Cannot remove head from empty linked structure")
 
     def remove_tail(self) -> None:
         """Removes the tail node from the linked structure.
