@@ -104,8 +104,7 @@ class RemoveMixin:
         self.target = target_data  # trigger the setter
 
         if getattr(self._head, 'data') == self._target:
-            self.remove_head()
-            return
+            return self.remove_head()
 
         current_node = self._head
         while current_node.next is not self._tail:
@@ -115,8 +114,7 @@ class RemoveMixin:
             current_node = current_node.next
 
         if getattr(self._tail, 'data') == self._target:
-            self.remove_tail()
-            return
+            return self.remove_tail()
 
     def remove_head(self) -> None:
         """Removes the head node from the linked structure.
@@ -149,12 +147,14 @@ class RemoveMixin:
                 LinkedStructure(head=None, tail=None)
         """
         if self._head and self._head is self._tail:
+            node = self._head
             self._head = None
             self._tail = None
-            return
+            return  node
         if self._head and self._head is not self._tail:
+            node = self._head
             self._head = self._head.next
-            return
+            return node
         raise ValueError("Cannot remove head from empty linked structure")
 
     def remove_tail(self) -> None:
@@ -195,14 +195,16 @@ class RemoveMixin:
             case self._head:
                 if not getattr(self._head, "_next"):
                     # it's a one node list
+                    node = self._tail
                     setattr(self, "_head", None)
                     setattr(self, "_tail", None)
-                    return
+                    return node
                 if getattr(self._head, "next") is self._tail:
                     # there are two nodes
+                    node = self._tail
                     setattr(self, "_tail", self._head)
                     setattr(self._tail, "_next", None)
-                    return
+                    return node
                 # there are more than two nodes
                 node = self._head
                 # find second to last node
@@ -213,6 +215,7 @@ class RemoveMixin:
                     node = getattr(node, "_next")  # keep looking
                 setattr(node, "_next", None)  # point the second to last node to None
                 setattr(self, "_tail", node)  # assign tail to the node
+                return node
 
 class PrintMixin:
     """Mixin class providing node data print functionality"""
