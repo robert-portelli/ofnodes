@@ -100,7 +100,7 @@ class SinglyLinkedList(SearchMixin, RemoveMixin, InsertHeadMixin, InsertTailMixi
                 - Average Case: O(n^2).
         """
         if not self.head or not self.head.next:  # it's a zero node or one node list
-            return
+            raise ValueError("Cannot sort an empty linked list.")
         # Flag to indicate whether any swaps were made in the current pass
         swapped = True
         while swapped:
@@ -135,7 +135,7 @@ class SinglyLinkedList(SearchMixin, RemoveMixin, InsertHeadMixin, InsertTailMixi
             - Time Complexity: O(n), where n is the number of elements in the linked list.
         """
         if not self.head or not self.head.next:  # it's a zero node or one node list
-            return
+            raise ValueError("Cannot reverse an empty linked list.")
         ## it's more than one node list
         # set the head
         self.head = SinglyNode(self.tail.data)  # trigger the setter
@@ -147,45 +147,3 @@ class SinglyLinkedList(SearchMixin, RemoveMixin, InsertHeadMixin, InsertTailMixi
             node._next, current._next = current._next, node
             self.remove_tail()
             current = current.next
-
-
-
-if __name__ == "__main__":
-    sllist = SinglyLinkedList([8, 2, 6, 4, 5])
-    sllist.bubble_sort()
-    #head_to_tail = sllist.head
-    ##set the head
-    sllist.head = SinglyNode(sllist.tail.data)
-    sllist.remove_tail()
-    ## complete descending
-    # if it's a one node list,
-
-    ## it it's a more than one node list
-    current = sllist._head
-    while current is not sllist._tail: # TODO: one node list, two, etc ^^
-        node = SinglyNode(sllist._tail.data)
-        current._next, node._next = node, current._next
-        sllist.remove_tail()
-        current = current._next  # trigger the getter
-    ##sllist.head + SinglyNode(sllist.tail.data)
-
-    """
-    >>> sllist
-SinglyLinkedList([2, 4, 5, 6, 8])
->>> head_to_tail = sllist.head
->>> sllist.head = SinglyNode(sllist.tail.data)
->>> sllist.remove_tail()
-SinglyNode(data=6)
->>> sllist
-SinglyLinkedList([8, 2, 4, 5, 6])
->>> node = SinglyNode(sllist.tail.data) # pass the tail data to new node
->>> current = sllist.head
->>> # update pointers to insert after head
->>> node._next = current.next
->>> current._next = node
->>> sllist
-SinglyLinkedList([8, 6, 2, 4, 5, 6])
->>> sllist.remove_tail()
-SinglyNode(data=5)
->>> assert sllist.head.next.next is head_to_tail
-    """
