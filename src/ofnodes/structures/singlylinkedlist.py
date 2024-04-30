@@ -113,15 +113,44 @@ class SinglyLinkedList(SearchMixin, RemoveMixin, InsertHeadMixin, InsertTailMixi
                 # Move to the next node
                 current = current.next
         if not ascending:
+            self.target = self.head
             head_to_tail = self.head
             self.head = SinglyNode(self.tail.data)
             self.remove_tail()
             self.head + SinglyNode(self.tail.data)
 
+    def insert_after_spot(self, spot: SinglyNode, node: SinglyNode):
+        """
+        >>> sllist = SinglyLinkedList([2, 4, 5, 6, 8])
+        >>> head_to_tail = sllist.head
+        >>> current = sllist.head
+        >>> #self.insert_after_spot(spot, node)
+        >>> sllist.insert_after_spot(current, SinglyNode(sllist.tail.data))
+        >>> sllist.remove_tail()
+        >>> sllist = SinglyLinkedList([8, 2, 4, 5, 6])
+        >>> assert head_to_tail is sllist.head.next
+        >>> current = current.next
+        >>> sllist.insert_after_spot(current, SinglyNode(sllist.tail.data))
+        >>> sllist.remove_tail()
+        >>> sllist = SinglyLinkedList([8, 6, 2, 4, 5]) TODO FIX
+        """
+
+
+
 if __name__ == "__main__":
     sllist = SinglyLinkedList([8, 2, 6, 4, 5])
-    sllist.bubble_sort()
-    head_to_tail = sllist.head
-    sllist.head = SinglyNode(sllist.tail.data)
-    sllist.remove_tail()
-    sllist.head + SinglyNode(sllist.tail.data)
+    #sllist.bubble_sort()
+    #head_to_tail = sllist.head
+    ##set the head
+    #sllist.head = SinglyNode(sllist.tail.data)
+    #sllist.remove_tail()
+    ## complete descending
+    # if it's a one node list,
+
+    # it it's a more than one node list
+    current = sllist.head
+    while current is not sllist.tail: # TODO: one node list, two, etc ^^
+        node = SinglyNode(sllist.tail.data)
+        node.next = current
+        current.next = node
+    #sllist.head + SinglyNode(sllist.tail.data)
