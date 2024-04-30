@@ -72,3 +72,35 @@ class SinglyLinkedList(SearchMixin, RemoveMixin, InsertHeadMixin, InsertTailMixi
         parent_dir = {attr for attr in parent_dir if attr not in {'_head', '_tail', '_target'}}
         # Return a sorted list of all attributes and methods
         return sorted(parent_dir)
+
+    def xbubble_sort(self):
+        # Flag to indicate whether any swaps were made in the current pass
+        swapped = True
+        while swapped:
+            swapped = False
+            # Start from the head of the list
+            current = self.head
+            while current.next:
+                if current.data > current.next.data:
+                    # Swap data of adjacent nodes
+                    current.data, current.next.data = current.next.data, current.data
+                    # Set swapped flag to True
+                    swapped = True
+                # Move to the next node
+                current = current.next
+
+    def bubble_sort(self):
+        # Flag to indicate whether any swaps were made in the current pass
+        swapped = True
+        while swapped:
+            swapped = False
+            # Start from the head of the list
+            current = self._head
+            while current and current.next:  # Add condition to check current.next
+                if current._data > current.next._data:
+                    # Swap data of adjacent nodes
+                    current._data, current.next._data = current.next._data, current._data
+                    # Set swapped flag to True
+                    swapped = True
+                # Move to the next node
+                current = current.next
