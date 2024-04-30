@@ -366,3 +366,9 @@ def test_cycle_detection():
     # tail attribute and think the tail setter was bypassed,
     # you can use the cycle_detection:
     assert sllist.cycle_detection() is True
+
+def test_bubble_sort():
+    sllist = SinglyLinkedList([8, 2, 6, 4, 5])
+    sllist.bubble_sort()
+    assert repr(sllist) == 'SinglyLinkedList([2, 4, 5, 6, 8])'
+    assert str(sllist) == '2 -> 4 -> 5 -> 6 -> 8'
