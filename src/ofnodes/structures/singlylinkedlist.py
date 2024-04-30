@@ -134,13 +134,15 @@ class SinglyLinkedList(SearchMixin, RemoveMixin, InsertHeadMixin, InsertTailMixi
         Notes:
             - Time Complexity: O(n), where n is the number of elements in the linked list.
         """
+        if not self.head or not self.head.next:  # it's a zero node or one node list
+            return
+        ## it's more than one node list
         # set the head
-        head_to_tail = self._head  # this gets pushed to tail, triggers while loop exit
-        self._head = SinglyNode(self._tail.data)  # set the head with new node made from tail data(push old head one)
+        self.head = SinglyNode(self.tail.data)  # trigger the setter
         self.remove_tail()  # remove the node you moved data from
         # complete node order reversal
         current = self._head
-        while head_to_tail is not self._tail:  # or while head_to_tail.next is not None
+        while current is not self.tail:  # or while head_to_tail.next is not None
             node = SinglyNode(self._tail.data)
             node._next, current._next = current._next, node
             self.remove_tail()
@@ -153,16 +155,18 @@ if __name__ == "__main__":
     sllist.bubble_sort()
     #head_to_tail = sllist.head
     ##set the head
-    #sllist.head = SinglyNode(sllist.tail.data)
-    #sllist.remove_tail()
+    sllist.head = SinglyNode(sllist.tail.data)
+    sllist.remove_tail()
     ## complete descending
     # if it's a one node list,
 
     ## it it's a more than one node list
-    #current = sllist.head
-    #while current is not sllist.tail: # TODO: one node list, two, etc ^^
-    #    node = SinglyNode(sllist.tail.data)
-    #    current._next, node._next = node, current._next
+    current = sllist._head
+    while current is not sllist._tail: # TODO: one node list, two, etc ^^
+        node = SinglyNode(sllist._tail.data)
+        current._next, node._next = node, current._next
+        sllist.remove_tail()
+        current = current._next  # trigger the getter
     ##sllist.head + SinglyNode(sllist.tail.data)
 
     """
