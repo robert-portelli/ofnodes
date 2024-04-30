@@ -139,7 +139,7 @@ class SinglyLinkedList(SearchMixin, RemoveMixin, InsertHeadMixin, InsertTailMixi
 
 if __name__ == "__main__":
     sllist = SinglyLinkedList([8, 2, 6, 4, 5])
-    #sllist.bubble_sort()
+    sllist.bubble_sort()
     #head_to_tail = sllist.head
     ##set the head
     #sllist.head = SinglyNode(sllist.tail.data)
@@ -147,10 +147,30 @@ if __name__ == "__main__":
     ## complete descending
     # if it's a one node list,
 
-    # it it's a more than one node list
-    current = sllist.head
-    while current is not sllist.tail: # TODO: one node list, two, etc ^^
-        node = SinglyNode(sllist.tail.data)
-        node.next = current
-        current.next = node
-    #sllist.head + SinglyNode(sllist.tail.data)
+    ## it it's a more than one node list
+    #current = sllist.head
+    #while current is not sllist.tail: # TODO: one node list, two, etc ^^
+    #    node = SinglyNode(sllist.tail.data)
+    #    current._next, node._next = node, current._next
+    ##sllist.head + SinglyNode(sllist.tail.data)
+
+    """
+    >>> sllist
+SinglyLinkedList([2, 4, 5, 6, 8])
+>>> head_to_tail = sllist.head
+>>> sllist.head = SinglyNode(sllist.tail.data)
+>>> sllist.remove_tail()
+SinglyNode(data=6)
+>>> sllist
+SinglyLinkedList([8, 2, 4, 5, 6])
+>>> node = SinglyNode(sllist.tail.data) # pass the tail data to new node
+>>> current = sllist.head
+>>> # update pointers to insert after head
+>>> node._next = current.next
+>>> current._next = node
+>>> sllist
+SinglyLinkedList([8, 6, 2, 4, 5, 6])
+>>> sllist.remove_tail()
+SinglyNode(data=5)
+>>> assert sllist.head.next.next is head_to_tail
+    """
