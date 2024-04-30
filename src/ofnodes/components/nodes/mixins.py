@@ -22,6 +22,6 @@ class AddMixin:
         """
         if other:
             validated_data = other  # TODO: validate data
-            self.data = self.data + validated_data
+            self._data = self._data + validated_data
             return
         raise ValueError("Invalid data to add to SinglyNode.data")

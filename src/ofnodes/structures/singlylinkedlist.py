@@ -73,7 +73,31 @@ class SinglyLinkedList(SearchMixin, RemoveMixin, InsertHeadMixin, InsertTailMixi
         # Return a sorted list of all attributes and methods
         return sorted(parent_dir)
 
-    def bubble_sort(self):
+    def bubble_sort(self, ascending=True):
+        """Sorts the elements of the singly linked data structure in ascending order using the bubble sort algorithm.
+
+        This method iteratively traverses the list and swaps adjacent elements if they are in the wrong order,
+        until the list is sorted.
+
+        Example:
+            >>> sllist = SinglyLinkedList([8, 2, 6, 4, 5])
+            >>> sllist.bubble_sort()
+            >>> sllist
+            SinglyLinkedList([2, 4, 5, 6, 8])
+            >>> str(sllist)
+            '2 -> 4 -> 5 -> 6 -> 8'
+
+        Note:
+            - This method modifies the original linked list in place.
+            - The comparison operation (`>`) is used for elements. For non-numeric data types,
+            ensure that the `__gt__` method is defined appropriately for comparison.
+
+        Time Complexity:
+            - Best Case: O(n), when the list is already sorted.
+            - Worst Case: O(n^2), when the list is in reverse order.
+            - Average Case: O(n^2).
+        """
+
         # Flag to indicate whether any swaps were made in the current pass
         swapped = True
         while swapped:
@@ -88,3 +112,16 @@ class SinglyLinkedList(SearchMixin, RemoveMixin, InsertHeadMixin, InsertTailMixi
                     swapped = True
                 # Move to the next node
                 current = current.next
+        if not ascending:
+            head_to_tail = self.head
+            self.head = SinglyNode(self.tail.data)
+            self.remove_tail()
+            self.head + SinglyNode(self.tail.data)
+
+if __name__ == "__main__":
+    sllist = SinglyLinkedList([8, 2, 6, 4, 5])
+    sllist.bubble_sort()
+    head_to_tail = sllist.head
+    sllist.head = SinglyNode(sllist.tail.data)
+    sllist.remove_tail()
+    sllist.head + SinglyNode(sllist.tail.data)
