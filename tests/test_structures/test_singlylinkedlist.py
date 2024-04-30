@@ -57,7 +57,7 @@ def test__dir__():
             '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__',
             '__slots__', '__str__', '__subclasshook__', '__weakref__', 'bubble_sort','cycle_detection', 'head', 'insert_after_target', 'insert_before_target',
             'insert_head', 'insert_tail', 'print_node_data', 'remove', 'remove_head',
-            'remove_tail', 'search', 'tail', 'target']
+            'remove_tail','reverse_order', 'search', 'tail', 'target']
     assert dir(sllist) == dirr
 
 def test_head_property():
