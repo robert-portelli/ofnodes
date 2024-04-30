@@ -491,7 +491,7 @@ your use case by looking at the different pages.</p>
 
   <div class="doc doc-contents ">
           <p class="doc doc-class-bases">
-            Bases: <code><span title="ofnodes.components.structures.mixins.SearchMixin">SearchMixin</span></code>, <code><span title="ofnodes.components.structures.mixins.RemoveMixin">RemoveMixin</span></code>, <code><span title="ofnodes.components.structures.mixins.InsertHeadMixin">InsertHeadMixin</span></code>, <code><span title="ofnodes.components.structures.mixins.InsertTailMixin">InsertTailMixin</span></code>, <code><span title="ofnodes.components.structures.mixins.InsertAfterTargetMixin">InsertAfterTargetMixin</span></code>, <code><span title="ofnodes.components.structures.mixins.InsertBeforeTargetMixin">InsertBeforeTargetMixin</span></code>, <code><span title="ofnodes.components.structures.mixins.PrintMixin">PrintMixin</span></code></p>
+            Bases: <code><span title="ofnodes.components.structures.mixins.SearchMixin">SearchMixin</span></code>, <code><span title="ofnodes.components.structures.mixins.RemoveMixin">RemoveMixin</span></code>, <code><span title="ofnodes.components.structures.mixins.InsertHeadMixin">InsertHeadMixin</span></code>, <code><span title="ofnodes.components.structures.mixins.InsertTailMixin">InsertTailMixin</span></code>, <code><span title="ofnodes.components.structures.mixins.InsertAfterTargetMixin">InsertAfterTargetMixin</span></code>, <code><span title="ofnodes.components.structures.mixins.InsertBeforeTargetMixin">InsertBeforeTargetMixin</span></code>, <code><span title="ofnodes.components.structures.mixins.PrintMixin">PrintMixin</span></code>, <code><span title="ofnodes.sorting.mixins.BubbleSortMixin">BubbleSortMixin</span></code>, <code><span title="ofnodes.sorting.mixins.ReverseOrderMixin">ReverseOrderMixin</span></code></p>
 
   
       <p>A class representing a singly linked list.</p>
@@ -557,8 +557,7 @@ node in the sequence.</p>
 
             <details class="quote">
               <summary>Source code in <code>src/ofnodes/structures/singlylinkedlist.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 7</span>
-<span class="normal"> 8</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
@@ -624,7 +623,8 @@ node in the sequence.</p>
 <span class="normal">71</span>
 <span class="normal">72</span>
 <span class="normal">73</span>
-<span class="normal">74</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">SinglyLinkedList</span><span class="p">(</span><span class="n">SearchMixin</span><span class="p">,</span> <span class="n">RemoveMixin</span><span class="p">,</span> <span class="n">InsertHeadMixin</span><span class="p">,</span> <span class="n">InsertTailMixin</span><span class="p">,</span> <span class="n">InsertAfterTargetMixin</span><span class="p">,</span> <span class="n">InsertBeforeTargetMixin</span><span class="p">,</span> <span class="n">PrintMixin</span><span class="p">):</span>
+<span class="normal">74</span>
+<span class="normal">75</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">SinglyLinkedList</span><span class="p">(</span><span class="n">SearchMixin</span><span class="p">,</span> <span class="n">RemoveMixin</span><span class="p">,</span> <span class="n">InsertHeadMixin</span><span class="p">,</span> <span class="n">InsertTailMixin</span><span class="p">,</span> <span class="n">InsertAfterTargetMixin</span><span class="p">,</span> <span class="n">InsertBeforeTargetMixin</span><span class="p">,</span> <span class="n">PrintMixin</span><span class="p">,</span> <span class="n">BubbleSortMixin</span><span class="p">,</span> <span class="n">ReverseOrderMixin</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A class representing a singly linked list.</span>
 
 <span class="sd">    This class provides functionality to create and manipulate a singly linked list</span>
