@@ -1,4 +1,3 @@
-
 from ofnodes.sorting.mixins import BubbleSortMixin, ReverseOrderMixin
 class RandomAccessArray(BubbleSortMixin, ReverseOrderMixin):
     def __init__(self, size):
