@@ -2,7 +2,7 @@ from ofnodes.nodes.singlynode import SinglyNode
 
 class BubbleSortMixin:
     """Mixin class providing bubble sort functionality for linked node structures."""
-    def bubble_sort(self, ascending=True):
+    def reference_based_bubble_sort(self, ascending=True):
         """Sorts the elements of the singly linked data structure.
 
         Args:
@@ -28,6 +28,8 @@ class BubbleSortMixin:
                 - Worst Case: O(n^2), when the list is in reverse order.
                 - Average Case: O(n^2).
         """
+        if 'head' not in dir(self):
+            raise TypeError("reference_based_bubble_sort can only be used on reference-based data structures like linked lists.")
         if not self.head or not self.head.next:  # it's a zero node or one node list
             raise ValueError("Cannot sort an empty linked list.")
         swapped = True
@@ -43,10 +45,24 @@ class BubbleSortMixin:
         if not ascending:  # it's descending
             self.reverse_order()
 
+    def index_based_bubble_sort(self, ascending= True):
+        if '__getitem__' not in dir(self):
+            raise TypeError("index_based_bubble_sort can only be used on data structures that support index-based access.")
+        n = len(self)
+        for i in range(n):
+            already_sorted = True
+            for j in range(n - i - 1): # (5 - 0 - 1)
+                if self[j] > self[j + 1]:
+                    self[j], self[j + 1] = self[j + 1], self[j]
+                    already_sorted = False
+            if already_sorted:
+                break
+        if not ascending:  #it's descending
+            self.index_based_reverse_order()
 
 class ReverseOrderMixin:
     """Mixin class supporting node order reversal for linked node structures."""
-    def reverse_order(self):
+    def reference_based_reverse_order(self):
         """Reverses the order of elements in the singly linked data structure.
 
         Returns:
@@ -61,6 +77,8 @@ class ReverseOrderMixin:
         Notes:
             - Time Complexity: O(n), where n is the number of elements in the linked list.
         """
+        if 'head' not in dir(self):
+            raise TypeError("reference_based_bubble_sort can only be used on reference-based data structures like linked lists.")
         if not self.head or not self.head.next:  # it's a zero node or one node list
             raise ValueError("Cannot reverse an empty linked list.")
         ## it's more than one node list
@@ -74,3 +92,25 @@ class ReverseOrderMixin:
             node._next, current._next = current._next, node
             self.remove_tail()
             current = current.next
+
+    def index_based_reverse_order(self):
+        """Reverses the order of elements in the index-based data structure.
+
+        Returns:
+            None: This method modifies the original data structure in place.
+
+        Examples:
+            >>> my_list = [8, 2, 6, 4, 5]
+            >>> reverse_order(my_list)
+            >>> my_list
+            [5, 4, 6, 2, 8]
+
+        Notes:
+            - Time Complexity: O(n), where n is the number of elements in the data structure.
+        """
+        if '__getitem__' not in dir(self):
+            raise TypeError("index_based_bubble_sort can only be used on data structures that support index-based access.")
+        n = len(self)
+        for i in range(n // 2):
+            # Swap elements symmetrically across the middle
+            self[i], self[n - i - 1] = self[n - i - 1], self[i]
