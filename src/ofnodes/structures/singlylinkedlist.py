@@ -44,7 +44,6 @@ class SinglyLinkedList(SearchMixin, RemoveMixin, InsertHeadMixin, InsertTailMixi
     def __add__(self, other):
         self.tail = other  # tail attr will validate
 
-
     def __repr__(self) -> str:
         #return f"{type(self).__name__}(head={type(self.head).__name__}, tail={self.tail})"
         if not self._head:
@@ -70,6 +69,13 @@ class SinglyLinkedList(SearchMixin, RemoveMixin, InsertHeadMixin, InsertTailMixi
         # Get the list of attributes and methods from the parent classes
         parent_dir = set(super().__dir__())
         # Filter out private attributes and methods
-        parent_dir = {attr for attr in parent_dir if attr not in {'_head', '_tail', '_target'}}
+        excluded = {'_head', '_tail', '_target', 'reference_based_reverse_order', 'reference_based_bubble_sort','index_based_bubble_sort', 'index_based_reverse_order'}
+        parent_dir = {attr for attr in parent_dir if attr not in excluded}
         # Return a sorted list of all attributes and methods
         return sorted(parent_dir)
+
+    def bubble_sort(self, ascending=True):
+        super().reference_based_bubble_sort(ascending)
+
+    def reverse_order(self):
+        return super().reference_based_reverse_order()
