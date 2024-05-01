@@ -367,9 +367,6 @@ def test_cycle_detection():
     # you can use the cycle_detection:
     assert sllist.cycle_detection() is True
 
-def test_bubble_sort():
-    pass
-
 def test_reverse_order():
     sllist = SinglyLinkedList()
     with pytest.raises(ValueError) as exc_info:
