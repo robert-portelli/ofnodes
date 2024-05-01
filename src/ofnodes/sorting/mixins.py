@@ -30,23 +30,19 @@ class BubbleSortMixin:
         """
         if not self.head or not self.head.next:  # it's a zero node or one node list
             raise ValueError("Cannot sort an empty linked list.")
-        # Flag to indicate whether any swaps were made in the current pass
         swapped = True
         while swapped:
             swapped = False
-            # Start from the head of the list
             # Complete ascending sort
             current = self._head
-            while current and current.next:  # Add condition to check current.next
+            while current.next:
                 if current._data > current.next._data:
-                    # Swap data of adjacent nodes
                     current._data, current.next._data = current.next._data, current._data
-                    # Set swapped flag to True
                     swapped = True
-                # Move to the next node
                 current = current.next
         if not ascending:  # it's descending
             self.reverse_order()
+
 
 class ReverseOrderMixin:
     """Mixin class supporting node order reversal for linked node structures."""
