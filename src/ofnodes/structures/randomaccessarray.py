@@ -1,5 +1,21 @@
 from ofnodes.sorting.mixins import BubbleSortMixin, ReverseOrderMixin
 class RandomAccessArray(BubbleSortMixin, ReverseOrderMixin):
+    """An array supporting random access with bubble sort and order reversal capabilities.
+
+    This class represents an array that supports random access operations and also provides
+    functionality for sorting elements using bubble sort algorithm and reversing the order
+    of elements.
+
+    Args:
+        size (int): The size of the array.
+
+    Attributes:
+        _data (list): The underlying list to store array elements.
+
+    Note:
+        This class inherits from BubbleSortMixin and ReverseOrderMixin to leverage the
+        bubble sort and order reversal functionalities.
+    """
     def __init__(self, size):
         self._data = [None] * size
 
