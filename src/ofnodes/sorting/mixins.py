@@ -90,7 +90,7 @@ class ReverseOrderMixin:
             - Time Complexity: O(n), where n is the number of elements in the linked list.
         """
         if 'head' not in dir(self):
-            raise TypeError("reference_based_bubble_sort can only be used on reference-based data structures like linked lists.")
+            raise TypeError("reference_based_reverse_order can only be used on reference-based data structures like linked lists.")
         if not self.head or not self.head.next:  # it's a zero node or one node list
             raise ValueError("Cannot reverse an empty linked list.")
         ## it's more than one node list
@@ -123,7 +123,7 @@ class ReverseOrderMixin:
             - Time Complexity: O(n), where n is the number of elements in the data structure.
         """
         if '__getitem__' not in dir(self):
-            raise TypeError("index_based_bubble_sort can only be used on data structures that support index-based access.")
+            raise TypeError("index_based_reverse_order can only be used on data structures that support index-based access.")
         n = len(self)
         for i in range(n // 2):
             # Swap elements symmetrically across the middle
