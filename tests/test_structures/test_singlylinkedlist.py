@@ -367,6 +367,26 @@ def test_cycle_detection():
     # you can use the cycle_detection:
     assert sllist.cycle_detection() is True
 
+def test_bubble_sort():
+    sllist = SinglyLinkedList()
+    with pytest.raises(ValueError) as exc_info:
+        sllist.bubble_sort()
+    assert "empty linked list" in str(exc_info)
+    def ascending():
+        sllist = SinglyLinkedList([8, 2, 6, 4, 5])
+        sllist.bubble_sort()
+        assert repr(sllist) == 'SinglyLinkedList([2, 4, 5, 6, 8])'
+        assert str(sllist) == '2 -> 4 -> 5 -> 6 -> 8'
+
+    def descending():
+        sllist = SinglyLinkedList([8, 2, 6, 4, 5])
+        sllist.bubble_sort(ascending=False)
+        assert repr(sllist) == 'SinglyLinkedList([8, 6, 5, 4, 2])'
+        assert str(sllist) == '8 -> 6 -> 5 -> 4 -> 2'
+
+    ascending()
+    descending()
+
 def test_reverse_order():
     sllist = SinglyLinkedList()
     with pytest.raises(ValueError) as exc_info:

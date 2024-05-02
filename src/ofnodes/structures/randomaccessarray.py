@@ -43,6 +43,12 @@ class RandomAccessArray(BubbleSortMixin, ReverseOrderMixin):
         Returns:
             str: A string representation of the array.
 
+        Example:
+            >>> raarray = RandomAccessArray(5)
+            >>> [raarray.__setitem__(i, val) for i, val in enumerate([8, 2, 6, 4, 5])]
+            >>> raarray
+            RandomAccessArray([8, 2, 6, 4, 5])
+
         """
         return f"RandomAccessArray({self._data})"
 
@@ -52,11 +58,36 @@ class RandomAccessArray(BubbleSortMixin, ReverseOrderMixin):
         Returns:
             str: A string representation of the array.
 
+        Example:
+            >>> raarray = RandomAccessArray(5)
+            >>> [raarray.__setitem__(i, val) for i, val in enumerate([8, 2, 6, 4, 5])]
+            >>> str(raarray)
+            '[8, 2, 6, 4, 5]'
         """
         return f"[{', '.join(str(item) for item in self._data)}]"
 
     def bubble_sort(self, ascending=True):
+        """
+        Examples:
+            >>> raarray = RandomAccessArray(5)
+            >>> [raarray.__setitem__(i, val) for i, val in enumerate([8, 2, 6, 4, 5])]
+            [None, None, None, None, None]
+            >>> raarray.bubble_sort()
+            >>> raarray
+            RandomAccessArray([2, 4, 5, 6, 8])
+            >>> raarray.bubble_sort(ascending=False)
+            >>> raarray
+            RandomAccessArray([8, 6, 5, 4, 2])
+        """
         return super().index_based_bubble_sort(ascending)
 
     def reverse_order(self):
+        """
+        Examples:
+            >>> raarray = RandomAccessArray(5)
+            >>> [raarray.__setitem__(i, val) for i, val in enumerate([8, 2, 6, 4, 5])]
+            [None, None, None, None, None]
+            >>> raarray.reverse_order()
+            >>> raarray
+            RandomAccessArray([5, 4, 6, 2, 8])"""
         return super().index_based_reverse_order()
