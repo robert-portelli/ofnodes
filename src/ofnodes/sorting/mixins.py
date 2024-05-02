@@ -3,7 +3,7 @@ from ofnodes.nodes.singlynode import SinglyNode
 class BubbleSortMixin:
     """Mixin class providing bubble sort functionality for linked node structures."""
     def reference_based_bubble_sort(self, ascending=True):
-        """Sorts the elements of the singly linked data structure.
+        """Sorts the nodes of the singly linked data structure.
 
         Args:
             ascending (bool, optional): Specifies whether to sort the elements in ascending order (default) or descending order.
@@ -13,10 +13,10 @@ class BubbleSortMixin:
 
         Examples:
             >>> sllist = SinglyLinkedList([8, 2, 6, 4, 5])
-            >>> sllist.bubble_sort()
+            >>> sllist.reference_based_bubble_sort()
             >>> sllist
             SinglyLinkedList([2, 4, 5, 6, 8])
-            >>> sllist.bubble_sort(ascending=False)
+            >>> sllist.reference_based_bubble_sort(ascending=False)
             >>> sllist
             SinglyLinkedList([8, 6, 5, 4, 2])
 
@@ -46,6 +46,18 @@ class BubbleSortMixin:
             self.reverse_order()
 
     def index_based_bubble_sort(self, ascending= True):
+        """
+        Examples:
+            >>> raarray = RandomAccessArray(5)
+            >>> [raarray.__setitem__(i, val) for i, val in enumerate([8, 2, 6, 4, 5])]
+            [None, None, None, None, None]
+            >>> raarray.index_based_bubble_sort()
+            >>> raarray
+            RandomAccessArray([2, 4, 5, 6, 8])
+            >>> raarray.index_based_bubble_sort(ascending=False)
+            >>> raarray
+            RandomAccessArray([8, 6, 5, 4, 2])
+        """
         if '__getitem__' not in dir(self):
             raise TypeError("index_based_bubble_sort can only be used on data structures that support index-based access.")
         n = len(self)
@@ -70,7 +82,7 @@ class ReverseOrderMixin:
 
         Examples:
             >>> sllist = SinglyLinkedList([8, 2, 6, 4, 5])
-            >>> sllist.reverse_order()
+            >>> sllist.reference_based_reverse_order()
             >>> sllist
             SinglyLinkedList([5, 4, 6, 2, 8])
 
@@ -100,10 +112,12 @@ class ReverseOrderMixin:
             None: This method modifies the original data structure in place.
 
         Examples:
-            >>> my_list = [8, 2, 6, 4, 5]
-            >>> reverse_order(my_list)
-            >>> my_list
-            [5, 4, 6, 2, 8]
+            >>> raarray = RandomAccessArray(5)
+            >>> [raarray.__setitem__(i, val) for i, val in enumerate([8, 2, 6, 4, 5])]
+            [None, None, None, None, None]
+            >>> raarray.index_based_reverse_order()
+            >>> raarray
+            RandomAccessArray([5, 4, 6, 2, 8])
 
         Notes:
             - Time Complexity: O(n), where n is the number of elements in the data structure.
