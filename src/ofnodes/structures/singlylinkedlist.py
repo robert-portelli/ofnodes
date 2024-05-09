@@ -137,6 +137,32 @@ if __name__ == "__main__":
             current = prev.next
         else:
             prev, current = current, current.next
+"""
+The outer loop traverses the entire singly linked list, except
+for the head. The outer loop sets `j` to the head during each
+iteration. `j` is used to traverse the sorted portion of the
+singly linked list until it reaches the current node. `j` provides
+the node to which compare the current node. The outer loop ends
+with advancing `prev` and `current` down the singly linked list.
+Summary: The outer loop resets `j` to the first sorted node, i.e.,
+`head` and advances `prev` and `current` down the singly linked
+list.
+
+The inner loop exits with `j` is `current` or `j` is the node
+that should point to the current node.
+"""
+        sllist = SinglyLinkedList([8, 2, 6, 4, 5])
+        prev = sllist.head
+        current = sllist.head.next
+        while current:
+            j = sllist.head
+            while j is not current and j.next.data > current.data:
+                j = j.next
+            if j is not current:
+                node = SinglyNode(current.data)
+                j._next, node._next = node, j._next
+                prev._next = current._next
+            current = current.next
 
 
     def bubble_sort(self, ascending=True):
