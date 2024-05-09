@@ -138,7 +138,7 @@ class InsertionSortMixin:
         at the new head. In other words, change `current._next` to the old head
         and then use the reference-based object's managed `head` attribute to
         set the new head, i.e., current. Current has been sorted and now should
-        advanced to the next
+        be advanced to the next unsorted node.
         """
         if 'head' not in dir(self):
             raise TypeError("insertion_sort can only be used on reference-based data structures like linked lists.")
