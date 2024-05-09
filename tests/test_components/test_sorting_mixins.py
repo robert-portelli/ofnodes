@@ -66,7 +66,61 @@ class TestInsertionSortMixin():
             with pytest.raises(TypeError) as exc_info:
                 raarray.reference_based_insertion_sort()
             assert "reference-based" in str(exc_info)
+        def test_empty_list():
+            sllist = SinglyLinkedList()
+            with pytest.raises(ValueError) as exc_info:
+                sllist.reference_based_insertion_sort()
+            assert "Cannot sort an empty or one node linked list" in str(exc_info)
+        def test_logic():
+            sllist = SinglyLinkedList([8, 2, 6, 4, 5])
+            sllist.reference_based_insertion_sort()
+            assert repr(sllist) == 'SinglyLinkedList([2, 4, 5, 6, 8])'
+            assert str(sllist) == '2 -> 4 -> 5 -> 6 -> 8'
+        def test_partial_sorted_list():
+            sllist = SinglyLinkedList([2, 4, 3, 1, 5])
+            sllist.reference_based_insertion_sort()
+            assert repr(sllist) == 'SinglyLinkedList([1, 2, 3, 4, 5])'
+            assert str(sllist) == '1 -> 2 -> 3 -> 4 -> 5'
+        def test_sorted_list():
+            sllist = SinglyLinkedList([1, 2, 3, 4, 5])
+            sllist.reference_based_insertion_sort()
+            assert repr(sllist) == 'SinglyLinkedList([1, 2, 3, 4, 5])'
+            assert str(sllist) == '1 -> 2 -> 3 -> 4 -> 5'
+        def test_unsorted_list():
+            sllist = SinglyLinkedList([5, 2, 7, 1, 9])
+            sllist.reference_based_insertion_sort()
+            assert repr(sllist) == 'SinglyLinkedList([1, 2, 5, 7, 9])'
+            assert str(sllist) == '1 -> 2 -> 5 -> 7 -> 9'
+        def test_one_node_list():
+            sllist = SinglyLinkedList([42])
+            with pytest.raises(ValueError) as exc_info:
+                sllist.reference_based_insertion_sort()
+            assert "Cannot sort an empty or one node linked list" in str(exc_info)
+        def test_sorted_two_node_list():
+            sllist = SinglyLinkedList([2, 4])
+            sllist.reference_based_insertion_sort()
+            assert repr(sllist) == 'SinglyLinkedList([2, 4])'
+            assert str(sllist) == '2 -> 4'
+        def test_unsorted_two_node_list():
+            sllist = SinglyLinkedList([4, 2])
+            sllist.reference_based_insertion_sort()
+            assert repr(sllist) == 'SinglyLinkedList([2, 4])'
+            assert str(sllist) == '2 -> 4'
+        def test_two_same_node_list():
+            sllist = SinglyLinkedList([2, 2])
+            sllist.reference_based_insertion_sort()
+            assert repr(sllist) == 'SinglyLinkedList([2, 2])'
+            assert str(sllist) == '2 -> 2'
         test_no_head()
+        test_empty_list()
+        test_logic()
+        test_partial_sorted_list()
+        test_sorted_list()
+        test_unsorted_list()
+        test_one_node_list()
+        test_sorted_two_node_list()
+        test_unsorted_two_node_list()
+        test_two_same_node_list()
     def test_index_based_insertion_sort(self):
         def test_error():
             sllist = SinglyLinkedList()

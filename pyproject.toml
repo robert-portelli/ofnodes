@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ofnodes"
-version = "1.10.0"
+version = "1.11.0"
 description = "A library of Data Structures and Algorithms written in Python"
 authors = ["Robert Portelli <github@robertportelli.com>"]
 readme = "README.md"
