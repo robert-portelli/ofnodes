@@ -120,50 +120,56 @@ if __name__ == "__main__":
     sllist = SinglyLinkedList([8, 2, 6, 4, 5])
     prev = sllist.head
     current = sllist.head.next
-    while current:
-        j = sllist.head
-        while j is not current and j.next.data < current.data:
-            j = j.next
-        if j is not current:
-            prev._next = current.next  # Remove current from its current position
+    while current:  # traverse the unsorted portion
+        j = sllist.head  # traverse the sorted portion
+        while j is not current and j.next.data < current.data:  # `j` should not point to current
+            j = j.next  # advance to next sorted node
+        if j is not current:  # `j` should point to current
+            prev._next = current.next  # bypass current. Remember the current node persists in `current`
 
-            if j is sllist.head and j.data > current.data:
-                current._next = sllist.head
-                sllist.head = current
-            else:
+            if j is sllist.head and j.data > current.data:  # the current node should be the new head
+                current._next = sllist.head  # point current at the head
+                sllist.head = current  # trigger setter to add new head
+            else:  # it's some node between head and current that current should point to
                 current._next = j.next
                 j._next = current
 
-            current = prev.next
-        else:
-            prev, current = current, current.next
-"""
-The outer loop traverses the entire singly linked list, except
-for the head. The outer loop sets `j` to the head during each
-iteration. `j` is used to traverse the sorted portion of the
-singly linked list until it reaches the current node. `j` provides
-the node to which compare the current node. The outer loop ends
-with advancing `prev` and `current` down the singly linked list.
-Summary: The outer loop resets `j` to the first sorted node, i.e.,
-`head` and advances `prev` and `current` down the singly linked
-list.
+            current = prev.next  # catch up current
+        else: # `j` reached current and is considered sorted
+            prev, current = current, current.next  # advance to next unsorted node
+            """
+            The outer loop traverses the entire singly linked list, except
+            for the head. The outer loop sets `j` to the head during each
+            iteration. `j` is used to traverse the sorted portion of the
+            singly linked list until it reaches the current node. `j` provides
+            the node to which compare the current node. The outer loop ends
+            with advancing `prev` and `current` down the singly linked list.
+            Summary: The outer loop resets `j` to the first sorted node, i.e.,
+            `head` and advances `prev` and `current` down the singly linked
+            list.
 
-The inner loop exits with `j` is `current` or `j` is the node
-that should point to the current node.
-"""
-        sllist = SinglyLinkedList([8, 2, 6, 4, 5])
-        prev = sllist.head
-        current = sllist.head.next
-        while current:
-            j = sllist.head
-            while j is not current and j.next.data > current.data:
-                j = j.next
-            if j is not current:
-                node = SinglyNode(current.data)
-                j._next, node._next = node, j._next
-                prev._next = current._next
-            current = current.next
+            The inner loop exits with either `j` is `current` or `j` is the node
+            that should point to the current node.
 
+            If `j` is current then current is in its sorted place and advance
+            to the next unsorted node.
+
+            If `j` is not current then `j` should point to `current`. The node `current`
+            persists in the key `current` after it's bypassed in, i.e., removed from,
+            the referenced-based structure.
+                - Every time that a node Falsifies `j.next.data < current.data`,
+                then `j` is the node that should point to the current node. So,
+                every time we bypass `current` in the structure. `current` is bypassed
+                but available in `current` until we reassign `current`.
+
+
+            If `j` should point to the head of the reference-based object, point
+            `current` at the head and leverage the head setter to insert `current`
+            at the new head. In other words, change `current._next` to the old head
+            and then use the reference-based object's managed `head` attribute to
+            set the new head, i.e., current. Then give new meaning to `current` by
+            catching it up to `prev` before advancing
+            """
 
     def bubble_sort(self, ascending=True):
         """Sorts the nodes of the singly linked data structure.
