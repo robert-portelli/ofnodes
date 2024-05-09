@@ -387,6 +387,13 @@ def test_bubble_sort():
     ascending()
     descending()
 
+def test_insertion_sort():
+    sllist = SinglyLinkedList([8, 2, 6, 4, 5])
+    sllist.insertion_sort()
+    assert repr(sllist) == 'SinglyLinkedList([2, 4, 5, 6, 8])'
+    assert str(sllist) == '2 -> 4 -> 5 -> 6 -> 8'
+
+
 def test_reverse_order():
     sllist = SinglyLinkedList()
     with pytest.raises(ValueError) as exc_info:

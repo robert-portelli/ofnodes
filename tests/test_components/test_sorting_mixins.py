@@ -59,47 +59,66 @@ class TestBubbleSortMixin():
         test_ascending()
         test_descending()
 
-    class TestReverseOrderMixin:
-        def test_reference_based_reverse_order(self):
-            def test_no_head():
-                raarray = RandomAccessArray(5)
-                with pytest.raises(TypeError) as exc_info:
-                    raarray.reference_based_reverse_order()
-                assert "reference_based_reverse_order" in str(exc_info)
-            def test_empty_list():
-                sllist = SinglyLinkedList()
-                with pytest.raises(ValueError) as exc_info:
-                    sllist.reference_based_reverse_order()
-                assert "empty linked list" in str(exc_info)
+class TestInsertionSortMixin():
+    def test_reference_based_insertion_sort(self):
+        pass
 
-            def test_reverse_order():
-                sllist = SinglyLinkedList([8, 2, 6, 4, 5])
+    def test_index_based_insertion_sort(self):
+        def test_error():
+            sllist = SinglyLinkedList()
+            with pytest.raises(TypeError) as exc_info:
+                sllist.index_based_insertion_sort()
+            assert "index_based_insertion_sort" in str(exc_info)
+        def test_logic():
+            raarray = RandomAccessArray(5)
+            [raarray.__setitem__(i, val) for i, val in enumerate([8, 2, 6, 4, 5])]
+            raarray.index_based_insertion_sort()
+            assert repr(raarray) == 'RandomAccessArray([2, 4, 5, 6, 8])'
+            assert str(raarray) == '[2, 4, 5, 6, 8]'
+        test_error()
+        test_logic()
+
+class TestReverseOrderMixin:
+    def test_reference_based_reverse_order(self):
+        def test_no_head():
+            raarray = RandomAccessArray(5)
+            with pytest.raises(TypeError) as exc_info:
+                raarray.reference_based_reverse_order()
+            assert "reference_based_reverse_order" in str(exc_info)
+        def test_empty_list():
+            sllist = SinglyLinkedList()
+            with pytest.raises(ValueError) as exc_info:
                 sllist.reference_based_reverse_order()
-                assert repr(sllist) == 'SinglyLinkedList([5, 4, 6, 2, 8])'
-                assert str(sllist) == '5 -> 4 -> 6 -> 2 -> 8'
+            assert "empty linked list" in str(exc_info)
 
-            test_no_head()
-            test_empty_list()
-            test_reverse_order()
+        def test_reverse_order():
+            sllist = SinglyLinkedList([8, 2, 6, 4, 5])
+            sllist.reference_based_reverse_order()
+            assert repr(sllist) == 'SinglyLinkedList([5, 4, 6, 2, 8])'
+            assert str(sllist) == '5 -> 4 -> 6 -> 2 -> 8'
 
-        def test_index_based_reverse_order(self):
-            def test_no__getitem__():
-                sllist = SinglyLinkedList()
-                with pytest.raises(TypeError) as exc_info:
-                    sllist.index_based_reverse_order()
-                assert "index_based_reverse_order" in str(exc_info)
-            #def test_empty_array():
-            #    # TODO: shouldn't reverse an array[i] is None
-            #    raarray = RandomAccessArray(5)
-            #    with pytest.raises(TypeError) as exc_info:
-            #        raarray.index_based_reverse_order()
-            #    assert "'NoneType' and 'NoneType'" in str(exc_info)
-            def test_reverse_order():
-                raarray = RandomAccessArray(5)
-                [raarray.__setitem__(i, val) for i, val in enumerate([8, 2, 6, 4, 5])]
-                raarray.index_based_reverse_order()
-                assert repr(raarray) == 'RandomAccessArray([5, 4, 6, 2, 8])'
-                assert str(raarray) == '[5, 4, 6, 2, 8]'
-            test_no__getitem__()
-            #test_empty_array()
-            test_reverse_order()
+        test_no_head()
+        test_empty_list()
+        test_reverse_order()
+
+    def test_index_based_reverse_order(self):
+        def test_no__getitem__():
+            sllist = SinglyLinkedList()
+            with pytest.raises(TypeError) as exc_info:
+                sllist.index_based_reverse_order()
+            assert "index_based_reverse_order" in str(exc_info)
+        #def test_empty_array():
+        #    # TODO: shouldn't reverse an array[i] is None
+        #    raarray = RandomAccessArray(5)
+        #    with pytest.raises(TypeError) as exc_info:
+        #        raarray.index_based_reverse_order()
+        #    assert "'NoneType' and 'NoneType'" in str(exc_info)
+        def test_reverse_order():
+            raarray = RandomAccessArray(5)
+            [raarray.__setitem__(i, val) for i, val in enumerate([8, 2, 6, 4, 5])]
+            raarray.index_based_reverse_order()
+            assert repr(raarray) == 'RandomAccessArray([5, 4, 6, 2, 8])'
+            assert str(raarray) == '[5, 4, 6, 2, 8]'
+        test_no__getitem__()
+        #test_empty_array()
+        test_reverse_order()
