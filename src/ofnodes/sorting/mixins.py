@@ -106,7 +106,8 @@ class InsertionSortMixin:
                 j -= 1  # compute the next index of the sorted subarray
             self[j + 1] = value  # insert the value one to the right of the minimum value
 
-    #def reference_based_insertion_sort(self):
+class placeholder():
+    def reference_based_insertion_sort(self):
         """
         The outer loop traverses the entire singly linked list, except
         for the head. The outer loop sets `j` to the head during each
@@ -148,19 +149,18 @@ class InsertionSortMixin:
         prev = self.head
         current = self.head._next
         while current:  # traverse the unsorted portion
-            j = self.head  # traverse the sorted portion
+            j = self._head  # traverse the sorted portion
             while j is not current and j._next.data < current.data:  # `j` should not point to current
                 j = j._next  # advance to next sorted node
-            if j is not current:  # `j` should point to current
-                prev._next = current._next  # point to the next unsorted node, bypass current node
+            if j is not current:  # then `j._next.data > current.data`` and `j` should point to current
+                prev._next = current._next  # point to the next unsorted node, bypass current node, persist the reference to the next unsorted node
 
-                if j is self.head and j.data > current.data:  # the current node should point to old head
+                if j is self._head and j.data > current.data:  # the current node should point to old head
                     current._next = self.head  # point current at the head
                     self.head = current  # trigger setter to add new head
                 else:  # it's some node between head and current that current should point to
                     current._next = j._next
                     j._next = current
-
                 current = prev._next  # advance current to next unsorted node
             else: # `j` reached current implying `current` is sorted
                 prev, current = current, current._next  # advance to next unsorted node

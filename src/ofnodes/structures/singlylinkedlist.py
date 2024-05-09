@@ -74,53 +74,6 @@ class SinglyLinkedList(InsertionSortMixin, SearchMixin, RemoveMixin, InsertHeadM
         # Return a sorted list of all attributes and methods
         return sorted(parent_dir)
 
-    def xinsertion_sort(self):
-        if 'head' not in dir(self):
-            raise TypeError("reference_based_bubble_sort can only be used on reference-based data structures like linked lists.")
-        if not self.head or not self.head.next:  # it's a zero node or one node list
-            raise ValueError("Cannot sort an empty or one node linked list.")
-        prev = self._head
-        current = self._head.next
-        while current and prev:
-            value = current.data
-            j = self._head
-            while j is not current and value > j.data:
-                j = j.next
-            if j is current:
-                prev, current = current, current.next
-                continue
-            node = SinglyNode(value)
-            node._next, j._next = j.next, node # insert node
-            prev, current = current.next, current.next.next # remove "moved" node
-
-    def xinsertion_sort(self):
-        if 'head' not in dir(self):
-            raise TypeError("insertion_sort can only be used on reference-based data structures like linked lists.")
-        if not self.head or not self.head.next:  # it's a zero node or one node list
-            raise ValueError("Cannot sort an empty or one node linked list.")
-        prev = self.head
-        current = self.head.next
-        while current:  # traverse the unsorted portion
-            j = self.head  # traverse the sorted portion
-            while j is not current and j.next.data < current.data:  # `j` should not point to current
-                j = j.next  # advance to next sorted node
-            if j is not current:  # `j` should point to current
-                setattr(prev, '_next', current.next)
-                #prev._next = current.next  # point to the next unsorted node, bypass current node
-                current = prev.next  # advance current to next unsorted node
-
-                if j is self.head and j.data > current.data:  # the current node should point to old head
-                    setattr(current, '_next', self.head)
-                    #current._next = sllist.head  # point current at the head
-                    self.head = current  # trigger setter to add new head
-                else:  # it's some node between head and current that current should point to
-                    setattr(current, '_next', self.head)
-                    setattr(j, '_next', current)
-                    #current._next = j.next
-                    #j._next = current
-            else: # `j` reached current implying `current` is sorted
-                prev, current = current, current.next  # advance to next unsorted node
-
     def insertion_sort(self):
         if 'head' not in dir(self):
             raise TypeError("insertion_sort can only be used on reference-based data structures like linked lists.")
