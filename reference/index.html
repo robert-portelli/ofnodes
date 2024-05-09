@@ -465,7 +465,7 @@ reference for the technical implementation of the
 
   <div class="doc doc-contents ">
           <p class="doc doc-class-bases">
-            Bases: <code><span title="ofnodes.components.structures.mixins.SearchMixin">SearchMixin</span></code>, <code><span title="ofnodes.components.structures.mixins.RemoveMixin">RemoveMixin</span></code>, <code><span title="ofnodes.components.structures.mixins.InsertHeadMixin">InsertHeadMixin</span></code>, <code><span title="ofnodes.components.structures.mixins.InsertTailMixin">InsertTailMixin</span></code>, <code><span title="ofnodes.components.structures.mixins.InsertAfterTargetMixin">InsertAfterTargetMixin</span></code>, <code><span title="ofnodes.components.structures.mixins.InsertBeforeTargetMixin">InsertBeforeTargetMixin</span></code>, <code><span title="ofnodes.components.structures.mixins.PrintMixin">PrintMixin</span></code>, <code><span title="ofnodes.sorting.mixins.BubbleSortMixin">BubbleSortMixin</span></code>, <code><span title="ofnodes.sorting.mixins.ReverseOrderMixin">ReverseOrderMixin</span></code></p>
+            Bases: <code><span title="ofnodes.sorting.mixins.InsertionSortMixin">InsertionSortMixin</span></code>, <code><span title="ofnodes.components.structures.mixins.SearchMixin">SearchMixin</span></code>, <code><span title="ofnodes.components.structures.mixins.RemoveMixin">RemoveMixin</span></code>, <code><span title="ofnodes.components.structures.mixins.InsertHeadMixin">InsertHeadMixin</span></code>, <code><span title="ofnodes.components.structures.mixins.InsertTailMixin">InsertTailMixin</span></code>, <code><span title="ofnodes.components.structures.mixins.InsertAfterTargetMixin">InsertAfterTargetMixin</span></code>, <code><span title="ofnodes.components.structures.mixins.InsertBeforeTargetMixin">InsertBeforeTargetMixin</span></code>, <code><span title="ofnodes.components.structures.mixins.PrintMixin">PrintMixin</span></code>, <code><span title="ofnodes.sorting.mixins.BubbleSortMixin">BubbleSortMixin</span></code>, <code><span title="ofnodes.sorting.mixins.ReverseOrderMixin">ReverseOrderMixin</span></code></p>
 
   
       <p>A class representing a singly linked list.</p>
@@ -643,7 +643,10 @@ node in the sequence.</p>
 <span class="normal">117</span>
 <span class="normal">118</span>
 <span class="normal">119</span>
-<span class="normal">120</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">SinglyLinkedList</span><span class="p">(</span><span class="n">SearchMixin</span><span class="p">,</span> <span class="n">RemoveMixin</span><span class="p">,</span> <span class="n">InsertHeadMixin</span><span class="p">,</span> <span class="n">InsertTailMixin</span><span class="p">,</span> <span class="n">InsertAfterTargetMixin</span><span class="p">,</span> <span class="n">InsertBeforeTargetMixin</span><span class="p">,</span> <span class="n">PrintMixin</span><span class="p">,</span> <span class="n">BubbleSortMixin</span><span class="p">,</span> <span class="n">ReverseOrderMixin</span><span class="p">):</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">SinglyLinkedList</span><span class="p">(</span><span class="n">InsertionSortMixin</span><span class="p">,</span> <span class="n">SearchMixin</span><span class="p">,</span> <span class="n">RemoveMixin</span><span class="p">,</span> <span class="n">InsertHeadMixin</span><span class="p">,</span> <span class="n">InsertTailMixin</span><span class="p">,</span> <span class="n">InsertAfterTargetMixin</span><span class="p">,</span> <span class="n">InsertBeforeTargetMixin</span><span class="p">,</span> <span class="n">PrintMixin</span><span class="p">,</span> <span class="n">BubbleSortMixin</span><span class="p">,</span> <span class="n">ReverseOrderMixin</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A class representing a singly linked list.</span>
 
 <span class="sd">    This class provides functionality to create and manipulate a singly linked list</span>
@@ -707,10 +710,13 @@ node in the sequence.</p>
         <span class="c1"># Get the list of attributes and methods from the parent classes</span>
         <span class="n">parent_dir</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__dir__</span><span class="p">())</span>
         <span class="c1"># Filter out private attributes and methods</span>
-        <span class="n">excluded</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;_head&#39;</span><span class="p">,</span> <span class="s1">&#39;_tail&#39;</span><span class="p">,</span> <span class="s1">&#39;_target&#39;</span><span class="p">,</span> <span class="s1">&#39;reference_based_reverse_order&#39;</span><span class="p">,</span> <span class="s1">&#39;reference_based_bubble_sort&#39;</span><span class="p">,</span><span class="s1">&#39;index_based_bubble_sort&#39;</span><span class="p">,</span> <span class="s1">&#39;index_based_reverse_order&#39;</span><span class="p">}</span>
+        <span class="n">excluded</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;_head&#39;</span><span class="p">,</span> <span class="s1">&#39;_tail&#39;</span><span class="p">,</span> <span class="s1">&#39;_target&#39;</span><span class="p">,</span> <span class="s1">&#39;reference_based_reverse_order&#39;</span><span class="p">,</span> <span class="s1">&#39;reference_based_bubble_sort&#39;</span><span class="p">,</span><span class="s1">&#39;index_based_bubble_sort&#39;</span><span class="p">,</span> <span class="s1">&#39;index_based_reverse_order&#39;</span><span class="p">,</span> <span class="s1">&#39;index_based_insertion_sort&#39;</span><span class="p">,</span> <span class="s1">&#39;reference_based_insertion_sort&#39;</span><span class="p">}</span>
         <span class="n">parent_dir</span> <span class="o">=</span> <span class="p">{</span><span class="n">attr</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">parent_dir</span> <span class="k">if</span> <span class="n">attr</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">excluded</span><span class="p">}</span>
         <span class="c1"># Return a sorted list of all attributes and methods</span>
         <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">parent_dir</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">insertion_sort</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">reference_based_insertion_sort</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Sorts the nodes of the singly linked data structure.</span>
@@ -738,7 +744,7 @@ node in the sequence.</p>
 <span class="sd">                - Worst Case: O(n^2), when the list is in reverse order.</span>
 <span class="sd">                - Average Case: O(n^2).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">reference_based_bubble_sort</span><span class="p">(</span><span class="n">ascending</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">reference_based_bubble_sort</span><span class="p">(</span><span class="n">ascending</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">reverse_order</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Reverses the order of elements in the singly linked data structure.</span>
@@ -866,10 +872,7 @@ ensure that the <code>__gt__</code> method is defined appropriately for comparis
 </details>
           <details class="quote">
             <summary>Source code in <code>src/ofnodes/structures/singlylinkedlist.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 77</span>
-<span class="normal"> 78</span>
-<span class="normal"> 79</span>
-<span class="normal"> 80</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 80</span>
 <span class="normal"> 81</span>
 <span class="normal"> 82</span>
 <span class="normal"> 83</span>
@@ -892,7 +895,10 @@ ensure that the <code>__gt__</code> method is defined appropriately for comparis
 <span class="normal">100</span>
 <span class="normal">101</span>
 <span class="normal">102</span>
-<span class="normal">103</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Sorts the nodes of the singly linked data structure.</span>
 
 <span class="sd">    Args:</span>
@@ -918,7 +924,7 @@ ensure that the <code>__gt__</code> method is defined appropriately for comparis
 <span class="sd">            - Worst Case: O(n^2), when the list is in reverse order.</span>
 <span class="sd">            - Average Case: O(n^2).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">reference_based_bubble_sort</span><span class="p">(</span><span class="n">ascending</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">reference_based_bubble_sort</span><span class="p">(</span><span class="n">ascending</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
           </details>
   </div>
@@ -980,10 +986,7 @@ ensure that the <code>__gt__</code> method is defined appropriately for comparis
 </details>
           <details class="quote">
             <summary>Source code in <code>src/ofnodes/structures/singlylinkedlist.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">105</span>
-<span class="normal">106</span>
-<span class="normal">107</span>
-<span class="normal">108</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">108</span>
 <span class="normal">109</span>
 <span class="normal">110</span>
 <span class="normal">111</span>
@@ -995,7 +998,10 @@ ensure that the <code>__gt__</code> method is defined appropriately for comparis
 <span class="normal">117</span>
 <span class="normal">118</span>
 <span class="normal">119</span>
-<span class="normal">120</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">reverse_order</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">reverse_order</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Reverses the order of elements in the singly linked data structure.</span>
 
 <span class="sd">    Returns:</span>
