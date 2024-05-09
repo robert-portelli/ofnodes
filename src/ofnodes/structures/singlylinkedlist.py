@@ -69,35 +69,13 @@ class SinglyLinkedList(InsertionSortMixin, SearchMixin, RemoveMixin, InsertHeadM
         # Get the list of attributes and methods from the parent classes
         parent_dir = set(super().__dir__())
         # Filter out private attributes and methods
-        excluded = {'_head', '_tail', '_target', 'reference_based_reverse_order', 'reference_based_bubble_sort','index_based_bubble_sort', 'index_based_reverse_order', 'index_based_insertion_sort'}
+        excluded = {'_head', '_tail', '_target', 'reference_based_reverse_order', 'reference_based_bubble_sort','index_based_bubble_sort', 'index_based_reverse_order', 'index_based_insertion_sort', 'reference_based_insertion_sort'}
         parent_dir = {attr for attr in parent_dir if attr not in excluded}
         # Return a sorted list of all attributes and methods
         return sorted(parent_dir)
 
     def insertion_sort(self):
-        if 'head' not in dir(self):
-            raise TypeError("insertion_sort can only be used on reference-based data structures like linked lists.")
-        if not self.head or not self.head.next:  # it's a zero node or one node list
-            raise ValueError("Cannot sort an empty or one node linked list.")
-
-        prev = self.head
-        current = self.head._next
-        while current:  # traverse the unsorted portion
-            j = self._head  # traverse the sorted portion
-            while j is not current and j._next.data < current.data:  # `j` should not point to current
-                j = j._next  # advance to next sorted node
-            if j is not current:  # then `j._next.data > current.data`` and `j` should point to current
-                prev._next = current._next  # point to the next unsorted node, bypass current node, persist the reference to the next unsorted node
-
-                if j is self._head and j.data > current.data:  # the current node should point to old head
-                    current._next = self.head  # point current at the head
-                    self.head = current  # trigger setter to add new head
-                else:  # it's some node between head and current that current should point to
-                    current._next = j._next
-                    j._next = current
-                current = prev._next  # advance current to next unsorted node
-            else: # `j` reached current implying `current` is sorted
-                prev, current = current, current._next  # advance to next unsorted node
+        return super().reference_based_insertion_sort()
 
     def bubble_sort(self, ascending=True):
         """Sorts the nodes of the singly linked data structure.
