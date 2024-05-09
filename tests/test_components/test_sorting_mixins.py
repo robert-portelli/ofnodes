@@ -61,8 +61,12 @@ class TestBubbleSortMixin():
 
 class TestInsertionSortMixin():
     def test_reference_based_insertion_sort(self):
-        pass
-
+        def test_no_head():
+            raarray = RandomAccessArray(5)
+            with pytest.raises(TypeError) as exc_info:
+                raarray.reference_based_insertion_sort()
+            assert "reference-based" in str(exc_info)
+        test_no_head()
     def test_index_based_insertion_sort(self):
         def test_error():
             sllist = SinglyLinkedList()
