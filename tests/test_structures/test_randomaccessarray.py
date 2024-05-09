@@ -18,6 +18,13 @@ def test_bubble_sort():
     test_ascending()
     test_descending()
 
+def test_insertion_sort():
+    raarray = RandomAccessArray(5)
+    [raarray.__setitem__(i, val) for i, val in enumerate([8, 2, 6, 4, 5])]
+    raarray.insertion_sort()
+    assert repr(raarray) == 'RandomAccessArray([2, 4, 5, 6, 8])'
+    assert str(raarray) == '[2, 4, 5, 6, 8]'
+
 def test_reverse_order():
     raarray = RandomAccessArray(5)
     [raarray.__setitem__(i, val) for i, val in enumerate([8, 2, 6, 4, 5])]

@@ -28,7 +28,10 @@ class BubbleSortMixin:
                 - Worst Case: O(n^2), when the list is in reverse order.
                 - Average Case: O(n^2).
         """
-
+        if 'head' not in dir(self):
+            raise TypeError("reference_based_bubble_sort can only be used on reference-based data structures like linked lists.")
+        if not self.head or not self.head.next:  # it's a zero node or one node list
+            raise ValueError("Cannot sort an empty linked list.")
         swapped = True
         while swapped:
             swapped = False
@@ -71,6 +74,63 @@ class BubbleSortMixin:
 
 class InsertionSortMixin:
     """Mixin class providing insertion sort functionality for data structures."""
+    def reference_based_insertion_sort(self):
+        """
+        The outer loop traverses the entire singly linked list, except
+        for the head. The outer loop sets `j` to the head during each
+        iteration. `j` is used to traverse the sorted portion of the
+        singly linked list until it reaches the current node. `j` provides
+        the node to which compare the current node. The outer loop ends
+        with advancing `prev` and `current` down the singly linked list.
+        Summary: The outer loop resets `j` to the first sorted node, i.e.,
+        `head` and advances `prev` and `current` down the singly linked
+        list.
+
+        The inner loop exits with either `j` is `current` or `j` is the node
+        that should point to the current node.
+
+        If `j` is current then current is in its sorted place and advance
+        to the next unsorted node.
+
+        If `j` is not current then `j` should point to `current`. The node `current`
+        persists in the key `current` after it's bypassed in, i.e., removed from,
+        the referenced-based structure.
+            - Every time that a node Falsifies `j.next.data < current.data`,
+            then `j` is the node that should point to the current node. So,
+            every time we bypass `current` in the structure. `current` is bypassed
+            but available in `current` until we reassign `current`.
+
+
+        If `j` should point to the head of the reference-based object, point
+        `current` at the head and leverage the head setter to insert `current`
+        at the new head. In other words, change `current._next` to the old head
+        and then use the reference-based object's managed `head` attribute to
+        set the new head, i.e., current. Current has been sorted and now should
+        advanced to the next
+        """
+        if 'head' not in dir(self):
+            raise TypeError("insertion_sort can only be used on reference-based data structures like linked lists.")
+        if not self.head or not self.head.next:  # it's a zero node or one node list
+            raise ValueError("Cannot sort an empty or one node linked list.")
+
+        prev = self.head
+        current = self.head._next
+        while current:  # traverse the unsorted portion
+            j = self._head  # traverse the sorted portion
+            while j is not current and j._next.data < current.data:  # `j` should not point to current
+                j = j._next  # advance to next sorted node
+            if j is not current:  # then `j._next.data > current.data`` and `j` should point to current
+                prev._next = current._next  # point to the next unsorted node, bypass current node, persist the reference to the next unsorted node
+
+                if j is self._head and j.data > current.data:  # the current node should point to old head
+                    current._next = self.head  # point current at the head
+                    self.head = current  # trigger setter to add new head
+                else:  # it's some node between head and current that current should point to
+                    current._next = j._next
+                    j._next = current
+                current = prev._next  # advance current to next unsorted node
+            else: # `j` reached current implying `current` is sorted
+                prev, current = current, current._next  # advance to next unsorted node
     def index_based_insertion_sort(self):
         """Sorts the elements of the data structure using the insertion sort algorithm with index-based access.
 
