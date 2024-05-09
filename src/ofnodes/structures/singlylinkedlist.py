@@ -125,7 +125,7 @@ class SinglyLinkedList(InsertionSortMixin, SearchMixin, RemoveMixin, InsertHeadM
                 - Worst Case: O(n^2), when the list is in reverse order.
                 - Average Case: O(n^2).
         """
-        super().reference_based_bubble_sort(ascending)
+        return super().reference_based_bubble_sort(ascending)
 
     def reverse_order(self):
         """Reverses the order of elements in the singly linked data structure.
@@ -143,7 +143,3 @@ class SinglyLinkedList(InsertionSortMixin, SearchMixin, RemoveMixin, InsertHeadM
             - Time Complexity: O(n), where n is the number of elements in the linked list.
         """
         return super().reference_based_reverse_order()
-
-if __name__ == "__main__":
-    sllist = SinglyLinkedList([8, 2, 6, 4, 5])
-    sllist.insertion_sort()
