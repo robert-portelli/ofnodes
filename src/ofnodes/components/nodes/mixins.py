@@ -1,6 +1,7 @@
 # ofnodes/components/nodes/mixins.py
 #from ofnodes.nodes.singlynode import SinglyNode
 class AddMixin:
+    __slots__ = ()
     def __add__(self, other):
         """Add data to the node's data attribute.
 

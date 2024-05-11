@@ -2,6 +2,7 @@ from ofnodes.nodes.singlynode import SinglyNode
 
 class BubbleSortMixin:
     """Mixin class providing bubble sort functionality for data structures."""
+    __slots__ = ()
     def reference_based_bubble_sort(self, ascending=True):
         """Sorts the nodes of the singly linked data structure.
 
@@ -74,6 +75,7 @@ class BubbleSortMixin:
 
 class InsertionSortMixin:
     """Mixin class providing insertion sort functionality for data structures."""
+    __slots__ = ()
     def reference_based_insertion_sort(self):
         """Sorts the elements of the singly linked list in non-decreasing order using insertion sort.
 
@@ -167,6 +169,7 @@ class InsertionSortMixin:
 
 class ReverseOrderMixin:
     """Mixin class supporting node order reversal for linked node structures."""
+    __slots__ = ()
     def reference_based_reverse_order(self):
         """Reverses the order of elements in the singly linked data structure.
 

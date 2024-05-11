@@ -1,6 +1,7 @@
 from ofnodes.nodes.singlynode import SinglyNode
 
 class Head:
+    __slots__ = ()
     def __get__(self, instance, owner):
         """Descriptor for managing the head/top of a data structure.
 
@@ -107,7 +108,7 @@ class Tail:
         >>> llist.tail
         'first node'
     """
-
+    __slots__ = ()
     def __get__(self, instance, owner):
         """Getter method for the tail of the data structure.
 
@@ -205,7 +206,7 @@ class Target:
         >>> sllist.target = '5 node'
         Empty SinglyLinkedList(). Target data is assigned to SinglyLinkedList's target property.
     """
-
+    __slots__ = ()
     def __get__(self, instance, owner):
         """Getter method for the target node data of the data structure.
 

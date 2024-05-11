@@ -2,6 +2,13 @@ import pytest
 from ofnodes.nodes.singlynode import SinglyNode
 from ofnodes.structures.singlylinkedlist import SinglyLinkedList
 
+def test_dynamic_attribute_assignment():
+    node = SinglyNode(42)
+    with pytest.raises(AttributeError) as exc_info:
+        node.fail = True
+    assert "object has no attribute" in str(exc_info)
+test_dynamic_attribute_assignment()
+
 def test__init__(example_singly_node):
     empty_node = example_singly_node['empty_node']
 
@@ -31,12 +38,13 @@ def test__add__():
 
 def test__dir__():
     node = SinglyNode('a string')
-    dirr = ['__add__', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__',
+    dirr = ['__add__', '__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__',
             '__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__',
             '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__',
             '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__',
-            '__sizeof__', '__slots__', '__str__', '__subclasshook__', '__weakref__', 'data', 'next']
+            '__sizeof__', '__slots__', '__str__', '__subclasshook__','data', 'next']
     assert dir(node) == dirr
+    assert "__dict__" not in str(dir(node))
 
 
 def test__repr__(example_singly_node):
