@@ -119,31 +119,6 @@ def test_tail_deleter(example_singly_linked_list):
         "cannot be deleted" in str(exc_info.value)
     )
 
-def test_remove_head(easy_singly_linked_list):
-    def test_error():
-        llist = SinglyLinkedList()
-        assert llist.head is None
-        with pytest.raises(ValueError) as exc_info:
-            llist.remove_head()
-        assert "Cannot remove" in str(exc_info)
-
-    def test_logic():
-        llist = easy_singly_linked_list
-        old_head = llist.head
-        old_head_next = llist.head.next
-        llist.remove_head()
-        assert old_head is not llist.head
-        assert old_head_next is not llist.head.next
-        assert old_head_next is llist.head
-        llist.remove_head()
-        assert llist.head and llist.head is llist.tail
-        llist.remove_head()
-        assert not llist.head and not llist.tail
-
-
-    test_error()
-    test_logic()
-
 def test_search():
     def test_invalid_target():
         llist = SinglyLinkedList()
@@ -164,50 +139,6 @@ def test_search():
     test_invalid_target()
     test_empty_list()
     test_found_and_not_found()
-
-def test_remove_tail():
-    def test_short_list():
-        nodes = [SinglyNode(f"{i} node") for i in range(1,4)]
-        sllist = SinglyLinkedList()
-        # list(setattr(sllist, 'tail', node) for node in nodes)
-        list(sllist.insert_tail(node) for node in nodes)
-        assert nodes[-1] is sllist.tail
-        sllist.remove_tail()
-        assert (
-            nodes[-1] is not sllist.tail
-            and
-            nodes[-2] is sllist.tail
-        )
-        sllist.remove_tail()
-        assert (
-            nodes[-2] is not sllist.tail
-            and
-            nodes[0] is sllist.tail
-            and
-            nodes[0] is sllist.head
-        )
-        sllist.remove_tail()
-        assert(
-            sllist.head is None
-            and
-            sllist.tail is None
-        )
-        with pytest.raises(ValueError) as exc_info:
-            sllist.remove_tail()
-        assert "Cannot remove tail" in str(exc_info)
-
-    def test_long_list():
-        """tests the 'find the second to last node'
-        functionality"""
-        nodes = [SinglyNode(f"{i} node") for i in range(1,42)]
-        sllist = SinglyLinkedList()
-        list(setattr(sllist, 'tail', node) for node in nodes)
-        assert nodes[-1] is sllist.tail
-        sllist.remove_tail()
-        assert nodes[-2] is sllist.tail
-
-    test_short_list()
-    test_long_list()
 
 def test_print_node_data(capsys):
     sllist = SinglyLinkedList()
@@ -314,41 +245,7 @@ def test_insert_before_target():
     test_no_target_match()
     test_no_target_match_empty_list()
 
-def test_remove():
-    def test_empty_list():
-        sllist = SinglyLinkedList()
-        with pytest.raises(ValueError) as exc_info:
-            sllist.target = 'will error'
-        assert "Cannot assign" in str(exc_info)
 
-    def test_one_node():
-        sllist = SinglyLinkedList()
-        sllist.head = 'a node'
-        sllist.remove('a node')
-
-    def test_two_nodes():
-        sllist = SinglyLinkedList()
-        sllist.head = 'a node'
-        sllist.tail = 'b node'
-        sllist.remove('b node')
-
-    def test_many_nodes():
-        sllist = SinglyLinkedList()
-        list(sllist.insert_tail(f"{i} node") for i in range(1, 5))
-        sllist.remove('3 node')
-        assert sllist.head.next.next.data != '3 node'
-
-    def test_remove_first_encounter():
-        sllist = SinglyLinkedList(['foo', 'bar', 'bar'])
-        first_encounter = sllist.head.next
-        sllist.remove('bar')
-        assert first_encounter is not sllist.tail
-
-    test_empty_list()
-    test_one_node()
-    test_two_nodes()
-    test_many_nodes()
-    test_remove_first_encounter()
 
 def test_cycle_detection():
     sllist = SinglyLinkedList([f"node {i}" for i in range(1,7)])

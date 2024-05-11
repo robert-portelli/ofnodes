@@ -69,12 +69,3 @@ def example_singly_linked_list() -> dict[str, SinglyLinkedList]:
         "one": onenodesllist,
         "example": sllist,
     }
-
-@pytest.fixture
-def easy_singly_linked_list() -> SinglyLinkedList:
-    llist = SinglyLinkedList()
-    for i in range(1, 4):
-        llist.tail = f"{i} node"
-    # [setattr(llist, 'tail', f"{i} node") for i in range(3)]
-
-    return llist

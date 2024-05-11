@@ -109,8 +109,9 @@ class RemoveMixin:
         current_node = self._head
         while current_node.next is not self._tail:
             if current_node.next.data == self._target:
+                node = current_node.next
                 setattr(current_node, '_next', current_node.next.next)
-                return
+                return node
             current_node = current_node.next
 
         if getattr(self._tail, 'data') == self._target:
@@ -157,38 +158,9 @@ class RemoveMixin:
             return node
         raise ValueError("Cannot remove head from empty linked structure")
 
-    def remove_tail(self) -> None:
-        """Removes the tail node from the linked structure.
-
-        Raises:
-            ValueError: If the linked structure is empty.
-
-        Returns:
-            None
-
-        Examples:
-            >>> linked_structure = LinkedStructure()
-            >>> linked_structure
-            LinkedStructure(head=None, tail=None)
-            >>> linked_structure.head = True
-            >>> linked_structure
-            LinkedStructure(head=Node(data=True), tail=Node(data=True))
-            >>> linked_structure.tail = ['strings', Node(lambda x: str(x)*2)]
-            >>> linked_structure
-            LinkedStructure(head=Node(data=True), tail=Node(data=['strings', Node(data=<function <lambda> at 0x74a9932a2fc0>)]))
-            >>> linked_structure.tail
-            Node(data=['strings', Node(data=<function <lambda> at 0x74a9932a2fc0>)])
-            >>> linked_structure.tail.data[1].data
-            <function <lambda> at 0x74a9932a2fc0>
-            >>> x = linked_structure.tail.data[1].data
-            >>> x("skrrt")
-            'skrrtskrrt'
-            >>> linked_structure.remove_tail()
-            >>> x("skrrt")
-            'skrrtskrrt'
-            >>> linked_structure.tail
-            Node(data=True)
-            """
+    def remove_tail(self):
+        """
+        """
         match self._head:
             case None:
                 raise ValueError("Cannot remove tail from empty list")
@@ -206,16 +178,13 @@ class RemoveMixin:
                     setattr(self._tail, "_next", None)
                     return node
                 # there are more than two nodes
-                node = self._head
-                # find second to last node
-                while getattr(node, "_next") and getattr(node._next, "_next"):
-                    if getattr(node._next, "_next") is self._tail:
-                        node = getattr(node, "_next")  # target found
-                        break
-                    node = getattr(node, "_next")  # keep looking
-                setattr(node, "_next", None)  # point the second to last node to None
-                setattr(self, "_tail", node)  # assign tail to the node
-                return node
+                current = self._head
+                old_tail = self._tail
+                while current.next.next:
+                    current = current.next
+                setattr(current, '_next', None) # bypass the tail
+                setattr(self, '_tail', current) # set the tail
+                return old_tail
 
 class PrintMixin:
     """Mixin class providing node data print functionality"""

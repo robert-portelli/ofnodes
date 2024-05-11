@@ -3,7 +3,7 @@ import pytest
 from ofnodes.structures.singlylinkedlist import SinglyLinkedList
 from ofnodes.structures.randomaccessarray import RandomAccessArray
 
-class TestBubbleSortMixin():
+class TestBubbleSortMixin:
     def test_reference_based_bubble_sort(self):
         def test_no_head():
             raarray = RandomAccessArray(5)
@@ -59,7 +59,7 @@ class TestBubbleSortMixin():
         test_ascending()
         test_descending()
 
-class TestInsertionSortMixin():
+class TestInsertionSortMixin:
     def test_reference_based_insertion_sort(self):
         def test_no_head():
             raarray = RandomAccessArray(5)
