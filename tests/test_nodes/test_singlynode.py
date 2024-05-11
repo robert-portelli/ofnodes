@@ -9,14 +9,14 @@ def test_dynamic_attribute_assignment():
     assert "object has no attribute" in str(exc_info)
 test_dynamic_attribute_assignment()
 
-def test__init__(example_singly_node):
-    empty_node = example_singly_node['empty_node']
+def test__init__():
+    node = SinglyNode(None)
 
-    assert isinstance(empty_node, SinglyNode)
+    assert isinstance(node, SinglyNode)
     assert (
-        empty_node.data is None
+        node.data is None
         and
-        empty_node.next is None
+        node.next is None
     )
 
 def test__add__():
@@ -47,12 +47,12 @@ def test__dir__():
     assert "__dict__" not in str(dir(node))
 
 
-def test__repr__(example_singly_node):
-    node_with_data = example_singly_node['example_node_1']
+def test__repr__():
+    node = SinglyNode(42)
     assert (
-        repr(node_with_data)
+        repr(node)
         ==
-        "SinglyNode(data='a pytest fixture')"
+        "SinglyNode(data=42)"
     )
 
 def test__str__():
@@ -60,11 +60,14 @@ def test__str__():
     assert str(node) == 'a string'
 
 def test_next_property():
-    def test_getter_and_setter():
-        sllist = SinglyLinkedList()
-        sllist.head = "first"
+    def test_getter():
+        node = SinglyNode('foo')
+        assert node.next is None
+
+    def test_setter():
+        node = SinglyNode('foo')
         with pytest.raises(AttributeError) as exc_info:
-            setattr(sllist.head, 'next', "second")
+            node.next = 'fail'
         assert "Cannot set 'next'" in str(exc_info)
 
     def test_deleter():
@@ -73,20 +76,21 @@ def test_next_property():
             del snode.next
         assert "cannot be deleted" in str(exc_info)
 
-    test_getter_and_setter()
+    test_getter()
+    test_setter()
     test_deleter()
 
 def test_data_property():
     def test_getter_and_setter():
-        snode = SinglyNode(None)
-        assert getattr(snode, 'data') is None
-        snode.data = 'a string'
-        assert getattr(snode, 'data') == 'a string'
+        node = SinglyNode('foo')
+        assert node.data == 'foo'
+        node.data = 'bar'
+        assert node.data == 'bar'
 
     def test_deleter():
-        snode = SinglyNode(None)
+        node = SinglyNode('foo')
         with pytest.raises(AttributeError) as exc_info:
-            del snode.data
+            del node.data
         assert "cannot be deleted" in str(exc_info)
 
     test_getter_and_setter()

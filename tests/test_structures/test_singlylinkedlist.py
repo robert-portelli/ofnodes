@@ -115,10 +115,6 @@ def test_head_property():
 
 
 def test_tail_setter():
-    """
-    The tail setter accepts SinglyNodes any Any data type.
-    Any data type is used to create a SinglyNode of the data
-    before being set as the tail value."""
     sllist = SinglyLinkedList()
     assert sllist.head is None and sllist.tail is None
     node = SinglyNode("a string")
@@ -136,10 +132,10 @@ def test_tail_setter():
     )
 
 
-def test_tail_deleter(example_singly_linked_list):
-    llist = example_singly_linked_list["one"]
+def test_tail_deleter():
+    sllist = SinglyLinkedList()
     with pytest.raises(AttributeError) as exc_info:
-        del llist.tail
+        del sllist.tail
 
     assert "cannot be deleted" in str(exc_info.value)
 
