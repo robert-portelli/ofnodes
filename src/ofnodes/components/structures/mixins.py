@@ -3,7 +3,7 @@ from ofnodes.nodes.singlynode import SinglyNode
 
 class SearchMixin:
     """Mixin class providing search functionality for linked lists."""
-
+    __slots__ = ()
     def search(self, target_data):
         """Searches each node's data in a linked list until the first occurrence of
         the target is found.
@@ -47,7 +47,7 @@ class SearchMixin:
 
 class RemoveMixin:
     """Mixin class providing remove functionality for linked structures."""
-
+    __slots__ = ()
     def remove(self, target_data):
         """Removes the first occurrence of a node with the specified target data from the linked structure.
 
@@ -188,6 +188,7 @@ class RemoveMixin:
 
 class PrintMixin:
     """Mixin class providing node data print functionality"""
+    __slots__ = ()
     def print_node_data(self) -> None:
         """Traverse the linked data structure and print the data attribute of each node.
 
@@ -219,6 +220,7 @@ class PrintMixin:
 
 class InsertHeadMixin:
     """Mixin providing functionality to insert a node at the beginning of a linked structure."""
+    __slots__ = ()
     def insert_head(self, data: Any) -> None:
         """ Inserts a new node with the provided data at the head of the linked list.
 
@@ -265,6 +267,7 @@ class InsertHeadMixin:
 
 class InsertTailMixin:
     """Mixin providing functionality to insert a node at the end of a linked structure."""
+    __slots__ = ()
     def insert_tail(self, data: Any) -> None:
         """Inserts a new node with the provided data at the tail of the linked list.
 
@@ -317,6 +320,7 @@ class InsertTailMixin:
 
 class InsertAfterTargetMixin:
     """Mixin providing functionality to insert a node after a target node in a linked structure."""
+    __slots__ = ()
     def insert_after_target(self, target_data: Any, data_to_insert: Any) -> bool:
         """
         Inserts a new node containing the specified data after the first occurrence
@@ -368,6 +372,7 @@ class InsertAfterTargetMixin:
 
 class InsertBeforeTargetMixin:
     """Mixin providing functionality to insert a node before a target node in a linked structure."""
+    __slots__ = ()
     def insert_before_target(self, target_data: Any, data_to_insert: Any) -> bool:
         """
         Inserts a new node containing the specified data before the first occurrence

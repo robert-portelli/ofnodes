@@ -15,7 +15,7 @@ class Data:
         __delete__(self, instance): Deleter method for deleting the data attribute.
 
     """
-
+    __slots__ = ()
     def __get__(self, instance, owner):
         """Getter method for retrieving the value of the data attribute."""
         return instance._data
@@ -48,7 +48,7 @@ class Next:
         __delete__(self, instance): Deleter method for deleting the next attribute.
 
     """
-
+    __slots__ = ()
     def __get__(self, instance, owner):
         """Getter property for the next node in the singly linked list.
 
