@@ -4,7 +4,12 @@ import pytest
 from ofnodes.structures.singlylinkedlist import SinglyLinkedList
 from ofnodes.nodes.singlynode import SinglyNode
 
-
+class TestBaseAndMixinInteraction:
+    def test_insert_head_mixin(self):
+        pass
+class TestBaseAndDescriptorInteration:
+    def test_head(self):
+        pass
 def test__init__():
     sllist = SinglyLinkedList()
     assert (
