@@ -2,10 +2,10 @@ from typing import Optional, Any
 
 from ofnodes.nodes.singlynode import SinglyNode
 from ofnodes.components.structures.descriptors import Head, Tail, Target
-from ofnodes.components.structures.mixins import SearchMixin, RemoveMixin, InsertHeadMixin, InsertTailMixin, InsertAfterTargetMixin, InsertBeforeTargetMixin, PrintMixin
+from ofnodes.components.structures.mixins import CycleDetectionMixin, SearchMixin, RemoveMixin, InsertHeadMixin, InsertTailMixin, InsertAfterTargetMixin, InsertBeforeTargetMixin, PrintMixin
 from ofnodes.sorting.mixins import BubbleSortMixin, InsertionSortMixin, ReverseOrderMixin
 
-class SinglyLinkedList(InsertionSortMixin, SearchMixin, RemoveMixin, InsertHeadMixin, InsertTailMixin, InsertAfterTargetMixin, InsertBeforeTargetMixin, PrintMixin, BubbleSortMixin, ReverseOrderMixin):
+class SinglyLinkedList(CycleDetectionMixin, InsertionSortMixin, SearchMixin, RemoveMixin, InsertHeadMixin, InsertTailMixin, InsertAfterTargetMixin, InsertBeforeTargetMixin, PrintMixin, BubbleSortMixin, ReverseOrderMixin):
     """A class representing a singly linked list.
 
     This class provides functionality to create and manipulate a singly linked list
@@ -36,10 +36,8 @@ class SinglyLinkedList(InsertionSortMixin, SearchMixin, RemoveMixin, InsertHeadM
                 self.tail = value
 
     def cycle_detection(self):
-
-        if self.tail.next is not None:
-            return True
-        return False
+        """Detect if an instance of singly linked list contains a cycle."""
+        return super().cycle_detection()
 
     def __add__(self, other):
         self.tail = other  # tail attr will validate

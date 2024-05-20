@@ -2,11 +2,40 @@ import pytest
 from ofnodes.structures.singlylinkedlist import SinglyLinkedList
 from ofnodes.nodes.singlynode import SinglyNode
 
+class TestCycleDetectionMixin:
+    """The test class for cycle detection in reference-based structures."""
+    def test_cycle_detection(self):
+        def test_cycle_discouragement():
+            sllist = SinglyLinkedList([8, 2, 6, 4, 5])
+            # the ofnodes library doesn't create tail cycles
+            assert sllist.tail.next is None
+            assert sllist.cycle_detection() is False
+            # the ofnodes library discourages cycle creation
+            with pytest.raises(AttributeError) as exc_info:
+                sllist.tail.next = sllist.head
+            assert "Cannot set 'next' attribute directly." in str(exc_info)
+        def test_tail_cycle_detection():
+            sllist = SinglyLinkedList([8, 2, 6, 4, 5])
+            # bypass `SinglyNode.next` setter to create cycle
+            setattr(sllist.tail, "_next", sllist.head.next)
+            assert sllist.tail.next is not None
+            assert sllist.cycle_detection() is True
+        def test_not_tail_cycle():
+            sllist = SinglyLinkedList([8, 2, 6, 4, 5])
+            setattr(sllist.head, '_next', sllist.head)
+            assert sllist.cycle_detection() is True
+            sllist = SinglyLinkedList([8, 2, 6, 4, 5])
+            setattr(sllist.head.next, '_next', sllist.head.next)
+            assert sllist.cycle_detection() is True
+
+        test_cycle_discouragement()
+        test_tail_cycle_detection()
+        test_not_tail_cycle()
 
 def test_dynamic_attribute_assignment():
     sllist = SinglyLinkedList()
     with pytest.raises(AttributeError) as exc_info:
-        sllist.fail = True
+        sllist.fail = True  # pylint: disable=assigning-non-slot
     assert "object has no attribute" in str(exc_info)
 test_dynamic_attribute_assignment()
 
@@ -285,22 +314,7 @@ def test_insert_before_target():
     test_no_target_match_empty_list()
 
 
-def test_cycle_detection():
-    sllist = SinglyLinkedList([f"node {i}" for i in range(1, 7)])
-    # the ofnodes library doesn't create cycles
-    assert sllist.tail.next is None
-    assert sllist.cycle_detection() is False
-    # the ofnodes library discourages cycle creation
-    with pytest.raises(AttributeError) as exc_info:
-        sllist.tail.next = sllist.head
-    assert "Cannot set 'next' attribute directly." in str(exc_info)
-    # bypass SinglyNode.next setter to artificially create cycle
-    setattr(sllist.tail, "_next", sllist.head.next)
-    assert sllist.tail.next is not None
-    # if you find yourself unable to access the SinglyLinkedList
-    # tail attribute and think the tail setter was bypassed,
-    # you can use the cycle_detection:
-    assert sllist.cycle_detection() is True
+
 
 
 def test_bubble_sort():
