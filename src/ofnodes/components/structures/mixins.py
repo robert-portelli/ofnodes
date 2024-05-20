@@ -1,6 +1,24 @@
 from typing import Any
 from ofnodes.nodes.singlynode import SinglyNode
 
+class CycleDetectionMixin:
+    """Mixin class providing cycle detection support for reference-based data structures."""
+    __slots__ = ()
+    def cycle_detection(self):
+        """Floyd's tortoise and hare."""
+        if self.tail.next is not None:  # tail causing cycle
+            return True
+
+        slow = self.head
+        fast = self.head.next
+        while fast and fast.next:
+            if slow == fast:
+                return True
+            slow = slow.next
+            fast = fast.next.next
+        return False
+
+
 class SearchMixin:
     """Mixin class providing search functionality for linked lists."""
     __slots__ = ()
