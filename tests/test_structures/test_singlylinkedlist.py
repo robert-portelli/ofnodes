@@ -102,7 +102,6 @@ def test__dir__():
         "__slots__",
         "__str__",
         "__subclasshook__",
-
         "bubble_sort",
         "cycle_detection",
         "head",
@@ -112,6 +111,7 @@ def test__dir__():
         "insert_tail",
         "insertion_sort",
         "print_node_data",
+        "reference_based_cycle_detection",
         "remove",
         "remove_head",
         "remove_tail",

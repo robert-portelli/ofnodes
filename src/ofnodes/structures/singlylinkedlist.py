@@ -35,10 +35,6 @@ class SinglyLinkedList(CycleDetectionMixin, InsertionSortMixin, SearchMixin, Rem
             for value in values:
                 self.tail = value
 
-    def cycle_detection(self):
-        """Detect if an instance of singly linked list contains a cycle."""
-        return super().cycle_detection()
-
     def __add__(self, other):
         self.tail = other  # tail attr will validate
 
@@ -119,3 +115,21 @@ class SinglyLinkedList(CycleDetectionMixin, InsertionSortMixin, SearchMixin, Rem
             - Time Complexity: O(n), where n is the number of elements in the linked list.
         """
         return super().reference_based_reverse_order()
+
+    def cycle_detection(self):
+        """Detects if the singly linked list instance contains a cycle.
+
+        This method checks whether the linked list contains a cycle using Floyd's Tortoise and Hare algorithm.
+
+        Returns:
+            bool: True if a cycle is detected, False otherwise.
+
+        Examples:
+            >>> sllist = SinglyLinkedList([8, 2, 6, 4, 5])
+            >>> sllist.cycle_detection()
+            False
+            >>> setattr(sllist.head.next, '_next', sllist.head.next)
+            >>> sllist.cycle_detection()
+            True
+        """
+        return super().reference_based_cycle_detection()

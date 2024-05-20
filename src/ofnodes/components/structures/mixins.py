@@ -2,10 +2,37 @@ from typing import Any
 from ofnodes.nodes.singlynode import SinglyNode
 
 class CycleDetectionMixin:
-    """Mixin class providing cycle detection support for reference-based data structures."""
+    """Mixin class providing cycle detection support for reference-based data structures.
+
+    This mixin implements Floyd's Tortoise and Hare algorithm for cycle detection in linked lists.
+
+    Attributes:
+        None
+
+    Methods:
+        reference_based_cycle_detection: Detects cycles in a reference-based data structure.
+
+    Usage:
+        This mixin can be used with classes representing reference-based data structures to detect cycles.
+
+    Example:
+        >>> sllist = SinglyLinkedList([8, 2, 6, 4, 5])
+        >>> sllist.reference_based_cycle_detection()
+        False
+        >>> setattr(sllist.head.next, '_next', sllist.head.next)
+        >>> sllist.reference_based_cycle_detection()
+        True
+    """
+
     __slots__ = ()
-    def cycle_detection(self):
-        """Floyd's tortoise and hare."""
+
+    def reference_based_cycle_detection(self):
+        """Detects cycles using Floyd's tortoise and hare algorithm.
+
+        Returns:
+            bool: True if a cycle is detected, False otherwise.
+
+        """
         if self.tail.next is not None:  # tail causing cycle
             return True
 
