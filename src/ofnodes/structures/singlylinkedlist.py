@@ -133,3 +133,6 @@ class SinglyLinkedList(CycleDetectionMixin, InsertionSortMixin, SearchMixin, Rem
             True
         """
         return super().reference_based_cycle_detection()
+if __name__ == "__main__":
+    sllist = SinglyLinkedList([8, 2, 6, 4, 5])
+    sllist.bubble_sort()

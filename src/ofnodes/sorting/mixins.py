@@ -29,22 +29,26 @@ class BubbleSortMixin:
                 - Worst Case: O(n^2), when the list is in reverse order.
                 - Average Case: O(n^2).
         """
-        if 'head' not in dir(self):
+        if not hasattr(self, '_head'):
             raise TypeError("reference_based_bubble_sort can only be used on reference-based data structures like linked lists.")
-        if not self.head or not self.head.next:  # it's a zero node or one node list
-            raise ValueError("Cannot sort an empty linked list.")
+        if not self._head or not self._head.next:  # it's a zero node or one node list
+            return
         swapped = True
         while swapped:
             swapped = False
             # Complete ascending sort
             current = self._head
             while current.next:
-                if current._data > current.next._data:
-                    current._data, current.next._data = current.next._data, current._data
-                    swapped = True
+                if ascending:
+                    if current._data > current.next._data:
+                        current._data, current.next._data = current.next._data, current._data
+                        swapped = True
+                else:  # it's descending
+                    if current._data < current.next._data:
+                        current._data, current.next._data = current.next._data, current._data
+                        swapped = True
                 current = current.next
-        if not ascending:  # it's descending
-            self.reverse_order()
+
 
     def index_based_bubble_sort(self, ascending= True):
         """
