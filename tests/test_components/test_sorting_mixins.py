@@ -40,12 +40,33 @@ class TestBubbleSortMixin:
             with pytest.raises(TypeError) as exc_info:
                 sllist.index_based_bubble_sort()
             assert "index_based_bubble_sort" in str(exc_info)
-        def test_empty_array():
+        def test_empty_data_structure():
+            raarray = RandomAccessArray(0)
+            raarray.index_based_bubble_sort()
+        def test_single_element():
+            raarray = RandomAccessArray(1)
+            raarray[0] = 1
+            raarray.index_based_bubble_sort()
+            assert raarray[0] == 1
+        def test_already_sorted():
             raarray = RandomAccessArray(5)
-            with pytest.raises(TypeError) as exc_info:
-                raarray.index_based_bubble_sort()
-            assert "'NoneType' and 'NoneType'" in str(exc_info)
-        def test_ascending():
+            for i, val in enumerate([1, 2, 3, 4, 5]):
+                raarray[i] = val
+            raarray.index_based_bubble_sort()
+            assert raarray._data == [1, 2, 3, 4, 5]
+        def test_reverse_sorted():
+            raarray = RandomAccessArray(5)
+            for i, val in enumerate([5, 4, 3, 2, 1]):
+                raarray[i] = val
+            raarray.index_based_bubble_sort()
+            assert raarray._data == [1, 2, 3, 4, 5]
+        def test_all_elements_same():
+            raarray = RandomAccessArray(5)
+            for i in range(5):
+                raarray[i] = 1
+            raarray.index_based_bubble_sort()
+            assert raarray._data == [1, 1, 1, 1, 1]
+        def test_sort_ascending():
             raarray = RandomAccessArray(5)
             [raarray.__setitem__(i, val) for i, val in enumerate([8, 2, 6, 4, 5])]
             raarray.index_based_bubble_sort()
@@ -57,10 +78,25 @@ class TestBubbleSortMixin:
             raarray.index_based_bubble_sort(ascending=False)
             assert repr(raarray) == 'RandomAccessArray([8, 6, 5, 4, 2])'
             assert str(raarray) == '[8, 6, 5, 4, 2]'
+        @pytest.mark.performance
+        def test_large_data_structure():
+            import random
+            raarray = RandomAccessArray(10000)
+            random_values = random.sample(range(10000), 10000)
+            for i, val in enumerate(random_values):
+                raarray[i] = val
+            raarray.index_based_bubble_sort()
+            assert raarray._data == sorted(random_values)
+
         test_no__getitem__()
-        test_empty_array()
-        test_ascending()
+        test_empty_data_structure()
+        test_single_element()
+        test_already_sorted()
+        test_reverse_sorted()
+        test_all_elements_same()
+        test_sort_ascending()
         test_descending()
+        test_large_data_structure()
 
 class TestInsertionSortMixin:
     def test_reference_based_insertion_sort(self):
