@@ -313,15 +313,14 @@ def test_insert_before_target():
     test_no_target_match()
     test_no_target_match_empty_list()
 
-
-
-
-
 def test_bubble_sort():
-    sllist = SinglyLinkedList()
-    with pytest.raises(ValueError) as exc_info:
+    def test_empty_reference_based_object():
+        sllist = SinglyLinkedList()
         sllist.bubble_sort()
-    assert "empty linked list" in str(exc_info)
+
+    def test_one_node():
+        sllist = SinglyLinkedList([42])
+        sllist.bubble_sort()
 
     def ascending():
         sllist = SinglyLinkedList([8, 2, 6, 4, 5])
@@ -335,6 +334,8 @@ def test_bubble_sort():
         assert repr(sllist) == "SinglyLinkedList([8, 6, 5, 4, 2])"
         assert str(sllist) == "8 -> 6 -> 5 -> 4 -> 2"
 
+    test_empty_reference_based_object()
+    test_one_node()
     ascending()
     descending()
 

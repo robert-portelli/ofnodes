@@ -12,9 +12,10 @@ class TestBubbleSortMixin:
             assert "reference_based_bubble_sort" in str(exc_info)
         def test_empty_list():
             sllist = SinglyLinkedList()
-            with pytest.raises(ValueError) as exc_info:
-                sllist.reference_based_bubble_sort()
-            assert "empty linked list" in str(exc_info)
+            sllist.reference_based_bubble_sort()
+        def test_one_node():
+            sllist = SinglyLinkedList([42])
+            sllist.reference_based_bubble_sort()
         def test_ascending():
             sllist = SinglyLinkedList([8, 2, 6, 4, 5])
             sllist.reference_based_bubble_sort()
@@ -26,8 +27,10 @@ class TestBubbleSortMixin:
             sllist.reference_based_bubble_sort(ascending=False)
             assert repr(sllist) == 'SinglyLinkedList([8, 6, 5, 4, 2])'
             assert str(sllist) == '8 -> 6 -> 5 -> 4 -> 2'
+
         test_no_head()
         test_empty_list()
+        test_one_node()
         test_ascending()
         test_descending()
 
