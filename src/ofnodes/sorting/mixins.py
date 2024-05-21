@@ -52,6 +52,7 @@ class BubbleSortMixin:
 
     def index_based_bubble_sort(self, ascending= True):
         """
+
         Examples:
             >>> raarray = RandomAccessArray(5)
             >>> [raarray.__setitem__(i, val) for i, val in enumerate([8, 2, 6, 4, 5])]
@@ -63,19 +64,28 @@ class BubbleSortMixin:
             >>> raarray
             RandomAccessArray([8, 6, 5, 4, 2])
         """
-        if '__getitem__' not in dir(self):
+        if not hasattr(self, '__getitem__'):
             raise TypeError("index_based_bubble_sort can only be used on data structures that support index-based access.")
         n = len(self)
+
+        if n in (0, 1):  # no need to sort
+            return
+
+        # Check for comparable and homogenous elements
+        for i in range(n - 1):
+            if not hasattr(self[i], '__lt__') or not hasattr(self[i], '__gt__'):
+                raise TypeError(f"Elements of type {type(self[i])} do not support comparison operations.")
+            if type(self[i]) != type(self[i + 1]):  # pylint: disable=unidiomatic-typecheck
+                raise TypeError("All elements in the data structure must be of the same type.")
+
         for i in range(n):
             already_sorted = True
             for j in range(n - i - 1):
-                if self[j] > self[j + 1]:
+                if (ascending and self[j] > self[j + 1]) or (not ascending and self[j] < self[j + 1]):
                     self[j], self[j + 1] = self[j + 1], self[j]
                     already_sorted = False
             if already_sorted:
                 break
-        if not ascending:  #it's descending
-            self.index_based_reverse_order()
 
 class InsertionSortMixin:
     """Mixin class providing insertion sort functionality for data structures."""
