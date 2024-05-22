@@ -33,6 +33,7 @@ class BubbleSortMixin:
             raise TypeError("reference_based_bubble_sort can only be used on reference-based data structures like linked lists.")
         if not self._head or not self._head.next:  # it's a zero node or one node list
             return
+
         unsorted = True
         while unsorted:
             unsorted = False
@@ -73,19 +74,19 @@ class BubbleSortMixin:
             return
 
         # Check for comparable and homogenous elements
-        for i in range(n - 1):
+        for i in range(n - 1):  # the type checking reaches to the next index
             if not hasattr(self[i], '__lt__') or not hasattr(self[i], '__gt__'):
                 raise TypeError(f"Elements of type {type(self[i])} do not support comparison operations.")
             if type(self[i]) != type(self[i + 1]):  # pylint: disable=unidiomatic-typecheck
                 raise TypeError("All elements in the data structure must be of the same type.")
 
         for i in range(n):
-            already_sorted = True
+            unsorted = False
             for j in range(n - i - 1):
                 if (ascending and self[j] > self[j + 1]) or (not ascending and self[j] < self[j + 1]):
                     self[j], self[j + 1] = self[j + 1], self[j]
-                    already_sorted = False
-            if already_sorted:
+                    unsorted = True
+            if not unsorted:
                 break
 
 class InsertionSortMixin:
