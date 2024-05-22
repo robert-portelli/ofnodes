@@ -84,7 +84,15 @@ class TestBubbleSortMixin:
                 raarray[i] = val
             raarray.index_based_bubble_sort()
             assert raarray._data == sorted(random_values)
-
+        @pytest.mark.performance
+        def test_large_data_structure_descending():
+            import random
+            raarray = RandomAccessArray(10000)
+            random_values = random.sample(range(10000), 10000)
+            for i, val in enumerate(random_values):
+                raarray[i] = val
+            raarray.index_based_bubble_sort(ascending=False)
+            assert raarray._data == sorted(random_values, reverse=True)
 class TestInsertionSortMixin:
     def test_reference_based_insertion_sort(self):
         def test_no_head():
