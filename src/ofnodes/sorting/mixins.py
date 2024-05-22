@@ -51,7 +51,32 @@ class BubbleSortMixin:
 
 
     def index_based_bubble_sort(self, ascending= True):
-        """
+        """Sorts the elements of the index-based data structure using bubble sort.
+
+        This method sorts the elements of the index-based data structure in place
+        using the bubble sort algorithm. It supports both ascending and descending
+        order based on the `ascending` parameter.
+
+        Each iteration of the inner loop starts at the first index and ends one index
+        before the last unsorted index. This ensures that with each pass, the largest
+        unsorted element is moved to its correct position.
+
+        The outer loop acts as a counter for the number of passes through the structure.
+        It doesn't directly visit each index but instead computes the range of the
+        structure that has not yet been sorted, reducing the range of the inner loop
+        with each pass.
+
+        If any iteration of the inner loop results in zero swaps, the structure is
+        considered sorted and the method exits early to optimize performance.
+
+        Args:
+            ascending (bool): If True, sorts the elements in ascending order.
+                If False, sorts the elements in descending order. Defaults to True.
+
+        Raises:
+            TypeError: If the data structure does not support index-based access,
+                or if the elements do not support comparison operations,
+                or if the elements are not homogenous (i.e., not all of the same type).
 
         Examples:
             >>> raarray = RandomAccessArray(5)
