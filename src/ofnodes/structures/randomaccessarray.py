@@ -81,7 +81,15 @@ class RandomAccessArray(BubbleSortMixin, InsertionSortMixin, ReverseOrderMixin):
         return f"[{', '.join(str(item) for item in self._data)}]"
 
     def bubble_sort(self, ascending=True):
-        """
+        """Sorts the elements of the data structure using bubble sort.
+
+        This method sorts the elements of the data structure in place using the
+        bubble sort algorithm. It supports both ascending and descending order
+        based on the `ascending` parameter.
+
+        Args:
+            ascending (bool): If True, sorts the elements in ascending order.
+                If False, sorts the elements in descending order. Defaults to True.
         Examples:
             >>> raarray = RandomAccessArray(5)
             >>> [raarray.__setitem__(i, val) for i, val in enumerate([8, 2, 6, 4, 5])]
