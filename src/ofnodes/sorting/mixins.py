@@ -33,20 +33,19 @@ class BubbleSortMixin:
             raise TypeError("reference_based_bubble_sort can only be used on reference-based data structures like linked lists.")
         if not self._head or not self._head.next:  # it's a zero node or one node list
             return
-        swapped = True
-        while swapped:
-            swapped = False
-            # Complete ascending sort
+        unsorted = True
+        while unsorted:
+            unsorted = False
             current = self._head
-            while current.next:
+            while current.next:  # find a node to right sort
                 if ascending:
-                    if current._data > current.next._data:
+                    if current._data > current.next._data: # sort the data right
                         current._data, current.next._data = current.next._data, current._data
-                        swapped = True
+                        unsorted = True
                 else:  # it's descending
                     if current._data < current.next._data:
                         current._data, current.next._data = current.next._data, current._data
-                        swapped = True
+                        unsorted = True
                 current = current.next
 
 
@@ -64,8 +63,10 @@ class BubbleSortMixin:
             >>> raarray
             RandomAccessArray([8, 6, 5, 4, 2])
         """
+        # Check instance for enabled indexing
         if not hasattr(self, '__getitem__'):
             raise TypeError("index_based_bubble_sort can only be used on data structures that support index-based access.")
+
         n = len(self)
 
         if n in (0, 1):  # no need to sort
