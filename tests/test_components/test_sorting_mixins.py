@@ -85,7 +85,7 @@ class TestBubbleSortMixin:
             raarray.index_based_bubble_sort()
             assert raarray._data == sorted(random_values)
         @pytest.mark.performance
-        def test_large_data_structure_descending():
+        def test_large_data_structure_descending(self):
             import random
             raarray = RandomAccessArray(10000)
             random_values = random.sample(range(10000), 10000)
