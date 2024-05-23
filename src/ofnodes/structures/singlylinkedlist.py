@@ -133,11 +133,3 @@ class SinglyLinkedList(CycleDetectionMixin, InsertionSortMixin, SearchMixin, Rem
             True
         """
         return super().reference_based_cycle_detection()
-
-if __name__ == "__main__":
-    sllist = SinglyLinkedList([1, 2, 6, 1, 4])
-    sllist.bubble_sort()
-    from ofnodes.structures.randomaccessarray import RandomAccessArray
-    raarray = RandomAccessArray(5)
-    [raarray.__setitem__(i, val) for i, val in enumerate([2, 1, 6, 7, 5])]
-    raarray.bubble_sort()

@@ -1,5 +1,5 @@
 import pytest
-#from ofnodes.sorting.mixins import BubbleSortMixin, ReverseOrderMixin
+from ofnodes.sorting.mixins import BubbleSortMixin
 from ofnodes.structures.singlylinkedlist import SinglyLinkedList
 from ofnodes.structures.randomaccessarray import RandomAccessArray
 
@@ -33,10 +33,23 @@ class TestBubbleSortMixin:
     class TestIndexBasedBubbleSort:
 
         def test_no__getitem__(self):
-            sllist = SinglyLinkedList()
+            class Dummy(BubbleSortMixin):
+                pass
+
+            dummy = Dummy()
             with pytest.raises(TypeError) as exc_info:
-                sllist.index_based_bubble_sort()
-            assert "index_based_bubble_sort" in str(exc_info)
+                dummy.index_based_bubble_sort()
+            assert "only be used on data structures that support index-based access" in str(exc_info)
+        def test_not_comparable(self):
+            class Dummy:
+                pass
+            raarray = RandomAccessArray(5)
+            for i in range(len(raarray)):  # pylint: disable=unused-variable
+                raarray[i] = Dummy()
+            with pytest.raises(TypeError) as exc_info:
+                raarray.index_based_bubble_sort()
+            assert "'>' not supported" in str(exc_info.value)
+
         def test_empty_data_structure(self):
             raarray = RandomAccessArray(0)
             raarray.index_based_bubble_sort()
