@@ -34,6 +34,11 @@ class BubbleSortMixin:
         if not self._head or not self._head.next:  # it's a zero node or one node list
             return
 
+        # Check for  homogenous elements
+        types = {type(i) for i in self}
+        if len(types) > 1:
+                raise TypeError("All elements in the data structure must be of the same type.")
+
         unsorted = True
         while unsorted:
             unsorted = False
