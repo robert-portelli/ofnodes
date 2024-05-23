@@ -98,13 +98,12 @@ class BubbleSortMixin:
         if n in (0, 1):  # no need to sort
             return
 
-        # Check for comparable and homogenous elements
-        for i in range(n - 1):  # the type checking reaches to the next index
-            if not hasattr(self[i], '__lt__') or not hasattr(self[i], '__gt__'):
-                raise TypeError(f"Elements of type {type(self[i])} do not support comparison operations.")
-            if type(self[i]) != type(self[i + 1]):  # pylint: disable=unidiomatic-typecheck
+        # Check for  homogenous elements
+        types = {type(i) for i in self}
+        if len(types) > 1:
                 raise TypeError("All elements in the data structure must be of the same type.")
 
+        # perform bubble sort
         for i in range(n):
             unsorted = False
             for j in range(n - i - 1):

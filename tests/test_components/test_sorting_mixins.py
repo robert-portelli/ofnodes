@@ -44,12 +44,21 @@ class TestBubbleSortMixin:
             class Dummy:
                 pass
             raarray = RandomAccessArray(5)
-            for i in range(len(raarray)):  # pylint: disable=unused-variable
+            for i in range(len(raarray)):  # pylint: disable=consider-using-enumerate
                 raarray[i] = Dummy()
             with pytest.raises(TypeError) as exc_info:
                 raarray.index_based_bubble_sort()
             assert "'>' not supported" in str(exc_info.value)
+            with pytest.raises(TypeError) as exc_info:
+                raarray.index_based_bubble_sort(ascending=False)
+            assert "'<' not supported" in str(exc_info.value)
 
+        def test_homogenous_elements(self):
+            raarray = RandomAccessArray(2)
+            raarray[0], raarray[1] = 42, 'hut'
+            with pytest.raises(TypeError) as exc_info:
+                raarray.index_based_bubble_sort()
+            assert "must be of the same type" in str(exc_info)
         def test_empty_data_structure(self):
             raarray = RandomAccessArray(0)
             raarray.index_based_bubble_sort()
@@ -89,7 +98,7 @@ class TestBubbleSortMixin:
             assert repr(raarray) == 'RandomAccessArray([8, 6, 5, 4, 2])'
             assert str(raarray) == '[8, 6, 5, 4, 2]'
         @pytest.mark.performance
-        def test_large_data_structure(self):
+        def test_large_data_structure(self):  # pragma: no cover
             import random
             raarray = RandomAccessArray(10000)
             random_values = random.sample(range(10000), 10000)
@@ -98,7 +107,7 @@ class TestBubbleSortMixin:
             raarray.index_based_bubble_sort()
             assert raarray._data == sorted(random_values)
         @pytest.mark.performance
-        def test_large_data_structure_descending(self):
+        def test_large_data_structure_descending(self):  # pragma: no cover
             import random
             raarray = RandomAccessArray(10000)
             random_values = random.sample(range(10000), 10000)
