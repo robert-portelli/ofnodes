@@ -4,13 +4,20 @@ class BubbleSortMixin:
     """Mixin class providing bubble sort functionality for data structures."""
     __slots__ = ()
     def reference_based_bubble_sort(self, ascending=True):
-        """Sorts the nodes of the singly linked data structure.
+        """Sorts the nodes of the singly linked data structure using bubble sort.
+
+        This method sorts the nodes of the singly linked list in place using the
+        bubble sort algorithm. It supports both ascending and descending order
+        based on the `ascending` parameter.
 
         Args:
             ascending (bool, optional): Specifies whether to sort the elements in ascending order (default) or descending order.
 
         Returns:
             None: This method modifies the original linked list in place.
+
+        Raises:
+            TypeError: If the elements in the list are not homogeneous (i.e., not all of the same type).
 
         Examples:
             >>> sllist = SinglyLinkedList([8, 2, 6, 4, 5])
@@ -34,10 +41,14 @@ class BubbleSortMixin:
         if not self._head or not self._head.next:  # it's a zero node or one node list
             return
 
-        # Check for  homogenous elements
-        types = {type(i) for i in self}
+        # check for homogenous types
+        types = set()
+        current = self._head
+        while current.next:
+            types.add(type(current))
+            current = current.next
         if len(types) > 1:
-                raise TypeError("All elements in the data structure must be of the same type.")
+            raise TypeError("All elements in the data structure must be of the same type.")
 
         unsorted = True
         while unsorted:
@@ -64,11 +75,11 @@ class BubbleSortMixin:
 
         Each iteration of the inner loop starts at the first index and ends one index
         before the last unsorted index. This ensures that with each pass, the largest
-        unsorted element is moved to its correct position.
+        unsorted element is moved to its correct position in ascending order, or
+        the smallest unsorted element is moved to its correct position in descending order.
 
         The outer loop acts as a counter for the number of passes through the structure.
-        It doesn't directly visit each index but instead computes the range of the
-        structure that has not yet been sorted, reducing the range of the inner loop
+        It doesn't directly visit each index but instead reduces the range of the inner loop
         with each pass.
 
         If any iteration of the inner loop results in zero swaps, the structure is
@@ -80,7 +91,6 @@ class BubbleSortMixin:
 
         Raises:
             TypeError: If the data structure does not support index-based access,
-                or if the elements do not support comparison operations,
                 or if the elements are not homogenous (i.e., not all of the same type).
 
         Examples:
