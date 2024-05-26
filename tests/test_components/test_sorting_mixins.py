@@ -8,28 +8,87 @@ class TestBubbleSortMixin:
 
     class TestReferenceBasedBubbleSort:
         def test_no_head(self):
-            raarray = RandomAccessArray(5)
+            class Dummy(BubbleSortMixin):
+                pass
+            dummy = Dummy()
             with pytest.raises(TypeError) as exc_info:
-                raarray.reference_based_bubble_sort()
+                dummy.reference_based_bubble_sort()
             assert "reference_based_bubble_sort" in str(exc_info)
-        def test_empty_list(self):
+        def test_not_comparable(self):
+            class Dummy:
+                pass
+            sllist = SinglyLinkedList([Dummy(), Dummy()])
+            with pytest.raises(TypeError) as exc_info:
+                sllist.bubble_sort()
+            assert "'>' not supported" in str(exc_info)
+            with pytest.raises(TypeError) as exc_info:
+                sllist.bubble_sort(ascending=False)
+            assert "'<' not supported" in str(exc_info)
+        def test_not_homogenous(self):
+            sllist = SinglyLinkedList([42, "omaha"])
+            with pytest.raises(TypeError) as exc_info:
+                sllist.bubble_sort()
+            assert "must be of the same type" in str(exc_info)
+        def test_zero_nodes(self):
             sllist = SinglyLinkedList()
             sllist.reference_based_bubble_sort()
+            assert repr(sllist) == 'SinglyLinkedList()'
         def test_one_node(self):
             sllist = SinglyLinkedList([42])
             sllist.reference_based_bubble_sort()
-        def test_ascending(self):
+            assert repr(sllist) == 'SinglyLinkedList([42])'
+        def test_two_nodes(self):
+            sllist = SinglyLinkedList([4, 2])
+            sllist.reference_based_bubble_sort()
+            assert repr(sllist) == 'SinglyLinkedList([2, 4])'
+        def test_already_sorted(self):
+            sllist = SinglyLinkedList([1, 2, 3, 4, 5])
+            sllist.reference_based_bubble_sort()
+            assert repr(sllist) == 'SinglyLinkedList([1, 2, 3, 4, 5])'
+        def test_reverse_sorted(self):
+            sllist = SinglyLinkedList([5, 4, 3, 2, 1])
+            sllist.reference_based_bubble_sort()
+            assert repr(sllist) == 'SinglyLinkedList([1, 2, 3, 4, 5])'
+        def test_all_elements_the_same(self):
+            sllist = SinglyLinkedList([7, 7, 7])
+            sllist.reference_based_bubble_sort()
+            assert repr(sllist) == 'SinglyLinkedList([7, 7, 7])'
+        def test_sort_ascending(self):
             sllist = SinglyLinkedList([8, 2, 6, 4, 5])
             sllist.reference_based_bubble_sort()
             assert repr(sllist) == 'SinglyLinkedList([2, 4, 5, 6, 8])'
             assert str(sllist) == '2 -> 4 -> 5 -> 6 -> 8'
-
-        def test_descending(self):
+        def test_sort_descending(self):
             sllist = SinglyLinkedList([8, 2, 6, 4, 5])
             sllist.reference_based_bubble_sort(ascending=False)
             assert repr(sllist) == 'SinglyLinkedList([8, 6, 5, 4, 2])'
             assert str(sllist) == '8 -> 6 -> 5 -> 4 -> 2'
-
+        @pytest.mark.performance
+        def test_large_data_structure(self):
+            import random
+            random_values = random.sample(range(10000), 10000)
+            sllist = SinglyLinkedList(random_values)
+            sllist.reference_based_bubble_sort()
+            _ = sorted(random_values)
+            current = sllist.head
+            index = 0
+            while current:
+                assert current.data == _[index]
+                current = current.next
+                index += 1
+        @pytest.mark.performance
+        def test_large_data_structure_descending(self):
+            import random
+            random_values = random.sample(range(10000), 10000)
+            sllist = SinglyLinkedList(random_values)
+            sllist.reference_based_bubble_sort(ascending=False)
+            _ = sorted(random_values, reverse=True)
+            current = sllist.head
+            index = 0
+            while current:
+                assert current.data == _[index]
+                current = current.next
+                index += 1
     class TestIndexBasedBubbleSort:
 
         def test_no__getitem__(self):
