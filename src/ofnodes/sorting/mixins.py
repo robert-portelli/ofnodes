@@ -44,8 +44,8 @@ class BubbleSortMixin:
         # check for homogenous types
         types = set()
         current = self._head
-        while current.next:
-            types.add(type(current))
+        while current:
+            types.add(type(current.data))
             current = current.next
         if len(types) > 1:
             raise TypeError("All elements in the data structure must be of the same type.")
