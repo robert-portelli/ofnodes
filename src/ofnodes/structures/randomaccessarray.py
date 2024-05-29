@@ -119,9 +119,11 @@ class RandomAccessArray(BubbleSortMixin, InsertionSortMixin, ReverseOrderMixin):
 
 if __name__ == "__main__":
     import logging
+    import pytest
     from ofnodes.logging_config import configure_logging
     configure_logging(level=logging.DEBUG)
-    values = [8, 2, 6, 5, 4]
+    values = [8, 2]
     raarray = RandomAccessArray(len(values))
     for i, val in enumerate(values):
         raarray[i] = val
+    raarray.insertion_sort()
