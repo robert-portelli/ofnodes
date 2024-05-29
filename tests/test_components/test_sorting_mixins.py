@@ -175,81 +175,70 @@ class TestBubbleSortMixin:
             raarray.index_based_bubble_sort(ascending=False)
             assert raarray._data == sorted(random_values, reverse=True)
 class TestInsertionSortMixin:
-    def test_reference_based_insertion_sort(self):
-        def test_no_head():
+    class TestReferenceBasedInsertionSortMixin:
+        def test_no_head(self):
             raarray = RandomAccessArray(5)
             with pytest.raises(TypeError) as exc_info:
                 raarray.reference_based_insertion_sort()
             assert "reference-based" in str(exc_info)
-        def test_empty_list():
+        def test_empty_list(self):
             sllist = SinglyLinkedList()
             with pytest.raises(ValueError) as exc_info:
                 sllist.reference_based_insertion_sort()
             assert "Cannot sort an empty or one node linked list" in str(exc_info)
-        def test_logic():
+        def test_logic(self):
             sllist = SinglyLinkedList([8, 2, 6, 4, 5])
             sllist.reference_based_insertion_sort()
             assert repr(sllist) == 'SinglyLinkedList([2, 4, 5, 6, 8])'
             assert str(sllist) == '2 -> 4 -> 5 -> 6 -> 8'
-        def test_partial_sorted_list():
+        def test_partial_sorted_list(self):
             sllist = SinglyLinkedList([2, 4, 3, 1, 5])
             sllist.reference_based_insertion_sort()
             assert repr(sllist) == 'SinglyLinkedList([1, 2, 3, 4, 5])'
             assert str(sllist) == '1 -> 2 -> 3 -> 4 -> 5'
-        def test_sorted_list():
+        def test_sorted_list(self):
             sllist = SinglyLinkedList([1, 2, 3, 4, 5])
             sllist.reference_based_insertion_sort()
             assert repr(sllist) == 'SinglyLinkedList([1, 2, 3, 4, 5])'
             assert str(sllist) == '1 -> 2 -> 3 -> 4 -> 5'
-        def test_unsorted_list():
+        def test_unsorted_list(self):
             sllist = SinglyLinkedList([5, 2, 7, 1, 9])
             sllist.reference_based_insertion_sort()
             assert repr(sllist) == 'SinglyLinkedList([1, 2, 5, 7, 9])'
             assert str(sllist) == '1 -> 2 -> 5 -> 7 -> 9'
-        def test_one_node_list():
+        def test_one_node_list(self):
             sllist = SinglyLinkedList([42])
             with pytest.raises(ValueError) as exc_info:
                 sllist.reference_based_insertion_sort()
             assert "Cannot sort an empty or one node linked list" in str(exc_info)
-        def test_sorted_two_node_list():
+        def test_sorted_two_node_list(self):
             sllist = SinglyLinkedList([2, 4])
             sllist.reference_based_insertion_sort()
             assert repr(sllist) == 'SinglyLinkedList([2, 4])'
             assert str(sllist) == '2 -> 4'
-        def test_unsorted_two_node_list():
+        def test_unsorted_two_node_list(self):
             sllist = SinglyLinkedList([4, 2])
             sllist.reference_based_insertion_sort()
             assert repr(sllist) == 'SinglyLinkedList([2, 4])'
             assert str(sllist) == '2 -> 4'
-        def test_two_same_node_list():
+        def test_two_same_node_list(self):
             sllist = SinglyLinkedList([2, 2])
             sllist.reference_based_insertion_sort()
             assert repr(sllist) == 'SinglyLinkedList([2, 2])'
             assert str(sllist) == '2 -> 2'
-        test_no_head()
-        test_empty_list()
-        test_logic()
-        test_partial_sorted_list()
-        test_sorted_list()
-        test_unsorted_list()
-        test_one_node_list()
-        test_sorted_two_node_list()
-        test_unsorted_two_node_list()
-        test_two_same_node_list()
-    def test_index_based_insertion_sort(self):
-        def test_error():
+    class TestIndexBasedInsertionSortMixin:
+        def test_error(self):
             sllist = SinglyLinkedList()
             with pytest.raises(TypeError) as exc_info:
                 sllist.index_based_insertion_sort()
             assert "index_based_insertion_sort" in str(exc_info)
-        def test_logic():
+        def test_logic(self):
             raarray = RandomAccessArray(5)
             [raarray.__setitem__(i, val) for i, val in enumerate([8, 2, 6, 4, 5])]
             raarray.index_based_insertion_sort()
             assert repr(raarray) == 'RandomAccessArray([2, 4, 5, 6, 8])'
             assert str(raarray) == '[2, 4, 5, 6, 8]'
-        test_error()
-        test_logic()
+
 
 class TestReverseOrderMixin:
     def test_reference_based_reverse_order(self):
