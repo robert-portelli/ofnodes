@@ -5,7 +5,6 @@ from ofnodes.structures.randomaccessarray import RandomAccessArray
 
 
 def test_configure_logging(caplog):
-    #caplog.set_level(logging.DEBUG)
     configure_logging(level=caplog.set_level(logging.DEBUG))
 
     logger.debug("This is a debug message")
