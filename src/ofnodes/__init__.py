@@ -1,8 +1,11 @@
 __docformat__ = "restructuredtext"
 
-
+import logging
 from ofnodes.nodes.singlynode import SinglyNode
 from ofnodes.structures.singlylinkedlist import SinglyLinkedList
+from ofnodes.structures.randomaccessarray import RandomAccessArray
+from ofnodes.structures.stack import Stack
+
 
 
 __doc__ = """
@@ -29,4 +32,7 @@ structures. By adhering to these design principles, the library promotes safe an
 reliable usage of linked data structures, reducing the risk of unintended cyclic
 references and associated issues.
 """
-__all__ = ['SinglyNode','SinglyLinkedList']
+__all__ = ['SinglyNode','SinglyLinkedList', 'RandomAccessArray', 'Stack']
+
+def configure_logging(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'):
+    logging.basicConfig(level=level, format=format)

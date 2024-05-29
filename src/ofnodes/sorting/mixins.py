@@ -1,4 +1,9 @@
+#src/ofnodes/sorting/mixins.py
+
+import logging
 from ofnodes.nodes.singlynode import SinglyNode
+
+logger = logging.getLogger(__name__)
 
 class BubbleSortMixin:
     """Mixin class providing bubble sort functionality for data structures."""
@@ -66,7 +71,7 @@ class BubbleSortMixin:
                 current = current.next
 
 
-    def index_based_bubble_sort(self, ascending= True):
+    def index_based_bubble_sort(self, ascending=True):
         """Sorts the elements of the index-based data structure using bubble sort.
 
         This method sorts the elements of the index-based data structure in place
@@ -187,7 +192,7 @@ class InsertionSortMixin:
                     j._next = current
             prev, current = current, current._next  # advance current to next unsorted node
 
-    def index_based_insertion_sort(self):
+    def index_based_insertion_sort(self, ascending=True, key=None):
         """Sorts the elements of the data structure using the insertion sort algorithm with index-based access.
 
         This method is suitable for short lists or lists that are mostly sorted.
@@ -212,15 +217,44 @@ class InsertionSortMixin:
             - The method modifies the original data structure in place.
             - Time Complexity: O(n^2), where n is the number of elements in the data structure.
         """
-        if '__getitem__' not in dir(self):
+        # Check instance for enabled indexing
+        if not hasattr(self, '__getitem__'):
             raise TypeError("index_based_insertion_sort can only be used on data structures that support index-based access.")
+
+        if len(self) in (0, 1):  # no need to sort
+            return
+
         for unsorted in range(1, len(self)):
             value = self[unsorted]  # persist the value found using the first key, `i`.
+            key_value = key(value) if key else value
             j = unsorted - 1  # compute the first index of the sorted subarray
-            while j >= 0 and value < self[j]:
-                self[j + 1] = self[j]  # shift the value of the sorted subarray one to the right
-                j -= 1  # compute the next index of the sorted subarray
+
+            logger.debug("Array state: %s", self._data)
+            logger.debug("The value %s found at index %s will be inserted at a new position", value, unsorted)
+            logger.debug("Sorted portion: %s", self._data[:unsorted])
+            logger.debug("Unsorted portion: %s", self._data[unsorted:])
+
+            while j >= 0 and self[j] is not None:
+                key_j = key(self[j]) if key else self[j]
+                if (ascending and key_value < key_j):
+                    self[j + 1] = self[j]  # shift the value of the sorted subarray one to the right
+                    j -= 1  # compute the next index of the sorted subarray
+                    logger.debug("Array state: %s", self._data)
+                    logger.debug("Moved value %s to position %s", self[j + 1], j + 1)
+                    logger.debug("Sorted portion: %s", self._data[:unsorted])
+                    logger.debug("Unsorted portion: %s", self._data[unsorted:])
+                else:
+                    print(f"j>=0: {j>=0}")
+                    print(f"self[j] is not None: {self[j] is not None}")
+                    break
+
             self[j + 1] = value  # insert the value one to the right of the minimum value
+
+
+        logger.debug("Array state: %s", self._data)
+        logger.debug("The value %s found at index %s will be inserted at a new position", value, unsorted)
+        logger.debug("Sorted portion: %s", self._data[:unsorted])
+        logger.debug("Unsorted portion: %s", self._data[unsorted:])
 
 class ReverseOrderMixin:
     """Mixin class supporting node order reversal for linked node structures."""
