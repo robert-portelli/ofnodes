@@ -54,5 +54,19 @@ For more usage examples, please refer to the [Documentation][1]
 For detailed usage information , API reference, and code examples,
 please refer to the [Documentation][1].
 
+## Configuring Logging
+
+To configure logging for the my_package library, you can use the `configure_logging` function:
+
+```python
+from ofnodes.structures.randomaccessarray import RandomAccessArray
+
+# Configure logging to display debug messages
+ofnodes.configure_logging(level=logging.DEBUG)
+
+# Now you can use the library, and it will produce log output
+raarray = ofnodes.RandomAccessArray([8, 2, 6, 4, 5])
+raarray.index_based_insertion_sort()
+
 
 [1]: https://robert-portelli.github.io/ofnodes/
