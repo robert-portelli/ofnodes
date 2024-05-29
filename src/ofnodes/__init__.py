@@ -33,6 +33,3 @@ reliable usage of linked data structures, reducing the risk of unintended cyclic
 references and associated issues.
 """
 __all__ = ['SinglyNode','SinglyLinkedList', 'RandomAccessArray', 'Stack']
-
-def configure_logging(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'):
-    logging.basicConfig(level=level, format=format)
