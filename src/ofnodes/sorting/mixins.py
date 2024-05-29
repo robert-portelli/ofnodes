@@ -236,7 +236,7 @@ class InsertionSortMixin:
 
             while j >= 0 and self[j] is not None:
                 key_j = key(self[j]) if key else self[j]
-                if (ascending and key_value < key_j):
+                if (ascending and key_value < key_j) or (not ascending and key_value > key_j):
                     self[j + 1] = self[j]  # shift the value of the sorted subarray one to the right
                     j -= 1  # compute the next index of the sorted subarray
                     logger.debug("Array state: %s", self._data)

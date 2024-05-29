@@ -1,7 +1,6 @@
 import logging
 import pytest
 from ofnodes.logging_config import configure_logging, logger
-from ofnodes.structures.randomaccessarray import RandomAccessArray
 
 
 def test_configure_logging(caplog):
