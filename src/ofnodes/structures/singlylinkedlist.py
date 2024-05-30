@@ -68,8 +68,62 @@ class SinglyLinkedList(CycleDetectionMixin, InsertionSortMixin, SearchMixin, Rem
         # Return a sorted list of all attributes and methods
         return sorted(parent_dir)
 
-    def insertion_sort(self):
-        return super().reference_based_insertion_sort()
+    def insertion_sort(self, ascending):
+        """Sorts the nodes of a reference-based object using insertion sort.
+
+        This method sorts a singly linked list using the insertion sort algorithm. It traverses the list,
+        starting from the second element, and divides it into sorted and unsorted portions. Each element
+        in the unsorted portion is iteratively placed in the correct position within the sorted portion.
+
+        Args:
+            ascending (bool): Determines the sort order. Defaults to True. If True, sorts in ascending order;
+                if False, sorts in descending order.
+
+        Raises:
+            TypeError: If the method is used on data structures that do not support reference-based operations.
+            ValueError: If the singly linked list is empty or contains only one node.
+
+        Returns:
+            None
+
+        Examples:
+            Sorting an unsorted list in ascending order:
+                >>> sllist = SinglyLinkedList([8, 2, 6, 4, 5])
+                >>> sllist.insertion_sort()
+                >>> repr(sllist)
+                'SinglyLinkedList([2, 4, 5, 6, 8])'
+                >>> str(sllist)
+                '2 -> 4 -> 5 -> 6 -> 8'
+
+            Sorting an unsorted list in descending order:
+                >>> sllist = SinglyLinkedList([5, 2, 7, 1, 9])
+                >>> sllist.insertion_sort(ascending=False)
+                >>> repr(sllist)
+                'SinglyLinkedList([9, 7, 5, 2, 1])'
+                >>> str(sllist)
+                '9 -> 7 -> 5 -> 2 -> 1'
+
+            Handling an empty list:
+                >>> sllist = SinglyLinkedList()
+                >>> sllist.insertion_sort()
+                >>> repr(sllist)
+                'SinglyLinkedList()'
+
+            Handling a single node list:
+                >>> sllist = SinglyLinkedList([42])
+                >>> sllist.insertion_sort()
+                >>> repr(sllist)
+                'SinglyLinkedList([42])'
+
+            Sorting an already sorted list:
+                >>> sllist = SinglyLinkedList([1, 2, 3, 4, 5])
+                >>> sllist.insertion_sort()
+                >>> repr(sllist)
+                'SinglyLinkedList([1, 2, 3, 4, 5])'
+                >>> str(sllist)
+                '1 -> 2 -> 3 -> 4 -> 5'
+        """
+        return super().reference_based_insertion_sort(ascending)
 
 
     def bubble_sort(self, ascending=True):

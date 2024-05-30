@@ -137,7 +137,7 @@ class InsertionSortMixin:
     """Mixin class providing insertion sort functionality for data structures."""
     __slots__ = ()
     def reference_based_insertion_sort(self, ascending=True):
-        """Sorts the elements of the singly linked list in non-decreasing order using insertion sort.
+        """Sorts the nodes of a reference-based object using insertion sort.
 
         The insertion sort algorithm traverses the singly linked list, starting from the second element
         (the head is considered to be the first element). It divides the list into a sorted and an
@@ -184,8 +184,8 @@ class InsertionSortMixin:
         if len(types) > 1:
             raise TypeError("All elements in the data structure must be of the same type.")
 
-        _sorted = self._head  # sorted is from self.head to prev
-        unsorted = self._head._next # unsorted is from current to self.tail
+        _sorted = self._head
+        unsorted = self._head._next
 
         while unsorted:
             j = self._head
