@@ -340,14 +340,14 @@ class TestSortingInstanceMethods:
         assert repr(sllist) == "SinglyLinkedList([2, 4, 5, 6, 8])"
         assert str(sllist) == "2 -> 4 -> 5 -> 6 -> 8"
 
-    #def test_insertion_sort_descending_custom_key(self):
-    #    # Custom comparison function
-    #    def by_length(s):
-    #        return len(s)
-#
-    #    sllist = SinglyLinkedList(['date', 'peach', 'cherry', 'strawberry'])
-    #    sllist.insertion_sort(ascending=False, key=by_length)
-    #    assert repr(sllist) == "SinglyLinkedList(['strawberry', 'peach', 'cherry', 'date',])"
+    def test_insertion_sort_descending_custom_key(self):
+        # Custom comparison function
+        def by_length(s):
+            return len(s)
+
+        sllist = SinglyLinkedList(['date', 'peach', 'cherry', 'strawberry'])
+        sllist.insertion_sort(ascending=False, key=by_length)
+        assert repr(sllist) == "SinglyLinkedList(['strawberry', 'cherry', 'peach', 'date'])"
 
     def test_reverse_order(self):
         sllist = SinglyLinkedList()
