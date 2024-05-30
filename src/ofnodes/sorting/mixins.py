@@ -172,25 +172,35 @@ class InsertionSortMixin:
         """
         if 'head' not in dir(self):
             raise TypeError("insertion_sort can only be used on reference-based data structures like linked lists.")
-        if not self.head or not self.head.next:  # it's a zero node or one node list
-            raise ValueError("Cannot sort an empty or one node linked list.")
+        if not self._head or not self._head.next:  # it's a zero node or one node list
+            return
 
-        prev = self.head
-        current = self.head._next
-        while current:  # traverse the unsorted portion
-            j = self._head  # traverse the sorted portion
-            while j is not current and j._next.data < current.data:  # `j` should not point to current
-                j = j._next  # advance to next sorted node
-            if j is not current:  # then `j._next.data > current.data`` and `j` should point to current
-                prev._next = current._next  # point to the next unsorted node, bypass current node, persist the reference to the next unsorted node
+        # check for homogenous types
+        types = set()
+        current = self._head
+        while current:
+            types.add(type(current.data))
+            current = current.next
+        if len(types) > 1:
+            raise TypeError("All elements in the data structure must be of the same type.")
 
-                if j is self._head and j.data > current.data:  # the current node should point to old head
-                    current._next = self.head  # point current at the head
-                    self.head = current  # trigger setter to add new head
-                else:  # it's some node between head and current that current should point to
-                    current._next = j._next
-                    j._next = current
-            prev, current = current, current._next  # advance current to next unsorted node
+        _sorted = self._head  # sorted is from self.head to prev
+        unsorted = self._head._next # unsorted is from current to self.tail
+
+        while unsorted:
+            j = self._head
+            while j is not unsorted:
+                if j is self._head and j.data > unsorted.data:  # then new head
+                    _sorted._next = unsorted._next  # bypass
+                    self.head = unsorted  # insert
+                    break
+                if j._next.data > unsorted.data:
+                    _sorted._next = unsorted._next  # bypass
+                    j._next, unsorted._next = unsorted, j._next  # insert
+                    break
+                j = j._next
+            _sorted, unsorted = unsorted, unsorted._next
+
 
     def index_based_insertion_sort(self, ascending=True, key=None):
         """Sorts the elements of the data structure using the insertion sort algorithm with index-based access.

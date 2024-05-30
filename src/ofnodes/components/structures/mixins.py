@@ -162,7 +162,7 @@ class RemoveMixin:
         if getattr(self._tail, 'data') == self._target:
             return self.remove_tail()
 
-    def remove_head(self) -> None:
+    def remove_head(self) -> SinglyNode:
         """Removes the head node from the linked structure.
 
             Raises:
