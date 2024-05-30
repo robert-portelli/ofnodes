@@ -319,6 +319,14 @@ class TestSortingInstanceMethods:
         sllist.bubble_sort()
         assert repr(sllist) == "SinglyLinkedList([2, 4, 5, 6, 8])"
         assert str(sllist) == "2 -> 4 -> 5 -> 6 -> 8"
+                # Custom comparison function
+        def by_length(s):
+            return len(s)
+
+        sllist = SinglyLinkedList(["strawberry", "peach", "cherry", "date",])
+        sllist.bubble_sort(key=by_length)
+        assert repr(sllist) == "SinglyLinkedList(['date', 'peach', 'cherry', 'strawberry'])"
+
 
     def test_bubble_sort_descending(self):
         sllist = SinglyLinkedList([8, 2, 6, 4, 5])
@@ -337,11 +345,11 @@ class TestSortingInstanceMethods:
         def by_length(s):
             return len(s)
 
-        sllist = SinglyLinkedList(["strawberry", "peach", "cherry", "date",])
+        sllist = SinglyLinkedList(['date', 'peach', 'cherry', 'strawberry'])
         sllist.insertion_sort(ascending=False, key=by_length)
-        assert repr(sllist) == "RandomAccessArray(['date', 'peach', 'cherry', 'strawberry'])"
+        assert repr(sllist) == "SinglyLinkedList(['strawberry', 'peach', 'cherry', 'date',])"
 
-    def test_reverse_order():
+    def test_reverse_order(self):
         sllist = SinglyLinkedList()
         with pytest.raises(ValueError) as exc_info:
             sllist.reverse_order()

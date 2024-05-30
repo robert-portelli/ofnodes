@@ -192,16 +192,16 @@ class InsertionSortMixin:
             while j is not unsorted:
                 match ascending:
                     case True:
-                        if j is self._head and j.data > (key(unsorted.data) if key else unsorted.data):  # then new head  #key(unsorted.data) if key else unsorted.data
+                        if j is self._head and (key(j.data) if key else j.data) > (key(unsorted.data) if key else unsorted.data):  # then new head  #key(unsorted.data) if key else unsorted.data
                             _sorted._next = unsorted._next  # bypass
                             self.head = unsorted  # insert
                             break
-                        if j._next.data > (key(unsorted.data) if key else unsorted.data):  #key(unsorted.data) if key else unsorted.data
+                        if (key(j._next.data) if key else j._next.data) > (key(unsorted.data) if key else unsorted.data):  #key(unsorted.data) if key else unsorted.data
                             _sorted._next = unsorted._next                  # bypass
                             j._next, unsorted._next = unsorted, j._next  # insert
                             break
                     case False:
-                        if j is self._head and j.data < (key(unsorted.data) if key else unsorted.data):  # then new head  #key(unsorted.data) if key else unsorted.data
+                        if j is self._head and (key(j.data) if key else j.data) < (key(unsorted.data) if key else unsorted.data):  # then new head  #key(unsorted.data) if key else unsorted.data
                             _sorted._next = unsorted._next  # bypass
                             self.head = unsorted           # insert
                             break
