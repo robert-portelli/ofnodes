@@ -68,7 +68,7 @@ class SinglyLinkedList(CycleDetectionMixin, InsertionSortMixin, SearchMixin, Rem
         # Return a sorted list of all attributes and methods
         return sorted(parent_dir)
 
-    def insertion_sort(self, ascending):
+    def insertion_sort(self):
         """Sorts the nodes of a reference-based object using insertion sort.
 
         This method sorts a singly linked list using the insertion sort algorithm. It traverses the list,
@@ -123,7 +123,7 @@ class SinglyLinkedList(CycleDetectionMixin, InsertionSortMixin, SearchMixin, Rem
                 >>> str(sllist)
                 '1 -> 2 -> 3 -> 4 -> 5'
         """
-        return super().reference_based_insertion_sort(ascending)
+        return super().reference_based_insertion_sort()
 
 
     def bubble_sort(self, ascending=True):
