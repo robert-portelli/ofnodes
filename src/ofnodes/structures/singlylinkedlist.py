@@ -86,42 +86,15 @@ class SinglyLinkedList(CycleDetectionMixin, InsertionSortMixin, SearchMixin, Rem
         Returns:
             None
 
-        Examples:
-            Sorting an unsorted list in ascending order:
-                >>> sllist = SinglyLinkedList([8, 2, 6, 4, 5])
-                >>> sllist.insertion_sort()
-                >>> repr(sllist)
-                'SinglyLinkedList([2, 4, 5, 6, 8])'
-                >>> str(sllist)
-                '2 -> 4 -> 5 -> 6 -> 8'
+        Example:
+            >>> def by_length(s):
+            ...     return len(s)
 
-            Sorting an unsorted list in descending order:
-                >>> sllist = SinglyLinkedList([5, 2, 7, 1, 9])
-                >>> sllist.insertion_sort(ascending=False)
-                >>> repr(sllist)
-                'SinglyLinkedList([9, 7, 5, 2, 1])'
-                >>> str(sllist)
-                '9 -> 7 -> 5 -> 2 -> 1'
-
-            Handling an empty list:
-                >>> sllist = SinglyLinkedList()
-                >>> sllist.insertion_sort()
-                >>> repr(sllist)
-                'SinglyLinkedList()'
-
-            Handling a single node list:
-                >>> sllist = SinglyLinkedList([42])
-                >>> sllist.insertion_sort()
-                >>> repr(sllist)
-                'SinglyLinkedList([42])'
-
-            Sorting an already sorted list:
-                >>> sllist = SinglyLinkedList([1, 2, 3, 4, 5])
-                >>> sllist.insertion_sort()
-                >>> repr(sllist)
-                'SinglyLinkedList([1, 2, 3, 4, 5])'
-                >>> str(sllist)
-                '1 -> 2 -> 3 -> 4 -> 5'
+            >>> fruits = ['cherry', 'strawberry', 'fig', 'peach']
+            >>> sllist = SinglyLinkedList(fruits)
+            >>> sllist.insertion_sort(ascending=False, key=by_length)
+            >>> sllist
+            SinglyLinkedList(['strawberry', 'cherry', 'peach', 'fig']
         """
         return super().reference_based_insertion_sort(ascending, key)
 
@@ -187,13 +160,3 @@ class SinglyLinkedList(CycleDetectionMixin, InsertionSortMixin, SearchMixin, Rem
             True
         """
         return super().reference_based_cycle_detection()
-
-if __name__ == "__main__":
-    def by_length(s):
-        return len(s)
-    fruits = ['cherry', 'strawberry', 'fig', 'peach', ]
-    sllist = SinglyLinkedList(fruits)
-    tims = sorted(fruits, key=by_length, reverse=True)
-    sllist.insertion_sort(ascending=True, key=by_length)
-    #sllist = SinglyLinkedList([2, 4, 3, 1, 5])
-    #sllist.insertion_sort()

@@ -208,6 +208,10 @@ class InsertionSortMixin:
                             _sorted._next = unsorted._next  # bypass
                             self.head = unsorted  # insert
                             break
+                        if key_j_next < key_unsorted:
+                            _sorted._next = unsorted._next  # bypass
+                            j._next, unsorted._next = unsorted, j._next  # insert
+                            break
                     case _:
                         raise ValueError(f"Unexpected value: {ascending}. Only True or False are allowed.")
                 j = j._next
