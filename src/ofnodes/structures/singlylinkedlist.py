@@ -193,7 +193,7 @@ if __name__ == "__main__":
         return len(s)
     fruits = ['cherry', 'strawberry', 'fig', 'peach', ]
     sllist = SinglyLinkedList(fruits)
-    tims = sorted(fruits, key=by_length)
-    sllist.insertion_sort(key=by_length)
+    tims = sorted(fruits, key=by_length, reverse=True)
+    sllist.insertion_sort(ascending=True, key=by_length)
     #sllist = SinglyLinkedList([2, 4, 3, 1, 5])
     #sllist.insertion_sort()
