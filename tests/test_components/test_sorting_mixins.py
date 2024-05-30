@@ -176,6 +176,10 @@ class TestBubbleSortMixin:
             assert raarray._data == sorted(random_values, reverse=True)
 class TestInsertionSortMixin:
     class TestReferenceBasedInsertionSortMixin:
+        def test_unsorted_to_be_head(self):
+            sllist = SinglyLinkedList([4, 2])
+            sllist.insertion_sort()
+            assert repr(sllist) == 'SinglyLinkedList([2, 4])'
         def test_wrong_object_type(self):
             class Dummy(InsertionSortMixin):
                 pass
@@ -185,9 +189,8 @@ class TestInsertionSortMixin:
             assert "reference-based" in str(exc_info)
         def test_empty_list(self):
             sllist = SinglyLinkedList()
-            with pytest.raises(ValueError) as exc_info:
-                sllist.reference_based_insertion_sort()
-            assert "Cannot sort an empty or one node linked list" in str(exc_info)
+            sllist.reference_based_insertion_sort()
+            assert repr(sllist) == 'SinglyLinkedList()'
         def test_logic(self):
             sllist = SinglyLinkedList([8, 2, 6, 4, 5])
             sllist.reference_based_insertion_sort()
@@ -210,9 +213,8 @@ class TestInsertionSortMixin:
             assert str(sllist) == '1 -> 2 -> 5 -> 7 -> 9'
         def test_one_node_list(self):
             sllist = SinglyLinkedList([42])
-            with pytest.raises(ValueError) as exc_info:
-                sllist.reference_based_insertion_sort()
-            assert "Cannot sort an empty or one node linked list" in str(exc_info)
+            sllist.reference_based_insertion_sort()
+            assert repr(sllist) == 'SinglyLinkedList([42])'
         def test_sorted_two_node_list(self):
             sllist = SinglyLinkedList([2, 4])
             sllist.reference_based_insertion_sort()

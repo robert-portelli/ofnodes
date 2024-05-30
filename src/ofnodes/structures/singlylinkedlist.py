@@ -71,6 +71,7 @@ class SinglyLinkedList(CycleDetectionMixin, InsertionSortMixin, SearchMixin, Rem
     def insertion_sort(self):
         return super().reference_based_insertion_sort()
 
+
     def bubble_sort(self, ascending=True):
         """Sorts the nodes of the singly linked data structure.
 
