@@ -223,6 +223,57 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ofnodes.RandomAccessArray" class="md-nav__link">
+    <span class="md-ellipsis">
+      RandomAccessArray
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RandomAccessArray">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ofnodes.RandomAccessArray.__repr__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __repr__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ofnodes.RandomAccessArray.__str__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __str__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ofnodes.RandomAccessArray.bubble_sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      bubble_sort
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ofnodes.RandomAccessArray.reverse_order" class="md-nav__link">
+    <span class="md-ellipsis">
+      reverse_order
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ofnodes.SinglyLinkedList" class="md-nav__link">
     <span class="md-ellipsis">
       SinglyLinkedList
@@ -245,6 +296,15 @@
   <a href="#ofnodes.SinglyLinkedList.cycle_detection" class="md-nav__link">
     <span class="md-ellipsis">
       cycle_detection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ofnodes.SinglyLinkedList.insertion_sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      insertion_sort
     </span>
   </a>
   
@@ -422,6 +482,57 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ofnodes.RandomAccessArray" class="md-nav__link">
+    <span class="md-ellipsis">
+      RandomAccessArray
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RandomAccessArray">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ofnodes.RandomAccessArray.__repr__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __repr__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ofnodes.RandomAccessArray.__str__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __str__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ofnodes.RandomAccessArray.bubble_sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      bubble_sort
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ofnodes.RandomAccessArray.reverse_order" class="md-nav__link">
+    <span class="md-ellipsis">
+      reverse_order
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ofnodes.SinglyLinkedList" class="md-nav__link">
     <span class="md-ellipsis">
       SinglyLinkedList
@@ -444,6 +555,15 @@
   <a href="#ofnodes.SinglyLinkedList.cycle_detection" class="md-nav__link">
     <span class="md-ellipsis">
       cycle_detection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ofnodes.SinglyLinkedList.insertion_sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      insertion_sort
     </span>
   </a>
   
@@ -543,6 +663,696 @@ your use case by looking at the different pages.</p>
 
 
 
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="ofnodes.RandomAccessArray" class="doc doc-heading">
+          <code>RandomAccessArray</code>
+
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><span title="ofnodes.sorting.mixins.BubbleSortMixin">BubbleSortMixin</span></code>, <code><span title="ofnodes.sorting.mixins.InsertionSortMixin">InsertionSortMixin</span></code>, <code><span title="ofnodes.sorting.mixins.ReverseOrderMixin">ReverseOrderMixin</span></code></p>
+
+  
+      <p>An array supporting random access with bubble sort and order reversal capabilities.</p>
+<p>This class represents an array that supports random access operations and also provides
+functionality for sorting elements using bubble sort algorithm and reversing the order
+of elements.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>size</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The size of the array.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Attributes:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code><span title="ofnodes.RandomAccessArray._data">_data</span></code></td>
+          <td>
+                <code>list</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The underlying list to store array elements.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+<details class="note" open>
+  <summary>Note</summary>
+  <p>This class inherits from BubbleSortMixin and ReverseOrderMixin to leverage the
+bubble sort and order reversal functionalities.</p>
+</details>
+
+
+<p><strong>Examples:</strong></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">raarray</span> <span class="o">=</span> <span class="n">RandomAccessArray</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">raarray</span>
+<span class="go">RandomAccessArray([None, None, None, None, None])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">raarray</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">raarray</span>
+<span class="go">RandomAccessArray([8, None, None, None, None])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">raarray</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])]</span>
+<span class="go">[None, None, None, None]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">raarray</span>
+<span class="go">RandomAccessArray([8, 2, 6, 4, 5])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">raarray</span><span class="p">)</span>
+<span class="go">&#39;[8, 2, 6, 4, 5]&#39;</span>
+</code></pre></div>
+
+            <details class="quote">
+              <summary>Source code in <code>src/ofnodes/structures/randomaccessarray.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">RandomAccessArray</span><span class="p">(</span><span class="n">BubbleSortMixin</span><span class="p">,</span> <span class="n">InsertionSortMixin</span><span class="p">,</span> <span class="n">ReverseOrderMixin</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;An array supporting random access with bubble sort and order reversal capabilities.</span>
+
+<span class="sd">    This class represents an array that supports random access operations and also provides</span>
+<span class="sd">    functionality for sorting elements using bubble sort algorithm and reversing the order</span>
+<span class="sd">    of elements.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        size (int): The size of the array.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        _data (list): The underlying list to store array elements.</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        This class inherits from BubbleSortMixin and ReverseOrderMixin to leverage the</span>
+<span class="sd">        bubble sort and order reversal functionalities.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; raarray = RandomAccessArray(5)</span>
+<span class="sd">        &gt;&gt;&gt; raarray</span>
+<span class="sd">        RandomAccessArray([None, None, None, None, None])</span>
+<span class="sd">        &gt;&gt;&gt; raarray[0] = 8</span>
+<span class="sd">        &gt;&gt;&gt; raarray</span>
+<span class="sd">        RandomAccessArray([8, None, None, None, None])</span>
+<span class="sd">        &gt;&gt;&gt; [raarray.__setitem__(i+1, val) for i, val in enumerate([2, 6, 4, 5])]</span>
+<span class="sd">        [None, None, None, None]</span>
+<span class="sd">        &gt;&gt;&gt; raarray</span>
+<span class="sd">        RandomAccessArray([8, 2, 6, 4, 5])</span>
+<span class="sd">        &gt;&gt;&gt; str(raarray)</span>
+<span class="sd">        &#39;[8, 2, 6, 4, 5]&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">size</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__dir__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="c1"># Get the list of attributes and methods from the parent classes</span>
+        <span class="n">parent_dir</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__dir__</span><span class="p">())</span>
+        <span class="c1"># Filter out private attributes and methods</span>
+        <span class="n">excluded</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;_head&#39;</span><span class="p">,</span> <span class="s1">&#39;_tail&#39;</span><span class="p">,</span> <span class="s1">&#39;_target&#39;</span><span class="p">,</span> <span class="s1">&#39;reference_based_reverse_order&#39;</span><span class="p">,</span> <span class="s1">&#39;reference_based_bubble_sort&#39;</span><span class="p">,</span><span class="s1">&#39;index_based_bubble_sort&#39;</span><span class="p">,</span> <span class="s1">&#39;index_based_reverse_order&#39;</span><span class="p">}</span>
+        <span class="n">parent_dir</span> <span class="o">=</span> <span class="p">{</span><span class="n">attr</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">parent_dir</span> <span class="k">if</span> <span class="n">attr</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">excluded</span><span class="p">}</span>
+        <span class="c1"># Return a sorted list of all attributes and methods</span>
+        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">parent_dir</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns a string representation of the array.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A string representation of the array.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; raarray = RandomAccessArray(5)</span>
+<span class="sd">            &gt;&gt;&gt; [raarray.__setitem__(i, val) for i, val in enumerate([8, 2, 6, 4, 5])]</span>
+<span class="sd">            &gt;&gt;&gt; raarray</span>
+<span class="sd">            RandomAccessArray([8, 2, 6, 4, 5])</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;RandomAccessArray(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns a string representation of the array.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A string representation of the array.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; raarray = RandomAccessArray(5)</span>
+<span class="sd">            &gt;&gt;&gt; [raarray.__setitem__(i, val) for i, val in enumerate([8, 2, 6, 4, 5])]</span>
+<span class="sd">            &gt;&gt;&gt; str(raarray)</span>
+<span class="sd">            &#39;[8, 2, 6, 4, 5]&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span><span class="si">}</span><span class="s2">]&quot;</span>
+
+    <span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sorts the elements of the data structure using bubble sort.</span>
+
+<span class="sd">        This method sorts the elements of the data structure in place using the</span>
+<span class="sd">        bubble sort algorithm. It supports both ascending and descending order</span>
+<span class="sd">        based on the `ascending` parameter.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ascending (bool): If True, sorts the elements in ascending order.</span>
+<span class="sd">                If False, sorts the elements in descending order. Defaults to True.</span>
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; raarray = RandomAccessArray(5)</span>
+<span class="sd">            &gt;&gt;&gt; [raarray.__setitem__(i, val) for i, val in enumerate([8, 2, 6, 4, 5])]</span>
+<span class="sd">            [None, None, None, None, None]</span>
+<span class="sd">            &gt;&gt;&gt; raarray.bubble_sort()</span>
+<span class="sd">            &gt;&gt;&gt; raarray</span>
+<span class="sd">            RandomAccessArray([2, 4, 5, 6, 8])</span>
+<span class="sd">            &gt;&gt;&gt; raarray.bubble_sort(ascending=False)</span>
+<span class="sd">            &gt;&gt;&gt; raarray</span>
+<span class="sd">            RandomAccessArray([8, 6, 5, 4, 2])</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">index_based_bubble_sort</span><span class="p">(</span><span class="n">ascending</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">reverse_order</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; raarray = RandomAccessArray(5)</span>
+<span class="sd">            &gt;&gt;&gt; [raarray.__setitem__(i, val) for i, val in enumerate([8, 2, 6, 4, 5])]</span>
+<span class="sd">            [None, None, None, None, None]</span>
+<span class="sd">            &gt;&gt;&gt; raarray.reverse_order()</span>
+<span class="sd">            &gt;&gt;&gt; raarray</span>
+<span class="sd">            RandomAccessArray([5, 4, 6, 2, 8])&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">index_based_reverse_order</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">insertion_sort</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">index_based_insertion_sort</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="ofnodes.RandomAccessArray.__repr__" class="doc doc-heading">
+          <code class="highlight language-python"><span class="fm">__repr__</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Returns a string representation of the array.</p>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>str</code></td>          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A string representation of the array.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+<details class="example" open>
+  <summary>Example</summary>
+  <blockquote>
+<blockquote>
+<blockquote>
+<p>raarray = RandomAccessArray(5)
+[raarray.<strong>setitem</strong>(i, val) for i, val in enumerate([8, 2, 6, 4, 5])]
+raarray
+RandomAccessArray([8, 2, 6, 4, 5])</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</details>
+          <details class="quote">
+            <summary>Source code in <code>src/ofnodes/structures/randomaccessarray.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns a string representation of the array.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: A string representation of the array.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; raarray = RandomAccessArray(5)</span>
+<span class="sd">        &gt;&gt;&gt; [raarray.__setitem__(i, val) for i, val in enumerate([8, 2, 6, 4, 5])]</span>
+<span class="sd">        &gt;&gt;&gt; raarray</span>
+<span class="sd">        RandomAccessArray([8, 2, 6, 4, 5])</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;RandomAccessArray(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="si">}</span><span class="s2">)&quot;</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="ofnodes.RandomAccessArray.__str__" class="doc doc-heading">
+          <code class="highlight language-python"><span class="fm">__str__</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Returns a string representation of the array.</p>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>str</code></td>          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A string representation of the array.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+<details class="example" open>
+  <summary>Example</summary>
+  <blockquote>
+<blockquote>
+<blockquote>
+<p>raarray = RandomAccessArray(5)
+[raarray.<strong>setitem</strong>(i, val) for i, val in enumerate([8, 2, 6, 4, 5])]
+str(raarray)
+'[8, 2, 6, 4, 5]'</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</details>
+          <details class="quote">
+            <summary>Source code in <code>src/ofnodes/structures/randomaccessarray.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns a string representation of the array.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: A string representation of the array.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; raarray = RandomAccessArray(5)</span>
+<span class="sd">        &gt;&gt;&gt; [raarray.__setitem__(i, val) for i, val in enumerate([8, 2, 6, 4, 5])]</span>
+<span class="sd">        &gt;&gt;&gt; str(raarray)</span>
+<span class="sd">        &#39;[8, 2, 6, 4, 5]&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">)</span><span class="si">}</span><span class="s2">]&quot;</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="ofnodes.RandomAccessArray.bubble_sort" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">bubble_sort</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Sorts the elements of the data structure using bubble sort.</p>
+<p>This method sorts the elements of the data structure in place using the
+bubble sort algorithm. It supports both ascending and descending order
+based on the <code>ascending</code> parameter.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>ascending</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True, sorts the elements in ascending order.
+If False, sorts the elements in descending order. Defaults to True.</p>
+            </div>
+          </td>
+          <td>
+                <code>True</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+      <p>Examples:
+    &gt;&gt;&gt; raarray = RandomAccessArray(5)
+    &gt;&gt;&gt; [raarray.<strong>setitem</strong>(i, val) for i, val in enumerate([8, 2, 6, 4, 5])]
+    [None, None, None, None, None]
+    &gt;&gt;&gt; raarray.bubble_sort()
+    &gt;&gt;&gt; raarray
+    RandomAccessArray([2, 4, 5, 6, 8])
+    &gt;&gt;&gt; raarray.bubble_sort(ascending=False)
+    &gt;&gt;&gt; raarray
+    RandomAccessArray([8, 6, 5, 4, 2])</p>
+
+          <details class="quote">
+            <summary>Source code in <code>src/ofnodes/structures/randomaccessarray.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sorts the elements of the data structure using bubble sort.</span>
+
+<span class="sd">    This method sorts the elements of the data structure in place using the</span>
+<span class="sd">    bubble sort algorithm. It supports both ascending and descending order</span>
+<span class="sd">    based on the `ascending` parameter.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ascending (bool): If True, sorts the elements in ascending order.</span>
+<span class="sd">            If False, sorts the elements in descending order. Defaults to True.</span>
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; raarray = RandomAccessArray(5)</span>
+<span class="sd">        &gt;&gt;&gt; [raarray.__setitem__(i, val) for i, val in enumerate([8, 2, 6, 4, 5])]</span>
+<span class="sd">        [None, None, None, None, None]</span>
+<span class="sd">        &gt;&gt;&gt; raarray.bubble_sort()</span>
+<span class="sd">        &gt;&gt;&gt; raarray</span>
+<span class="sd">        RandomAccessArray([2, 4, 5, 6, 8])</span>
+<span class="sd">        &gt;&gt;&gt; raarray.bubble_sort(ascending=False)</span>
+<span class="sd">        &gt;&gt;&gt; raarray</span>
+<span class="sd">        RandomAccessArray([8, 6, 5, 4, 2])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">index_based_bubble_sort</span><span class="p">(</span><span class="n">ascending</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="ofnodes.RandomAccessArray.reverse_order" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">reverse_order</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+
+
+
+<p><strong>Examples:</strong></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">raarray</span> <span class="o">=</span> <span class="n">RandomAccessArray</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">raarray</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])]</span>
+<span class="go">[None, None, None, None, None]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">raarray</span><span class="o">.</span><span class="n">reverse_order</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">raarray</span>
+<span class="go">RandomAccessArray([5, 4, 6, 2, 8])</span>
+</code></pre></div>
+
+          <details class="quote">
+            <summary>Source code in <code>src/ofnodes/structures/randomaccessarray.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">reverse_order</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; raarray = RandomAccessArray(5)</span>
+<span class="sd">        &gt;&gt;&gt; [raarray.__setitem__(i, val) for i, val in enumerate([8, 2, 6, 4, 5])]</span>
+<span class="sd">        [None, None, None, None, None]</span>
+<span class="sd">        &gt;&gt;&gt; raarray.reverse_order()</span>
+<span class="sd">        &gt;&gt;&gt; raarray</span>
+<span class="sd">        RandomAccessArray([5, 4, 6, 2, 8])&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">index_based_reverse_order</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+
+</div>
 
 <div class="doc doc-object doc-class">
 
@@ -750,7 +1560,62 @@ node in the sequence.</p>
 <span class="normal">132</span>
 <span class="normal">133</span>
 <span class="normal">134</span>
-<span class="normal">135</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">SinglyLinkedList</span><span class="p">(</span><span class="n">CycleDetectionMixin</span><span class="p">,</span> <span class="n">InsertionSortMixin</span><span class="p">,</span> <span class="n">SearchMixin</span><span class="p">,</span> <span class="n">RemoveMixin</span><span class="p">,</span> <span class="n">InsertHeadMixin</span><span class="p">,</span> <span class="n">InsertTailMixin</span><span class="p">,</span> <span class="n">InsertAfterTargetMixin</span><span class="p">,</span> <span class="n">InsertBeforeTargetMixin</span><span class="p">,</span> <span class="n">PrintMixin</span><span class="p">,</span> <span class="n">BubbleSortMixin</span><span class="p">,</span> <span class="n">ReverseOrderMixin</span><span class="p">):</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">SinglyLinkedList</span><span class="p">(</span><span class="n">CycleDetectionMixin</span><span class="p">,</span> <span class="n">InsertionSortMixin</span><span class="p">,</span> <span class="n">SearchMixin</span><span class="p">,</span> <span class="n">RemoveMixin</span><span class="p">,</span> <span class="n">InsertHeadMixin</span><span class="p">,</span> <span class="n">InsertTailMixin</span><span class="p">,</span> <span class="n">InsertAfterTargetMixin</span><span class="p">,</span> <span class="n">InsertBeforeTargetMixin</span><span class="p">,</span> <span class="n">PrintMixin</span><span class="p">,</span> <span class="n">BubbleSortMixin</span><span class="p">,</span> <span class="n">ReverseOrderMixin</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A class representing a singly linked list.</span>
 
 <span class="sd">    This class provides functionality to create and manipulate a singly linked list</span>
@@ -814,7 +1679,62 @@ node in the sequence.</p>
         <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">parent_dir</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">insertion_sort</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Sorts the nodes of a reference-based object using insertion sort.</span>
+
+<span class="sd">        This method sorts a singly linked list using the insertion sort algorithm. It traverses the list,</span>
+<span class="sd">        starting from the second element, and divides it into sorted and unsorted portions. Each element</span>
+<span class="sd">        in the unsorted portion is iteratively placed in the correct position within the sorted portion.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            ascending (bool): Determines the sort order. Defaults to True. If True, sorts in ascending order;</span>
+<span class="sd">                if False, sorts in descending order.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            TypeError: If the method is used on data structures that do not support reference-based operations.</span>
+<span class="sd">            ValueError: If the singly linked list is empty or contains only one node.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            None</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            Sorting an unsorted list in ascending order:</span>
+<span class="sd">                &gt;&gt;&gt; sllist = SinglyLinkedList([8, 2, 6, 4, 5])</span>
+<span class="sd">                &gt;&gt;&gt; sllist.insertion_sort()</span>
+<span class="sd">                &gt;&gt;&gt; repr(sllist)</span>
+<span class="sd">                &#39;SinglyLinkedList([2, 4, 5, 6, 8])&#39;</span>
+<span class="sd">                &gt;&gt;&gt; str(sllist)</span>
+<span class="sd">                &#39;2 -&gt; 4 -&gt; 5 -&gt; 6 -&gt; 8&#39;</span>
+
+<span class="sd">            Sorting an unsorted list in descending order:</span>
+<span class="sd">                &gt;&gt;&gt; sllist = SinglyLinkedList([5, 2, 7, 1, 9])</span>
+<span class="sd">                &gt;&gt;&gt; sllist.insertion_sort(ascending=False)</span>
+<span class="sd">                &gt;&gt;&gt; repr(sllist)</span>
+<span class="sd">                &#39;SinglyLinkedList([9, 7, 5, 2, 1])&#39;</span>
+<span class="sd">                &gt;&gt;&gt; str(sllist)</span>
+<span class="sd">                &#39;9 -&gt; 7 -&gt; 5 -&gt; 2 -&gt; 1&#39;</span>
+
+<span class="sd">            Handling an empty list:</span>
+<span class="sd">                &gt;&gt;&gt; sllist = SinglyLinkedList()</span>
+<span class="sd">                &gt;&gt;&gt; sllist.insertion_sort()</span>
+<span class="sd">                &gt;&gt;&gt; repr(sllist)</span>
+<span class="sd">                &#39;SinglyLinkedList()&#39;</span>
+
+<span class="sd">            Handling a single node list:</span>
+<span class="sd">                &gt;&gt;&gt; sllist = SinglyLinkedList([42])</span>
+<span class="sd">                &gt;&gt;&gt; sllist.insertion_sort()</span>
+<span class="sd">                &gt;&gt;&gt; repr(sllist)</span>
+<span class="sd">                &#39;SinglyLinkedList([42])&#39;</span>
+
+<span class="sd">            Sorting an already sorted list:</span>
+<span class="sd">                &gt;&gt;&gt; sllist = SinglyLinkedList([1, 2, 3, 4, 5])</span>
+<span class="sd">                &gt;&gt;&gt; sllist.insertion_sort()</span>
+<span class="sd">                &gt;&gt;&gt; repr(sllist)</span>
+<span class="sd">                &#39;SinglyLinkedList([1, 2, 3, 4, 5])&#39;</span>
+<span class="sd">                &gt;&gt;&gt; str(sllist)</span>
+<span class="sd">                &#39;1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">reference_based_insertion_sort</span><span class="p">()</span>
+
 
     <span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Sorts the nodes of the singly linked data structure.</span>
@@ -988,33 +1908,33 @@ ensure that the <code>__gt__</code> method is defined appropriately for comparis
 </details>
           <details class="quote">
             <summary>Source code in <code>src/ofnodes/structures/singlylinkedlist.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 74</span>
-<span class="normal"> 75</span>
-<span class="normal"> 76</span>
-<span class="normal"> 77</span>
-<span class="normal"> 78</span>
-<span class="normal"> 79</span>
-<span class="normal"> 80</span>
-<span class="normal"> 81</span>
-<span class="normal"> 82</span>
-<span class="normal"> 83</span>
-<span class="normal"> 84</span>
-<span class="normal"> 85</span>
-<span class="normal"> 86</span>
-<span class="normal"> 87</span>
-<span class="normal"> 88</span>
-<span class="normal"> 89</span>
-<span class="normal"> 90</span>
-<span class="normal"> 91</span>
-<span class="normal"> 92</span>
-<span class="normal"> 93</span>
-<span class="normal"> 94</span>
-<span class="normal"> 95</span>
-<span class="normal"> 96</span>
-<span class="normal"> 97</span>
-<span class="normal"> 98</span>
-<span class="normal"> 99</span>
-<span class="normal">100</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Sorts the nodes of the singly linked data structure.</span>
 
 <span class="sd">    Args:</span>
@@ -1099,23 +2019,23 @@ ensure that the <code>__gt__</code> method is defined appropriately for comparis
 
           <details class="quote">
             <summary>Source code in <code>src/ofnodes/structures/singlylinkedlist.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">119</span>
-<span class="normal">120</span>
-<span class="normal">121</span>
-<span class="normal">122</span>
-<span class="normal">123</span>
-<span class="normal">124</span>
-<span class="normal">125</span>
-<span class="normal">126</span>
-<span class="normal">127</span>
-<span class="normal">128</span>
-<span class="normal">129</span>
-<span class="normal">130</span>
-<span class="normal">131</span>
-<span class="normal">132</span>
-<span class="normal">133</span>
-<span class="normal">134</span>
-<span class="normal">135</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">cycle_detection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">cycle_detection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Detects if the singly linked list instance contains a cycle.</span>
 
 <span class="sd">    This method checks whether the linked list contains a cycle using Floyd&#39;s Tortoise and Hare algorithm.</span>
@@ -1132,6 +2052,266 @@ ensure that the <code>__gt__</code> method is defined appropriately for comparis
 <span class="sd">        True</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">reference_based_cycle_detection</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="ofnodes.SinglyLinkedList.insertion_sort" class="doc doc-heading">
+          <code class="highlight language-python"><span class="n">insertion_sort</span><span class="p">()</span></code>
+
+</h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Sorts the nodes of a reference-based object using insertion sort.</p>
+<p>This method sorts a singly linked list using the insertion sort algorithm. It traverses the list,
+starting from the second element, and divides it into sorted and unsorted portions. Each element
+in the unsorted portion is iteratively placed in the correct position within the sorted portion.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>ascending</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>Determines the sort order. Defaults to True. If True, sorts in ascending order;
+if False, sorts in descending order.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Raises:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>TypeError</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If the method is used on data structures that do not support reference-based operations.</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+                <code>ValueError</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If the singly linked list is empty or contains only one node.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>None</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+<p><strong>Examples:</strong></p>
+    <p>Sorting an unsorted list in ascending order:
+    &gt;&gt;&gt; sllist = SinglyLinkedList([8, 2, 6, 4, 5])
+    &gt;&gt;&gt; sllist.insertion_sort()
+    &gt;&gt;&gt; repr(sllist)
+    'SinglyLinkedList([2, 4, 5, 6, 8])'
+    &gt;&gt;&gt; str(sllist)
+    '2 -&gt; 4 -&gt; 5 -&gt; 6 -&gt; 8'</p>
+<p>Sorting an unsorted list in descending order:
+    &gt;&gt;&gt; sllist = SinglyLinkedList([5, 2, 7, 1, 9])
+    &gt;&gt;&gt; sllist.insertion_sort(ascending=False)
+    &gt;&gt;&gt; repr(sllist)
+    'SinglyLinkedList([9, 7, 5, 2, 1])'
+    &gt;&gt;&gt; str(sllist)
+    '9 -&gt; 7 -&gt; 5 -&gt; 2 -&gt; 1'</p>
+<p>Handling an empty list:
+    &gt;&gt;&gt; sllist = SinglyLinkedList()
+    &gt;&gt;&gt; sllist.insertion_sort()
+    &gt;&gt;&gt; repr(sllist)
+    'SinglyLinkedList()'</p>
+<p>Handling a single node list:
+    &gt;&gt;&gt; sllist = SinglyLinkedList([42])
+    &gt;&gt;&gt; sllist.insertion_sort()
+    &gt;&gt;&gt; repr(sllist)
+    'SinglyLinkedList([42])'</p>
+<p>Sorting an already sorted list:
+    &gt;&gt;&gt; sllist = SinglyLinkedList([1, 2, 3, 4, 5])
+    &gt;&gt;&gt; sllist.insertion_sort()
+    &gt;&gt;&gt; repr(sllist)
+    'SinglyLinkedList([1, 2, 3, 4, 5])'
+    &gt;&gt;&gt; str(sllist)
+    '1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5'</p>
+
+          <details class="quote">
+            <summary>Source code in <code>src/ofnodes/structures/singlylinkedlist.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">insertion_sort</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sorts the nodes of a reference-based object using insertion sort.</span>
+
+<span class="sd">    This method sorts a singly linked list using the insertion sort algorithm. It traverses the list,</span>
+<span class="sd">    starting from the second element, and divides it into sorted and unsorted portions. Each element</span>
+<span class="sd">    in the unsorted portion is iteratively placed in the correct position within the sorted portion.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        ascending (bool): Determines the sort order. Defaults to True. If True, sorts in ascending order;</span>
+<span class="sd">            if False, sorts in descending order.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        TypeError: If the method is used on data structures that do not support reference-based operations.</span>
+<span class="sd">        ValueError: If the singly linked list is empty or contains only one node.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        None</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        Sorting an unsorted list in ascending order:</span>
+<span class="sd">            &gt;&gt;&gt; sllist = SinglyLinkedList([8, 2, 6, 4, 5])</span>
+<span class="sd">            &gt;&gt;&gt; sllist.insertion_sort()</span>
+<span class="sd">            &gt;&gt;&gt; repr(sllist)</span>
+<span class="sd">            &#39;SinglyLinkedList([2, 4, 5, 6, 8])&#39;</span>
+<span class="sd">            &gt;&gt;&gt; str(sllist)</span>
+<span class="sd">            &#39;2 -&gt; 4 -&gt; 5 -&gt; 6 -&gt; 8&#39;</span>
+
+<span class="sd">        Sorting an unsorted list in descending order:</span>
+<span class="sd">            &gt;&gt;&gt; sllist = SinglyLinkedList([5, 2, 7, 1, 9])</span>
+<span class="sd">            &gt;&gt;&gt; sllist.insertion_sort(ascending=False)</span>
+<span class="sd">            &gt;&gt;&gt; repr(sllist)</span>
+<span class="sd">            &#39;SinglyLinkedList([9, 7, 5, 2, 1])&#39;</span>
+<span class="sd">            &gt;&gt;&gt; str(sllist)</span>
+<span class="sd">            &#39;9 -&gt; 7 -&gt; 5 -&gt; 2 -&gt; 1&#39;</span>
+
+<span class="sd">        Handling an empty list:</span>
+<span class="sd">            &gt;&gt;&gt; sllist = SinglyLinkedList()</span>
+<span class="sd">            &gt;&gt;&gt; sllist.insertion_sort()</span>
+<span class="sd">            &gt;&gt;&gt; repr(sllist)</span>
+<span class="sd">            &#39;SinglyLinkedList()&#39;</span>
+
+<span class="sd">        Handling a single node list:</span>
+<span class="sd">            &gt;&gt;&gt; sllist = SinglyLinkedList([42])</span>
+<span class="sd">            &gt;&gt;&gt; sllist.insertion_sort()</span>
+<span class="sd">            &gt;&gt;&gt; repr(sllist)</span>
+<span class="sd">            &#39;SinglyLinkedList([42])&#39;</span>
+
+<span class="sd">        Sorting an already sorted list:</span>
+<span class="sd">            &gt;&gt;&gt; sllist = SinglyLinkedList([1, 2, 3, 4, 5])</span>
+<span class="sd">            &gt;&gt;&gt; sllist.insertion_sort()</span>
+<span class="sd">            &gt;&gt;&gt; repr(sllist)</span>
+<span class="sd">            &#39;SinglyLinkedList([1, 2, 3, 4, 5])&#39;</span>
+<span class="sd">            &gt;&gt;&gt; str(sllist)</span>
+<span class="sd">            &#39;1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">reference_based_insertion_sort</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
           </details>
   </div>
@@ -1193,22 +2373,22 @@ ensure that the <code>__gt__</code> method is defined appropriately for comparis
 </details>
           <details class="quote">
             <summary>Source code in <code>src/ofnodes/structures/singlylinkedlist.py</code></summary>
-            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">102</span>
-<span class="normal">103</span>
-<span class="normal">104</span>
-<span class="normal">105</span>
-<span class="normal">106</span>
-<span class="normal">107</span>
-<span class="normal">108</span>
-<span class="normal">109</span>
-<span class="normal">110</span>
-<span class="normal">111</span>
-<span class="normal">112</span>
-<span class="normal">113</span>
-<span class="normal">114</span>
-<span class="normal">115</span>
-<span class="normal">116</span>
-<span class="normal">117</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">reverse_order</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">reverse_order</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Reverses the order of elements in the singly linked data structure.</span>
 
 <span class="sd">    Returns:</span>
