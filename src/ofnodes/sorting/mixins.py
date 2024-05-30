@@ -136,7 +136,7 @@ class BubbleSortMixin:
 class InsertionSortMixin:
     """Mixin class providing insertion sort functionality for data structures."""
     __slots__ = ()
-    def reference_based_insertion_sort(self, ascending=True):
+    def reference_based_insertion_sort(self, ascending=True, key=None):
         """Sorts the nodes of a reference-based object using insertion sort.
 
         The insertion sort algorithm traverses the singly linked list, starting from the second element
@@ -192,18 +192,18 @@ class InsertionSortMixin:
             while j is not unsorted:
                 match ascending:
                     case True:
-                        if j is self._head and j.data > unsorted.data:  # then new head  #key(unsorted.data) if key else unsorted.data
+                        if j is self._head and j.data > (key(unsorted.data) if key else unsorted.data):  # then new head  #key(unsorted.data) if key else unsorted.data
                             _sorted._next = unsorted._next  # bypass
                             self.head = unsorted  # insert
                             break
-                        if j._next.data > unsorted.data:  #key(unsorted.data) if key else unsorted.data
-                            _sorted._next = unsorted._next  # bypass
+                        if j._next.data > (key(unsorted.data) if key else unsorted.data):  #key(unsorted.data) if key else unsorted.data
+                            _sorted._next = unsorted._next                  # bypass
                             j._next, unsorted._next = unsorted, j._next  # insert
                             break
                     case False:
-                        if j is self._head and j.data < unsorted.data:  # then new head  #key(unsorted.data) if key else unsorted.data
+                        if j is self._head and j.data < (key(unsorted.data) if key else unsorted.data):  # then new head  #key(unsorted.data) if key else unsorted.data
                             _sorted._next = unsorted._next  # bypass
-                            self.head = unsorted  # insert
+                            self.head = unsorted           # insert
                             break
                     case _:
                         raise ValueError(f"Unexpected value: {ascending}. Only True or False are allowed.")
@@ -263,8 +263,8 @@ class InsertionSortMixin:
                     logger.debug("Sorted portion: %s", self._data[:unsorted])
                     logger.debug("Unsorted portion: %s", self._data[unsorted:])
                 else:
-                    print(f"j>=0: {j>=0}")
-                    print(f"self[j] is not None: {self[j] is not None}")
+                    logger.debug("j>=0: %s", j>=0)
+                    logger.debug("self[j] is not None: %s", self[j] is not None)
                     break
 
             self[j + 1] = value  # insert the value one to the right of the minimum value

@@ -114,5 +114,44 @@ class RandomAccessArray(BubbleSortMixin, InsertionSortMixin, ReverseOrderMixin):
             RandomAccessArray([5, 4, 6, 2, 8])"""
         return super().index_based_reverse_order()
 
-    def insertion_sort(self):
-        return super().index_based_insertion_sort()
+    def insertion_sort(self, ascending=True, key=None):
+        """
+        Sorts the elements of the RandomAccessArray using the insertion sort algorithm.
+
+        This method sorts the elements in place either in ascending or descending order based on the
+        specified parameters. An optional key function can be provided to customize the comparison
+        behavior.
+
+        Args:
+            ascending (bool): Determines the sort order. Defaults to True for ascending order. Set to False for descending order.
+            key (Callable, optional): A function that serves as a key for the sort comparison. Defaults to None.
+
+        Examples:
+            >>> # Custom comparison function
+            >>> def by_length(s):
+            ...     return len(s)
+
+            >>> strings = ["strawberry", "peach", "cherry", "date",]
+            >>> raarray = RandomAccessArray(len(strings))
+
+            >>> for i, val in enumerate(strings):
+            ...     raarray[i] = val
+
+            >>> raarray
+            RandomAccessArray(['strawberry', 'peach', 'cherry', 'date'])
+
+            >>> raarray.insertion_sort()
+            >>> raarray
+            RandomAccessArray(['cherry', 'date', 'peach', 'strawberry'])
+
+            >>> raarray.insertion_sort(key=by_length)
+            >>> raarray
+            RandomAccessArray(['date', 'peach', 'cherry', 'strawberry'])
+
+            >>> raarray.insertion_sort(ascending=False, key=by_length)
+            >>> raarray
+            RandomAccessArray(['strawberry', 'cherry', 'peach', 'date'])
+        Returns:
+            None
+        """
+        return super().index_based_insertion_sort(ascending, key)
