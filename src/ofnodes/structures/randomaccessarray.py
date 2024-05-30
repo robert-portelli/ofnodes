@@ -155,3 +155,14 @@ class RandomAccessArray(BubbleSortMixin, InsertionSortMixin, ReverseOrderMixin):
             None
         """
         return super().index_based_insertion_sort(ascending, key)
+
+if __name__ == "__main__":
+    def by_length(s):
+        return len(s)
+    strings = ['cherry', 'strawberry', 'fig', 'peach', ]
+    raarray = RandomAccessArray(len(strings))
+    for i,val in enumerate(strings):
+        raarray[i] = val
+    raarray.insertion_sort(key=by_length)
+    tims = sorted(strings, key=by_length)
+    assert raarray._data == tims

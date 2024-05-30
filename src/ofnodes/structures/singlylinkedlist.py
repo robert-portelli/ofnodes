@@ -123,8 +123,7 @@ class SinglyLinkedList(CycleDetectionMixin, InsertionSortMixin, SearchMixin, Rem
                 >>> str(sllist)
                 '1 -> 2 -> 3 -> 4 -> 5'
         """
-        return super().reference_based_insertion_sort()
-
+        return super().reference_based_insertion_sort(ascending, key)
 
     def bubble_sort(self, ascending=True, key=None):
         """Sorts the nodes of the singly linked data structure.
@@ -192,5 +191,9 @@ class SinglyLinkedList(CycleDetectionMixin, InsertionSortMixin, SearchMixin, Rem
 if __name__ == "__main__":
     def by_length(s):
         return len(s)
-    sllist = SinglyLinkedList(['date', 'peach', 'cherry', 'strawberry'])
+    fruits = ['cherry', 'strawberry', 'fig', 'peach', ]
+    sllist = SinglyLinkedList(fruits)
+    tims = sorted(fruits, key=by_length)
+    sllist.insertion_sort(key=by_length)
+    #sllist = SinglyLinkedList([2, 4, 3, 1, 5])
     #sllist.insertion_sort()
