@@ -189,21 +189,24 @@ class InsertionSortMixin:
 
         while unsorted:
             j = self._head
+            key_unsorted = key(unsorted._data) if key else unsorted._data
             while j is not unsorted:
+                key_j = key(j._data) if key else j._data
+                key_j_next = key(j._next._data) if key else j._next._data
                 match ascending:
                     case True:
-                        if j is self._head and (key(j.data) if key else j.data) > (key(unsorted.data) if key else unsorted.data):  # then new head  #key(unsorted.data) if key else unsorted.data
+                        if j is self._head and key_j > key_unsorted:  # then new head
                             _sorted._next = unsorted._next  # bypass
                             self.head = unsorted  # insert
                             break
-                        if (key(j._next.data) if key else j._next.data) > (key(unsorted.data) if key else unsorted.data):  #key(unsorted.data) if key else unsorted.data
-                            _sorted._next = unsorted._next                  # bypass
+                        if key_j_next > key_unsorted:
+                            _sorted._next = unsorted._next  # bypass
                             j._next, unsorted._next = unsorted, j._next  # insert
                             break
                     case False:
-                        if j is self._head and (key(j.data) if key else j.data) < (key(unsorted.data) if key else unsorted.data):  # then new head  #key(unsorted.data) if key else unsorted.data
+                        if j is self._head and key_j < key_unsorted:  # then new head
                             _sorted._next = unsorted._next  # bypass
-                            self.head = unsorted           # insert
+                            self.head = unsorted  # insert
                             break
                     case _:
                         raise ValueError(f"Unexpected value: {ascending}. Only True or False are allowed.")

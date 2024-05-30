@@ -267,7 +267,18 @@ class TestInsertionSortMixin:
             assert str(sllist) == '2 -> 2'
 
         def test_custom_key_ascending(self):
-            pass
+            def by_length(s):
+                return len(s)
+            fruits = ['cherry', 'strawberry', 'fig', 'peach', ]
+            sllist = SinglyLinkedList(fruits)
+            tims = sorted(fruits, key=by_length)
+            sllist.insertion_sort(key=by_length)
+            current = sllist._head
+            index = 0
+            while current:
+                assert current._data == tims[index]
+                current = current._next
+                index += 1
 
         def test_custom_key_descending(self):
             pass
@@ -279,11 +290,11 @@ class TestInsertionSortMixin:
             sllist = SinglyLinkedList(random_values)
             sllist.reference_based_insertion_sort()
             _ = sorted(random_values)
-            current = sllist.head
+            current = sllist._head
             index = 0
             while current:
-                assert current.data == _[index]
-                current = current.next
+                assert current._data == _[index]
+                current = current._next
                 index += 1
         @pytest.mark.performance
         def test_large_data_structure_descending(self):
