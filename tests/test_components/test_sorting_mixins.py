@@ -265,6 +265,13 @@ class TestInsertionSortMixin:
             sllist.reference_based_insertion_sort(ascending=False)
             assert repr(sllist) == 'SinglyLinkedList([2, 2])'
             assert str(sllist) == '2 -> 2'
+
+        def test_custom_key_ascending(self):
+            pass
+
+        def test_custom_key_descending(self):
+            pass
+
         @pytest.mark.performance
         def test_large_data_structure(self):
             import random
@@ -291,6 +298,7 @@ class TestInsertionSortMixin:
                 assert current.data == _[index]
                 current = current.next
                 index += 1
+
 
     class TestIndexBasedInsertionSortMixin:
         def test_wrong_object_type(self):
@@ -337,6 +345,7 @@ class TestInsertionSortMixin:
                 raarray[i] = val
             raarray.index_based_insertion_sort(ascending=False)
             assert repr(raarray) == 'RandomAccessArray([8, 6, 5, 2, 1])'
+
 
 class TestReverseOrderMixin:
     def test_reference_based_reverse_order(self):
