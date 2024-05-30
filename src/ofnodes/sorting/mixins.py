@@ -136,7 +136,7 @@ class BubbleSortMixin:
 class InsertionSortMixin:
     """Mixin class providing insertion sort functionality for data structures."""
     __slots__ = ()
-    def reference_based_insertion_sort(self):
+    def reference_based_insertion_sort(self, ascending=True):
         """Sorts the elements of the singly linked list in non-decreasing order using insertion sort.
 
         The insertion sort algorithm traverses the singly linked list, starting from the second element
@@ -190,14 +190,27 @@ class InsertionSortMixin:
         while unsorted:
             j = self._head
             while j is not unsorted:
-                if j is self._head and j.data > unsorted.data:  # then new head
-                    _sorted._next = unsorted._next  # bypass
-                    self.head = unsorted  # insert
-                    break
-                if j._next.data > unsorted.data:
-                    _sorted._next = unsorted._next  # bypass
-                    j._next, unsorted._next = unsorted, j._next  # insert
-                    break
+                match ascending:
+                    case True:
+                        if j is self._head and j.data > unsorted.data:  # then new head
+                            _sorted._next = unsorted._next  # bypass
+                            self.head = unsorted  # insert
+                            break
+                        if j._next.data > unsorted.data:
+                            _sorted._next = unsorted._next  # bypass
+                            j._next, unsorted._next = unsorted, j._next  # insert
+                            break
+                    case False:
+                        if j is self._head and j.data < unsorted.data:  # then new head
+                            _sorted._next = unsorted._next  # bypass
+                            self.head = unsorted  # insert
+                            break
+                        if j._next.data < unsorted.data:
+                            _sorted._next = unsorted._next  # bypass
+                            j._next, unsorted._next = unsorted, j._next  # insert
+                            break
+                    case _:
+                        raise ValueError(f"Unexpected value: {ascending}. Only True or False are allowed.")
                 j = j._next
             _sorted, unsorted = unsorted, unsorted._next
 

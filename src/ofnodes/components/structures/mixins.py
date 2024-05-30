@@ -45,7 +45,6 @@ class CycleDetectionMixin:
             fast = fast.next.next
         return False
 
-
 class SearchMixin:
     """Mixin class providing search functionality for linked lists."""
     __slots__ = ()

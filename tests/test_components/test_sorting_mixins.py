@@ -174,12 +174,13 @@ class TestBubbleSortMixin:
                 raarray[i] = val
             raarray.index_based_bubble_sort(ascending=False)
             assert raarray._data == sorted(random_values, reverse=True)
+
 class TestInsertionSortMixin:
+
+
     class TestReferenceBasedInsertionSortMixin:
-        def test_unsorted_to_be_head(self):
-            sllist = SinglyLinkedList([4, 2])
-            sllist.insertion_sort()
-            assert repr(sllist) == 'SinglyLinkedList([2, 4])'
+
+
         def test_wrong_object_type(self):
             class Dummy(InsertionSortMixin):
                 pass
@@ -230,6 +231,17 @@ class TestInsertionSortMixin:
             sllist.reference_based_insertion_sort()
             assert repr(sllist) == 'SinglyLinkedList([2, 2])'
             assert str(sllist) == '2 -> 2'
+        def test_descending_sorted_two_node_list(self):
+            sllist = SinglyLinkedList([2, 4])
+            sllist.reference_based_insertion_sort(ascending=False)
+            assert repr(sllist) == 'SinglyLinkedList([4, 2])'
+            assert str(sllist) == '4 -> 2'
+        def test_descending_unsorted_list(self):
+            sllist = SinglyLinkedList([5, 2, 7, 1, 9])
+            sllist.reference_based_insertion_sort(ascending=False)
+            assert repr(sllist) == 'SinglyLinkedList([9, 7, 5, 2, 1])'
+            assert str(sllist) == '9 -> 7 -> 5 -> 2 -> 1'
+
     class TestIndexBasedInsertionSortMixin:
         def test_wrong_object_type(self):
             class Dummy(InsertionSortMixin):
@@ -275,8 +287,6 @@ class TestInsertionSortMixin:
                 raarray[i] = val
             raarray.index_based_insertion_sort(ascending=False)
             assert repr(raarray) == 'RandomAccessArray([8, 6, 5, 2, 1])'
-
-
 
 class TestReverseOrderMixin:
     def test_reference_based_reverse_order(self):
