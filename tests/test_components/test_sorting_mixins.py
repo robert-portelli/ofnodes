@@ -192,6 +192,11 @@ class TestInsertionSortMixin:
             sllist = SinglyLinkedList()
             sllist.reference_based_insertion_sort()
             assert repr(sllist) == 'SinglyLinkedList()'
+        def test_heterogenous(self):
+            sllist = SinglyLinkedList([42.0, True])
+            with pytest.raises(TypeError) as exc_info:
+                sllist.reference_based_insertion_sort()
+            assert "must be of the same type" in str(exc_info)
         def test_logic(self):
             sllist = SinglyLinkedList([8, 2, 6, 4, 5])
             sllist.reference_based_insertion_sort()
@@ -231,6 +236,10 @@ class TestInsertionSortMixin:
             sllist.reference_based_insertion_sort()
             assert repr(sllist) == 'SinglyLinkedList([2, 2])'
             assert str(sllist) == '2 -> 2'
+        def test_descending_one_node_list(self):
+            sllist = SinglyLinkedList([42])
+            sllist.reference_based_insertion_sort(ascending=False)
+            assert repr(sllist) == 'SinglyLinkedList([42])'
         def test_descending_sorted_two_node_list(self):
             sllist = SinglyLinkedList([2, 4])
             sllist.reference_based_insertion_sort(ascending=False)
@@ -241,6 +250,47 @@ class TestInsertionSortMixin:
             sllist.reference_based_insertion_sort(ascending=False)
             assert repr(sllist) == 'SinglyLinkedList([9, 7, 5, 2, 1])'
             assert str(sllist) == '9 -> 7 -> 5 -> 2 -> 1'
+        def test_descending_sorted_list(self):
+            sllist = SinglyLinkedList([5, 4, 3, 2, 1])
+            sllist.reference_based_insertion_sort(ascending=False)
+            assert repr(sllist) == 'SinglyLinkedList([5, 4, 3, 2, 1])'
+            assert str(sllist) == '5 -> 4 -> 3 -> 2 -> 1'
+        def test_ascending_value_error(self):
+            sllist = SinglyLinkedList([5, 4, 3, 2, 1])
+            with pytest.raises(ValueError) as exc_info:
+                sllist.reference_based_insertion_sort(ascending='omaha')
+            assert "Unexpected value" in str(exc_info)
+        def test_descending_two_same_node_list(self):
+            sllist = SinglyLinkedList([2, 2])
+            sllist.reference_based_insertion_sort(ascending=False)
+            assert repr(sllist) == 'SinglyLinkedList([2, 2])'
+            assert str(sllist) == '2 -> 2'
+        @pytest.mark.performance
+        def test_large_data_structure(self):
+            import random
+            random_values = random.sample(range(10000), 10000)
+            sllist = SinglyLinkedList(random_values)
+            sllist.reference_based_insertion_sort()
+            _ = sorted(random_values)
+            current = sllist.head
+            index = 0
+            while current:
+                assert current.data == _[index]
+                current = current.next
+                index += 1
+        @pytest.mark.performance
+        def test_large_data_structure_descending(self):
+            import random
+            random_values = random.sample(range(10000), 10000)
+            sllist = SinglyLinkedList(random_values)
+            sllist.reference_based_insertion_sort(ascending=False)
+            _ = sorted(random_values, reverse=True)
+            current = sllist.head
+            index = 0
+            while current:
+                assert current.data == _[index]
+                current = current.next
+                index += 1
 
     class TestIndexBasedInsertionSortMixin:
         def test_wrong_object_type(self):
