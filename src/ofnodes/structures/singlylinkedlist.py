@@ -68,7 +68,7 @@ class SinglyLinkedList(CycleDetectionMixin, InsertionSortMixin, SearchMixin, Rem
         # Return a sorted list of all attributes and methods
         return sorted(parent_dir)
 
-    def insertion_sort(self):
+    def insertion_sort(self, ascending=True, key=None):
         """Sorts the nodes of a reference-based object using insertion sort.
 
         This method sorts a singly linked list using the insertion sort algorithm. It traverses the list,

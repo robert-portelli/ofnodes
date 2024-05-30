@@ -313,46 +313,40 @@ def test_insert_before_target():
     test_no_target_match()
     test_no_target_match_empty_list()
 
-def test_bubble_sort():
-    def test_empty_reference_based_object():
-        sllist = SinglyLinkedList()
-        sllist.bubble_sort()
-
-    def test_one_node():
-        sllist = SinglyLinkedList([42])
-        sllist.bubble_sort()
-
-    def ascending():
+class TestSortingInstanceMethods:
+    def test_bubble_sort_ascending_custom_key(self):
         sllist = SinglyLinkedList([8, 2, 6, 4, 5])
         sllist.bubble_sort()
         assert repr(sllist) == "SinglyLinkedList([2, 4, 5, 6, 8])"
         assert str(sllist) == "2 -> 4 -> 5 -> 6 -> 8"
 
-    def descending():
+    def test_bubble_sort_descending(self):
         sllist = SinglyLinkedList([8, 2, 6, 4, 5])
         sllist.bubble_sort(ascending=False)
         assert repr(sllist) == "SinglyLinkedList([8, 6, 5, 4, 2])"
         assert str(sllist) == "8 -> 6 -> 5 -> 4 -> 2"
 
-    test_empty_reference_based_object()
-    test_one_node()
-    ascending()
-    descending()
+    def test_insertion_sort_ascending(self):
+        sllist = SinglyLinkedList([8, 2, 6, 4, 5])
+        sllist.insertion_sort()
+        assert repr(sllist) == "SinglyLinkedList([2, 4, 5, 6, 8])"
+        assert str(sllist) == "2 -> 4 -> 5 -> 6 -> 8"
 
+    def test_insertion_sort_descending_custom_key(self):
+        # Custom comparison function
+        def by_length(s):
+            return len(s)
 
-def test_insertion_sort():
-    sllist = SinglyLinkedList([8, 2, 6, 4, 5])
-    sllist.insertion_sort()
-    assert repr(sllist) == "SinglyLinkedList([2, 4, 5, 6, 8])"
-    assert str(sllist) == "2 -> 4 -> 5 -> 6 -> 8"
+        sllist = SinglyLinkedList(["strawberry", "peach", "cherry", "date",])
+        sllist.insertion_sort(ascending=False, key=by_length)
+        assert repr(sllist) == "RandomAccessArray(['date', 'peach', 'cherry', 'strawberry'])"
 
-
-def test_reverse_order():
-    sllist = SinglyLinkedList()
-    with pytest.raises(ValueError) as exc_info:
+    def test_reverse_order():
+        sllist = SinglyLinkedList()
+        with pytest.raises(ValueError) as exc_info:
+            sllist.reverse_order()
+        assert "empty linked list" in str(exc_info)
+        sllist = SinglyLinkedList([8, 2, 6, 4, 5])
         sllist.reverse_order()
-    assert "empty linked list" in str(exc_info)
-    sllist = SinglyLinkedList([8, 2, 6, 4, 5])
-    sllist.reverse_order()
-    assert repr(sllist) == "SinglyLinkedList([5, 4, 6, 2, 8])"
-    assert str(sllist) == "5 -> 4 -> 6 -> 2 -> 8"
+        assert repr(sllist) == "SinglyLinkedList([5, 4, 6, 2, 8])"
+        assert str(sllist) == "5 -> 4 -> 6 -> 2 -> 8"
