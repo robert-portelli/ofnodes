@@ -6,14 +6,12 @@ from ofnodes.components.structures.mixins import RemoveMixin,  PrintMixin
 
 class Stack(RemoveMixin, PrintMixin):
 
-    __slots__ = ('_head',)# '_target',) #'_tail', )
+    __slots__ = ('_head',)
+
     head = Head()
-    #tail = Tail()
-    #target = Target()
+
     def __init__(self, values=None) -> None:
         self._head: Optional[SinglyNode] = None
-        #self._tail: Optional[SinglyNode] = None
-        #self._target: Optional[Any|SinglyNode] = None
         if values:
             for value in values:
                 self.head = value
