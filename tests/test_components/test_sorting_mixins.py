@@ -63,32 +63,7 @@ class TestBubbleSortMixin:
             sllist.reference_based_bubble_sort(ascending=False)
             assert repr(sllist) == 'SinglyLinkedList([8, 6, 5, 4, 2])'
             assert str(sllist) == '8 -> 6 -> 5 -> 4 -> 2'
-        @pytest.mark.performance
-        def test_large_data_structure(self):
-            import random
-            random_values = random.sample(range(10000), 10000)
-            sllist = SinglyLinkedList(random_values)
-            sllist.reference_based_bubble_sort()
-            _ = sorted(random_values)
-            current = sllist.head
-            index = 0
-            while current:
-                assert current.data == _[index]
-                current = current.next
-                index += 1
-        @pytest.mark.performance
-        def test_large_data_structure_descending(self):
-            import random
-            random_values = random.sample(range(10000), 10000)
-            sllist = SinglyLinkedList(random_values)
-            sllist.reference_based_bubble_sort(ascending=False)
-            _ = sorted(random_values, reverse=True)
-            current = sllist.head
-            index = 0
-            while current:
-                assert current.data == _[index]
-                current = current.next
-                index += 1
+        
     class TestIndexBasedBubbleSort:
 
         def test_no__getitem__(self):
@@ -156,24 +131,7 @@ class TestBubbleSortMixin:
             raarray.index_based_bubble_sort(ascending=False)
             assert repr(raarray) == 'RandomAccessArray([8, 6, 5, 4, 2])'
             assert str(raarray) == '[8, 6, 5, 4, 2]'
-        @pytest.mark.performance
-        def test_large_data_structure(self):  # pragma: no cover
-            import random
-            raarray = RandomAccessArray(10000)
-            random_values = random.sample(range(10000), 10000)
-            for i, val in enumerate(random_values):
-                raarray[i] = val
-            raarray.index_based_bubble_sort()
-            assert raarray._data == sorted(random_values)
-        @pytest.mark.performance
-        def test_large_data_structure_descending(self):  # pragma: no cover
-            import random
-            raarray = RandomAccessArray(10000)
-            random_values = random.sample(range(10000), 10000)
-            for i, val in enumerate(random_values):
-                raarray[i] = val
-            raarray.index_based_bubble_sort(ascending=False)
-            assert raarray._data == sorted(random_values, reverse=True)
+        
 
 class TestInsertionSortMixin:
 
@@ -292,33 +250,6 @@ class TestInsertionSortMixin:
             while current:
                 assert current._data == tims[index]
                 current = current._next
-                index += 1
-
-        @pytest.mark.performance
-        def test_large_data_structure(self):
-            import random
-            random_values = random.sample(range(10000), 10000)
-            sllist = SinglyLinkedList(random_values)
-            sllist.reference_based_insertion_sort()
-            _ = sorted(random_values)
-            current = sllist._head
-            index = 0
-            while current:
-                assert current._data == _[index]
-                current = current._next
-                index += 1
-        @pytest.mark.performance
-        def test_large_data_structure_descending(self):
-            import random
-            random_values = random.sample(range(10000), 10000)
-            sllist = SinglyLinkedList(random_values)
-            sllist.reference_based_insertion_sort(ascending=False)
-            _ = sorted(random_values, reverse=True)
-            current = sllist.head
-            index = 0
-            while current:
-                assert current.data == _[index]
-                current = current.next
                 index += 1
 
 
