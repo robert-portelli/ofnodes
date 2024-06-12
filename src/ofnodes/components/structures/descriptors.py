@@ -1,3 +1,5 @@
+# src/ofnodes/components/structures/descriptors.py
+
 from ofnodes.nodes.singlynode import SinglyNode
 
 class Head:
@@ -44,22 +46,34 @@ class Head:
             element.
 
         Examples:
-            >>> llist = SinglyLinkedList()
-            >>> llist.head = SinglyNode(42)
-            >>> llist.head
-            SinglyNode(data=42, next=None)
+            >>> sllist = SinglyLinkedList([8, 2, 1, 5])
+            >>> sllist
+            SinglyLinkedList([8, 2, 1, 5]
+
+            >>> stack = Stack([8, 2, 1, 5])
+            >>> stack
+            Stack([5, 1, 2, 8])
         """
         if isinstance(value, SinglyNode):
             node = value
         else:
             node = SinglyNode(value)
 
-        if instance._head is None:
-            instance._head = node
-            instance._tail = node
-        else:
-            setattr(node, '_next', instance._head)
-            instance._head = node
+        match instance.__class__.__name__:
+            case 'Stack':
+                if instance._head is None:
+                    instance._head = node
+                    #instance._tail = node
+                else:
+                    setattr(node, '_next', instance._head)
+                    instance._head = node
+            case 'SinglyLinkedList':
+                if instance._head is None:
+                    instance._head = node
+                    instance._tail = node
+                else:
+                    setattr(node, '_next', instance._head)
+                    instance._head = node
 
     def __delete__(self, instance):
         """Deleter method for the head/top of the data structure.

@@ -5,6 +5,10 @@ from ofnodes.components.structures.descriptors import Head
 from ofnodes.components.structures.mixins import RemoveMixin,  PrintMixin
 
 class Stack(RemoveMixin, PrintMixin):
+    """Support for a reference-based LIFO object.
+    
+    The head is considered the last node. The head is popped
+    and a node pushed onto the stack becomes the new head."""
 
     __slots__ = ('_head',)
 
