@@ -1,3 +1,4 @@
 [run]
 omit = 
     ./sorting.py
+    ./tests/test_components/test_performance_sorting_mixins.py

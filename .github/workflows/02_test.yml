@@ -72,7 +72,8 @@ jobs:
       #           other virtualenv manager
       #----------------------------------------------
         run: |
-         poetry run pytest -v --cov=./ --cov-report=xml -m "not performance"
+          poetry run pytest --cov=./ --cov-config=.coveragerc --cov-report=xml -m "not performance"
+        # poetry run pytest -v --cov=./ --cov-report=xml -m "not performance"
         #  poetry run pytest -v --cov=./ --cov-report=xml
         #  #poetry run pytest --cov=tests/
           #poetry run pytest --cov=src/
