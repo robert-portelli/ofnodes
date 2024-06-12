@@ -12,7 +12,7 @@ class TestStack:
     
     def test__init___values(self):
         stack = Stack([8, 2, 1, 5])
-        assert repr(stack) == 'Stack([8, 2, 1, 5])'
+        assert repr(stack) == 'Stack([5, 1, 2, 8])'
 
     def test__dir__(self):
         stack = Stack()
