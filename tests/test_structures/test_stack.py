@@ -57,3 +57,29 @@ class TestStack:
         assert dir(stack) == dirr
         assert "__dict__" not in str(dir(stack))
 
+class Test__repr__and__str__:
+    def test_empty_stack(self):
+        stack = Stack()
+        assert repr(stack) == 'Stack()'
+        assert str(stack) == 'Empty Stack'
+
+    def test_stack(self):
+        stack = Stack([42, 'omaha', False])
+        assert repr(stack) == "Stack([False, 'omaha', 42])"
+        assert str(stack) == "False -> omaha -> 42"
+
+
+class TestPush:
+    stack = Stack()
+    stack.push(42)
+    assert repr(stack) == 'Stack([42])'
+    assert str(stack) == '42'
+    stack.push('foo')
+    assert repr(stack) == "Stack(['foo', 42])"
+    assert str(stack) == 'foo -> 42'
+
+class TestPop:
+    stack = Stack()
+    with pytest.raises(ValueError) as exc_info:
+        stack.pop()
+    assert "empty linked structure" in str(exc_info)

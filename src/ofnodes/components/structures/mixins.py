@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Optional
 from ofnodes.nodes.singlynode import SinglyNode
 
 class CycleDetectionMixin:
@@ -161,7 +161,7 @@ class RemoveMixin:
         if getattr(self._tail, 'data') == self._target:
             return self.remove_tail()
 
-    def remove_head(self) -> SinglyNode:
+    def remove_head(self) -> Optional[SinglyNode]:
         """Removes the head node from the linked structure.
 
             Raises:
@@ -191,16 +191,31 @@ class RemoveMixin:
                 >>> linked_structure
                 LinkedStructure(head=None, tail=None)
         """
-        if self._head and self._head is self._tail:
-            node = self._head
-            self._head = None
-            self._tail = None
-            return  node
-        if self._head and self._head is not self._tail:
-            node = self._head
-            self._head = self._head.next
-            return node
-        raise ValueError("Cannot remove head from empty linked structure")
+        match self.__class__.__name__:
+            case 'Stack':
+                if self._head and self._head._next:
+                    node = self._head
+                    self._head = self._head._next
+                    return node
+                if self._head and not self._head._next:
+                    node = self._head
+                    self._head = None
+                    return  node
+                raise ValueError("Cannot remove head from empty linked structure")
+            case 'SinglyLinkedList':
+                if self._head and self._head is self._tail:
+                    node = self._head
+                    self._head = None
+                    self._tail = None
+                    return  node
+                if self._head and self._head is not self._tail:
+                    node = self._head
+                    self._head = self._head._next
+                    return node
+                raise ValueError("Cannot remove head from empty linked structure")
+            case _:
+                raise ValueError(f"Unsupported type: {self.__class__.__name__}")
+
 
     def remove_tail(self):
         """
