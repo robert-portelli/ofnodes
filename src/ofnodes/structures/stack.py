@@ -1,4 +1,4 @@
-from typing import Optional, Any
+from typing import Optional
 
 from ofnodes.nodes.singlynode import SinglyNode
 from ofnodes.components.structures.descriptors import Head

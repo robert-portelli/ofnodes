@@ -75,12 +75,21 @@ class TestRemoveMixin:
         test_two_node_list()
         test_more_than_two_node_list()
 
+class TestRemoveHead:
+    def test_remove_head(self):
+        sllist = SinglyLinkedList([42])
+        head = sllist.head
+        removed = sllist.remove(42)
+        assert head is removed
+    def test_unsupported_type(self):
+        class Dummy(SinglyLinkedList):
+            pass
+        dummy = Dummy([4, 2])
+        with pytest.raises(ValueError) as exc_info:
+            dummy.remove_head()
+        assert "Unsupported type" in str(exc_info)
+
     def test_remove(self):
-        def test_remove_head():
-            sllist = SinglyLinkedList([42])
-            head = sllist.head
-            removed = sllist.remove(42)
-            assert head is removed
         def test_remove_tail():
             sllist = SinglyLinkedList(['foo', 'bar', 'baz'])
             tail = sllist.tail
@@ -91,6 +100,5 @@ class TestRemoveMixin:
             node = sllist.head.next
             removed = sllist.remove('bar')
             assert node is removed
-        test_remove_head()
         test_remove_tail()
         test_remove_between_head_and_tail()
