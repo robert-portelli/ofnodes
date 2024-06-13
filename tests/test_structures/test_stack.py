@@ -1,6 +1,7 @@
 # tests/test_structures/test_stack.py
 import pytest
 from ofnodes.structures.stack import Stack
+from ofnodes.nodes.singlynode import SinglyNode
 
 class TestStack:
 
@@ -83,3 +84,34 @@ class TestPop:
     with pytest.raises(ValueError) as exc_info:
         stack.pop()
     assert "empty linked structure" in str(exc_info)
+    stack = Stack([4, 2])
+    popped = stack.pop()
+    assert isinstance(popped, SinglyNode)
+    assert popped.data == 2
+    popped = stack.pop()
+    assert popped.data == 4
+    assert stack._head is None
+
+class TestPeek:
+    stack = Stack([4, 2])
+    assert stack.peek() == 2
+    stack.pop()
+    assert stack.peek() == 4
+    stack.pop()
+    with pytest.raises(IndexError) as exc_info:
+        stack.peek()
+    assert "Stack is empty" in str(exc_info)
+
+class TestDisplay:
+    def test_node_data_display(self, capsys):
+        stack = Stack([2, 4])
+        stack.display()
+        captured = capsys.readouterr()
+        expected_output = "4\n2\n"
+        assert captured.out == expected_output
+
+class TestIsEmpty:
+    stack = Stack([42])
+    assert not stack.is_empty()
+    stack.pop()
+    assert stack.is_empty()
