@@ -21,3 +21,8 @@ mkdocs-material = "^9.5.15"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+markers = [
+    "performance: marks tests as performance tests (deselect with '-m \"not performance\"')"
+]
